@@ -16,7 +16,7 @@ var logLevel = 1 setget setLogLevel
 
 # @param  int  _logLevel
 func setLogLevel(_logLevel = 0):  # void
-	_logLevel = _logLevel
+	logLevel = _logLevel
 
 
 # @param  int  type

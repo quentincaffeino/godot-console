@@ -9,11 +9,13 @@ onready var _consoleLine = $ConsoleBox/Container/LineEdit
 onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 
-func _ready():
+func _init():
 	# Used to clear text from bb tags
 	_eraseTrash = RegEx.new()
 	_eraseTrash.compile('\\[[\\/]?[a-z\\=\\#0-9\\ \\_\\-]+\\]')
 
+
+func _ready():
 	# Allow selecting console text
 	_consoleText.set_selection_enabled(true)
 	# Follow console output (for scrolling)
@@ -31,15 +33,15 @@ func _ready():
 
 	_consoleLine.connect('text_entered', self, '_handleEnteredCommand')
 
-	# Init base commands
-	BaseCommands.new()
-
 	# By default we show help
 	var v = Engine.get_version_info()
 	writeLine(\
 		ProjectSettings.get_setting("application/config/name") + \
 		" (Godot " + str(v.major) + '.' + str(v.minor) + '.' + str(v.patch) + ' ' + v.status+")\n" + \
 		"Type [color=#ffff66][url=help]help[/url][/color] to get more information about usage")
+
+	# Init base commands
+	BaseCommands.new()
 
 
 # @param  Event  e
