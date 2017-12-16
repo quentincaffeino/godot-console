@@ -3,7 +3,8 @@ Godot Console
 ============
 
 Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console c:
-They have their own implementations.
+
+Also they have their own implementations which you can checkout.
 
 ----------
 
@@ -15,14 +16,18 @@ In-game console for Godot, easily extensible with new commands.
 ## Features
 
 - Writing to console using `write` and `writeLine` method.
+
 	`Console.writeLine('Hello world!')`
+
 	(Also printed to engine output)
 - Auto-completion (`TAB` button)
 - History (using with actions `console_up` and `console_down`)
 - Custom types (`Filter`, `IntRange`, `FloatRange`)
 - Changeable log levels (`INFO`, `WARNING`, `ERROR` and `NONE`)
+
 	`Console.Log.setLogLevel(Console.Log.INFO)`
 - Writing log messages using `info`, `warn` and `error` methods
+
 	`Console.Log.warn('u so pretty')`
 
 ## Installation
