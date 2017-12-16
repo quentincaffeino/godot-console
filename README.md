@@ -51,15 +51,15 @@ func _ready():
 			# as command name then this
 			# parametr isn't required
 
-		'description' = 'Prints hello world',
+		'description': 'Prints hello world',
 
-		'args' = [ARGUMENT, ...],  # If METHOD.
+		'args': [ARGUMENT, ...],  # If METHOD.
 			# This argument is obsolete if
 			# function doesn't take any arguments
 
-		'arg' = ARGUMENT,          # If VARIABLE
+		'arg': ARGUMENT,          # If VARIABLE
 
-		'target' = self
+		'target': self
 			# Target script to bind command to
 
 	})
