@@ -44,14 +44,13 @@ func _ready():
 
 	Console.register('filter_method', {
 		'type': Console.METHOD,
-		'description': 'Filter with whitelist',
+		'description': 'Filter input',
 		'args': [['filter', Console.Filter.new(['hello', 'world'])]],
 		'target': self
 	})
 
 
 func change_label_text(cond, text):
-	print(cond, ' ', text)
 	if cond:
 		$ExampleLabel.text = text
 
@@ -61,5 +60,5 @@ func play_anim(speed):
 	$AnimationPlayer.set_speed_scale(speed)
 
 
-func filter_method(filter):
-	print(filter)
+func filter_method(filtered):
+	print(filtered)

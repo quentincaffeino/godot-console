@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/custom_register_script.gd" type="Script" id=1]
+[ext_resource path="res://example/script.gd" type="Script" id=1]
 [ext_resource path="res://Console/Fonts/roboto_mono_regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://icon256.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -121,6 +121,8 @@ align = 0
 [node name="icon" type="Sprite" parent="."]
 
 position = Vector2( 502, 178 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 

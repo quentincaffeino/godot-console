@@ -1,25 +1,36 @@
+
 Godot Console
 ============
 
-Quake-style console for Godot. **Requires a Godot 3.0**.
+Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console c:
+They have their own implementations.
 
-![Quake-style console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/master/screenshot_3.png)
+----------
+
+In-game console for Godot, easily extensible with new commands.
+**Requires a Godot 3.0**.
+
+![Quake-style console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/master/screenshot.png)
 
 ## Features
 
-- Easily extensible with new commands
-- Toggle-able with fade animation
-- Rich text format (colors, bold, italic, and more) using a RichTextLabel
-- Auto-completion on TAB
-- History
+- Writing to console using `write` and `writeLine` method.
+	`Console.writeLine('Hello world!')`
+	(Also printed to engine output)
+- Auto-completion (`TAB` button)
+- History (using with actions `console_up` and `console_down`)
 - Custom types (`Filter`, `IntRange`, `FloatRange`)
+- Changeable log levels (`INFO`, `WARNING`, `ERROR` and `NONE`)
+	`Console.Log.setLogLevel(Console.Log.INFO)`
+- Writing log messages using `info`, `warn` and `error` methods
+	`Console.Log.warn('u so pretty')`
 
 ## Installation
 
-1. Clone or download this repository
-2. Copy `Console` folder to any directory of your project
-3. Add `Console/Console.tscn` to Autoload
-4. Add new actions to Input Map: "console_toggle", "console_up", "console_down"
+1. Clone or download this repository.
+2. Copy `Console` folder to any directory of your project.
+3. Add `Console/Console.tscn` to Autoload.
+4. Add new actions to Input Map: `console_toggle`, `console_up`, `console_down`.
 
 ## Example
 
@@ -59,7 +70,7 @@ func print_hello():
 
 ***ARG_TYPE*** must be set to engine `TYPE_*` constant (right now supported types are: `TYPE_BOOL`, `TYPE_INT`, `TYPE_REAL` and `TYPE_STRING`) OR to instance of Console type class  (`Console/Commands/Types/`).
 
-You can find more examples in `scripts/custom_register_script.gd`
+You can find more examples in `example/script.gd`
 
 ## License
 

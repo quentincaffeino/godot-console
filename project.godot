@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="In-game Debug Console"
-run/main_scene="res://scenes/test.tscn"
+run/main_scene="res://example/scene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
