@@ -69,11 +69,11 @@ func print_hello():
 ```
 
 ***ARGUMENT*** should look like this:
-- ['arg_name', ***ARG_TYPE***]
+- ['arg_name', **[ARG_TYPE](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)**]
 - 'arg_name' — In this situation type will be set to Any
-- ***ARG_TYPE***
+- **[ARG_TYPE](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)**
 
-***ARG_TYPE*** must be set to engine `TYPE_*` constant (right now supported types are: `TYPE_BOOL`, `TYPE_INT`, `TYPE_REAL` and `TYPE_STRING`) OR to instance of Console type class  (`Console/Commands/Types/`).
+More information about **[ARG_TYPE](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)** you can find in [this readme](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md).
 
 You can find more examples in `example/script.gd`
 
