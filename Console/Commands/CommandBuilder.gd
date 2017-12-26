@@ -9,14 +9,21 @@ const ArgumentB = preload('ArgumentBuilder.gd')
 static func build(alias, params):  # Command|int
 	# Check target
 	if !params.has('target'):
-		return Command.E_NO_TARGET
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. [b]Target[/b] must be an object.')
+		return
+
+	if typeof(params.target) != TYPE_OBJECT:
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]target[/b] parametr.')
+		return
 
 	# Check type
 	if !params.has('type'):
-		return Command.E_NO_TYPE
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]type[/b] parametr.')
+		return
 
 	if params.type != Command.VARIABLE and params.type != Command.METHOD:
-		return Command.E_WRONG_TYPE
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. Wrong [b]type[/b].')
+		return
 
 	# Check name
 	if !params.has('name'):
@@ -32,17 +39,20 @@ static func build(alias, params):  # Command|int
 			if hasProp:
 				params['name'] = alias
 			else:
-				return Command.E_NO_NAME
+				Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]name[/b] parametr.')
+				return
 
 		elif params.type == Command.METHOD and params.target.has_method(alias):
 			params['name'] = alias
 
 		else:
-			return Command.E_NO_NAME
+			Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]name[/b] parametr.')
+			return
 
 	# Set arguments
 	if params.type == Command.VARIABLE and !params.has('arg'):
-		return Command.E_NO_ARGUMENTS
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]arguments[/b] parametr.')
+		return
 
 	if params.has('arg'):
 		params.args = ArgumentB.buildAll([ params.arg ])
@@ -53,7 +63,8 @@ static func build(alias, params):  # Command|int
 		params.args = []
 
 	if typeof(params.args) == TYPE_INT:
-		return Command.E_WRONG_ARGUMENT
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. Wrong [b]arguments[/b] parametr.')
+		return
 
 
 	return Command.new(alias, params)

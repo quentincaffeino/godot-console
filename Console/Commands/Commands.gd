@@ -6,18 +6,19 @@ const CommandB = preload('CommandBuilder.gd')
 # @param  string  alias
 # @param  Dictionary  params
 func register(alias, params):  # int
-	# if has(alias):
-	#   return W_COMMAND_ALREADY_EXISTS
-
-	var command = CommandB.build(alias, params)
-
-	if typeof(command) == TYPE_INT:
-		Console.Log.error('Failed to register [b]' + alias + '[/b]. ' + Console.m.get(command, 'Command'))
+	# Check if already exists
+	if has(alias):
+		Console.Log.warn('Failed to register [b]' + alias + '[/b]. Command already exists.')
 		return FAILED
 
-	_commands[alias] = command
+	# Register command
+	var command = CommandB.build(alias, params)
 
-	return OK
+	if command:
+		_commands[alias] = command
+		return OK
+
+	return FAILED
 
 
 # @param  string  alias
@@ -32,13 +33,9 @@ func get(alias):  # Command
 		return _commands[alias]
 
 	# Try autocomplete
-	var foundArr = []
 	for command in _commands:
 		if command.begins_with(alias):
-			foundArr.append(_commands[command])
-
-	if foundArr.size() > 0:
-		return foundArr
+			return _commands[command]
 
 
 # @param  string  alias

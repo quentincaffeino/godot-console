@@ -1,6 +1,5 @@
 
 extends CanvasLayer
-const m = preload('BaseMessages.gd')
 const BaseCommands = preload('BaseCommands.gd')
 
 ### Custom console types

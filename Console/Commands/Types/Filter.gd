@@ -1,6 +1,5 @@
 
 extends 'BaseType.gd'
-const IArgument = preload('../IArgument.gd')
 
 
 enum MODE {
@@ -23,7 +22,6 @@ var _value
 # @param  int  mode
 func _init(fliterList, mode = ALLOW):
 	_name = 'Filter'
-	_t = null
 	_fliterList = fliterList
 	_mode = mode
 
@@ -34,7 +32,7 @@ func check(value):  # int
 		_value = value
 		return OK
 
-	return IArgument.CANCELED
+	return CANCELED
 
 
 func get():  # Variant

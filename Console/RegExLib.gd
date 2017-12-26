@@ -17,6 +17,9 @@ func get(type):  # RegEx|int
 	var strType = str(type)
 
 	if !_compiled.has(strType):
+		if !_patterns.has(strType):
+			return FAILED
+
 		var r = RegEx.new()
 		r.compile(_patterns[strType])
 

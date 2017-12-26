@@ -151,15 +151,7 @@ func _handleUrlClick(url):  # void
 # @param  string  alias
 # @param  Dictionary  params
 func register(alias, params):  # int
-	var result = _Commands.register(alias, params)
-
-	if typeof(result) == TYPE_INT:
-		if result == _Commands.W_COMMAND_ALREADY_EXISTS:
-			Log.warn(m.get(result, 'Commands'))
-
-		return FAILED
-
-	return OK
+	return _Commands.register(alias, params)
 
 
 # @param  string  message

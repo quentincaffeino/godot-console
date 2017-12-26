@@ -13,12 +13,11 @@ func _init(name, type):
 
 # @param  Variant  _value
 func setValue(_value):  # int
-	var setCheck = _type.check(_value)
+	return _type.check(_value)
 
-	if setCheck == OK:
-		value = _type.get()
 
-	return setCheck
+func getValue():  # Variant
+	return _type.get()
 
 
 func toString():  # string

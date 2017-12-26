@@ -11,7 +11,7 @@ enum TYPE {
 
 
 # @var  int
-var logLevel = 1 setget setLogLevel
+var logLevel = WARNING setget setLogLevel
 
 
 # @param  int  _logLevel

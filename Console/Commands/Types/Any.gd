@@ -8,7 +8,6 @@ var _value
 
 func _init():
 	_name = 'Any'
-	_t = null
 
 
 # @param  Varian  value

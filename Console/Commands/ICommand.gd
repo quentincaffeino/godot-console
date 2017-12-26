@@ -7,15 +7,6 @@ enum TYPE {
 	METHOD
 }
 
-enum STATUS {
-	E_NO_TYPE,
-	E_WRONG_TYPE,
-	E_NO_NAME,
-	E_NO_ARGUMENTS,
-	E_WRONG_ARGUMENT,
-	E_NO_TARGET,
-}
-
 
 # @var  string
 var _alias

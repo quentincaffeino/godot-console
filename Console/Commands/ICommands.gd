@@ -2,11 +2,6 @@
 extends Object
 
 
-enum STATUS {
-	W_COMMAND_ALREADY_EXISTS = 5
-}
-
-
 # @var  CommandAutocomplete
 var Autocomplete = preload('CommandAutocomplete.gd').new() setget _setProtected
 

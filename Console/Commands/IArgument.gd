@@ -14,9 +14,13 @@ var _name
 var _type
 
 # @var  Variant
-var value = null setget setValue
+var value = null setget setValue, getValue
 
 
 # @param  Variant  _value
 func setValue(_value):  # int
+	pass
+
+
+func getValue():  # Variant
 	pass

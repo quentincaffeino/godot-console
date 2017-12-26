@@ -2,11 +2,16 @@
 extends Object
 
 
+enum CHECK {
+	CANCELED = 2
+}
+
+
 # @var  string
 var _name
 
 # @var  int
-var _t
+var _t = -1
 
 # @var  RegExMatch
 var _rematch
