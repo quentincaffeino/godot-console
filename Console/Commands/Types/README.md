@@ -19,11 +19,13 @@
 Difference between Int range and Float is that in Int range values are rounded to integers.
 
 
-- **FloatRange**(*float* min_value, *float* max_value)
+- **FloatRange**(*float* min_value, *float* max_value, *float* step)
 
 `min_value` has the default value of 0
 
 `max_value` has the default value of 100
+
+`step` has the default value of 0
 
 
 - **Filter**(*Array* filterList, *int* mode)
@@ -41,7 +43,7 @@ func _ready():
 		'type': Console.VARIABLE,
 		'name': 'health',
 		'description': 'Set health',
-		'arg': Console.FloatRange.new(0, 100),
+		'arg': Console.FloatRange.new(0, 100, 0.5),
 		'target': self
 	})
 ```

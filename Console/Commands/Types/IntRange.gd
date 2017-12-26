@@ -2,21 +2,41 @@
 extends 'BaseRange.gd'
 
 
-# @param  int  _min_value
-# @param  int  _max_value
-# @param  int  _step
-func _init(_min_value = 0, _max_value = 100, _step = 1):
-	_name = 'IntRange'
-	_t = null
+# @var  bool
+var rounded = true setget _setRounded
 
-	_r = Range.new()
-	_r.rounded = true;
-	_r.min_value = int(_min_value)
-	_r.max_value = int(_max_value)
-	_r.step = int(_step)
+
+# @param  int  _minValue
+# @param  int  _maxValue
+# @param  int  _step
+func _init(_minValue = 0, _maxValue = 100, _step = 1):
+	_name = 'IntRange'
+	minValue = int(_minValue)
+	maxValue = int(_maxValue)
+	step = int(_step)
 
 
 # @param  Varian  value
 func check(value):  # int
-	_r.value = int(value)
+	value = clamp(int(value), minValue, maxValue)
+
+	# Find closest step
+	if step != 1 and value != minValue:
+		var prevVal = minValue
+		var curVal = minValue
+
+		while curVal < value:
+			prevVal = curVal
+			curVal += step
+
+		if curVal - value > value - prevVal and curVal <= maxValue:
+			_value = prevVal
+		else:
+			_value = curVal
+
 	return OK
+
+
+# @param  bool  value
+func _setRounded(value):
+	rounded = (value == true)

@@ -23,7 +23,7 @@ func _ready():
 		'type': Console.VARIABLE,
 		'name': 'value',
 		'description': 'The level of progress bar',
-		'arg': ['value', Console.IntRange.new(0, 100)],
+		'arg': ['value', Console.IntRange.new(0, 75, 6)],
 		'target': $ProgressBar
 	})
 
