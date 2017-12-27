@@ -29,10 +29,10 @@ func check(value):  # int
 			prevVal = curVal
 			curVal += step
 
-		if curVal - value > value - prevVal and curVal <= maxValue:
-			_value = prevVal
-		else:
+		if curVal - value < value - prevVal and curVal <= maxValue:
 			_value = curVal
+		else:
+			_value = prevVal
 
 	return OK
 
