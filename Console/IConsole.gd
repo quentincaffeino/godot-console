@@ -1,6 +1,7 @@
 
 extends CanvasLayer
 const BaseCommands = preload('BaseCommands.gd')
+const Callback = preload('Callback.gd')
 
 ### Custom console types
 const IntRange = preload('Commands/Types/IntRange.gd')

@@ -4,59 +4,47 @@ extends Object
 
 func _init():
 	Console.register('echo', {
-		'type': Console.METHOD,
-		'name': 'writeLine',
 		'description': 'Prints a string in console',
 		'args': [TYPE_STRING],
-		'target': Console
+		'target': [Console, 'writeLine']
 	})
 
 	Console.register('history', {
-		'type': Console.METHOD,
-		'name': 'printAll',
 		'description': 'Print all previous commands used during the session',
-		'target': Console._History
+		'target': [Console._History, 'printAll']
 	})
 
 	Console.register('commands', {
-		'type': Console.METHOD,
-		'name': 'printAll',
 		'description': 'Lists all available commands',
-		'target': Console._Commands
+		'target': [Console._Commands, 'printAll']
 	})
 
 	Console.register('help', {
-		'type': Console.METHOD,
 		'description': 'Outputs usage instructions',
 		'args': [TYPE_STRING],
 		'target': self
 	})
 
 	Console.register('quit', {
-		'type': Console.METHOD,
 		'description': 'Exit application',
 		'target': self
 	})
 
 	Console.register('clear', {
-		'type': Console.METHOD,
 		'description': 'Clear the terminal',
 		'target': self
 	})
 
 	Console.register('version', {
-		'type': Console.METHOD,
 		'description': 'Shows engine vesion',
 		'target': self
 	})
 
 	# Register built-in cvars
 	Console.register('fps_max', {
-		'type': Console.VARIABLE,
-		'name': 'set_target_fps',
-		'arg': Console.IntRange.new(10, 1000),
+		'args': [Console.IntRange.new(10, 1000)],
 		'description': 'The maximal framerate at which the application can run',
-		'target': Engine,
+		'target': [Engine, 'set_target_fps'],
 	})
 
 

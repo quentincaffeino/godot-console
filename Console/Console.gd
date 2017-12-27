@@ -102,10 +102,10 @@ func _handleEnteredCommand(command):  # void
 
 	# Get args
 	var args = []
+	var cmdArgs = command.substr(cmdName.length() + 1, command.length())
 	if Command.requireArgs():
-		var cmdArgs = command.substr(cmdName.length() + 1, command.length())
 
-		if Command._type == Command.VARIABLE or Command._arguments.size() == 1:
+		if Command._target._type == Console.Callback.VARIABLE or Command._arguments.size() == 1:
 			args.append(cmdArgs)
 		elif Command.requireStrings():
 
@@ -135,8 +135,8 @@ func _handleEnteredCommand(command):  # void
 			args = cmdArgs.split(' ', false)
 
 	# Execute
-	writeLine('[color=#999999]$[/color] ' + command)
-	_History.push(command)
+	_History.push(Command._alias + ' ' + cmdArgs)
+	writeLine('[color=#999999]$[/color] ' + Command._alias + ' ' + cmdArgs)
 	Command.run(args)
 	_consoleLine.clear()
 

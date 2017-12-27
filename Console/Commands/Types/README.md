@@ -40,10 +40,8 @@ var health = 55
 
 func _ready():
 	Console.register('set_health', {
-		'type': Console.VARIABLE,
-		'name': 'health',
 		'description': 'Set health',
-		'arg': Console.FloatRange.new(0, 100, 0.5),
-		'target': self
+		'args': [Console.FloatRange.new(0, 100, 0.5)],
+		'target': [self, 'health']
 	})
 ```

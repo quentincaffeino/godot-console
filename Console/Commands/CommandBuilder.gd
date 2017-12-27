@@ -6,53 +6,36 @@ const ArgumentB = preload('ArgumentBuilder.gd')
 
 # @param  string  alias
 # @param  Dictionary  params
-static func build(alias, params):  # Command|int
-	# Check target
-	if !params.has('target'):
-		Console.Log.error('Failed to register [b]' + alias + '[/b]. [b]Target[/b] must be an object.')
-		return
+static func build(alias, params):  # Command
+	# Warn
+	if params.has('type'):
+		Console.Log.warn('Using deprecated argument [b]type[/b] in [b]' + alias + '[/b].')
+	if params.has('name'):
+		Console.Log.warn('Using deprecated argument [b]name[/b] in [b]' + alias + '[/b].')
 
-	if typeof(params.target) != TYPE_OBJECT:
+	# Check target
+	if !params.has('target') and !params.target:
 		Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]target[/b] parametr.')
 		return
 
-	# Check type
-	if !params.has('type'):
-		Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]type[/b] parametr.')
+	# Create target if old style used
+	if typeof(params.target) != TYPE_OBJECT or !(params.target is Console.Callback):
+		var target = params.target[0] if typeof(params.target) == TYPE_ARRAY else params.target
+		var name = alias
+		if typeof(params.target) == TYPE_ARRAY and params.target.size() > 1 and typeof(params.target[1]) == TYPE_STRING:
+			name = params.target[1]
+		elif params.has('name'):
+			name = params.name
+
+		params.target = Console.Callback.create(target, name)
+
+	if !params.target:
+		Console.Log.error('Failed to register [b]' + alias + '[/b]. Failed to create callback to target')
 		return
-
-	if params.type != Command.VARIABLE and params.type != Command.METHOD:
-		Console.Log.error('Failed to register [b]' + alias + '[/b]. Wrong [b]type[/b].')
-		return
-
-	# Check name
-	if !params.has('name'):
-		if params.type == Command.VARIABLE:
-			var properties = params.target.get_property_list()
-
-			var hasProp = false
-
-			for prop in properties:
-				if prop.name == alias:
-					hasProp = true
-
-			if hasProp:
-				params['name'] = alias
-			else:
-				Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]name[/b] parametr.')
-				return
-
-		elif params.type == Command.METHOD and params.target.has_method(alias):
-			params['name'] = alias
-
-		else:
-			Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]name[/b] parametr.')
-			return
 
 	# Set arguments
-	if params.type == Command.VARIABLE and !params.has('arg'):
-		Console.Log.error('Failed to register [b]' + alias + '[/b]. Missing [b]arguments[/b] parametr.')
-		return
+	if params.target._type == Console.Callback.VARIABLE and params.has('args'):
+		params.args = [params.args[0]]
 
 	if params.has('arg'):
 		params.args = ArgumentB.buildAll([ params.arg ])
@@ -67,4 +50,4 @@ static func build(alias, params):  # Command|int
 		return
 
 
-	return Command.new(alias, params)
+	return Command.new(alias, params.target, params.args, params.description)

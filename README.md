@@ -2,7 +2,7 @@
 Godot Console
 ============
 
-Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console c:
+Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou) c:
 
 Also they have their own implementations which you can checkout.
 
@@ -42,25 +42,19 @@ In-game console for Godot, easily extensible with new commands.
 ```gdscript
 func _ready():
 	Console.register('sayHello', { # Command name
-		'type': Console.METHOD,
-			# If you want to add a variable
-			# then Console.VARIABLE is used
-
-		'name': 'print_hello',
-			# Function to call. If name is same
-			# as command name then this
-			# parametr isn't required
 
 		'description': 'Prints hello world',
 
-		'args': [ARGUMENT, ...],  # If METHOD.
+		'args': [ARGUMENT, ...],
 			# This argument is obsolete if
-			# function doesn't take any arguments
+			# target function doesn't
+			# take any arguments
 
-		'arg': ARGUMENT,          # If VARIABLE
-
-		'target': self
-			# Target script to bind command to
+			# [Object, variable/method name]
+		'target': [self, 'print_hello']
+			# Target to bind command.
+			# Providing name is obsolete
+			# if command name is same.
 
 	})
 
@@ -69,13 +63,13 @@ func print_hello():
 ```
 
 ***ARGUMENT*** should look like this:
-- ['arg_name', **[ARG_TYPE](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)**]
+- ['arg_name', [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)]
 - 'arg_name' — In this situation type will be set to Any
-- **[ARG_TYPE](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)**
+- [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)
 
-More information about **[ARG_TYPE](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md)** you can find in [this readme](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md).
+More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md) you can find in [this readme](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md).
 
-You can find more examples in `example/script.gd`
+You can find more examples in [`example/script.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/example/script.gd)
 
 ## License
 

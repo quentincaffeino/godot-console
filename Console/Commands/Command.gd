@@ -5,18 +5,17 @@ const Argument = preload('Argument.gd')
 
 
 # @param  string  alias
-# @param  Dictionary  params
-func _init(alias, params):  # Command|int
+# @param  Callback  target
+# @param  Array<Argument>  arguments
+# @param  string|null  description
+func _init(alias, target, arguments, description = null):
 	_alias = str(alias)
-	_type = params.type
-	_name = params.name
-	_target = params.target
-	_arguments = params.args
+	_target = target
+	_arguments = arguments
 
 	# Set description
-	if params.has('description'):
-		_description = params.description
-	else:
+	_description = description
+	if !description:
 		Console.Log.info('No description provided for [b]' + _alias + '[/b] command')
 
 
@@ -37,10 +36,7 @@ func run(_args):  # int
 		args.append(_arguments[i].value)
 
 	# Execute command
-	if _type == VARIABLE:
-		_target.set(_name, args[0])
-	else:
-		_target.callv(_name, args)
+	_target.call(args)
 
 	return OK
 
@@ -64,7 +60,7 @@ func requireArgs():  # int
 
 func requireStrings():  # bool
 	for arg in _arguments:
-		if arg._type._name == 'Any' or arg._type._name == 'String':
+		if arg._type._name == 'Any' or arg._type._type == TYPE_STRING:
 			return true
 
 	return false
