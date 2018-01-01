@@ -11,7 +11,7 @@ enum CHECK {
 var _name
 
 # @var  int
-var _t = -1
+var _type = -1
 
 # @var  RegExMatch
 var _rematch
@@ -23,7 +23,7 @@ var _rematch
 #
 # @param  Varian  value
 func check(value):  # int
-	var regex = Console.RegExLib.get(_t)
+	var regex = Console.RegExLib.get(_type)
 
 	if regex and regex is RegEx:
 		_rematch = regex.search(value)

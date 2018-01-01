@@ -4,7 +4,7 @@ extends 'BaseType.gd'
 
 func _init():
 	_name = 'Bool'
-	_t = TYPE_BOOL
+	_type = TYPE_BOOL
 
 
 func get():  # bool

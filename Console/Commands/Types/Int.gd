@@ -4,7 +4,7 @@ extends 'BaseType.gd'
 
 func _init():
 	_name = 'Int'
-	_t = TYPE_INT
+	_type = TYPE_INT
 
 
 func get():  # int

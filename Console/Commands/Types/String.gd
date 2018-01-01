@@ -8,7 +8,7 @@ var _value
 
 func _init():
 	_name = 'String'
-	_t = TYPE_STRING
+	_type = TYPE_STRING
 
 
 # @param  Varian  value

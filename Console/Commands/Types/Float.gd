@@ -4,7 +4,7 @@ extends 'BaseType.gd'
 
 func _init():
 	_name = 'Float'
-	_t = TYPE_REAL
+	_type = TYPE_REAL
 
 
 func get():  # float
