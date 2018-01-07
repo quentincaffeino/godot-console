@@ -8,29 +8,17 @@
 
 ### Custom types:
 
- - [**IntRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/IntRange.gd)(*int* min_value, *int* max_value, *int* step)
+ - [**IntRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/IntRange.gd) (*int* min_value = 0, *int* max_value = 100, *int* step = 1)
 
-`min_value` has the default value of 0
-
-`max_value` has the default value of 100
-
-`step` has the default value of 1
-
-Difference between Int range and Float is that in Int range values are rounded to integers.
+Difference between Int range and Float range is that in Int range values are rounded to integers.
 
 
-- [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/FloatRange.gd)(*float* min_value, *float* max_value, *float* step)
-
-`min_value` has the default value of 0
-
-`max_value` has the default value of 100
-
-`step` has the default value of 0
+- [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/FloatRange.gd) (*float* min_value = 0, *float* max_value = 100, *float* step = 0)
 
 
-- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Filter.gd)(*Array* filterList, *int* mode)
+- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Filter.gd) (*Array* filterList, *int* mode = ALLOW)
 
-Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`. Default value is `ALLOW`
+Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`
 
 
 ### Adding your own types
@@ -41,12 +29,12 @@ To add custom type extend [`Console/Commands/Types/BaseType.gd`](https://github.
 ## Example
 
 ```gdscript
-var health = 55
+var health = 5
 
 func _ready():
 	Console.register('set_health', {
 		'description': 'Set health',
-		'args': [Console.FloatRange.new(0, 100, 0.5)],
+		'args': [Console.FloatRange.new(0, 5, 0.5)],
 		'target': [self, 'health']
 	})
 ```

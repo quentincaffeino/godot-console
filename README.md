@@ -1,12 +1,7 @@
 
+
 Godot Console
 ============
-
-Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou) c:
-
-Also they have their own implementations which you can checkout.
-
-----------
 
 In-game console for Godot, easily extensible with new commands.
 **Requires a Godot 3.0**.
@@ -15,20 +10,19 @@ In-game console for Godot, easily extensible with new commands.
 
 ## Features
 
-- Writing to console using `write` and `writeLine` method.
+- Writing to console using `write` and `writeLine` method. You can use [BB codes](https://godot.readthedocs.io/en/latest/learning/features/gui/bbcode_in_richtextlabel.html?highlight=richtextlabel#reference). (Also printed to engine output)
 
 	`Console.writeLine('Hello world!')`
 
-	(Also printed to engine output)
-- Auto-completion (`TAB` button)
+- Auto-completion on `TAB` (complete command), `Enter` (complete and execute).
 - History (using with actions `console_up` and `console_down`)
-- Custom types (`Filter`, `IntRange`, `FloatRange`)
-- Changeable log levels (`INFO`, `WARNING`, `ERROR` and `NONE`)
+- Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md#adding-your-own-types))
+- Writing log messages using `info`, `warn` and `error` methods:
+
+	`Console.Log.warn("u're so pretty c:")`
+- Changeable log levels (`INFO`, `WARNING`, `ERROR` and `NONE`):
 
 	`Console.Log.setLogLevel(Console.Log.INFO)`
-- Writing log messages using `info`, `warn` and `error` methods
-
-	`Console.Log.warn('u so pretty')`
 
 ## Installation
 
@@ -70,6 +64,12 @@ func print_hello():
 More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md) you can find in [this readme](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md).
 
 You can find more examples in [`example/script.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/example/script.gd)
+
+----------
+
+Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou).
+
+Take a look at their implementations.
 
 ## License
 
