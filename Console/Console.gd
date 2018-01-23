@@ -78,6 +78,7 @@ func _input(e):
 		_consoleLine.text = _currHistCmd
 		_consoleLine.set_cursor_position(_currHistCmd.length()+1)
 		_currHistCmd = null
+		_consoleLine.accept_event()
 
 
 # @param  string  command
