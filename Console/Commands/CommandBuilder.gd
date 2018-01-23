@@ -5,7 +5,7 @@ const Command = preload('Command.gd')
 const ArgumentB = preload('ArgumentBuilder.gd')
 
 
-# @param  string  alias
+# @param  string      alias
 # @param  Dictionary  params
 static func build(alias, params):  # Command
 	# Warn
@@ -19,7 +19,7 @@ static func build(alias, params):  # Command
 	# Check target
 	if !params.has('target') and !params.target:
 		Console.Log.error(\
-			'Failed to register [b]' + alias + '[/b]. Missing [b]target[/b] parametr.')
+			'Failed to register [b]' + alias + '[/b] command. Missing [b]target[/b] parametr.')
 		return
 
 	# Create target if old style used
@@ -39,12 +39,13 @@ static func build(alias, params):  # Command
 		elif params.has('name'):
 			name = params.name
 
-		params.target = Console.Callback.create(target, name)
+		if Console.Callback.canCreate(target, name):
+			params.target = Console.Callback.new(target, name)
 
-	if !params.target:
+	if !params.target and !(params.target is Console.Callback):
 		Console.Log.error(\
 			'Failed to register [b]' + alias + \
-			'[/b]. Failed to create callback to target')
+			'[/b] command. Failed to create callback to target')
 		return
 
 	# Set arguments
@@ -63,7 +64,7 @@ static func build(alias, params):  # Command
 	if typeof(params.args) == TYPE_INT:
 		Console.Log.error(\
 			'Failed to register [b]' + alias + \
-			'[/b]. Wrong [b]arguments[/b] parametr.')
+			'[/b] command. Wrong [b]arguments[/b] parametr.')
 		return
 
 	if !params.has('description'):

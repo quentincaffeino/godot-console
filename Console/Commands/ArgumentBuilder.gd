@@ -1,24 +1,22 @@
 
 extends Object
+
 const Argument = preload('Argument.gd')
 const TypesBuilder = preload('Types/TypesBuilder.gd')
 const BaseType = preload('Types/BaseType.gd')
 
 
-# @param  string|null  _name
-# @param  int|BaseType  _type
-static func build(_name, _type = 0):  # Argument|int
+# @param  string|null   name
+# @param  int|BaseType  type
+static func build(name, type = 0):  # Argument|int
 	# Define arument type
-	var type
-	if typeof(_type) == TYPE_OBJECT and _type is BaseType:
-		type = _type
-	else:
-		type = TypesBuilder.build(_type if typeof(_type) == TYPE_INT else 0)
+	if !(typeof(type) == TYPE_OBJECT and type is BaseType):
+		type = TypesBuilder.build(type if typeof(type) == TYPE_INT else 0)
 
 	if typeof(type) == TYPE_INT:
 		return FAILED
 
-	return Argument.new(_name, type)
+	return Argument.new(name, type)
 
 
 # @param  Array  args

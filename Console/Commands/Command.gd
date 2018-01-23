@@ -1,13 +1,14 @@
 
 extends 'ICommand.gd'
+
 const ArgumentB = preload('ArgumentBuilder.gd')
 const Argument = preload('Argument.gd')
 
 
-# @param  string  alias
-# @param  Callback  target
+# @param  string           alias
+# @param  Callback         target
 # @param  Array<Argument>  arguments
-# @param  string|null  description
+# @param  string|null      description
 func _init(alias, target, arguments, description = null):
 	_alias = str(alias)
 	_target = target
@@ -19,13 +20,13 @@ func _init(alias, target, arguments, description = null):
 		Console.Log.info('No description provided for [b]' + _alias + '[/b] command')
 
 
-# @param  Array  _args
-func run(_args):  # int
+# @param  Array  inArgs
+func run(inArgs):  # int
 	# Get arguments
 	var args = []
 	var argAssig
 	for i in range(_arguments.size()):
-		argAssig = _arguments[i].setValue(_args[i])
+		argAssig = _arguments[i].setValue(inArgs[i])
 
 		if argAssig == FAILED:
 			Console.Log.warn('Argument ' + str(i) + ': expected ' + _arguments[i]._type._name)

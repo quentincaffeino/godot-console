@@ -18,7 +18,6 @@ func filter(filter):  # void
 		return
 
 	var willBeFiltered = Console._Commands._commands
-
 	# Little optimization to filter from already filtered if...
 	if _filter and filter.length() > _filter.length() and filter.begins_with(_filter):
 		willBeFiltered = _filtered
@@ -26,7 +25,7 @@ func filter(filter):  # void
 	_filter = filter
 
 	# Filter commands
-	for command in Console._Commands._commands:
+	for command in willBeFiltered:
 		if command.begins_with(filter):
 			_filtered.append(command)
 

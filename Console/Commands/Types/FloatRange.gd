@@ -2,14 +2,14 @@
 extends 'BaseRange.gd'
 
 
-# @param  float  _minValue
-# @param  float  _maxValue
-# @param  float  _step
-func _init(_minValue = 0, _maxValue = 100, _step = 0):
+# @param  float  inMinValue
+# @param  float  inMaxValue
+# @param  float  inStep
+func _init(inMinValue = 0, inMaxValue = 100, inStep = 0):
 	_name = 'FloatRange'
-	minValue = float(_minValue)
-	maxValue = float(_maxValue)
-	step = float(_step)
+	minValue = float(inMinValue)
+	maxValue = float(inMaxValue)
+	step = float(inStep)
 
 
 # @param  Varian  value

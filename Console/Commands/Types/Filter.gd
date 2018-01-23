@@ -19,7 +19,7 @@ var _value
 
 
 # @param  Array<Variant>  fliterList
-# @param  int  mode
+# @param  int             mode
 func _init(fliterList, mode = ALLOW):
 	_name = 'Filter'
 	_fliterList = fliterList
@@ -28,7 +28,8 @@ func _init(fliterList, mode = ALLOW):
 
 # @param  Variant  value
 func check(value):  # int
-	if (_mode == ALLOW and _fliterList.has(value)) or (_mode == DENY and !_fliterList.has(value)):
+	if (_mode == ALLOW and _fliterList.has(value)) or \
+		 (_mode == DENY and !_fliterList.has(value)):
 		_value = value
 		return OK
 

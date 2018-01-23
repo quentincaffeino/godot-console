@@ -1,5 +1,6 @@
 
 extends 'ICommands.gd'
+
 const CommandB = preload('CommandBuilder.gd')
 
 

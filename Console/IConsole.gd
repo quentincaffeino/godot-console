@@ -1,5 +1,6 @@
 
 extends CanvasLayer
+
 const BaseCommands = preload('BaseCommands.gd')
 const Callback = preload('Callback.gd')
 
@@ -9,7 +10,8 @@ const FloatRange = preload('Commands/Types/FloatRange.gd')
 const Filter = preload('Commands/Types/Filter.gd')
 
 
-enum CMDTYPE {
+enum CMDTYPE \
+{
 	VARIABLE,
 	METHOD
 }
@@ -85,4 +87,4 @@ func _toggleAnimationFinished(animation):  # void
 
 
 func _setProtected(value):  # void
-	pass
+	Log.warn('Trying to set a protected variable. Ignoring.')

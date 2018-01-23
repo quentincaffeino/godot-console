@@ -1,19 +1,20 @@
 
 extends 'IArgument.gd'
+
 const TypesBuilder = preload('Types/TypesBuilder.gd')
 const BaseType = preload('Types/BaseType.gd')
 
 
 # @param  string|null  name
-# @param  BaseType  type
+# @param  BaseType     type
 func _init(name, type):
 	_name = name
 	_type = type
 
 
-# @param  Variant  _value
-func setValue(_value):  # int
-	return _type.check(_value)
+# @param  Variant  inValue
+func setValue(inValue):  # int
+	return _type.check(inValue)
 
 
 func getValue():  # Variant

@@ -15,8 +15,8 @@ var _arguments = []
 var _description
 
 
-# @param  Array  args
-func run(args):  # int
+# @param  Array  inArgs
+func run(inArgs):  # int
 	pass
 
 

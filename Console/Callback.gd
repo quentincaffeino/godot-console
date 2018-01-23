@@ -2,7 +2,8 @@
 extends Object
 
 
-enum TYPE {
+enum TYPE \
+{
 	UNKNOWN,
 	VARIABLE,
 	METHOD
@@ -47,28 +48,28 @@ func call(argv = []):  # Variant
 	Console.Log.error('Unable to call [b]unknown type[/b].')
 
 
-# Use this method to create a callback
+# Use this method before creating a callback
 #
 # @param  Object  target
 # @param  string  name
 # @param  int     type
-static func create(target, name, type = UNKNOWN):  # Callback
+static func canCreate(target, name, type = UNKNOWN):  # bool
 	if typeof(target) != TYPE_OBJECT:
 		Console.Log.error('First argument must be target object.')
-		return FAILED
+		return false
 
 	if typeof(name) != TYPE_STRING:
 		Console.Log.error('Second argument must be variable or method name.')
-		return FAILED
+		return false
 
-	if type == UNKNOWN:
+	if type <= UNKNOWN or type > TYPE.size():
 		type = getType(target, name)
 
 		if type == UNKNOWN:
-			Console.Log.error('Target object doesn\'t have supplied method or variable')
-			return FAILED
+			Console.Log.error('Target object doesn\'t have supplied method or variable.')
+			return false
 
-	return Console.Callback.new(target, name, type)
+	return true
 
 
 # @param  Object  target

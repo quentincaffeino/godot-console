@@ -6,14 +6,14 @@ extends 'BaseRange.gd'
 var rounded = true setget _setRounded
 
 
-# @param  int  _minValue
-# @param  int  _maxValue
-# @param  int  _step
-func _init(_minValue = 0, _maxValue = 100, _step = 1):
+# @param  int  inMinValue
+# @param  int  inMaxValue
+# @param  int  inStep
+func _init(inMinValue = 0, inMaxValue = 100, inStep = 1):
 	_name = 'IntRange'
-	minValue = int(_minValue)
-	maxValue = int(_maxValue)
-	step = int(_step)
+	minValue = int(inMinValue)
+	maxValue = int(inMaxValue)
+	step = int(inStep)
 
 
 # @param  Varian  value

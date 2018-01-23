@@ -2,7 +2,8 @@
 extends Object
 
 
-enum ARGASSIG {
+enum ARGASSIG \
+{
 	CANCELED = 2
 }
 
@@ -17,8 +18,8 @@ var _type
 var value = null setget setValue, getValue
 
 
-# @param  Variant  _value
-func setValue(_value):  # int
+# @param  Variant  inValue
+func setValue(inValue):  # int
 	pass
 
 

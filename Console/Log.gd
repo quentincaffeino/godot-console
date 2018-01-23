@@ -2,7 +2,8 @@
 extends Object
 
 
-enum TYPE {
+enum TYPE \
+{
 	INFO,
 	WARNING,
 	ERROR,
@@ -14,14 +15,14 @@ enum TYPE {
 var logLevel = WARNING setget setLogLevel
 
 
-# @param  int  _logLevel
-func setLogLevel(_logLevel = 0):  # void
-	logLevel = _logLevel
+# @param  int  inlogLevel
+func setLogLevel(inlogLevel = INFO):  # void
+	logLevel = inlogLevel
 
 
-# @param  int  type
 # @param  string  message
-func log(type, message):  # void
+# @param  int     type
+func log(message, type = INFO):  # void
 	match type:
 		INFO:    info(message)
 		WARNING: warn(message)

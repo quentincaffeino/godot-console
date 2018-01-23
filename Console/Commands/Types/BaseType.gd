@@ -2,7 +2,8 @@
 extends Object
 
 
-enum CHECK {
+enum CHECK \
+{
 	CANCELED = 2
 }
 

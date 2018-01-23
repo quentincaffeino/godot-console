@@ -35,4 +35,4 @@ func printAll():  # void
 
 
 func _setProtected(value):  # void
-	pass
+	Console.Log.warn('Trying to set a protected variable. Ignoring.')
