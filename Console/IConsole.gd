@@ -38,7 +38,7 @@ var _isConsoleShown = true
 var _currCmdHandler = null
 
 # @var  string|null
-var _currHistCmd = null
+var _currCmd = null
 
 
 # @param  string  command

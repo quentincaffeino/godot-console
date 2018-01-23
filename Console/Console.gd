@@ -51,17 +51,17 @@ func _input(e):
 
 	# Show prev line in history
 	if Input.is_action_just_pressed("console_up"):
-		_currHistCmd = _History.prev()
+		_currCmd = _History.prev()
 
 		if _currCmdHandler == null:
 			_currCmdHandler = _consoleLine.text
 
 	# Show next line in history
 	if Input.is_action_just_pressed("console_down"):
-		_currHistCmd = _History.next()
+		_currCmd = _History.next()
 
-		if !_currHistCmd and _currCmdHandler != null:
-			_currHistCmd = _currCmdHandler
+		if !_currCmd and _currCmdHandler != null:
+			_currCmd = _currCmdHandler
 			_currCmdHandler = null
 
 	# Autocomplete on TAB
@@ -71,13 +71,13 @@ func _input(e):
 			_Commands.Autocomplete.reset()
 
 		_Commands.Autocomplete.filter(_currCmdHandler)
-		_currHistCmd = _Commands.Autocomplete.next()
+		_currCmd = _Commands.Autocomplete.next()
 
 	# Finish
-	if _currHistCmd != null:
-		_consoleLine.text = _currHistCmd
-		_consoleLine.set_cursor_position(_currHistCmd.length()+1)
-		_currHistCmd = null
+	if _currCmd != null:
+		_consoleLine.text = _currCmd
+		_consoleLine.caret_position = _currCmd.length()
+		_currCmd = null
 		_consoleLine.accept_event()
 
 
@@ -103,8 +103,9 @@ func _handleEnteredCommand(command):  # void
 
 	# Get args
 	var args = []
-	var cmdArgs = command.substr(cmdName.length() + 1, command.length())
+	var cmdArgs = null
 	if Command.requireArgs():
+		cmdArgs = command.substr(cmdName.length() + 1, command.length())
 
 		if Command._target._type == Console.Callback.VARIABLE or Command._arguments.size() == 1:
 			args.append(cmdArgs)
@@ -136,8 +137,12 @@ func _handleEnteredCommand(command):  # void
 			args = cmdArgs.split(' ', false)
 
 	# Execute
-	_History.push(Command._alias + ' ' + cmdArgs)
-	writeLine('[color=#999999]$[/color] ' + Command._alias + ' ' + cmdArgs)
+	var finCommand = Command._alias
+	if cmdArgs:
+		finCommand += ' ' + cmdArgs
+
+	_History.push(finCommand)
+	writeLine('[color=#999999]$[/color] ' + finCommand)
 	Command.run(args)
 	_consoleLine.clear()
 
@@ -146,7 +151,7 @@ func _handleEnteredCommand(command):  # void
 func _handleUrlClick(url):  # void
 	_consoleLine.text = url
 	_consoleLine.grab_focus()
-	_consoleLine.set_cursor_position(url.length()+1)
+	_consoleLine.caret_position = url.length()
 
 
 # @param  string  alias
