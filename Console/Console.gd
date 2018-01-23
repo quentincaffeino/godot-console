@@ -46,18 +46,18 @@ func _ready():
 
 # @param  Event  e
 func _input(e):
-	if Input.is_action_just_pressed("console_toggle"):
+	if Input.is_action_just_pressed(action_console_toggle):
 		toggleConsole()
 
 	# Show prev line in history
-	if Input.is_action_just_pressed("console_up"):
+	if Input.is_action_just_pressed(action_history_up):
 		_currCmd = _History.prev()
 
 		if _currCmdHandler == null:
 			_currCmdHandler = _consoleLine.text
 
 	# Show next line in history
-	if Input.is_action_just_pressed("console_down"):
+	if Input.is_action_just_pressed(action_history_down):
 		_currCmd = _History.next()
 
 		if !_currCmd and _currCmdHandler != null:

@@ -40,6 +40,15 @@ var _currCmdHandler = null
 # @var  string|null
 var _currCmd = null
 
+# @var  string
+export(String) var action_console_toggle = 'console_toggle'
+
+# @var  string
+export(String) var action_history_up = 'ui_up'
+
+# @var  string
+export(String) var action_history_down = 'ui_down'
+
 
 # @param  string  command
 func _handleEnteredCommand(command):  # void

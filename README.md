@@ -15,7 +15,7 @@ In-game console for Godot, easily extensible with new commands.
 	`Console.writeLine('Hello world!')`
 
 - Auto-completion on `TAB` (complete command), `Enter` (complete and execute).
-- History (using with actions `console_up` and `console_down`)
+- History (using with actions `ui_up` and `ui_down`)
 - Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/README.md#adding-your-own-types))
 - Writing log messages using `info`, `warn` and `error` methods:
 
@@ -29,9 +29,13 @@ In-game console for Godot, easily extensible with new commands.
 1. Clone or download this repository.
 2. Copy `Console` folder to any directory of your project.
 3. Add `Console/Console.tscn` to Autoload.
-4. Add new actions to Input Map: `console_toggle`, `console_up`, `console_down`.
+4. 
+	- Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
+	- ***OR*** you can change action names: in editor open `Console/Console.tscn`, in script variables you will see default actions.
 
 ## Example
+
+### Registering command:
 
 ```gdscript
 func _ready():
@@ -73,6 +77,6 @@ Take a look at their implementations.
 
 ## License
 
-Copyright (c) 2017 Mankind
+Copyright (c) 2017-present Mankind
 
 Licensed under the MIT license, see `LICENSE.md` for more information.
