@@ -176,7 +176,7 @@ func writeLine(message = ''):  # void
 
 func toggleConsole():  # void
 	# Open the console
-	if !_isConsoleShown:
+	if !isConsoleShown:
 		_consoleBox.show()
 		_consoleLine.clear()
 		_consoleLine.grab_focus()
@@ -184,9 +184,9 @@ func toggleConsole():  # void
 	else:
 		_animationPlayer.play('fade')
 
-	_isConsoleShown = !_isConsoleShown
+	isConsoleShown = !isConsoleShown
 
 
 func _toggleAnimationFinished(animation):  # void
-	if !_isConsoleShown:
+	if !isConsoleShown:
 		_consoleBox.hide()

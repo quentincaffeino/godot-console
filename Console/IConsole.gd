@@ -32,7 +32,7 @@ var RegExLib = preload('RegExLib.gd').new() setget _setProtected
 var _eraseTrash
 
 # @var  bool
-var _isConsoleShown = true
+var isConsoleShown = true setget _setProtected
 
 # @var  string|null
 var _currCmdHandler = null
