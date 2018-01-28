@@ -3,7 +3,7 @@
 
 ### Engine types:
 
-[`TYPE_BOOL`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Bool.gd), [`TYPE_INT`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Int.gd), [`TYPE_REAL`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Float.gd) and [`TYPE_STRING`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/String.gd).
+[`TYPE_BOOL`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Bool.gd), [`TYPE_INT`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Int.gd), [`TYPE_REAL`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Float.gd), [`TYPE_STRING`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/String.gd), [`TYPE_VECTOR2`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/Vector2.gd)
 
 
 ### Custom types:

@@ -8,6 +8,7 @@ const TypesList = [
 	preload('Int.gd'),
 	preload('Float.gd'),
 	preload('String.gd'),
+	preload('Vector2.gd'),
 ]
 
 
