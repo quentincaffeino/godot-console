@@ -30,18 +30,36 @@ func log(message, type = INFO):  # void
 
 
 # @param  string  message
-func info(message):  # void
+# @param  string  debugInfo
+func info(message, debugInfo = ''):  # void
 	if logLevel <= INFO:
-		Console.writeLine('[color=blue][INFO][/color] ' + message)
+		var write = '[color=blue][INFO][/color] '
+
+		if Console.debugMode:
+			write += str(debugInfo) + ': '
+
+		Console.writeLine(write + str(message))
 
 
 # @param  string  message
-func warn(message):  # void
+# @param  string  debugInfo
+func warn(message, debugInfo = ''):  # void
 	if logLevel <= WARNING:
-		Console.writeLine('[color=yellow][WARNING][/color] ' + message)
+		var write = '[color=yellow][WARNING][/color] '
+
+		if Console.debugMode:
+			write += str(debugInfo) + ': '
+
+		Console.writeLine(write + str(message))
 
 
 # @param  string  message
-func error(message):
+# @param  string  debugInfo
+func error(message, debugInfo = ''):
 	if logLevel <= ERROR:  # void
-		Console.writeLine('[color=red][ERROR][/color] ' + message)
+		var write = '[color=red][ERROR][/color] '
+
+		if Console.debugMode:
+			write += str(debugInfo) + ': '
+
+		Console.writeLine(write + str(message))

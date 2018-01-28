@@ -42,6 +42,9 @@ var _currCmdHandler = null
 # @var  string|null
 var _currCmd = null
 
+# @var  bool
+var debugMode = false
+
 # @var  string
 export(String) var action_console_toggle = 'console_toggle'
 
