@@ -82,6 +82,9 @@ func _input(e):
 
 # @param  string  command
 func _handleEnteredCommand(command):  # void
+	if command.empty():
+		return
+
 	# Some preparations
 	_History.reset()
 	_Commands.Autocomplete.reset()
