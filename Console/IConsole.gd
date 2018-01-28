@@ -90,4 +90,5 @@ func _toggleAnimationFinished(animation):  # void
 
 
 func _setProtected(value):  # void
-	Log.warn('Trying to set a protected variable. Ignoring.')
+	Log.warn('Trying to set a protected variable, ignoring. Provided ' + str(value), \
+		'IConsole: _setProtected')

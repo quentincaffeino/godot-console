@@ -17,7 +17,8 @@ func _init(alias, target, arguments, description = null):
 	# Set description
 	_description = description
 	if !description:
-		Console.Log.info('No description provided for [b]' + _alias + '[/b] command')
+		Console.Log.info('No description provided for [b]' + _alias + '[/b] command', \
+			'Command: _init')
 
 
 # @param  Array  inArgs

@@ -11,15 +11,18 @@ static func build(alias, params):  # Command
 	# Warn
 	if params.has('type'):
 		Console.Log.warn(\
-			'Using deprecated argument [b]type[/b] in [b]' + alias + '[/b].')
+			'Using deprecated argument [b]type[/b] in [b]' + alias + '[/b].', \
+			'CommandBuilder: build')
 	if params.has('name'):
 		Console.Log.warn(\
-			'Using deprecated argument [b]name[/b] in [b]' + alias + '[/b].')
+			'Using deprecated argument [b]name[/b] in [b]' + alias + '[/b].', \
+			'CommandBuilder: build')
 
 	# Check target
-	if !params.has('target') and !params.target:
+	if !params.has('target') or !params.target:
 		Console.Log.error(\
-			'Failed to register [b]' + alias + '[/b] command. Missing [b]target[/b] parametr.')
+			'Failed to register [b]' + alias + '[/b] command. Missing [b]target[/b] parametr.', \
+			'CommandBuilder: build')
 		return
 
 	# Create target if old style used
@@ -45,7 +48,8 @@ static func build(alias, params):  # Command
 	if !params.target and !(params.target is Console.Callback):
 		Console.Log.error(\
 			'Failed to register [b]' + alias + \
-			'[/b] command. Failed to create callback to target')
+				'[/b] command. Failed to create callback to target', \
+			'CommandBuilder: build')
 		return
 
 	# Set arguments
@@ -64,11 +68,11 @@ static func build(alias, params):  # Command
 	if typeof(params.args) == TYPE_INT:
 		Console.Log.error(\
 			'Failed to register [b]' + alias + \
-			'[/b] command. Wrong [b]arguments[/b] parametr.')
+				'[/b] command. Wrong [b]arguments[/b] parametr.', \
+			'CommandBuilder: build')
 		return
 
 	if !params.has('description'):
 		params.description = null
-
 
 	return Command.new(alias, params.target, params.args, params.description)

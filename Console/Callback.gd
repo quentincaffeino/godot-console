@@ -45,7 +45,8 @@ func call(argv = []):  # Variant
 	elif _type == METHOD:
 		return _target.callv(_name, argv)
 	
-	Console.Log.error('Unable to call [b]unknown type[/b].')
+	Console.Log.error('Unable to call [b]unknown type[/b].', \
+		'Callback: call')
 
 
 # Use this method before creating a callback
@@ -55,18 +56,21 @@ func call(argv = []):  # Variant
 # @param  int     type
 static func canCreate(target, name, type = UNKNOWN):  # bool
 	if typeof(target) != TYPE_OBJECT:
-		Console.Log.error('First argument must be target object.')
+		Console.Log.error('First argument must be target object.', \
+			'Callback: canCreate')
 		return false
 
 	if typeof(name) != TYPE_STRING:
-		Console.Log.error('Second argument must be variable or method name.')
+		Console.Log.error('Second argument must be variable or method name.', \
+			'Callback: canCreate')
 		return false
 
 	if type <= UNKNOWN or type > TYPE.size():
 		type = getType(target, name)
 
 		if type == UNKNOWN:
-			Console.Log.error('Target object doesn\'t have supplied method or variable.')
+			Console.Log.error('Target object doesn\'t have supplied method or variable.', \
+				'Callback: canCreate')
 			return false
 
 	return true

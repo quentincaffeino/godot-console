@@ -90,14 +90,16 @@ func _handleEnteredCommand(command):  # void
 	# Get command name
 	var cmdName = command.split(' ', false)
 	if typeof(cmdName) != TYPE_STRING_ARRAY:
-		Log.warn('Could not get command name')
+		Log.warn('Could not get command name', \
+			'Console: _handleEnteredCommand')
 		return
 	cmdName = cmdName[0]
 
 	var Command = _Commands.get(cmdName)
 
 	if !Command:
-		Log.warn('No such command')
+		Log.warn('No such command', \
+			'Console: _handleEnteredCommand')
 		return
 
 	# Get args

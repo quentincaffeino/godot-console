@@ -9,7 +9,8 @@ const CommandB = preload('CommandBuilder.gd')
 func register(alias, params):  # int
 	# Check if already exists
 	if has(alias):
-		Console.Log.warn('Failed to register [b]' + alias + '[/b]. Command already exists.')
+		Console.Log.warn('Commands: register: Failed to register [b]' + \
+			alias + '[/b]. Command already exists.', 'Commands: register')
 		return FAILED
 
 	# Register command
