@@ -9,7 +9,7 @@ const CommandB = preload('CommandBuilder.gd')
 func register(alias, params):  # int
 	# Check if already exists
 	if has(alias):
-		Console.Log.warn('Commands: register: Failed to register [b]' + \
+		Console.Log.warn('Failed to register [b]' + \
 			alias + '[/b]. Command already exists.', 'Commands: register')
 		return FAILED
 
@@ -24,9 +24,14 @@ func register(alias, params):  # int
 
 
 # @param  string  alias
-func deregister(alias):  # void
-	if has(alias):
-		_commands.erase(alias)
+func unregister(alias):  # int
+	if !has(alias):
+		Console.Log.info('Tried to unregister nonexistent command [b]' + \
+			alias + '[/b].', 'Commands: unregister')
+		return FAILED
+	
+	_commands.erase(alias)
+	return OK
 
 
 # @param  string  alias

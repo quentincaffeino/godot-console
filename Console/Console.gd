@@ -155,10 +155,16 @@ func _handleUrlClick(url):  # void
 	_consoleLine.caret_position = url.length()
 
 
-# @param  string  alias
+
+# @param  string      alias
 # @param  Dictionary  params
 func register(alias, params):  # int
 	return _Commands.register(alias, params)
+
+
+# @param  string  alias
+func unregister(alias):  # int
+	return _Commands.unregister(alias)
 
 
 # @param  string  message
