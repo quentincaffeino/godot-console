@@ -35,7 +35,7 @@ func info(message, debugInfo = ''):  # void
 	if logLevel <= INFO:
 		var write = '[color=blue][INFO][/color] '
 
-		if Console.debugMode:
+		if Console.debugMode and debugInfo:
 			write += str(debugInfo) + ': '
 
 		Console.writeLine(write + str(message))
@@ -47,7 +47,7 @@ func warn(message, debugInfo = ''):  # void
 	if logLevel <= WARNING:
 		var write = '[color=yellow][WARNING][/color] '
 
-		if Console.debugMode:
+		if Console.debugMode and debugInfo:
 			write += str(debugInfo) + ': '
 
 		Console.writeLine(write + str(message))
@@ -59,7 +59,7 @@ func error(message, debugInfo = ''):
 	if logLevel <= ERROR:  # void
 		var write = '[color=red][ERROR][/color] '
 
-		if Console.debugMode:
+		if Console.debugMode and debugInfo:
 			write += str(debugInfo) + ': '
 
 		Console.writeLine(write + str(message))
