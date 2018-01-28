@@ -11,8 +11,7 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 func _init():
 	# Used to clear text from bb tags
-	_eraseTrash = RegEx.new()
-	_eraseTrash.compile('\\[[\\/]?[a-z\\=\\#0-9\\ \\_\\-]+\\]')
+	_eraseTrash = RegExLib.get('console.eraseTrash')
 
 
 func _ready():
