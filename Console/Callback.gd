@@ -84,10 +84,7 @@ static func getType(target, name):  # int
 		return METHOD
 
 	# Check if it is VARIABLE type
-	var properties = target.get_property_list()
-
-	for p in properties:
-		if p.name == name:
-			return VARIABLE
+	if name in target:
+		return VARIABLE
 
 	return UNKNOWN
