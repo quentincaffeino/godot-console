@@ -45,6 +45,9 @@ var _currCmd = null
 # @var  bool
 var debugMode = false
 
+# @var  bool
+var submitAutocomplete = true
+
 # @var  string
 export(String) var action_console_toggle = 'console_toggle'
 
@@ -68,6 +71,11 @@ func _handleUrlClick(url):  # void
 # @param  string  alias
 # @param  Dictionary  params
 func register(alias, params):  # int
+	pass
+
+
+# @param  string  alias
+func unregister(alias):  # int
 	pass
 
 

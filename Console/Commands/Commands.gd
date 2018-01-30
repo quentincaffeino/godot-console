@@ -39,10 +39,16 @@ func get(alias):  # Command
 	if has(alias):
 		return _commands[alias]
 
-	# Try autocomplete
-	for command in _commands:
-		if command.begins_with(alias):
-			return _commands[command]
+	if Console.submitAutocomplete:
+		# Try autocomplete
+		var filteredCommands = []
+
+		for command in _commands:
+			if command.begins_with(alias):
+				filteredCommands.append(command)
+
+		if filteredCommands.size() == 1:
+			return _commands[filteredCommands[0]]
 
 
 # @param  string  alias
