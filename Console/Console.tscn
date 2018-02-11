@@ -122,6 +122,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Console" type="CanvasLayer" index="0"]
 
+pause_mode = 2
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -156,7 +157,6 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/fade = SubResource( 1 )
 blend_times = [  ]
-autoplay = ""
 
 [node name="Container" type="VBoxContainer" parent="ConsoleBox" index="1"]
 
