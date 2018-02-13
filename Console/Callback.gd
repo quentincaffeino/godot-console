@@ -1,5 +1,5 @@
 
-extends Object
+extends Reference
 
 
 enum TYPE \
@@ -9,8 +9,7 @@ enum TYPE \
 	METHOD
 }
 
-
-# @var  Object
+# @var  Reference
 var _target
 
 # @var  string
@@ -20,9 +19,9 @@ var _name
 var _type
 
 
-# @param  Object  target
-# @param  string  name
-# @param  int     type
+# @param  Reference  target
+# @param  string     name
+# @param  int        type
 func _init(target, name, type = UNKNOWN):
 	_target = target
 	_name = name
@@ -33,58 +32,91 @@ func _init(target, name, type = UNKNOWN):
 	_type = type
 
 
+func getTarget():  # Reference
+	return _target
+
+
+func getName():  # string
+	return _name
+
+
+# Ensure callback target still exists
+func ensure():  # bool
+	if _target:
+		var wr = weakref(_target)
+		if wr.get_ref() == null:
+			print('Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)' % _name)
+			return false
+	else:
+		print('Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)' % _name)
+		return false
+
+	if getType(_target, _name) == UNKNOWN:
+		print('Callback: ensure: Target is missing method/variable. (%s, %s)' % [_target, _name])
+		return false
+
+	return true
+
+
 # @param  Array<Variant>  argv
 func call(argv = []):  # Variant
-	# If passed argv as any value except Array, wrap it into array
-	if typeof(argv) <= TYPE_ARRAY and typeof(argv) >= TYPE_COLOR_ARRAY:
-		argv = [argv]
+	argv = array(argv)
 
+	# Ensure callback target still exists
+	if !ensure():
+		return
+
+	# Execute call
 	if _type == VARIABLE:
 		_target.set(_name, argv[0])
 		return _target.get(_name)
+
 	elif _type == METHOD:
 		return _target.callv(_name, argv)
 	
-	Console.Log.error('Unable to call [b]unknown type[/b].', \
-		'Callback: call')
+	print('Callback: call: Unable to call unknown type.')
 
 
 # Use this method before creating a callback
 #
-# @param  Object  target
-# @param  string  name
-# @param  int     type
-static func canCreate(target, name, type = UNKNOWN):  # bool
+# @param  Reference  target
+# @param  string     name
+# @param  int        type
+static func canCreate(target, name, type = UNKNOWN):  # int
 	if typeof(target) != TYPE_OBJECT:
-		Console.Log.error('First argument must be target object.', \
-			'Callback: canCreate')
-		return false
+		print('Callback: can_create: First argument must be target object. Provided: ' + str(typeof(target)))
+		return UNKNOWN
 
 	if typeof(name) != TYPE_STRING:
-		Console.Log.error('Second argument must be variable or method name.', \
-			'Callback: canCreate')
-		return false
+		print('Callback: can_create: Second argument must be variable or method name. Provided: ' + str(typeof(name)))
+		return UNKNOWN
 
 	if type <= UNKNOWN or type > TYPE.size():
 		type = getType(target, name)
 
 		if type == UNKNOWN:
-			Console.Log.error('Target object doesn\'t have supplied method or variable.', \
-				'Callback: canCreate')
-			return false
+			print('Callback: can_create: Target object doesn\'t have supplied method or variable.')
 
-	return true
+	return type
 
 
-# @param  Object  target
-# @param  string  name
+# @param  Reference  target
+# @param  string     name
 static func getType(target, name):  # int
-	# Check if it is METHOD type
+	# Is it a METHOD
 	if target.has_method(name):
 		return METHOD
 
-	# Check if it is VARIABLE type
+	# Is it a VARIABLE
 	if name in target:
 		return VARIABLE
 
 	return UNKNOWN
+
+
+# If passed arr as any value except Array, wrap it into array
+static func array(arr):
+	if !(typeof(arr) >= TYPE_ARRAY and typeof(arr) <= TYPE_COLOR_ARRAY):
+		arr = [arr]
+
+	return arr
