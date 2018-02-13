@@ -44,8 +44,17 @@ static func build(alias, params):  # Command
 
 		if Console.Callback.canCreate(target, name):
 			params.target = Console.Callback.new(target, name)
+		else:
+			params.target = null
 
-	if !params.target and !(params.target is Console.Callback):
+	if params.target:
+		if not params.target is Console.Callback:
+			Console.Log.error(\
+				'Failed to register [b]' + alias + \
+					'[/b] command. Failed to create callback to target', \
+				'CommandBuilder: build')
+			return
+	else:
 		Console.Log.error(\
 			'Failed to register [b]' + alias + \
 				'[/b] command. Failed to create callback to target', \
