@@ -7,7 +7,7 @@
 | Properties | Description |
 |--|--|
 | [Log](https://github.com/QuentinCaffeino/godot-console/blob/docs/Log.md) | Logging class |
-| [RegExLib](https://github.com/QuentinCaffeino/godot-console/blob/Console/RegExLib.gd) | Regex used by console |
+| [RegExLib](https://github.com/QuentinCaffeino/godot-console/blob/src/RegExLib.gd) | Regex used by console |
 | readonly *bool* isConsoleShown |  |
 | *bool* debugMode  | Enables more verbose logging output. Default: false |
 | *bool* submitAutocomplete  | Autocomplete command when `ENTER` is pressed. Default: true |

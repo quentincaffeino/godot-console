@@ -11,12 +11,16 @@ config_version=3
 [application]
 
 config/name="In-game Debug Console"
-run/main_scene="res://example/scene.tscn"
+run/main_scene="res://scene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Console="*res://Console/Console.tscn"
+Console="*res://vendor/quentincaffeino/console/Console.tscn"
+
+[display]
+
+window/vsync/use_vsync=false
 
 [gdnative]
 

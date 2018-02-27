@@ -74,8 +74,7 @@ func _input(e):
 
 	# Finish
 	if _currCmd != null:
-		_consoleLine.text = _currCmd
-		_consoleLine.caret_position = _currCmd.length()
+		_setConsoleLine(_currCmd)
 		_currCmd = null
 		_consoleLine.accept_event()
 
@@ -153,10 +152,17 @@ func _handleEnteredCommand(command):  # void
 
 # @param  string  url
 func _handleUrlClick(url):  # void
-	_consoleLine.text = url
-	_consoleLine.grab_focus()
-	_consoleLine.caret_position = url.length()
+	_setConsoleLine(url + ' ')
 
+
+# @param  string  text
+# @param  bool    moveCaretToEnd
+func _setConsoleLine(text, moveCaretToEnd = true):  # void
+	_consoleLine.text = text
+	_consoleLine.grab_focus()
+
+	if moveCaretToEnd:
+		_consoleLine.caret_position = text.length()
 
 
 # @param  string      alias

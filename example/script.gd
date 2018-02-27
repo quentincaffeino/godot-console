@@ -3,7 +3,6 @@ extends Node
 
 
 func _ready():
-
 	Console.register('set_label_text', {
 		'description': 'The text of example label',
 		'args': [['text', TYPE_STRING]],
@@ -53,3 +52,12 @@ func play_anim(speed):
 
 func filter_method(filtered):
 	print(filtered)
+
+
+func _exit_tree():
+	Console.unregister('set_label_text')
+	Console.unregister('change_label_text')
+	Console.unregister('pb_value')
+	Console.unregister('cb_checked')
+	Console.unregister('play_anim')
+	Console.unregister('filter_method')
