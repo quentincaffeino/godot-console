@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="./script.gd" type="Script" id=1]
-[ext_resource path="../Console/Fonts/roboto_mono_regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="../icon256.png" type="Texture" id=3]
+[ext_resource path="res://script.gd" type="Script" id=1]
+[ext_resource path="res://Console/Fonts/roboto_mono_regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://icon256.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -89,7 +89,6 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/test = SubResource( 2 )
 blend_times = [  ]
-autoplay = ""
 
 [node name="CheckBox" type="CheckBox" parent="." index="3"]
 

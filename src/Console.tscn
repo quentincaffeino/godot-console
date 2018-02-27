@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="Console.gd" type="Script" id=1]
-[ext_resource path="Fonts/roboto_mono_bold_italic.ttf" type="DynamicFontData" id=2]
-[ext_resource path="Fonts/roboto_mono_italic.ttf" type="DynamicFontData" id=3]
-[ext_resource path="Fonts/roboto_mono_bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="Fonts/roboto_mono_regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="Fonts/RobotoMono-BoldItalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="Fonts/RobotoMono-Italic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="Fonts/RobotoMono-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -178,7 +178,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1024.0
-margin_bottom = 267.0
+margin_bottom = 265.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 focus_neighbour_left = NodePath("../LineEdit")
@@ -217,7 +217,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 271.0
+margin_top = 269.0
 margin_right = 1024.0
 margin_bottom = 300.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -241,6 +241,6 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Material", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Material", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 
