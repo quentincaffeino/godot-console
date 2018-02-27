@@ -1,5 +1,6 @@
 
-## Supported console types.
+# Types.
+
 
 ### Engine types:
 
@@ -21,12 +22,7 @@ Difference between Int range and Float range is that in Int range values are rou
 Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`
 
 
-### Adding your own types
-
-To add custom type extend [`Console/Commands/Types/BaseType.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/BaseType.gd)
-
-
-## Example
+### Example
 
 ```gdscript
 var health = 5
@@ -38,3 +34,8 @@ func _ready():
 		'target': [self, 'health']
 	})
 ```
+
+
+### Adding your own types
+
+To add custom type extend [`Console/Commands/Types/BaseType.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/Console/Commands/Types/BaseType.gd)
