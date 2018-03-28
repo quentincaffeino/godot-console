@@ -16,13 +16,13 @@ var step
 
 
 func get():  # int|float
-	return _value
+  return _value
 
 
 func getName():  # string
-	var name = _name + '(' + str(minValue) + '-' + str(maxValue)
+  var name = _name + '(' + str(minValue) + '-' + str(maxValue)
 
-	if step != 1:
-		name += ', step: ' + str(step)
+  if step != 1:
+    name += ', step: ' + str(step)
 
-	return name + ')'
+  return name + ')'

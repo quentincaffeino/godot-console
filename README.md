@@ -5,7 +5,7 @@ Godot Console
 
 In-game console for Godot, easily extensible with new commands.
 
-![Quake-style console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/master/example/screenshot.png)
+![Quake-style console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/master/screenshot.png)
 
 ## Features
 
@@ -20,8 +20,8 @@ In-game console for Godot, easily extensible with new commands.
 
 ## Installation
 
-1. Clone or download this repository.
-2. Add `src/Console.tscn` to Autoload.
+1. Clone or download this repository to your project folder.
+2. Add `src/Console.tscn` to godot autoload as `Console`.
 3. Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
 
 ## Example
@@ -58,7 +58,7 @@ func print_hello():
 
 More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md) you can find in [this readme](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md).
 
-You can find more examples in [`example/script.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/example/script.gd)
+You can find more examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/BaseCommands.gd)
 
 ----------
 

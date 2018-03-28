@@ -24,4 +24,5 @@
 | *int* unregister(*string* alias) | Unregister command |
 | void write(string message) |  |
 | void writeLine(string message) | Append new-line character at the end of the message |
+| void clear() | Clear console |
 | void toggleConsole() | Show console |

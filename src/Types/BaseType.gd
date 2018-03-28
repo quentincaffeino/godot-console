@@ -1,10 +1,10 @@
 
-extends Object
+extends Reference
 
 
 enum CHECK \
 {
-	CANCELED = 2
+  CANCELED = 2
 }
 
 
@@ -24,21 +24,21 @@ var _rematch
 #
 # @param  Varian  value
 func check(value):  # int
-	var regex = Console.RegExLib.get(_type)
+  var regex = Console.RegExLib.get(_type)
 
-	if regex and regex is RegEx:
-		_rematch = regex.search(value)
+  if regex and regex is RegEx:
+    _rematch = regex.search(value)
 
-		if _rematch and _rematch is RegExMatch:
-			return OK
+    if _rematch and _rematch is RegExMatch:
+      return OK
 
-	return FAILED
+  return FAILED
 
 
 # Returns assigned variable
 func get():  # Variant
-	pass
+  pass
 
 
 func getName():  # string
-	return _name
+  return _name
