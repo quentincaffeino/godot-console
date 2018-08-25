@@ -2,32 +2,31 @@
 extends 'BaseRange.gd'
 
 
-# @param  float  inMinValue
-# @param  float  inMaxValue
-# @param  float  inStep
-func _init(inMinValue = 0, inMaxValue = 100, inStep = 0):
-  _name = 'FloatRange'
-  minValue = float(inMinValue)
-  maxValue = float(inMaxValue)
-  step = float(inStep)
+# @param  float  minValue
+# @param  float  maxValue
+# @param  float  step
+func _init(minValue = 0.0, maxValue = 100.0, step = 0.1).(minValue, maxValue, step):
+  self._name = 'FloatRange'
+  self._type = TYPE_REAL
 
 
-# @param  Varian  value
-func check(value):  # int
-  value = clamp(float(value), minValue, maxValue)
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  var value = float(_rematch.get_string())
+  value = clamp(value, self._minValue, self._maxValue)
 
-  # Find closest step
-  if step != 0 and value != minValue:
-    var prevVal = minValue
-    var curVal = minValue
+  if self._step != 0 and value != self._minValue:
+    var prevVal = self._minValue
+    var curVal = self._minValue
 
     while curVal < value:
       prevVal = curVal
-      curVal += step
+      curVal += self._step
 
-    if curVal - value < value - prevVal and curVal <= maxValue:
-      _value = curVal
+    if curVal - value < value - prevVal and curVal <= self._maxValue:
+      value = curVal
     else:
-      _value = prevVal
+      value = prevVal
 
-  return OK
+  self._normalizedValue = value

@@ -1,9 +1,5 @@
 
-extends 'BaseType.gd'
-
-
-# @var  string
-var _value
+extends 'Any.gd'
 
 
 func _init():
@@ -11,11 +7,7 @@ func _init():
   _type = TYPE_STRING
 
 
-# @param  Varian  value
-func check(value):  # int
-  _value = str(value)
-  return OK
-
-
-func get():  # string
-  return _value
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  self._normalizedValue = str(originalValue)

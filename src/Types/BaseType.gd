@@ -4,7 +4,9 @@ extends Reference
 
 enum CHECK \
 {
-  CANCELED = 2
+  OK,
+  FAILED,
+  CANCELED
 }
 
 
@@ -17,15 +19,22 @@ var _type = -1
 # @var  RegExMatch
 var _rematch
 
+# @var  Variant
+var _normalizedValue
+
 
 # Assignment check.
 # Returns one of the statuses:
 # OK, FAILED and CANCELED
-#
-# @param  Varian  value
-func check(value):  # int
-  var regex = Console.RegExLib.get(_type)
+# @param  Varian  originalValue
+func check(originalValue):  # int
+  var regex = Console.RegExLib.getPatternFor(_type)
+  return self.recheck(regex, originalValue)
 
+
+# @param  RegEx   regex
+# @param  Varian  value
+func recheck(regex, value):
   if regex and regex is RegEx:
     _rematch = regex.search(value)
 
@@ -35,10 +44,15 @@ func check(value):  # int
   return FAILED
 
 
-# Returns assigned variable
-func get():  # Variant
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
   pass
 
 
-func getName():  # string
-  return _name
+func getNormalizedValue():  # Variant
+  return self._normalizedValue
+
+
+func toString():  # string
+  return self._name

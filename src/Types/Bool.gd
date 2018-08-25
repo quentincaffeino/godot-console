@@ -7,10 +7,10 @@ func _init():
   _type = TYPE_BOOL
 
 
-func get():  # bool
-  if _rematch and _rematch is RegExMatch:
-    var tmp = _rematch.get_string()
-
-    return true if tmp == '1' or tmp == 'true' else false
-
-  return false
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  if _rematch.get_string() == '1' or _rematch.get_string() == 'true':
+    self._normalizedValue = true
+  else:
+    self._normalizedValue = false

@@ -1,5 +1,6 @@
 
 extends Reference
+# TODO: As soon as GVen will be finished remove this class
 
 
 enum TYPE \
@@ -58,7 +59,7 @@ func ensure():  # bool
   return true
 
 
-# @param  Array<Variant>  argv
+# @param  Variant[]  argv
 func call(argv = []):  # Variant
   argv = toArray(argv)
 
@@ -117,7 +118,7 @@ static func getType(target, name):  # int
 # If passed `value` isn't type of array, wrap it into array.
 #
 # @param  Variant  value
-static func toArray(value):  # Array<Variant>
+static func toArray(value):  # Variant[]
   if !(typeof(value) >= TYPE_ARRAY and typeof(value) <= TYPE_COLOR_ARRAY):
     if typeof(value) != TYPE_NIL:
       return [value]

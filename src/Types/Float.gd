@@ -7,8 +7,7 @@ func _init():
   _type = TYPE_REAL
 
 
-func get():  # float
-  if _rematch and _rematch is RegExMatch:
-    return float(_rematch.get_string().replace(',', '.'))
-
-  return 0.0
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  self._normalizedValue = float(_rematch.get_string().replace(',', '.'))

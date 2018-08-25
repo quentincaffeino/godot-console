@@ -1,66 +1,64 @@
 
 extends Reference
 
-const Argument = preload('../Argument/Argument.gd')
+const Argument = preload('Argument.gd')
 
 
 # @var  string
-var _alias
+var _name
 
 # @var  Callback
 var _target
 
-# @var  Array<Argument>
-var _arguments = []
+# @var  Argument[]
+var _arguments
 
 # @var  string|null
 var _description
 
 
-# @param  string           alias
+# @param  string           name
 # @param  Callback         target
-# @param  Array<Argument>  arguments
+# @param  Argument[]  arguments
 # @param  string|null      description
-func _init(alias, target, arguments, description = null):
-  _alias = str(alias)
-  _target = target
-  _arguments = arguments
-
-  # Set description
-  _description = description
-  if !description:
-    Console.Log.info('No description provided for [b]' + _alias + '[/b] command', \
-      'Command: _init')
+func _init(name, target, arguments, description = null):
+  self._name = name
+  self._target = target
+  self._arguments = arguments
+  self._description = description
 
 
 # @param  Array  inArgs
-func run(inArgs):  # int
-  # Get arguments
+func execute(inArgs):  # Variant
   var args = []
   var argAssig
-  for i in range(_arguments.size()):
-    argAssig = _arguments[i].setValue(inArgs[i])
+
+  var i = 0
+  while i < self._arguments.size() and i < inArgs.size():
+    argAssig = self._arguments[i].setValue(inArgs[i])
 
     if argAssig == FAILED:
-      Console.Log.warn('Argument ' + str(i) + ': expected ' + _arguments[i]._type._name)
-      return FAILED
+      Console.Log.warn(\
+        'Expected ' + self._arguments[i].getType().describe() + \
+        ' ' + str(i + 1) + 'as argument.')
+      return
     elif argAssig == Argument.CANCELED:
       return OK
 
-    args.append(_arguments[i].value)
+    args.append(self._arguments[i].getValue())
+    i += 1
 
   # Execute command
-  _target.call(args)
-
-  return OK
+  return self._target.call(args)
 
 
 func describe():  # void
-  Console.write("[color=#ffff66][url=" + _alias + "]" + _alias + "[/url][/color]")
+  Console.write(\
+    '[color=#ffff66][url=' + self._name + ']' + self._name + '[/url][/color]')
 
-  if _arguments.size() > 0:
-    for arg in _arguments:
-      Console.write(" [color=#88ffff]" + arg.toString() + "[/color]")
+  if self._arguments.size() > 0:
+    for arg in self._arguments:
+      Console.write(' [color=#88ffff]' + arg.describe() + '[/color]')
 
   if _description:
     Console.write(' - ' + _description)
@@ -68,36 +66,28 @@ func describe():  # void
   Console.writeLine()
 
 
-func requireArgs():  # int
-  return _arguments.size()
+# TODO: Deprecated, remove
+# func requireArgs():  # int
+#   return self._arguments.size()
 
 
-func requireStrings():  # bool
-  for arg in _arguments:
-    if arg._type._name == 'Any' or arg._type._type == TYPE_STRING:
-      return true
+# TODO: Deprecated, remove
+# func requireStrings():  # bool
+#   for arg in self._arguments:
+#     if arg._type._name == 'Any' or arg._type._type == TYPE_STRING:
+#       return true
 
-  return false
+#   return false
 
 
-# @param  string      alias
+# @param  string      name
 # @param  Dictionary  params
-static func build(alias, params):  # Command
-  # Warn
-  if params.has('type'):
-    Console.Log.warn(\
-      'Using deprecated argument [b]type[/b] in [b]' + alias + '[/b].', \
-      'CommandBuilder: build')
-  if params.has('name'):
-    Console.Log.warn(\
-      'Using deprecated argument [b]name[/b] in [b]' + alias + '[/b].', \
-      'CommandBuilder: build')
-
+static func build(name, params):  # Command
   # Check target
   if !params.has('target') or !params.target:
     Console.Log.error(\
-      'Failed to register [b]' + alias + '[/b] command. Missing [b]target[/b] parametr.', \
-      'CommandBuilder: build')
+      'QC/Console/Command/Command: build: Failed to register [b]`' + \
+      name + '`[/b] command. Missing [b]`target`[/b] parametr.')
     return
 
   # Create target if old style used
@@ -108,32 +98,30 @@ static func build(alias, params):  # Command
     if typeof(params.target) == TYPE_ARRAY:
       target = params.target[0]
 
-    var name = alias
+    var targetName = name
 
     if typeof(params.target) == TYPE_ARRAY and \
         params.target.size() > 1 and \
         typeof(params.target[1]) == TYPE_STRING:
-      name = params.target[1]
+      targetName = params.target[1]
     elif params.has('name'):
-      name = params.name
+      targetName = params.name
 
-    if Console.Callback.canCreate(target, name):
-      params.target = Console.Callback.new(target, name)
+    if Console.Callback.canCreate(target, targetName):
+      params.target = Console.Callback.new(target, targetName)
     else:
       params.target = null
 
   if params.target:
     if not params.target is Console.Callback:
       Console.Log.error(\
-        'Failed to register [b]' + alias + \
-          '[/b] command. Failed to create callback to target', \
-        'CommandBuilder: build')
+        'QC/Console/Command/Command: build: Failed to register [b]`' + \
+        name + '`[/b] command. Failed to create callback to target')
       return
   else:
     Console.Log.error(\
-      'Failed to register [b]' + alias + \
-        '[/b] command. Failed to create callback to target', \
-      'CommandBuilder: build')
+      'QC/Console/Command/Command: build: Failed to register [b]`' + \
+      name + '`[/b] command. Failed to create callback to target')
     return
 
   # Set arguments
@@ -151,12 +139,11 @@ static func build(alias, params):  # Command
 
   if typeof(params.args) == TYPE_INT:
     Console.Log.error(\
-      'Failed to register [b]' + alias + \
-        '[/b] command. Wrong [b]arguments[/b] parametr.', \
-      'CommandBuilder: build')
+      'QC/Console/Command/Command: build: Failed to register [b]`' + \
+      name + '`[/b] command. Wrong [b]`arguments`[/b] parametr.')
     return
 
   if !params.has('description'):
     params.description = null
 
-  return new(alias, params.target, params.args, params.description)
+  return new(name, params.target, params.args, params.description)

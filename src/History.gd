@@ -1,42 +1,39 @@
 
-extends Reference
+extends 'res://vendor/quentincaffeino/array-utils/src/Collection.gd'
 
 
-# @param  Array<string>
-var _history = []
-
-# @param  int
-var _current = -1
+# @var  int
+var _maxLength = 10
 
 
-# @param  string  command
+# @param  Command/CommandHandler  command
 func push(command):  # void
-  if _history.size() > 0 and _history[_history.size() - 1] == command:
+  if self.length and self.last().getText() == command.getText():
     return
 
-  _history.append(command)
+  if self.length == self._maxLength:
+    self.removeByIndex(0)
+
+  self.add(command)
 
 
-func prev():  # string
-  if _history.size() > 0 and _current < _history.size() - 1:
-    _current += 1
-    return _history[_history.size() - _current - 1]
+func getMaxLength():  # int
+  return self._maxLength
 
 
-func next():  # string
-  if _history.size() > 0 and _current > 0:
-    _current -= 1
-    return _history[_history.size() - _current - 1]
-  else:
-    reset()
-
-
-func reset():  # void
-  _current = -1
+# @param  int  maxLength
+func setMaxLength(maxLength):  # History
+  self._maxLength = maxLength
+  return self
 
 
 func printAll():  # void
-  for i in range(_history.size()):
+  var i = 1
+  var commandText
+  self.first()
+  for key in self:
+    commandText = self._collection[key].getText()
     Console.writeLine(\
-      '[b]' + str(i + 1) + '.[/b] [color=#ffff66][url=' + \
-      _history[i] + ']' + _history[i] + '[/url][/color]')
+      '[b]' + str(i) + '.[/b] [color=#ffff66][url=' + \
+      commandText + ']' + commandText + '[/url][/color]')
+    i += 1

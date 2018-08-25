@@ -3,40 +3,46 @@ extends 'BaseRange.gd'
 
 
 # @var  bool
-var rounded = true setget _setRounded
+var _rounded
 
 
-# @param  int  inMinValue
-# @param  int  inMaxValue
-# @param  int  inStep
-func _init(inMinValue = 0, inMaxValue = 100, inStep = 1):
-  _name = 'IntRange'
-  minValue = int(inMinValue)
-  maxValue = int(inMaxValue)
-  step = int(inStep)
+# @param  int  minValue
+# @param  int  maxValue
+# @param  int  step
+func _init(minValue = 0, maxValue = 100, step = 1, rounded = true).(minValue, maxValue, step):
+  self._name = 'IntRange'
+  self._type = TYPE_REAL
+  self.setRounded(rounded)
 
 
-# @param  Varian  value
-func check(value):  # int
-  value = clamp(int(value), minValue, maxValue)
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  var value = float(_rematch.get_string())
+  value = clamp(value, self._minValue, self._maxValue)
 
   # Find closest step
-  if step != 1 and value != minValue:
-    var prevVal = minValue
-    var curVal = minValue
+  if self._step != 1 and value != self._minValue:
+    var prevVal = self._minValue
+    var curVal = self._minValue
 
     while curVal < value:
       prevVal = curVal
-      curVal += step
+      curVal += self._step
 
-    if curVal - value < value - prevVal and curVal <= maxValue:
-      _value = curVal
+    if curVal - value < value - prevVal and curVal <= self._maxValue:
+      value = curVal
     else:
-      _value = prevVal
+      value = prevVal
 
-  return OK
+  self._normalizedValue = value
+
+
+func isRounded():  # bool
+  return self._rounded
 
 
 # @param  bool  value
-func _setRounded(value):
-  rounded = (value == true)
+func setRounded(value):  # self
+  self._rounded = (value == true)
+  return self

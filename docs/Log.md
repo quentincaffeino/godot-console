@@ -15,10 +15,9 @@
 |--|--|
 | *void* setLogLevel(*int* inLogLevel = TYPE) | Messages lower than provided level won't be printed in console output |
 | *void* log(*string* message, *int* type = TYPE) |  |
-| *void* info(*string* message, *string* debugInfo = '') |  |
-| *void* warn(*string* message, *string* debugInfo = '') |  |
-| *void* error(*string* message, *string* debugInfo = '') |  |
-| *void* debug(*string* message, *string* debugInfo = '') | Printed only if debug mode is enabled |
+| *void* info(*string* message) |  |
+| *void* warn(*string* message) |  |
+| *void* error(*string* message) |  |
 
 
 #### Enums

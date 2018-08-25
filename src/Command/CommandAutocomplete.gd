@@ -5,7 +5,7 @@ extends Reference
 # @var  string
 var _filter = null
 
-# @var  Array<string>
+# @var  string[]
 var _filtered = []
 
 # @param  int

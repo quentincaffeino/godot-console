@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="Console.gd" type="Script" id=1]
 [ext_resource path="../assets/fonts/RobotoMono/RobotoMono-BoldItalic.ttf" type="DynamicFontData" id=2]
 [ext_resource path="../assets/fonts/RobotoMono/RobotoMono-Italic.ttf" type="DynamicFontData" id=3]
 [ext_resource path="../assets/fonts/RobotoMono/RobotoMono-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="../assets/fonts/RobotoMono/RobotoMono-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="ConsoleLine.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -12,7 +13,7 @@ length = 0.25
 loop = false
 step = 0.05
 tracks/0/type = "method"
-tracks/0/path = NodePath("Container/LineEdit")
+tracks/0/path = NodePath("Container/ConsoleLine")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -177,8 +178,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 265.0
+margin_right = 1280.0
+margin_bottom = 325.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 focus_neighbour_left = NodePath("../LineEdit")
@@ -211,15 +212,15 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Anchor", "BBCode", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="LineEdit" type="LineEdit" parent="ConsoleBox/Container" index="1"]
+[node name="ConsoleLine" type="LineEdit" parent="ConsoleBox/Container" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 269.0
-margin_right = 1024.0
-margin_bottom = 300.0
+margin_top = 329.0
+margin_right = 1280.0
+margin_bottom = 360.0
 rect_pivot_offset = Vector2( 0, 0 )
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath(".")
@@ -234,13 +235,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_styles/focus = SubResource( 8 )
 custom_fonts/font = SubResource( 9 )
-text = "ADFDAS"
 focus_mode = 2
 context_menu_enabled = true
 placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Material", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 

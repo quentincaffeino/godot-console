@@ -4,39 +4,39 @@ extends Reference
 
 func _init():
   Console.register('echo', {
-    'description': 'Prints a string in console',
+    'description': 'Prints a string.',
     'args': [TYPE_STRING],
     'target': [Console, 'writeLine']
   })
 
   Console.register('history', {
-    'description': 'Print all previous commands used during the session',
-    'target': [Console._History, 'printAll']
+    'description': 'Print all previous commands used during the session.',
+    'target': [Console.History, 'printAll']
   })
 
   Console.register('commands', {
-    'description': 'Lists all available commands',
-    'target': [Console._Commands, 'printAll']
+    'description': 'Lists all available commands.',
+    'target': [Console._rootGroup, 'printAll']
   })
 
   Console.register('help', {
-    'description': 'Outputs usage instructions',
+    'description': 'Outputs usage instructions.',
     'args': [TYPE_STRING],
     'target': self
   })
 
   Console.register('quit', {
-    'description': 'Exit application',
+    'description': 'Exit application.',
     'target': self
   })
 
   Console.register('clear', {
-    'description': 'Clear the terminal',
+    'description': 'Clear the terminal.',
     'target': Console
   })
 
   Console.register('version', {
-    'description': 'Shows engine vesion',
+    'description': 'Shows engine vesion.',
     'target': self
   })
 
@@ -50,13 +50,13 @@ func _init():
 # @param  string|null  command
 static func help(command = null):
   if command:
-    var Command = Console._Commands.get(command)
+    command = Console.getCommand(command)
 
-    if !Command:
-      Console.Log.warn('No such command')
+    if !command:
+      Console.Log.warn('No such command.')
       return
 
-    Command.describe()
+    command.getCommand().describe()
   else:
     Console.writeLine(\
       "Type [color=#ffff66][url=help]help[/url] <command-name>[/color] show information about command.\n" + \

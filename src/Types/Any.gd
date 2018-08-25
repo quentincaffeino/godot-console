@@ -2,19 +2,19 @@
 extends 'BaseType.gd'
 
 
-# @var  Variant
-var _value
-
-
 func _init():
-  _name = 'Any'
+  self._name = 'Any'
 
 
-# @param  Varian  value
-func check(value):  # int
-  _value = value
+# Assignment check.
+# Returns one of the statuses:
+# OK, FAILED and CANCELED
+# @param  Varian  originalValue
+func check(originalValue):  # int
   return OK
 
 
-func get():  # Variant
-  return _value
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  self._normalizedValue = originalValue

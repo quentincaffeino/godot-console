@@ -7,8 +7,7 @@ func _init():
   _type = TYPE_INT
 
 
-func get():  # int
-  if _rematch and _rematch is RegExMatch:
-    return int(_rematch.get_string())
-
-  return 0
+# Normalize variable
+# @param  Varian  originalValue
+func normalize(originalValue):  # void
+  self._normalizedValue = int(_rematch.get_string())
