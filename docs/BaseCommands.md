@@ -2,7 +2,7 @@
 # **BaseCommands** extends Reference
 
 
-[Code](https://github.com/QuentinCaffeino/godot-console/blob/master/src/BaseCommands.gd)
+[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/BaseCommands.gd)
 
 
 #### Member Functions

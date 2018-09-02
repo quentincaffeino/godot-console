@@ -2,7 +2,7 @@
 # **History** extends QC/ArrayUtils/Collection
 
 
-[Code](https://github.com/QuentinCaffeino/godot-console/blob/master/src/History.gd)
+[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/History.gd)
 
 
 #### Member Functions

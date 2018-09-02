@@ -4,20 +4,20 @@
 
 ### Engine types:
 
-[`TYPE_BOOL`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/Bool.gd), [`TYPE_INT`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/Int.gd), [`TYPE_REAL`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/Float.gd), [`TYPE_STRING`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/String.gd), [`TYPE_VECTOR2`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/Vector2.gd)
+[`TYPE_BOOL`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/Bool.gd), [`TYPE_INT`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/Int.gd), [`TYPE_REAL`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/Float.gd), [`TYPE_STRING`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/String.gd), [`TYPE_VECTOR2`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/Vector2.gd)
 
 
 ### Custom types:
 
- - [**IntRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types/IntRange.md) (*int* min_value = 0, *int* max_value = 100, *int* step = 1)
+ - [**IntRange**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/IntRange.md) (*int* min_value = 0, *int* max_value = 100, *int* step = 1)
 
 Difference between Int range and Float range is that in Int range values are rounded to integers.
 
 
-- [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types/FloatRange.md) (*float* min_value = 0, *float* max_value = 100, *float* step = 0)
+- [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/FloatRange.md) (*float* min_value = 0, *float* max_value = 100, *float* step = 0)
 
 
-- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types/Filter.md) (*Array* filterList, *int* mode = ALLOW)
+- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Filter.md) (*Array* filterList, *int* mode = ALLOW)
 
 Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`
 
@@ -38,4 +38,4 @@ func _ready():
 
 ### Adding your own types
 
-To add custom type extend [`Console/Commands/Types/BaseType.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/BaseType.gd)
+To add custom type extend [`Console/Commands/Types/BaseType.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/BaseType.gd)

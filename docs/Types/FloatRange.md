@@ -2,7 +2,7 @@
 # **FloatRange** extends BaseRange
 
 
-[Code](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/FloatRange.gd)
+[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/FloatRange.gd)
 
 
 #### Member Functions
