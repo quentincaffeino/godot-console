@@ -137,7 +137,7 @@ static func parseCommands(sCommand):  # Array
       })
       beginning = i + 1
 
-    # Save separated arg
+    # Save separated argument
     if subString != null and typeof(subString) == TYPE_STRING and !subString.empty():
       if !result[currentCommand].name:
         result[currentCommand].name = subString

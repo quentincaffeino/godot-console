@@ -1,5 +1,5 @@
 
-extends 'res://vendor/quentincaffeino/array-utils/src/Collection.gd'
+extends '../vendor/quentincaffeino/array-utils/src/Collection.gd'
 
 
 # @var  int

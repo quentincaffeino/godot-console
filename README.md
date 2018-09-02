@@ -32,33 +32,33 @@ In-game console for Godot, easily extensible with new commands.
 func _ready():
 	Console.register('sayHello', { # Command name
 
-		'description': 'Prints hello world',
+		'description': 'Prints "Hello %name%!"',
 
-		'args': [ARGUMENT, ...],
-			# This argument is obsolete if
-			# target function doesn't
-			# take any arguments
+		# This argument is obsolete if target function doesn't take any arguments.
+		# If target is a variable then it takes one argument to set it, and zero to get its value.
+		# You can fild more about how argument should look like below.
+		# ARGUMENT[]
+		'args': [[ 'name', TYPE_STRING ]],
 
+		# Target to bind command to.
+		# Providing name is obsolete if it is same as a command name.
 			# [Object, variable/method name]
-		'target': [self, 'print_hello']
-			# Target to bind command.
-			# Providing name is obsolete
-			# if command name is same.
+		'target': [ self, 'printHello' ]
 
 	})
 
-func print_hello():
-	Console.writeLine('Hello world!')
+func printHello(name = ''):
+	Console.writeLine('Hello ' + name + '!')
 ```
 
 ***ARGUMENT*** should look like this:
-- ['arg_name', [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md)]
+- [ 'arg_name', [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md) ]
 - 'arg_name' — In this situation type will be set to Any
 - [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md)
 
-More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md) you can find in [this readme](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md).
+More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md) you can find [here](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types.md).
 
-You can find more examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/BaseCommands.gd)
+More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/master/src/BaseCommands.gd)
 
 ----------
 

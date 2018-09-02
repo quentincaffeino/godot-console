@@ -55,7 +55,7 @@ func describe():  # string
   if self._name:
     argumentName += self._name + ':'
 
-  argumentName += self._type.describe()
+  argumentName += self._type.toString()
 
   return argumentName
 
@@ -85,14 +85,16 @@ static func build(name, type = 0):  # Argument|int
 
 # @param  Array  args
 static func buildAll(args):  # Argument[]|int
+  # @var  Argument[]|int  builtArgs
   var builtArgs = []
 
+  # @var  Argument|int|null  tempArg
   var tempArg
   for arg in args:
     tempArg = null
 
     match typeof(arg):
-      # [ 'argName', ARG_TYPE ]
+      # [ 'argName', BaseType|ARG_TYPE ]
       TYPE_ARRAY:
         tempArg = build(arg[0], arg[1] if arg.size() > 1 else 0)
 

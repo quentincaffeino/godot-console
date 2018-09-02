@@ -2,7 +2,7 @@
 extends CanvasLayer
 
 const BaseCommands = preload('BaseCommands.gd')
-const Callback = preload('Callback.gd')
+const Callback = preload('../vendor/quentincaffeino/callback/src/Callback.gd')
 const Group = preload('Command/Group.gd')
 
 ### Custom console types
@@ -54,13 +54,13 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 
 func _init():
-  self._rootGroup = Group.new('root', 'root')
+  self._rootGroup = Group.new('root')
   # Used to clear text from bb tags
   self._eraseTrash = RegExLib.getPatternFor('console.eraseTrash')
 
 
 func _ready():
-# Allow selecting console text
+  # Allow selecting console text
   self.Text.set_selection_enabled(true)
   # Follow console output (for scrolling)
   self.Text.set_scroll_follow(true)
@@ -97,10 +97,10 @@ func getCommand(name):  # Command/CommandHandler|null
   return self._rootGroup.getCommand(name)
 
 
-# @param  string      name
-# @param  Dictionary  params
-func register(name, params):  # bool
-  return self._rootGroup.registerCommand(name, params)
+# @param  string  name
+# @param  Array   parparametersams
+func register(name, parameters):  # bool
+  return self._rootGroup.registerCommand(name, parameters)
 
 
 # @param  string  name

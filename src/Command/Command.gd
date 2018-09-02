@@ -17,15 +17,31 @@ var _arguments
 var _description
 
 
-# @param  string           name
-# @param  Callback         target
-# @param  Argument[]  arguments
-# @param  string|null      description
-func _init(name, target, arguments, description = null):
+# @param  string       name
+# @param  Callback     target
+# @param  Argument[]   arguments
+# @param  string|null  description
+func _init(name, target, arguments = [], description = null):
   self._name = name
   self._target = target
   self._arguments = arguments
   self._description = description
+
+
+func getName():  # string
+  return self._name
+
+
+func getTarget():  # Callback
+  return self._target
+
+
+func getArguments():  # Argument[]
+  return self._arguments
+
+
+func getDescription():  # string|null
+  return self._description
 
 
 # @param  Array  inArgs
@@ -66,84 +82,70 @@ func describe():  # void
   Console.writeLine()
 
 
-# TODO: Deprecated, remove
-# func requireArgs():  # int
-#   return self._arguments.size()
-
-
-# TODO: Deprecated, remove
-# func requireStrings():  # bool
-#   for arg in self._arguments:
-#     if arg._type._name == 'Any' or arg._type._type == TYPE_STRING:
-#       return true
-
-#   return false
-
-
-# @param  string      name
-# @param  Dictionary  params
-static func build(name, params):  # Command
+# @var  string  name
+# @var  Array   parameters
+static func build(name, parameters):  # Command|null
   # Check target
-  if !params.has('target') or !params.target:
+  if !parameters.has('target') or !parameters.target:
     Console.Log.error(\
-      'QC/Console/Command/Command: build: Failed to register [b]`' + \
+      'QC/Console/Command/Command: build: Failed to create [b]`' + \
       name + '`[/b] command. Missing [b]`target`[/b] parametr.')
     return
 
   # Create target if old style used
-  if typeof(params.target) != TYPE_OBJECT or \
-      !(params.target is Console.Callback):
+  if typeof(parameters.target) != TYPE_OBJECT or \
+      !(parameters.target is Console.Callback):
 
-    var target = params.target
-    if typeof(params.target) == TYPE_ARRAY:
-      target = params.target[0]
+    var target = parameters.target
+    if typeof(parameters.target) == TYPE_ARRAY:
+      target = parameters.target[0]
 
     var targetName = name
 
-    if typeof(params.target) == TYPE_ARRAY and \
-        params.target.size() > 1 and \
-        typeof(params.target[1]) == TYPE_STRING:
-      targetName = params.target[1]
-    elif params.has('name'):
-      targetName = params.name
+    if typeof(parameters.target) == TYPE_ARRAY and \
+        parameters.target.size() > 1 and \
+        typeof(parameters.target[1]) == TYPE_STRING:
+      targetName = parameters.target[1]
+    elif parameters.has('name'):
+      targetName = parameters.name
 
     if Console.Callback.canCreate(target, targetName):
-      params.target = Console.Callback.new(target, targetName)
+      parameters.target = Console.Callback.new(target, targetName)
     else:
-      params.target = null
+      parameters.target = null
 
-  if params.target:
-    if not params.target is Console.Callback:
+  if parameters.target:
+    if not parameters.target is Console.Callback:
       Console.Log.error(\
-        'QC/Console/Command/Command: build: Failed to register [b]`' + \
+        'QC/Console/Command/Command: build: Failed to create [b]`' + \
         name + '`[/b] command. Failed to create callback to target')
       return
   else:
     Console.Log.error(\
-      'QC/Console/Command/Command: build: Failed to register [b]`' + \
+      'QC/Console/Command/Command: build: Failed to create [b]`' + \
       name + '`[/b] command. Failed to create callback to target')
     return
 
   # Set arguments
-  if params.target._type == Console.Callback.VARIABLE and params.has('args'):
+  if parameters.target._type == Console.Callback.VARIABLE and parameters.has('args'):
     # Ignore all arguments except first cause variable takes only one arg
-    params.args = [params.args[0]]
+    parameters.args = [parameters.args[0]]
 
-  if params.has('arg'):
-    params.args = Argument.buildAll([ params.arg ])
-    params.erase('arg')
-  elif params.has('args'):
-    params.args = Argument.buildAll(params.args)
+  if parameters.has('arg'):
+    parameters.args = Argument.buildAll([ parameters.arg ])
+    parameters.erase('arg')
+  elif parameters.has('args'):
+    parameters.args = Argument.buildAll(parameters.args)
   else:
-    params.args = []
+    parameters.args = []
 
-  if typeof(params.args) == TYPE_INT:
+  if typeof(parameters.args) == TYPE_INT:
     Console.Log.error(\
       'QC/Console/Command/Command: build: Failed to register [b]`' + \
       name + '`[/b] command. Wrong [b]`arguments`[/b] parametr.')
     return
 
-  if !params.has('description'):
-    params.description = null
+  if !parameters.has('description'):
+    parameters.description = null
 
-  return new(name, params.target, params.args, params.description)
+  return new(name, parameters.target, parameters.args, parameters.description)

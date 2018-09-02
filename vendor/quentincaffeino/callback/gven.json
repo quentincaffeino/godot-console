@@ -1,0 +1,9 @@
+{
+  "name": "quentincaffeino/callback",
+  "dependencies": [
+    "quentincaffeino/array-utils"
+  ],
+  "autoload": {
+    "QC/Callback": "src"
+  }
+}
