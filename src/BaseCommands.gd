@@ -47,6 +47,7 @@ func _init():
   })
 
 
+# Display help message or display description for the command.
 # @param  string|null  command
 static func help(command = null):
   if command:
@@ -64,10 +65,12 @@ static func help(command = null):
       "Type [color=#ffff66][url=quit]quit[/url][/color] to exit the application.")
 
 
+# Prints out engine version.
 static func version():  # void
   Console.writeLine(Engine.get_version_info())
 
 
+# Quitting application.
 static func quit():  # void
   Console.Log.warn('Quitting application...')
   Console.get_tree().quit()

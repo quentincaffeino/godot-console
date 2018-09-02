@@ -9,15 +9,15 @@
 
 ### Custom types:
 
- - [**IntRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/IntRange.gd) (*int* min_value = 0, *int* max_value = 100, *int* step = 1)
+ - [**IntRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types/IntRange.md) (*int* min_value = 0, *int* max_value = 100, *int* step = 1)
 
 Difference between Int range and Float range is that in Int range values are rounded to integers.
 
 
-- [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/FloatRange.gd) (*float* min_value = 0, *float* max_value = 100, *float* step = 0)
+- [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types/FloatRange.md) (*float* min_value = 0, *float* max_value = 100, *float* step = 0)
 
 
-- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Types/Filter.gd) (*Array* filterList, *int* mode = ALLOW)
+- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/master/docs/Types/Filter.md) (*Array* filterList, *int* mode = ALLOW)
 
 Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`
 
@@ -30,8 +30,8 @@ var health = 5
 func _ready():
 	Console.register('set_health', {
 		'description': 'Set health',
-		'args': [Console.FloatRange.new(0, 5, 0.5)],
-		'target': [self, 'health']
+		'args': [ Console.FloatRange.new(0, 5, 0.5) ],
+		'target': [ self, 'health' ]
 	})
 ```
 

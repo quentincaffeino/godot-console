@@ -1,4 +1,5 @@
 
+# @deprecated
 extends Reference
 
 const Command = preload('Command/Command.gd')

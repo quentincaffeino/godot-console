@@ -1,27 +1,36 @@
 
-# Console
+# **Console** extends CanvasLayer
+
+
+[Code](https://github.com/QuentinCaffeino/godot-console/blob/master/src/Console.gd)
 
 
 #### Memeber Properties
 
 | Properties | Description |
 |--|--|
-| [Log](https://github.com/QuentinCaffeino/godot-console/blob/docs/Log.md) | Logging class |
-| [RegExLib](https://github.com/QuentinCaffeino/godot-console/blob/src/RegExLib.gd) | Regex used by console |
+| const [*BaseCommands*](https://github.com/QuentinCaffeino/godot-console/blob/docs/BaseCommands.md) | Thats where all the base functions lies. |
+| const [*IntRange*](https://github.com/QuentinCaffeino/godot-console/blob/docs/Types/IntRange.md) | Custom IntRange type class. |
+| const [*FloatRange*](https://github.com/QuentinCaffeino/godot-console/blob/docs/Types/FloatRange.md) | Custom FloatRange type class. |
+| const [*Filter*](https://github.com/QuentinCaffeino/godot-console/blob/docs/Types/Filter.md) | Custom Filter type class. |
+| readonly [*History*](https://github.com/QuentinCaffeino/godot-console/blob/docs/History.md) | History class. |
+| readonly [*Log*](https://github.com/QuentinCaffeino/godot-console/blob/docs/Log.md) | Logging class. |
+| readonly [*RegExLib*](https://github.com/QuentinCaffeino/godot-console/blob/src/RegExLib.gd) | Regex used by console. |
 | readonly *bool* isConsoleShown |  |
-| *bool* submitAutocomplete  | Autocomplete command when `ENTER` is pressed. Default: true |
-| *string* action_console_toggle | Action name used to open the console |
-| *string* action_history_up | Action name used to scroll history up |
-| *string* action_history_down | Action name used to scroll history down |
+| *bool* submitAutocomplete  | Autocomplete command when `ENTER` is pressed. Default: *true*. |
+| *string* action_console_toggle | Action name used to open the console. Default: *console_toggle*. |
+| *string* action_history_up | Action name used to scroll history up. Default: *ui_up*. |
+| *string* action_history_down | Action name used to scroll history down. Default: *ui_down*. |
 
 
 #### Member Functions
 
 | Methods | Description |
 |--|--|
-| *int* register(*string* alias, *Dictionary* params) | Register command |
-| *int* unregister(*string* alias) | Unregister command |
-| void write(string message) |  |
-| void writeLine(string message) | Append new-line character at the end of the message |
-| void clear() | Clear console |
-| void toggleConsole() | Show console |
+| *Command/CommandHandler\|null* getCommand(*string* name) | Get command by name. |
+| *bool* register(*string* name, *Variant[][]* parameters = []) | Register command. |
+| *int* unregister(*string* name) | Unregister command. |
+| *void* write(*string* message) | Writes message to the console and engine output. |
+| *void* writeLine(*string* message = '') | Writes message and appends new-line character at the end of the message. |
+| *void* clear() | Clear console. |
+| *void* toggleConsole() | Show console. |

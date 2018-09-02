@@ -6,16 +6,17 @@ extends 'BaseRange.gd'
 var _rounded
 
 
-# @param  int  minValue
-# @param  int  maxValue
-# @param  int  step
+# @param  int   minValue
+# @param  int   maxValue
+# @param  int   step
+# @param  bool  rounded
 func _init(minValue = 0, maxValue = 100, step = 1, rounded = true).(minValue, maxValue, step):
   self._name = 'IntRange'
   self._type = TYPE_REAL
   self.setRounded(rounded)
 
 
-# Normalize variable
+# Normalize variable.
 # @param  Varian  originalValue
 func normalize(originalValue):  # void
   var value = float(_rematch.get_string())

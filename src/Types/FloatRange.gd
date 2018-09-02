@@ -10,8 +10,8 @@ func _init(minValue = 0.0, maxValue = 100.0, step = 0.1).(minValue, maxValue, st
   self._type = TYPE_REAL
 
 
-# Normalize variable
-# @param  Varian  originalValue
+# Normalize variable.
+# @param  Variant  originalValue
 func normalize(originalValue):  # void
   var value = float(_rematch.get_string())
   value = clamp(value, self._minValue, self._maxValue)
