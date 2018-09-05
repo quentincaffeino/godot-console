@@ -11,10 +11,6 @@ const FloatRange = preload('Types/FloatRange.gd')
 const Filter = preload('Types/Filter.gd')
 
 
-# @deprecated
-# @var  Commands
-var _Commands = preload('Commands.gd').new()
-
 # @var  History
 var History = preload('History.gd').new() setget _setProtected
 
@@ -99,15 +95,14 @@ func getCommand(name):  # Command/CommandHandler|null
 
 
 # @param  string  name
-# @param  Array   parparametersams
+# @param  Variant[]   parparametersams
 func register(name, parameters = []):  # bool
   return self._rootGroup.registerCommand(name, parameters)
 
 
-# TODO: Map onto new groups system
 # @param  string  name
 func unregister(name):  # int
-  return self._Commands.unregister(name)
+  return self._rootGroup.unregisterCommand(name)
 
 
 # @param  string  message

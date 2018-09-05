@@ -10,7 +10,7 @@ const COMMAND_SEPARATOR = ';'
 # @const  string
 const ARGUMENT_SEPARATOR = ' '
 
-# @const  Array
+# @const  Variant[]
 const QUOTE = [ '"', "'" ]
 
 # @const  string
@@ -48,14 +48,8 @@ func _input(e):
       self._currCmd = self._currCmdHandler
       self._currCmdHandler = null
 
-  # # Autocomplete on TAB
-  # if self.text and self.has_focus() and Input.is_key_pressed(KEY_TAB):
-  #   if !Console._Commands.Autocomplete._filtered.has(self.text):
-  #     self._currCmdHandler = self.text
-  #     Console._Commands.Autocomplete.reset()
-
-  #   Console._Commands.Autocomplete.filter(self._currCmdHandler)
-  #   self._currCmd = Console._Commands.Autocomplete.next()
+  # Autocomplete on TAB
+  # TODO: Maybe later
 
   # Finish
   if self._currCmd != null:
@@ -96,7 +90,7 @@ func exec(sCommand):
 
 
 # @param  string  string
-static func parseCommands(sCommand):  # Array
+static func parseCommands(sCommand):  # Variant[]
   var result = [{
     'name': null,
     'arguments': []

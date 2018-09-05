@@ -44,7 +44,7 @@ func getDescription():  # string|null
   return self._description
 
 
-# @param  Array  inArgs
+# @param  Variant[]  inArgs
 func execute(inArgs):  # Variant
   var args = []
   var argAssig
@@ -82,8 +82,8 @@ func describe():  # void
   Console.writeLine()
 
 
-# @var  string  name
-# @var  Array   parameters
+# @var  string     name
+# @var  Variant[]  parameters
 static func build(name, parameters):  # Command|null
   # Check target
   if !parameters.has('target') or !parameters.target:

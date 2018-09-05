@@ -114,7 +114,3 @@ static func getType(target, name):  # int
 		return VARIABLE
 
 	return UNKNOWN
-
-
-func _setProtected(value):  # void
-	print('QC/Callback: _setProtected: Trying to set protected value, ignoring.')

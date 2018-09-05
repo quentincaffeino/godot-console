@@ -5,7 +5,7 @@ extends Reference
 # @var  Command|null
 var _command
 
-# @var  Array
+# @var  Variant[]
 var _arguments
 
 # @var  string|null
@@ -28,11 +28,11 @@ func execute():  # Variant|null
   return null
 
 
-func getArguments():  # Array
+func getArguments():  # Variant[]
   return self._arguments
 
 
-# @param  Array  arguments
+# @param  Variant[]  arguments
 func setArguments(arguments):  # CommandHandler
   self._arguments = arguments
   return self

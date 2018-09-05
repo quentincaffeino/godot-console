@@ -57,7 +57,7 @@ func removeByIndex(index):  # void
   var keys = self._collection.keys()
 
   if index >= 0 and index < keys.size():
-    self._collection.erase(keys[index])
+    self._collection.erase( keys[index] )
 
 
 # Checks whether the collection contains a specific key/index.
@@ -106,7 +106,7 @@ func getByIndex(index):  # Variant|null
   var keys = self._collection.keys()
 
   if index >= 0 and index < keys.size():
-    return self._collection[keys[index]]
+    return self._collection[ keys[index] ]
 
   return null
 
@@ -131,13 +131,12 @@ func clear():  # void
   self._collection = {}
 
 
-# TODO: Create as collection in beginning without convertion from dict to Collection
 # Extract a slice of `length` elements starting at
 # position `offset` from the Collection.
-# @param  int  offset
-# @param  int  length
+# @param  int       offset
+# @param  int|null  length
 func slice(offset, length = null):  # Collection
-  var result = {}
+  var result = get_script().new()
 
   if offset < self.length:
     if length == null:
@@ -145,19 +144,22 @@ func slice(offset, length = null):  # Collection
 
     var i = 0
     while length and i < self.length:
-      result[i] = self.getByIndex(i + offset)
+      result.set( i, self.getByIndex(offset + i) )
       length -= 1
       i += 1
 
-  return get_script().new(result)
+  return result
 
 
 # Fill an array with values.
-# @param  int      startIndex
-# @param  int      length
-# @param  Variant  value
-func fill(startIndex, length, value):  # Collection
+# @param  Variant   value
+# @param  int       startIndex
+# @param  int|null  length
+func fill(value = 0, startIndex = 0, length = null):  # Collection
   if startIndex < self.length:
+    if length == null:
+      length = self.length
+
     while length:
       self._collection[startIndex] = value
       startIndex += 1
@@ -175,12 +177,12 @@ func map(callback):  # Collection
   return self
 
 
-# @param  Callback  callback
+# @param  Callback|null  callback
 func filter(callback = null):  # Collection
-  var call
-
   var i = 0
   if callback:
+    var call
+
     while i < self.length:
       call = callback.call([self.getByIndex(i), i, self._collection])
 

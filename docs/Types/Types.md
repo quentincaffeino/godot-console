@@ -17,7 +17,7 @@ Difference between Int range and Float range is that in Int range values are rou
 - [**FloatRange**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/FloatRange.md) (*float* min_value = 0, *float* max_value = 100, *float* step = 0)
 
 
-- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Filter.md) (*Array* filterList, *int* mode = ALLOW)
+- [**Filter**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Filter.md) (*Variant[]* filterList, *int* mode = ALLOW)
 
 Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`
 

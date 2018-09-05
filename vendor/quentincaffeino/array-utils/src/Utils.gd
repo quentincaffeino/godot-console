@@ -8,7 +8,7 @@ static func toArray(value):  # Variant[]
     return value
 
   elif typeof(value) != TYPE_NIL:
-    return [value]
+    return [ value ]
 
   return []
 
@@ -38,13 +38,13 @@ static func toDict(value):  # Dictionary
   return d
 
 
-# @param  Array  array
-# @param  Array  destArr
-static func flatten(array, destArr = []):
+# @param  Variant[]  array
+# @param  Variant[]  dest
+static func flatten(array, dest = []):
   for i in array.size():
-    if typeof(array[i]) == TYPE_ARRAY:
-      flatten(array[i], destArr)
+    if isArray(array[i]):
+      flatten(array[i], dest)
     else:
-      destArr.append(array[i])
+      dest.append(array[i])
 
-  return destArr
+  return dest

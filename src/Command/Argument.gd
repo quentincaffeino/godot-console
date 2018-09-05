@@ -83,7 +83,7 @@ static func build(name, type = 0):  # Argument|int
   return new(name, type)
 
 
-# @param  Array  args
+# @param  Variant[]  args
 static func buildAll(args):  # Argument[]|int
   # @var  Argument[]|int  builtArgs
   var builtArgs = []
