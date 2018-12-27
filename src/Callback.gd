@@ -1,12 +1,10 @@
 
 extends Reference
 
-
-enum TYPE \
-{
-  UNKNOWN,
-  VARIABLE,
-  METHOD
+enum TYPE {
+  UNKNOWN = 0,
+  VARIABLE = 1,
+  METHOD = 2
 }
 
 # @var  Reference
@@ -22,11 +20,11 @@ var _type
 # @param  Reference  target
 # @param  string     name
 # @param  int        type
-func _init(target, name, type = UNKNOWN):
+func _init(target, name, type = TYPE.UNKNOWN):
   _target = target
   _name = name
 
-  if type == UNKNOWN:
+  if type == TYPE.UNKNOWN:
     type = getType(_target, _name)
 
   _type = type
@@ -51,7 +49,7 @@ func ensure():  # bool
     print('QC/Console/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)' % _name)
     return false
 
-  if getType(_target, _name) == UNKNOWN:
+  if getType(_target, _name) == TYPE.UNKNOWN:
     print('QC/Console/Callback: ensure: Target is missing method/variable. (%s, %s)' % [_target, _name])
     return false
 
@@ -67,11 +65,11 @@ func call(argv = []):  # Variant
     return
 
   # Execute call
-  if _type == VARIABLE:
+  if _type == TYPE.VARIABLE:
     _target.set(_name, argv[0])
     return _target.get(_name)
 
-  elif _type == METHOD:
+  elif _type == TYPE.METHOD:
     return _target.callv(_name, argv)
   
   print('QC/Console/Callback: call: Unable to call unknown type.')
@@ -82,19 +80,19 @@ func call(argv = []):  # Variant
 # @param  Reference  target
 # @param  string     name
 # @param  int        type
-static func canCreate(target, name, type = UNKNOWN):  # int
+static func canCreate(target, name, type = TYPE.UNKNOWN):  # int
   if typeof(target) != TYPE_OBJECT:
     print('QC/Console/Callback: can_create: First argument must be target object. Provided: ' + str(typeof(target)))
-    return UNKNOWN
+    return TYPE.UNKNOWN
 
   if typeof(name) != TYPE_STRING:
     print('QC/Console/Callback: can_create: Second argument must be variable or method name. Provided: ' + str(typeof(name)))
-    return UNKNOWN
+    return TYPE.UNKNOWN
 
-  if type <= UNKNOWN or type > TYPE.size():
+  if type <= TYPE.UNKNOWN or type > TYPE.size():
     type = getType(target, name)
 
-    if type == UNKNOWN:
+    if type == TYPE.UNKNOWN:
       print('QC/Console/Callback: can_create: Target object doesn\'t have supplied method or variable.')
 
   return type
@@ -105,13 +103,13 @@ static func canCreate(target, name, type = UNKNOWN):  # int
 static func getType(target, name):  # int
   # Is it a METHOD
   if target.has_method(name):
-    return METHOD
+    return TYPE.METHOD
 
   # Is it a VARIABLE
   if name in target:
-    return VARIABLE
+    return TYPE.VARIABLE
 
-  return UNKNOWN
+  return TYPE.UNKNOWN
 
 
 # If passed `value` isn't type of array, wrap it into array.

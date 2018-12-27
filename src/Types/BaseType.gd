@@ -36,7 +36,7 @@ func check(value):  # int
 
 
 # Returns assigned variable
-func get():  # Variant
+func fetch():  # Variant
   pass
 
 
