@@ -1,6 +1,11 @@
 
 extends CanvasLayer
 
+const TypesBuilder = preload('Types/TypesBuilder.gd')
+const BaseType = preload('Types/BaseType.gd')
+const Argument = preload('Command/Argument.gd')
+const Command = preload('Command/Command.gd')
+
 const BaseCommands = preload('BaseCommands.gd')
 const Callback = preload('../vendor/quentincaffeino/callback/src/Callback.gd')
 const Group = preload('Command/Group.gd')
@@ -143,3 +148,117 @@ func _toggleAnimationFinished(animation):  # void
 
 func _setProtected(value):  # void
   Log.warn('QC/Console: setProtected: Attempted to set a protected variable, ignoring.')
+
+
+# @param  string|null   name
+# @param  int|BaseType  type
+static func build_argument(name, type = 0):  # Argument|int
+  # Define arument type
+  if !(typeof(type) == TYPE_OBJECT and type is BaseType):
+    type = TypesBuilder.build(type if typeof(type) == TYPE_INT else 0)
+
+  if not type is BaseType:
+    Console.Log.error(\
+      'QC/Console/Command/Argument: build: Argument of type [b]' + str(type) + '[/b] isn\'t supported.')
+    return FAILED
+
+  return Argument.new(name, type)
+
+
+# @param  Variant[]  args
+static func build_arguments(args):  # Argument[]|int
+  # @var  Argument[]|int  builtArgs
+  var builtArgs = []
+
+  # @var  Argument|int|null  tempArg
+  var tempArg
+  for arg in args:
+    tempArg = null
+
+    match typeof(arg):
+      # [ 'argName', BaseType|ARG_TYPE ]
+      TYPE_ARRAY:
+        tempArg = build_argument(arg[0], arg[1] if arg.size() > 1 else 0)
+
+      # 'argName'
+      TYPE_STRING:
+        tempArg = build_argument(arg)
+
+      # BaseType|ARG_TYPE
+      TYPE_OBJECT, TYPE_INT:
+        tempArg = build_argument(null, arg)
+
+    if typeof(tempArg) == TYPE_INT:
+      return FAILED
+
+    builtArgs.append(tempArg)
+
+  return builtArgs
+
+# @var  string     name
+# @var  Variant[]  parameters
+static func build_command(name, parameters):  # Command|null
+  # Check target
+  if !parameters.has('target') or !parameters.target:
+    Console.Log.error(\
+      'QC/Console/Command/Command: build: Failed to create [b]`' + \
+      name + '`[/b] command. Missing [b]`target`[/b] parametr.')
+    return
+
+  # Create target if old style used
+  if typeof(parameters.target) != TYPE_OBJECT or \
+      !(parameters.target is Console.Callback):
+
+    var target = parameters.target
+    if typeof(parameters.target) == TYPE_ARRAY:
+      target = parameters.target[0]
+
+    var targetName = name
+
+    if typeof(parameters.target) == TYPE_ARRAY and \
+        parameters.target.size() > 1 and \
+        typeof(parameters.target[1]) == TYPE_STRING:
+      targetName = parameters.target[1]
+    elif parameters.has('name'):
+      targetName = parameters.name
+
+    if Console.Callback.canCreate(target, targetName):
+      parameters.target = Console.Callback.new(target, targetName)
+    else:
+      parameters.target = null
+
+  if parameters.target:
+    if not parameters.target is Console.Callback:
+      Console.Log.error(\
+        'QC/Console/Command/Command: build: Failed to create [b]`' + \
+        name + '`[/b] command. Failed to create callback to target')
+      return
+  else:
+    Console.Log.error(\
+      'QC/Console/Command/Command: build: Failed to create [b]`' + \
+      name + '`[/b] command. Failed to create callback to target')
+    return
+
+  # Set arguments
+  if parameters.target._type == Console.Callback.VARIABLE and parameters.has('args'):
+    # Ignore all arguments except first cause variable takes only one arg
+    parameters.args = [parameters.args[0]]
+
+  if parameters.has('arg'):
+    parameters.args = Console.build_arguments([ parameters.arg ])
+    parameters.erase('arg')
+  elif parameters.has('args'):
+    parameters.args = Console.build_arguments(parameters.args)
+  else:
+    parameters.args = []
+
+  if typeof(parameters.args) == TYPE_INT:
+    Console.Log.error(\
+      'QC/Console/Command/Command: build: Failed to register [b]`' + \
+      name + '`[/b] command. Wrong [b]`arguments`[/b] parametr.')
+    return
+
+  if !parameters.has('description'):
+    parameters.description = null
+
+  return Command.new(name, parameters.target, parameters.args, parameters.description)

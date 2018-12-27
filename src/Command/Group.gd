@@ -92,7 +92,7 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
       
     if group:
       if register and !group.getCommands().containsKey(lastNamePart):
-        var command = Command.build(lastNamePart, parameters)  # Command|null
+        var command = Console.build_command(lastNamePart, parameters)  # Command|null
 
         if command:
           group.getCommands().set(lastNamePart, command)
