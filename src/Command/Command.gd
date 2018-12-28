@@ -58,7 +58,7 @@ func execute(inArgs):  # Variant
         'Expected ' + self._arguments[i].getType().describe() + \
         ' ' + str(i + 1) + 'as argument.')
       return
-    elif argAssig == Argument.CANCELED:
+    elif argAssig == Argument.ASSIGNMENT.CANCELED:
       return OK
 
     args.append(self._arguments[i].getValue())

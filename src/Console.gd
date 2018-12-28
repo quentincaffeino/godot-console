@@ -240,7 +240,7 @@ static func build_command(name, parameters):  # Command|null
     return
 
   # Set arguments
-  if parameters.target._type == Console.Callback.VARIABLE and parameters.has('args'):
+  if parameters.target._type == Console.Callback.TYPE.VARIABLE and parameters.has('args'):
     # Ignore all arguments except first cause variable takes only one arg
     parameters.args = [parameters.args[0]]
 
