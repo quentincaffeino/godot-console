@@ -22,14 +22,14 @@ var _rematch
 # @var  Variant
 var _normalizedValue
 
-
-# Assignment check.
+# Assignment check for datatype.
 # Returns one of the statuses:
 # OK, FAILED and CANCELED
 # @param  Varian  originalValue
 func check(originalValue):  # int
   var regex = Console.RegExLib.getPatternFor(_type)
-  return self.recheck(regex, originalValue)
+  var recheck = self.recheck(regex, originalValue)
+  return recheck
 
 
 # @param  RegEx   regex

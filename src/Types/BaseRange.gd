@@ -50,6 +50,18 @@ func setStep(step):  # BaseRange
   self._step = step
   return self
 
+# Assignment check for datatype and range.
+# Returns one of the statuses:
+# OK, FAILED and CANCELED
+# @param  Varian  originalValue
+func check(originalValue):  # int
+  var check = .check(originalValue)
+  if check == OK:
+    # Is the value within the range?
+    var intValue = int(originalValue)
+    if intValue < _minValue or intValue > _maxValue: # TODO: Is maxValue inclusive?
+      check = FAILED
+  return check
 
 func toString():  # string
   var name = self._name + '(' + str(self._minValue) + '-' + str(self._maxValue)
