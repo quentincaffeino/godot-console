@@ -42,7 +42,7 @@ func unregister(alias):  # int
 
 
 # @param  string  alias
-func get(alias):  # Command
+func getCommandFor(alias):  # Command
   if has(alias):
     return _commands[alias]
 

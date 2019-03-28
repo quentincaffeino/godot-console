@@ -24,7 +24,7 @@ var _rematch
 #
 # @param  Varian  value
 func check(value):  # int
-  var regex = Console.RegExLib.get(_type)
+  var regex = Console.RegExLib.getPatternFor(_type)
 
   if regex and regex is RegEx:
     _rematch = regex.search(value)
@@ -36,7 +36,7 @@ func check(value):  # int
 
 
 # Returns assigned variable
-func get():  # Variant
+func getValue():  # Variant
   pass
 
 

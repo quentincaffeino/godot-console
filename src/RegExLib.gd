@@ -15,7 +15,7 @@ var _compiled = {}
 
 
 # @param  int  type
-func get(type):  # RegEx|int
+func getPatternFor(type):  # RegEx|int
   var strType = str(type)
 
   if !_compiled.has(strType):

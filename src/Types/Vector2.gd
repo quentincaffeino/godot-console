@@ -21,7 +21,7 @@ func check(value):  # int
     else:
       return FAILED
 
-  var regex = Console.RegExLib.get(TYPE_REAL)
+  var regex = Console.RegExLib.getPatternFor(TYPE_REAL)
   # Check each number
   if regex and regex is RegEx:
     for v in [0, 1]:
@@ -37,6 +37,6 @@ func check(value):  # int
 
 
 
-func get():  # Vector2|null
+func getValue():  # Vector2|null
   return _value
 

@@ -34,7 +34,7 @@ func setValue(inValue):  # int
 
 
 func getValue():  # Variant
-  return _type.get()
+  return _type.getValue()
 
 
 func toString():  # string

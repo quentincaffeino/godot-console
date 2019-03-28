@@ -67,7 +67,7 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 func _init():
   # Used to clear text from bb tags
-  _eraseTrash = RegExLib.get('console.eraseTrash')
+  _eraseTrash = RegExLib.getPatternFor('console.eraseTrash')
 
 
 func _ready():
@@ -153,7 +153,7 @@ func _handleEnteredCommand(command):  # void
     return
   cmdName = cmdName[0]
 
-  var Command = _Commands.get(cmdName)
+  var Command = _Commands.getCommandFor(cmdName)
 
   if !Command:
     Log.warn('No such command', \

@@ -50,7 +50,7 @@ func _init():
 # @param  string|null  command
 static func help(command = null):
   if command:
-    var Command = Console._Commands.get(command)
+    var Command = Console._Commands.getCommandFor(command)
 
     if !Command:
       Console.Log.warn('No such command')
