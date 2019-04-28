@@ -44,7 +44,7 @@ func run(inArgs):  # int
     if argAssig == FAILED:
       Console.Log.warn('Argument ' + str(i) + ': expected ' + _arguments[i]._type._name)
       return FAILED
-    elif argAssig == Argument.CANCELED:
+    elif argAssig == Argument.ARGASSIG.CANCELED:
       return OK
 
     args.append(_arguments[i].value)
@@ -137,7 +137,7 @@ static func build(alias, params):  # Command
     return
 
   # Set arguments
-  if params.target._type == Console.Callback.VARIABLE and params.has('args'):
+  if params.target._type == Console.Callback.TYPE.VARIABLE and params.has('args'):
     # Ignore all arguments except first cause variable takes only one arg
     params.args = [params.args[0]]
 
