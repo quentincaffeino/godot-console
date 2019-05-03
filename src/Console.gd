@@ -187,10 +187,13 @@ func _handleEnteredCommand(command):  # void
               str(cmdArgs[prevDelimiter]), cmdArgs[prevDelimiter]))
             prevDelimiter = i + 1
           elif cmdArgs[i] == ' ' and cmdArgs[i + 1 if i < cmdArgs.length() - 1 else i] != ' ':
-            args.append(cmdArgs.substr(prevDelimiter, i))
+            args.append(cmdArgs.substr(prevDelimiter, i - prevDelimiter))
             prevDelimiter = i + 1
 
         i += 1
+
+        if i == cmdArgs.length():
+          args.append(cmdArgs.substr(prevDelimiter, i - prevDelimiter))
 
     else:
       args = cmdArgs.split(' ', false)
