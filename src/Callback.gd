@@ -73,7 +73,7 @@ func call(argv = []):  # Variant
 
   elif _type == TYPE.METHOD:
     return _target.callv(_name, argv)
-  
+
   print('QC/Console/Callback: call: Unable to call unknown type.')
 
 
