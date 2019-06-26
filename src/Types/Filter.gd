@@ -2,7 +2,8 @@
 extends 'BaseType.gd'
 
 
-enum MODE {
+enum MODE \
+{
   ALLOW,
   DENY
 }
@@ -17,7 +18,7 @@ var _mode
 
 # @param  Variant[]  fliterList
 # @param  int        mode
-func _init(fliterList, mode = ALLOW):
+func _init(fliterList, mode = MODE.ALLOW):
   _name = 'Filter'
   _fliterList = fliterList
   _mode = mode
@@ -25,8 +26,8 @@ func _init(fliterList, mode = ALLOW):
 
 # @param  Variant  value
 func check(value):  # int
-  if (_mode == ALLOW and _fliterList.has(value)) or \
-     (_mode == DENY and !_fliterList.has(value)):
-    return OK
+  if (_mode == MODE.ALLOW and _fliterList.has(value)) or \
+     (_mode == MODE.DENY and !_fliterList.has(value)):
+    return CHECK.OK
 
-  return CANCELED
+  return CHECK.CANCELED

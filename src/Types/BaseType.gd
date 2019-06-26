@@ -39,9 +39,9 @@ func recheck(regex, value):
     _rematch = regex.search(value)
 
     if _rematch and _rematch is RegExMatch:
-      return OK
+      return CHECK.OK
 
-  return FAILED
+  return CHECK.FAILED
 
 
 # Normalize variable

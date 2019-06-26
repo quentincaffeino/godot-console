@@ -1,6 +1,8 @@
 
 extends Reference
 
+
+const errors = preload('../assets/translations/errors.en.gd').messages
 const ArrayUtils = preload('../vendor/quentincaffeino/array-utils/src/Utils.gd')
 
 
@@ -24,37 +26,37 @@ var _type
 # @param  Reference  target
 # @param  string     name
 # @param  int        type
-func _init(target, name, type = UNKNOWN):
-	_target = target
-	_name = name
+func _init(target, name, type = TYPE.UNKNOWN):
+	self._target = target
+	self._name = name
 
-	if type == UNKNOWN:
-		type = getType(_target, _name)
+	if type == TYPE.UNKNOWN:
+		type = self.getType(self._target, self._name)
 
-	_type = type
+	self._type = type
 
 
 func getTarget():  # Reference
-	return _target
+	return self._target
 
 
 func getName():  # string
-	return _name
+	return self._name
 
 
-# Ensure callback target still exists
-func ensure():  # bool
-	if _target:
-		var wr = weakref(_target)
+# Ensure callback target exists
+func ensure():  # boolean
+	if self._target:
+		var wr = weakref(self._target)
 		if wr.get_ref() == null:
-			print('QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)' % _name)
+			print(errors['qc.callback.ensure.target_destroyed'] % self._name)
 			return false
 	else:
-		print('QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)' % _name)
+		print(errors['qc.callback.ensure.target_destroyed'] % self._name)
 		return false
 
-	if getType(_target, _name) == UNKNOWN:
-		print('QC/Callback: ensure: Target is missing method/variable. (%s, %s)' % [_target, _name])
+	if self.getType(self._target, self._name) == TYPE.UNKNOWN:
+		print(errors['qc.callback.target_missing_mv'] % [ self._target, self._name ])
 		return false
 
 	return true
@@ -66,38 +68,41 @@ func call(argv = []):  # Variant
 
 	# Ensure callback target still exists
 	if !ensure():
+		print(errors['qc.callback.call.ensure_failed'] % [ self._target, self._name ])
 		return
 
 	# Execute call
-	if _type == VARIABLE:
-		_target.set(_name, argv[0])
-		return _target.get(_name)
+	if self._type == TYPE.VARIABLE:
+		var value = null
+		if argv.size():
+			value = argv[0]
 
-	elif _type == METHOD:
-		return _target.callv(_name, argv)
+		self._target.set(self._name, value)
+		return self._target.get(self._name)
+
+	elif self._type == TYPE.METHOD:
+		return self._target.callv(self._name, argv)
 	
-	print('QC/Callback: call: Unable to call unknown type.')
+	print(errors['qc.callback.call.unknown_type'] % [ self._target, self._name ])
 
 
-# Use this method before creating a callback
-#
 # @param  Reference  target
 # @param  string     name
 # @param  int        type
-static func canCreate(target, name, type = UNKNOWN):  # int
+static func canCreate(target, name, type = TYPE.UNKNOWN):  # int
 	if typeof(target) != TYPE_OBJECT:
-		print('QC/Callback: can_create: First argument must be target object. Provided: ' + str(typeof(target)))
-		return UNKNOWN
+		print(errors['qc.callback.canCreate.first_arg'] % str(typeof(target)))
+		return TYPE.UNKNOWN
 
 	if typeof(name) != TYPE_STRING:
-		print('QC/Callback: can_create: Second argument must be variable or method name. Provided: ' + str(typeof(name)))
-		return UNKNOWN
+		print(errors['qc.callback.canCreate.second_arg'] % str(typeof(name)))
+		return TYPE.UNKNOWN
 
-	if type <= UNKNOWN or type > TYPE.size():
+	if type <= TYPE.UNKNOWN or type > TYPE.size():
 		type = getType(target, name)
 
-		if type == UNKNOWN:
-			print('QC/Callback: can_create: Target object doesn\'t have supplied method or variable.')
+		if type == TYPE.UNKNOWN:
+			print(errors['qc.callback.target_missing_mv'] % [ target, name ])
 
 	return type
 
@@ -107,10 +112,10 @@ static func canCreate(target, name, type = UNKNOWN):  # int
 static func getType(target, name):  # int
 	# Is it a METHOD
 	if target.has_method(name):
-		return METHOD
+		return TYPE.METHOD
 
 	# Is it a VARIABLE
 	if name in target:
-		return VARIABLE
+		return TYPE.VARIABLE
 
-	return UNKNOWN
+	return TYPE.UNKNOWN

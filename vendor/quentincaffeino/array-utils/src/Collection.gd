@@ -2,7 +2,7 @@
 extends 'Utils.gd'
 
 
-# @var  Variant
+# @var  Dictionary
 var _collection
 
 # @var  int

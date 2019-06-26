@@ -57,7 +57,7 @@ static func help(command = null):
       Console.Log.warn('No such command.')
       return
 
-    command.getCommand().describe()
+    command.describe()
   else:
     Console.writeLine(\
       "Type [color=#ffff66][url=help]help[/url] <command-name>[/color] show information about command.\n" + \

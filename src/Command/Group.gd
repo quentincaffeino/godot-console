@@ -2,15 +2,12 @@
 extends Reference
 
 const ArrayCollection = preload('../../vendor/quentincaffeino/array-utils/src/Collection.gd')
-const Command = preload('Command.gd')
+const CommandBuilder = preload('CommandBuilder.gd')
 const CommandHandler = preload('CommandHandler.gd')
 
 
 # @var  string
 var _name
-
-# @var  string
-var _fullName
 
 # @var  ArrayCollection<string, Group>
 var _groups
@@ -20,20 +17,14 @@ var _commands
 
 
 # @var  string       name
-# @var  string|null  fullName
-func _init(name, fullName = null):
+func _init(name):
   self._name = name
-  self._fullName = fullName if fullName != null else name
   self._groups = ArrayCollection.new()
   self._commands = ArrayCollection.new()
 
 
 func getName():  # string
   return self._name
-
-
-func getFullName():  # string
-  return self._fullName
 
 
 func getGroups():  # ArrayCollection<string, Group>
@@ -53,7 +44,7 @@ func _getGroup(nameParts, create = false):  # Group|null
 
     if !self.getGroups().containsKey(firstNamePart):
       if create:
-        self.getGroups().set(firstNamePart, get_script().new(firstNamePart, self.getFullName() + '.' + firstNamePart))
+        self.getGroups().set(firstNamePart, get_script().new(firstNamePart, self.getName() + '.' + firstNamePart))
       else:
         var found = null
         var foundCount = 0
@@ -66,7 +57,7 @@ func _getGroup(nameParts, create = false):  # Group|null
         if foundCount == 1:
           firstNamePart = found
         else:
-          Console.writeLine('TODO: error')  # TODO: Change to proper error desc
+          Console.Log.error('Group: _getGroup: TODO: error')  # TODO: Change to proper error desc
 
     if nameParts.size() > 1:
       return self.getGroups().get(firstNamePart)._getGroup(nameParts)
@@ -85,19 +76,21 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
   if nameParts.size():
     var lastNamePart = nameParts[nameParts.size() - 1]
     var group = self
-
     if nameParts.size() > 1:
+
       nameParts.remove(nameParts.size() - 1)
       group = self._getGroup(nameParts, register)  # Group|null
-      
+
     if group:
       if register and !group.getCommands().containsKey(lastNamePart):
-        var command = Command.build(lastNamePart, parameters)  # Command|null
+        var command = CommandBuilder.build(lastNamePart, parameters)  # Command|int
 
-        if command:
+        if typeof(command) != TYPE_INT:
           group.getCommands().set(lastNamePart, command)
+          Console.Log.info('Successfuly registered new command [b]`' + name + '`[/b].')
 
       if group.getCommands().containsKey(lastNamePart):
+        Console.Log.debug('Successfuly found exsting command [b]`' + name + '`[/b].')
         return group.getCommands().get(lastNamePart)
 
       elif Console.submitAutocomplete:
@@ -112,7 +105,7 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
         if foundCount == 1:
           return found
         else:
-          Console.writeLine('TODO: error')  # TODO: Change to proper error desc
+          Console.Log.error('Group: _getCommand: TODO: error')  # TODO: Change to proper error desc
 
   return null
 
@@ -152,21 +145,14 @@ func unregisterCommand(name):
           group.getCommands().remove(found)
           return true
         else:
-          Console.writeLine('TODO: error')  # TODO: Change to proper error desc
+          Console.Log.error('Group: unregisterCommand:TODO: error')  # TODO: Change to proper error desc
 
   return false
 
 
 # @var  string  name
-func getCommand(name):  # CommandHandler|null
-  var command = self._getCommand(name)  # Command|null
-
-  if command:
-    return CommandHandler.new(command)
-  else:
-    Console.Log.warn('Command [b]`' + name + '`[/b] doesn\'t exists.')
-
-  return null
+func getCommand(name):  # Command|null
+  return self._getCommand(name)
 
 
 func printAll():  # void

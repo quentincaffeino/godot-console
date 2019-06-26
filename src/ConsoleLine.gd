@@ -1,25 +1,28 @@
 
 extends LineEdit
 
-const CommandHandler = preload('Command/CommandHandler.gd')
+const CommandHandlerBuilder = preload('Command/CommandHandlerBuilder.gd')
 
 
 # @const  string
-const COMMAND_SEPARATOR = ';'
+const COMMANDS_SEPARATOR = ';'
 
 # @const  string
-const ARGUMENT_SEPARATOR = ' '
-
-# @const  Variant[]
-const QUOTE = [ '"', "'" ]
+const RECOMMANDS_SEPARATOR = '(?<!\\\\)' + COMMANDS_SEPARATOR
 
 # @const  string
-const QUOTE_SCREENER = '\\/'
+const COMMAND_PARTS_SEPARATOR = ' '
+
+# @const  string[]
+const QUOTES = [ '"', "'" ]
+
+# @const  string[]
+const SCREENERS = [ '\\/' ]
 
 # @var  string|null
-var _currCmdHandler
+var _tmpUsrEnteredCmd
 
-# @var  Command/CommandHandler
+# @var  string
 var _currCmd
 
 
@@ -27,7 +30,7 @@ func _ready():
   # Console keyboard control
   self.set_process_input(true)
 
-  self.connect('text_entered', self, 'exec')
+  self.connect('text_entered', self, 'execute')
 
 
 # @param  Event  e
@@ -37,16 +40,16 @@ func _input(e):
     self._currCmd = Console.History.current()
     Console.History.previous()
 
-    if self._currCmdHandler == null:
-      self._currCmdHandler = self.text
+    if self._tmpUsrEnteredCmd == null:
+      self._tmpUsrEnteredCmd = self.text
 
   # Show previous line in history
   if Input.is_action_just_pressed(Console.action_history_down):
     self._currCmd = Console.History.next()
 
-    if !self._currCmd and self._currCmdHandler != null:
-      self._currCmd = self._currCmdHandler
-      self._currCmdHandler = null
+    if !self._currCmd and self._tmpUsrEnteredCmd != null:
+      self._currCmd = self._tmpUsrEnteredCmd
+      self._tmpUsrEnteredCmd = null
 
   # Autocomplete on TAB
   # TODO: Maybe later
@@ -68,78 +71,79 @@ func setText(text, moveCaretToEnd = true):  # void
     self.caret_position = text.length()
 
 
-# @param  string  sCommand
-func exec(sCommand):
-  Console.writeLine('[color=#999999]$[/color] ' + sCommand)
-  var parsedCommands = self.parseCommands(sCommand)
+# @param  string  input
+func execute(input):
+  Console.writeLine('[color=#999999]$[/color] ' + input)
 
-  # @var  Command/CommandHandler|null
+  # @var  string[]
+  var rawCommands = Console.RegExLib.split(RECOMMANDS_SEPARATOR, input)
+
+  # @var  Dictionary[]
+  var parsedCommands = self.parseCommands(rawCommands)
+  print(parsedCommands)
+
+  # @var  Command/Command|null
   var command
 
   for parsedCommand in parsedCommands:
     command = Console.getCommand(parsedCommand.name)
+    print(command)
 
     if command:
-      command\
-        .setText(sCommand)\
-        .setArguments(parsedCommand.arguments)\
-        .execute()
-      Console.History.push(command)
-      Console.History.last()
+      command.execute(parsedCommand.arguments)
+      Console.History.push(input)
       self.clear()
 
 
-# @param  string  string
-static func parseCommands(sCommand):  # Variant[]
-  var result = [{
+# @param  string[]  rawCommands
+func parseCommands(rawCommands):  # Dictionary[]
+  var resultCommands = []
+
+  for rawCommand in rawCommands:
+    if rawCommand:
+      resultCommands.append(self.parseCommand(rawCommand))
+
+  return resultCommands
+
+
+# @param  string  rawCommand
+func parseCommand(rawCommand):  # Dictionary
+  var command = {
     'name': null,
-    'arguments': []
-  }]
-  var currentCommand = 0
+    'arguments': [],
+  }
 
   var beginning = 0  # int
   var openQuote  # string|null
   var isInsideQuotes = false  # boolean
   var subString  # string|null
-  for i in sCommand.length():
+  for i in rawCommand.length():
     # Quote
-    if sCommand[i] in QUOTE and i > 0 and sCommand[i - 1] != QUOTE_SCREENER:
-      if isInsideQuotes and sCommand[i] == openQuote:
+    if rawCommand[i] in QUOTES and i > 0 and not rawCommand[i - 1] in SCREENERS:
+      if isInsideQuotes and rawCommand[i] == openQuote:
         openQuote = null
         isInsideQuotes = false
-        subString = sCommand.substr(beginning, i - beginning)
+        subString = rawCommand.substr(beginning, i - beginning)
         beginning = i + 1
       elif !isInsideQuotes:
-        openQuote = sCommand[i]
+        openQuote = rawCommand[i]
         isInsideQuotes = true
         beginning += 1
 
     # Separate arguments
-    elif sCommand[i] == ARGUMENT_SEPARATOR and !isInsideQuotes or i == sCommand.length() - 1:
-      if i == sCommand.length() - 1:
-        subString = sCommand.substr(beginning, i - beginning + 1)
+    elif rawCommand[i] == COMMAND_PARTS_SEPARATOR and !isInsideQuotes or i == rawCommand.length() - 1:
+      if i == rawCommand.length() - 1:
+        subString = rawCommand.substr(beginning, i - beginning + 1)
       else:
-        subString = sCommand.substr(beginning, i - beginning)
-      beginning = i + 1
-
-    # Separate commands
-    elif sCommand[i] == COMMAND_SEPARATOR and !isInsideQuotes:
-      subString = sCommand.substr(beginning, i - beginning)
-      result.append({
-        'name': null,
-        'arguments': []
-      })
+        subString = rawCommand.substr(beginning, i - beginning)
       beginning = i + 1
 
     # Save separated argument
     if subString != null and typeof(subString) == TYPE_STRING and !subString.empty():
-      if !result[currentCommand].name:
-        result[currentCommand].name = subString
+      if !command.name:
+        command.name = subString
       else:
-        result[currentCommand].arguments.append(subString)
+        command.arguments.append(subString)
       subString = null
 
-      if sCommand[i] == COMMAND_SEPARATOR:
-        currentCommand += 1
-
-  return result
+  return command

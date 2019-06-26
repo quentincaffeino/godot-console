@@ -1,7 +1,7 @@
 
 extends CanvasLayer
 
-const BaseCommands = preload('BaseCommands.gd')
+const BaseCommands = preload('Misc/BaseCommands.gd')
 const Callback = preload('../vendor/quentincaffeino/callback/src/Callback.gd')
 const Group = preload('Command/Group.gd')
 
@@ -12,13 +12,13 @@ const Filter = preload('Types/Filter.gd')
 
 
 # @var  History
-var History = preload('History.gd').new() setget _setProtected
+var History = preload('Misc/History.gd').new() setget _setProtected
 
 # @var  Log
-var Log = preload('Log.gd').new() setget _setProtected
+var Log = preload('Misc/Log.gd').new() setget _setProtected
 
 # @var  RegExLib
-var RegExLib = preload('RegExLib.gd').new() setget _setProtected
+var RegExLib = preload('Misc/RegExLib.gd').new() setget _setProtected
 
 # @var  Command/Group
 var _rootGroup
@@ -82,6 +82,12 @@ func _ready():
   # Init base commands
   self.BaseCommands.new()
 
+  # TODO: Remove. Testing only
+  self.Line.execute("echo \"world \\;hello\" abba; history")
+  self.Line.execute("version;;;version;")
+  self.Line.execute("help help")
+  self.Line.execute("commands; quit")
+
 
 # @param  Event  e
 func _input(e):
@@ -94,8 +100,8 @@ func getCommand(name):  # Command/CommandHandler|null
   return self._rootGroup.getCommand(name)
 
 
-# @param  string  name
-# @param  Variant[]   parparametersams
+# @param  string     name
+# @param  Variant[]  parameters
 func register(name, parameters = []):  # bool
   return self._rootGroup.registerCommand(name, parameters)
 
@@ -108,19 +114,22 @@ func unregister(name):  # int
 # @param  string  message
 func write(message):  # void
   message = str(message)
-  self.Text.set_bbcode(self.Text.get_bbcode() + message)
+  if self.Text:
+    self.Text.set_bbcode(self.Text.get_bbcode() + message)
   print(self._eraseTrash.sub(message, '', true))
-  
+
 
 # @param  string  message
 func writeLine(message = ''):  # void
   message = str(message)
-  self.Text.set_bbcode(self.Text.get_bbcode() + message + '\n')
+  if self.Text:
+    self.Text.set_bbcode(self.Text.get_bbcode() + message + '\n')
   print(self._eraseTrash.sub(message, '', true))
 
 
 func clear():  # void
-  self.Text.set_bbcode('')
+  if self.Text:
+    self.Text.set_bbcode('')
 
 
 func toggleConsole():  # void
