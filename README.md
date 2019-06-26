@@ -21,7 +21,8 @@ In-game console for Godot, easily extensible with new commands.
 ## Installation
 
 1. Clone or download this repository to your projects `res://addons/console` folder.
-2. Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
+2. Enable console in Project/Addons
+3. Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
 
 ## Example
 
