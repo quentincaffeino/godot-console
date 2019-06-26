@@ -82,12 +82,6 @@ func _ready():
   # Init base commands
   self.BaseCommands.new()
 
-  # TODO: Remove. Testing only
-  self.Line.execute("echo \"world \\;hello\" abba; history")
-  self.Line.execute("version;;;version;")
-  self.Line.execute("help help")
-  self.Line.execute("commands; quit")
-
 
 # @param  Event  e
 func _input(e):
