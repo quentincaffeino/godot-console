@@ -5,6 +5,8 @@ Godot Console
 
 In-game console for Godot, easily extensible with new commands.
 
+### There is a new version comming, help me debugging the [dev](https://github.com/QuentinCaffeino/godot-console/tree/dev) branch.
+
 ![Quake-style console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/master/screenshot.png)
 
 ## Features
