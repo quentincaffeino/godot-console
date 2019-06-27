@@ -3,7 +3,7 @@ extends Reference
 
 
 const errors = preload('../assets/translations/errors.en.gd').messages
-const ArrayUtils = preload('../vendor/quentincaffeino/array-utils/src/Utils.gd')
+const ArrayUtils = preload('../../array-utils/src/Utils.gd')
 
 
 enum TYPE \
