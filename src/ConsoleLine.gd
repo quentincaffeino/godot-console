@@ -80,14 +80,12 @@ func execute(input):
 
   # @var  Dictionary[]
   var parsedCommands = self.parseCommands(rawCommands)
-  print(parsedCommands)
 
   # @var  Command/Command|null
   var command
 
   for parsedCommand in parsedCommands:
     command = Console.getCommand(parsedCommand.name)
-    print(command)
 
     if command:
       command.execute(parsedCommand.arguments)

@@ -5,7 +5,6 @@ extends 'BaseType.gd'
 func _init():
   self._name = 'Int'
   self._type = TYPE_INT
-  Console.Log.warn('Int created')
 
 
 # Normalize variable

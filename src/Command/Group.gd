@@ -105,7 +105,7 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
         if foundCount == 1:
           return found
         else:
-          Console.Log.error('Group: _getCommand: TODO: error')  # TODO: Change to proper error desc
+          Console.Log.error('Group: _getCommand: Unable to provide with proper autocomplete.')
 
   return null
 

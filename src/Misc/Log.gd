@@ -14,7 +14,7 @@ enum TYPE \
 
 
 # @var  int
-var logLevel = TYPE.DEBUG setget setLogLevel
+var logLevel = TYPE.WARNING setget setLogLevel
 
 
 # @param  int  inlogLevel
