@@ -82,7 +82,7 @@ func execute(input):
   var parsedCommands = self.parseCommands(rawCommands)
 
   # @var  Command/Command|null
-  var command
+  var command = null
 
   for parsedCommand in parsedCommands:
     command = Console.getCommand(parsedCommand.name)

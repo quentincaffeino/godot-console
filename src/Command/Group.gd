@@ -1,7 +1,7 @@
 
 extends Reference
 
-const ArrayCollection = preload('../../vendor/quentincaffeino/array-utils/src/Collection.gd')
+const ArrayCollection = preload('../../addons/quentincaffeino-array-utils/src/Collection.gd')
 const CommandBuilder = preload('CommandBuilder.gd')
 const CommandHandler = preload('CommandHandler.gd')
 
@@ -157,9 +157,9 @@ func getCommand(name):  # Command|null
 
 func printAll():  # void
   # Print all commands in current group
-  for command in self.getCommands():
-    self.getCommands().get(command).describe()
+  for command in self.getCommands().getValueIterator():
+    command.describe()
 
   # Print all commands in child groups
-  for group in self.getGroups():
-    self.getGroups().get(group).printAll()
+  for group in self.getGroups().getValueIterator():
+    group.printAll()

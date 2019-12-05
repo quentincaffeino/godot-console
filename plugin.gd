@@ -3,7 +3,7 @@ extends EditorPlugin
 
 
 const ConsoleName = 'Console'
-const ConsolePath = 'res://addons/console/src/Console.tscn'
+const ConsolePath = 'res://addons/quentincaffeino-console/src/Console.tscn'
 
 
 func _enter_tree():

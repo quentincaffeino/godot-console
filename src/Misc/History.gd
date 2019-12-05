@@ -1,44 +1,18 @@
 
-extends '../../vendor/quentincaffeino/array-utils/src/Collection.gd'
+extends '../../addons/quentincaffeino-array-utils/src/QueueCollection.gd'
 
-
-# @var  int
-var _maxLength = 10
-
-
-# @param  string  command
-func push(command):  # History
-  if self.length and self.last() == command:
-    return
-
-  if self.length == self.getMaxLength():
-    self.removeByIndex(0)
-
-  self.add(command)
-  self.last()
-  return self
-
-
-func getMaxLength():  # int
-  return self._maxLength
 
 # @param  int  maxLength
-func setMaxLength(maxLength):  # History
-  self._maxLength = maxLength
-  return self
+func _init(maxLength):
+  self.setMaxLength(maxLength)
 
 
 func printAll():  # History
   var i = 1
-  var commandText
-  self.first()
-
-  for key in self:
-    commandText = self._collection[key]
-
+  for command in self.getValueIterator():
     Console.writeLine(\
       '[b]' + str(i) + '.[/b] [color=#ffff66][url=' + \
-      commandText + ']' + commandText + '[/url][/color]')
+      command + ']' + command + '[/url][/color]')
     i += 1
 
   return self

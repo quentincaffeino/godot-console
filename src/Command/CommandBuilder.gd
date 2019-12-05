@@ -2,7 +2,7 @@
 extends Reference
 
 const ArgumentBuilder = preload('ArgumentBuilder.gd')
-const ArrayUtils = preload('../../vendor/quentincaffeino/array-utils/src/Utils.gd')
+const ArrayUtils = preload('../../addons/quentincaffeino-array-utils/src/Utils.gd')
 const Command = preload('Command.gd')
 
 
@@ -19,7 +19,7 @@ static func _buildTarget(name, parameters):  # Callback|int
     return FAILED
 
   if typeof(parameters.target) != TYPE_OBJECT or \
-      !(parameters.target is Callback):
+      !(parameters.target is Console.Callback):
 
     var targetObject = parameters.target
     if ArrayUtils.isArray(parameters.target):
@@ -34,13 +34,13 @@ static func _buildTarget(name, parameters):  # Callback|int
     elif parameters.has('name'):
       targetName = parameters.name
 
-    if Callback.canCreate(targetObject, targetName):
-      target = Callback.new(targetObject, targetName)
+    if Console.Callback.canCreate(targetObject, targetName):
+      target = Console.Callback.new(targetObject, targetName)
     else:
       target = null
 
-  if not target or !(target is Callback):
-    Console.Log.error(\
+  if not target or !(target is Console.Callback):
+    Console.Console.Log.error(\
       'QC/Console/Command/Command: build: Failed to create [b]`' + \
       name + '`[/b] command. Failed to create callback to target')
     return FAILED
@@ -53,7 +53,7 @@ static func _buildTarget(name, parameters):  # Callback|int
 static func _buildArguments(target, parameters):  # Array<Argument>|int
   var args = []
 
-  if target._type == Callback.TYPE.VARIABLE and parameters.has('args'):
+  if target._type == Console.Callback.TYPE.VARIABLE and parameters.has('args'):
     if ArrayUtils.isArray(parameters.args) and parameters.args.size():
       # Ignore all arguments except first cause variable takes only one arg
       parameters.args = [parameters.args[0]]

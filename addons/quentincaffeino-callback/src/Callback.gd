@@ -1,9 +1,7 @@
 
 extends Reference
 
-
 const errors = preload('../assets/translations/errors.en.gd').messages
-const ArrayUtils = preload('../../array-utils/src/Utils.gd')
 
 
 enum TYPE \
@@ -64,8 +62,6 @@ func ensure():  # boolean
 
 # @param  Variant[]  argv
 func call(argv = []):  # Variant
-	argv = ArrayUtils.toArray(argv)
-
 	# Ensure callback target still exists
 	if !ensure():
 		print(errors['qc.callback.call.ensure_failed'] % [ self._target, self._name ])

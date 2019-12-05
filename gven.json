@@ -1,0 +1,11 @@
+{
+  "name": "quentincaffeino/console",
+  "dependencies": [
+    "quentincaffeino/callback",
+    "quentincaffeino/array-utils",
+    "quentincaffeino/regexlib"
+  ],
+  "autoload": {
+    "QuentinCaffeino/Console": "src"
+  }
+}

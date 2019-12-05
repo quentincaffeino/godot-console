@@ -2,7 +2,7 @@
 extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
-const Callback = preload('../vendor/quentincaffeino/callback/src/Callback.gd')
+const Callback = preload('../addons/quentincaffeino-callback/src/Callback.gd')
 const Group = preload('Command/Group.gd')
 
 ### Custom console types
@@ -12,13 +12,13 @@ const Filter = preload('Types/Filter.gd')
 
 
 # @var  History
-var History = preload('Misc/History.gd').new() setget _setProtected
+var History = preload('Misc/History.gd').new(10) setget _setProtected
 
-# @var  Log
-var Log = preload('Misc/Log.gd').new() setget _setProtected
+# @var  Logger
+var Log = preload('Misc/Logger.gd').new() setget _setProtected
 
 # @var  RegExLib
-var RegExLib = preload('Misc/RegExLib.gd').new() setget _setProtected
+var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _setProtected
 
 # @var  Command/Group
 var _rootGroup

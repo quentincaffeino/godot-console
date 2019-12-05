@@ -1,7 +1,7 @@
 
 extends Reference
 
-const ArrayCollection = preload('../../vendor/quentincaffeino/array-utils/src/Collection.gd')
+const ArrayCollection = preload('../../addons/quentincaffeino-array-utils/src/Collection.gd')
 
 
 # @var  Command

@@ -1,6 +1,5 @@
 
 extends Reference
-# TODO: As soon as GVen will be finished create log package
 
 
 enum TYPE \
@@ -27,7 +26,7 @@ func setLogLevel(inlogLevel):  # Log
 # @param  int     type
 func log(message, type = TYPE.INFO):  # Log
   match type:
-    TYPE.DEBUG:   info(message)
+    TYPE.DEBUG:   debug(message)
     TYPE.INFO:    info(message)
     TYPE.WARNING: warn(message)
     TYPE.ERROR:   error(message)
