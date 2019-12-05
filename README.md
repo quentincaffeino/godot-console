@@ -64,6 +64,7 @@ More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godo
 
 - Create separate module with chat-like UI to separate console. (Help required, I'm bad with UIs)
 - Make arguments required by default and add Optional type.
+- Make a proper command builder (\w builder pattern).
 
 ----------
 
