@@ -20,7 +20,7 @@ In-game console for Godot, easily extensible with new commands.
 
 ## Installation
 
-1. Clone or download this repository to your projects `res://addons/quentincaffeino-console` folder.
+1. Clone or download this repository to your project `res://addons/quentincaffeino-console` folder.
 2. Enable console in Project/Addons
 3. Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
 
@@ -60,11 +60,14 @@ More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-c
 
 More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/BaseCommands.gd)
 
+## Ideas/Todos:
+
+- Create separate module with chat-like UI to separate console. (Help required, I'm bad with UIs)
+- Make arguments required by default and add Optional type.
+
 ----------
 
-Great thanks to [@Krakean](https://github.com/Krakean/godot-console) and [@DmitriySalnikov](https://github.com/DmitriySalnikov/godot-console) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou).
-
-Take a look at their implementations.
+Great thanks to [@Krakean](https://github.com/Krakean) and [@DmitriySalnikov](https://github.com/DmitriySalnikov) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou).
 
 ## License
 
