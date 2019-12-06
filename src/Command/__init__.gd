@@ -1,5 +1,5 @@
 
-const Group = preload('Group.gd')
+const CommandGroup = preload('CommandGroup.gd')
 const Command = preload('Command.gd')
 const CommandAutocomplete = preload('CommandAutocomplete.gd')
 const ArgumentFactory = preload('ArgumentFactory.gd')

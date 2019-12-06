@@ -8,7 +8,7 @@ const CommandBuilder = preload('CommandBuilder.gd')
 # @var  string
 var _name
 
-# @var  ArrayCollection<string, Group>
+# @var  ArrayCollection<string, CommandGroup>
 var _groups
 
 # @var  ArrayCollection<string, Command>
@@ -26,7 +26,7 @@ func getName():  # string
   return self._name
 
 
-func getGroups():  # ArrayCollection<string, Group>
+func getGroups():  # ArrayCollection<string, CommandGroup>
   return self._groups
 
 
@@ -36,7 +36,7 @@ func getCommands():  # ArrayCollection<string, Command>
 
 # @var  Variant[]  nameParts
 # @var  bool   create
-func _getGroup(nameParts, create = false):  # Group|null
+func _getGroup(nameParts, create = false):  # CommandGroup|null
   if nameParts.size():
     var firstNamePart = nameParts[0]
     nameParts.remove(0)
@@ -56,7 +56,7 @@ func _getGroup(nameParts, create = false):  # Group|null
         if foundCount == 1:
           firstNamePart = found
         else:
-          Console.Log.error('Group: _getGroup: TODO: error')  # TODO: Change to proper error desc
+          Console.Log.error('CommandGroup: _getGroup: TODO: error')  # TODO: Change to proper error desc
 
     if nameParts.size() > 1:
       return self.getGroups().get(firstNamePart)._getGroup(nameParts)
@@ -78,11 +78,11 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
     if nameParts.size() > 1:
 
       nameParts.remove(nameParts.size() - 1)
-      group = self._getGroup(nameParts, register)  # Group|null
+      group = self._getGroup(nameParts, register)  # CommandGroup|null
 
     if group:
       if register and !group.getCommands().containsKey(lastNamePart):
-        var command = CommandBuilder.build(lastNamePart, parameters)  # Command|int
+        var command = CommandBuilder.buildDeprecated(lastNamePart, parameters)  # Command|int
 
         if typeof(command) != TYPE_INT:
           group.getCommands().set(lastNamePart, command)
@@ -104,7 +104,7 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
         if foundCount == 1:
           return found
         else:
-          Console.Log.error('Group: _getCommand: Unable to provide with proper autocomplete.')
+          Console.Log.error('CommandGroup: _getCommand: Unable to provide with proper autocomplete.')
 
   return null
 
@@ -124,7 +124,7 @@ func unregisterCommand(name):
 
     if nameParts.size() > 1:
       nameParts.remove(nameParts.size() - 1)
-      group = self._getGroup(nameParts)  # Group|null
+      group = self._getGroup(nameParts)  # CommandGroup|null
 
     if group:
       if group.getCommands().containsKey(lastNamePart):
@@ -144,7 +144,7 @@ func unregisterCommand(name):
           group.getCommands().remove(found)
           return true
         else:
-          Console.Log.error('Group: unregisterCommand:TODO: error')  # TODO: Change to proper error desc
+          Console.Log.error('CommandGroup: unregisterCommand:TODO: error')  # TODO: Change to proper error desc
 
   return false
 

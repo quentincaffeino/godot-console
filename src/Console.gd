@@ -3,7 +3,7 @@ extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
 const Callback = preload('../addons/quentincaffeino-callback/src/Callback.gd')
-const Group = preload('Command/Group.gd')
+const CommandGroup = preload('Command/CommandGroup.gd')
 
 ### Custom console types
 const IntRange = preload('Type/IntRange.gd')
@@ -20,7 +20,7 @@ var Log = preload('Misc/Logger.gd').new() setget _setProtected
 # @var  RegExLib
 var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _setProtected
 
-# @var  Command/Group
+# @var  Command/CommandGroup
 var _rootGroup
 
 # Used to clear text from bb tags
@@ -51,7 +51,7 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 
 func _init():
-  self._rootGroup = Group.new('root')
+  self._rootGroup = CommandGroup.new('root')
   # Used to clear text from bb tags
   self._eraseTrash = RegExLib.getPatternFor('console.eraseTrash')
 
