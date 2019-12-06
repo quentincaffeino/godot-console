@@ -2,7 +2,7 @@
 # **IntRange** extends BaseRange
 
 
-[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/IntRange.gd)
+[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Type/IntRange.gd)
 
 
 #### Member Functions

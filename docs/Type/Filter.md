@@ -2,7 +2,7 @@
 # **Filter** extends BaseType
 
 
-[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Types/Filter.gd)
+[Code](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Type/Filter.gd)
 
 
 #### Memeber Properties

@@ -6,9 +6,9 @@ const Callback = preload('../addons/quentincaffeino-callback/src/Callback.gd')
 const Group = preload('Command/Group.gd')
 
 ### Custom console types
-const IntRange = preload('Types/IntRange.gd')
-const FloatRange = preload('Types/FloatRange.gd')
-const Filter = preload('Types/Filter.gd')
+const IntRange = preload('Type/IntRange.gd')
+const FloatRange = preload('Type/FloatRange.gd')
+const Filter = preload('Type/Filter.gd')
 
 
 # @var  History

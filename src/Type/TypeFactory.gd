@@ -2,7 +2,7 @@
 extends Reference
 
 
-const TypesList = [
+const TypeList = [
   preload('Any.gd'),
   preload('Bool.gd'),
   preload('Int.gd'),
@@ -16,4 +16,4 @@ const TypesList = [
 
 # @param  int  type
 static func build(type):  # BaseType
-  return TypesList[type if type >= 0 and type < TypesList.size() and TypesList[type] != null else 0].new()
+  return TypeList[type if type >= 0 and type < TypeList.size() and TypeList[type] != null else 0].new()

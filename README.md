@@ -15,7 +15,7 @@ In-game console for Godot, easily extensible with new commands.
 
 - Auto-completion on `TAB` (complete command), `Enter` (complete and execute).
 - History (by default using with actions `ui_up` and `ui_down`)
-- Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Types.md))
+- Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md))
 - [Logging](https://github.com/QuentinCaffeino/godot-console/tree/master/docs/Log.md)
 
 ## Installation
@@ -52,11 +52,11 @@ func printHello(name = ''):
 ```
 
 ***ARGUMENT*** should look like this:
-- [ 'arg_name', [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Types.md) ]
+- [ 'arg_name', [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md) ]
 - 'arg_name' — In this situation type will be set to Any
-- [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Types.md)
+- [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md)
 
-More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Types.md) you can find [here](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Types/Types.md).
+More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md) you can find [here](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md).
 
 More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/BaseCommands.gd)
 
