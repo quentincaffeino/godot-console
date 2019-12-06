@@ -1,8 +1,6 @@
 
 extends LineEdit
 
-const CommandHandlerBuilder = preload('Command/CommandHandlerBuilder.gd')
-
 
 # @const  string
 const COMMANDS_SEPARATOR = ';'

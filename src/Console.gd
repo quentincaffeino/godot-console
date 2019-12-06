@@ -90,7 +90,7 @@ func _input(e):
 
 
 # @param  string  name
-func getCommand(name):  # Command/CommandHandler|null
+func getCommand(name):  # Command/Command|null
   return self._rootGroup.getCommand(name)
 
 

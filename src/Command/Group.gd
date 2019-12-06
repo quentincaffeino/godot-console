@@ -3,7 +3,6 @@ extends Reference
 
 const ArrayCollection = preload('../../addons/quentincaffeino-array-utils/src/Collection.gd')
 const CommandBuilder = preload('CommandBuilder.gd')
-const CommandHandler = preload('CommandHandler.gd')
 
 
 # @var  string

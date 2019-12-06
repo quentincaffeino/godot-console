@@ -27,7 +27,7 @@
 
 | Methods | Description |
 |--|--|
-| *Command/CommandHandler\|null* getCommand(*string* name) | Get command by name. |
+| *Command/Command\|null* getCommand(*string* name) | Get command by name. |
 | *bool* register(*string* name, *Variant[][]* parameters = []) | Register command. |
 | *int* unregister(*string* name) | Unregister command. |
 | *void* write(*string* message) | Writes message to the console and engine output. |

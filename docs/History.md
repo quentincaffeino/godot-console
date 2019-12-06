@@ -17,6 +17,6 @@
 | Methods | Description |
 |--|--|
 | *void* pop() | Pop command from history. |
-| *void* push(*Command/CommandHandler* command) | Push command into history. |
+| *void* push(*Command/Command* command) | Push command into history. |
 | *int* getMaxLength() | Returns history max length. |
 | *History* setMaxLength(*int* maxLength) | Sets history max length. |
