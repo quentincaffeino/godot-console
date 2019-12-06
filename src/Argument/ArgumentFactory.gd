@@ -1,9 +1,9 @@
 
 extends Reference
 
-const Argument = preload('Argument.gd')
-const TypesBuilder = preload('../Types/TypesBuilder.gd')
-const BaseType = preload('../Types/BaseType.gd')
+const Argument = preload('../Argument/Argument.gd')
+const TypeFactory = preload('../Type/TypeFactory.gd')
+const BaseType = preload('../Type/BaseType.gd')
 
 
 # @param  string|null   name
@@ -11,7 +11,7 @@ const BaseType = preload('../Types/BaseType.gd')
 static func build(name, type = 0):  # Argument|int
   # Define arument type
   if !(typeof(type) == TYPE_OBJECT and type is BaseType):
-    type = TypesBuilder.build(type if typeof(type) == TYPE_INT else 0)
+    type = TypeFactory.build(type if typeof(type) == TYPE_INT else 0)
 
   if not type is BaseType:
     Console.Log.error(\

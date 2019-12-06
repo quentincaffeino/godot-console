@@ -1,7 +1,7 @@
 
 extends Reference
 
-const ArgumentBuilder = preload('ArgumentBuilder.gd')
+const ArgumentFactory = preload('../Argument/ArgumentFactory.gd')
 const ArrayUtils = preload('../../addons/quentincaffeino-array-utils/src/Utils.gd')
 const Command = preload('Command.gd')
 
@@ -61,9 +61,9 @@ static func _buildArguments(target, parameters):  # Array<Argument>|int
       parameters.args = [parameters.args]
 
   if parameters.has('arg'):
-    args = ArgumentBuilder.buildAll([ parameters.arg ])
+    args = ArgumentFactory.buildAll([ parameters.arg ])
   elif parameters.has('args'):
-    args = ArgumentBuilder.buildAll(parameters.args)
+    args = ArgumentFactory.buildAll(parameters.args)
 
   if typeof(args) == TYPE_INT:
     Console.Log.error(\

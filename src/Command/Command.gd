@@ -1,7 +1,7 @@
 
 extends Reference
 
-const Argument = preload('Argument.gd')
+const Argument = preload('../Argument/Argument.gd')
 
 
 # @var  string
