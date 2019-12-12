@@ -13,7 +13,7 @@ In-game console for Godot, easily extensible with new commands.
 
 	`Console.writeLine('Hello world!')`
 
-- Auto-completion on `TAB` (complete command), `Enter` (complete and execute).
+- <strike>Auto-completion on `TAB` (complete command)</strike> (broken right now), `Enter` (complete and execute).
 - History (by default using with actions `ui_up` and `ui_down`)
 - Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md))
 - [Logging](https://github.com/QuentinCaffeino/godot-console/tree/master/docs/Log.md)
@@ -65,6 +65,7 @@ More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godo
 - Create separate module with chat-like UI to separate console. (Help required, I'm bad with UIs)
 - Make arguments required by default and add Optional type.
 - Make a proper command builder (\w builder pattern).
+- Fix TAB autocomplete.
 
 ----------
 
