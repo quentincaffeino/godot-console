@@ -66,6 +66,7 @@ More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godo
 - Make arguments required by default and add Optional type.
 - Make a proper command builder (\w builder pattern).
 - Fix TAB autocomplete.
+- [FuncRef](https://docs.godotengine.org/en/3.1/classes/class_funcref.html) support (command target).
 
 ----------
 
