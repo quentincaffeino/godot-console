@@ -86,6 +86,7 @@ func execute(input):
 		command = Console.getCommand(parsedCommand.name)
 
 		if command:
+			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
 			command.execute(parsedCommand.arguments)
 			Console.History.push(input)
 			self.clear()
@@ -104,10 +105,8 @@ func parseCommands(rawCommands):  # Dictionary[]
 
 # @param  string  rawCommand
 func parseCommand(rawCommand):  # Dictionary
-	var command = {
-		'name': null,
-		'arguments': [],
-	}
+	var name = null
+	var arguments = PoolStringArray([])
 
 	var beginning = 0  # int
 	var openQuote  # string|null
@@ -136,10 +135,14 @@ func parseCommand(rawCommand):  # Dictionary
 
 		# Save separated argument
 		if subString != null and typeof(subString) == TYPE_STRING and !subString.empty():
-			if !command.name:
-				command.name = subString
+			if !name:
+				name = subString
 			else:
-				command.arguments.append(subString)
+				arguments.append(subString)
 			subString = null
 
-	return command
+	return {
+		'command': rawCommand,
+		'name': name,
+		'arguments': arguments
+	}

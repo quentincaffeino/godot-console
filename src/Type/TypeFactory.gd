@@ -15,5 +15,5 @@ const TypeList = [
 
 
 # @param  int  type
-static func build(type):  # BaseType
+static func create(type):  # BaseType
 	return TypeList[type if type >= 0 and type < TypeList.size() and TypeList[type] != null else 0].new()

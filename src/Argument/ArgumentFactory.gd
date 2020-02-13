@@ -8,10 +8,10 @@ const BaseType = preload('../Type/BaseType.gd')
 
 # @param  string|null   name
 # @param  int|BaseType  type
-static func build(name, type = 0):  # Argument|int
+static func create(name, type = 0):  # Argument|int
 	# Define arument type
 	if !(typeof(type) == TYPE_OBJECT and type is BaseType):
-		type = TypeFactory.build(type if typeof(type) == TYPE_INT else 0)
+		type = TypeFactory.create(type if typeof(type) == TYPE_INT else 0)
 
 	if not type is BaseType:
 		Console.Log.error(\
@@ -22,7 +22,7 @@ static func build(name, type = 0):  # Argument|int
 
 
 # @param  Array<Variant>  args
-static func buildAll(args):  # Array<Argument>|int
+static func createAll(args):  # Array<Argument>|int
 	# @var  Array<Argument>|int  builtArgs
 	var builtArgs = []
 
@@ -34,15 +34,15 @@ static func buildAll(args):  # Array<Argument>|int
 		match typeof(arg):
 			# [ 'argName', BaseType|ARG_TYPE ]
 			TYPE_ARRAY:
-				tempArg = build(arg[0], arg[1] if arg.size() > 1 else 0)
+				tempArg = create(arg[0], arg[1] if arg.size() > 1 else 0)
 
 			# 'argName'
 			TYPE_STRING:
-				tempArg = build(arg)
+				tempArg = create(arg)
 
 			# BaseType|ARG_TYPE
 			TYPE_OBJECT, TYPE_INT:
-				tempArg = build(null, arg)
+				tempArg = create(null, arg)
 
 		if typeof(tempArg) == TYPE_INT:
 			return FAILED

@@ -61,9 +61,9 @@ static func _buildArguments(target, parameters):  # Array<Argument>|int
 			parameters.args = [parameters.args]
 
 	if parameters.has('arg'):
-		args = ArgumentFactory.buildAll([ parameters.arg ])
+		args = ArgumentFactory.createAll([ parameters.arg ])
 	elif parameters.has('args'):
-		args = ArgumentFactory.buildAll(parameters.args)
+		args = ArgumentFactory.createAll(parameters.args)
 
 	if typeof(args) == TYPE_INT:
 		Console.Log.error(\
