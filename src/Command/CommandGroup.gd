@@ -43,7 +43,7 @@ func _getGroup(nameParts, create = false):  # CommandGroup|null
 
 		if !self.getGroups().containsKey(firstNamePart):
 			if create:
-				self.getGroups().set(firstNamePart, get_script().new(firstNamePart, self.getName() + '.' + firstNamePart))
+				self.getGroups().set(firstNamePart, get_script().new(firstNamePart))
 			else:
 				var found = null
 				var foundCount = 0
