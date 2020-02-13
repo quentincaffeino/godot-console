@@ -25,10 +25,9 @@ func _init():
 		'target': self
 	})
 
-	Console.register('quit', {
-		'description': 'Exit application.',
-		'target': self
-	})
+	Console.addCommand('quit')\
+		.setDescription('Exit application.')\
+		.setTarget(self, null).register()
 
 	Console.register('clear', {
 		'description': 'Clear the terminal.',

@@ -6,6 +6,68 @@ const ArrayUtils = preload('../../addons/quentincaffeino-array-utils/src/Utils.g
 const Command = preload('Command.gd')
 
 
+# @var  string
+var _name
+
+# @var  Callback|null
+var _target
+
+# @var  Argument[]
+var _arguments
+
+# @var  string|null
+var _description
+
+# @var  CommandGroup
+var _commandGroup
+
+
+# @param  string        name
+# @param  CommandGroup  commandGroup
+func _init(name, commandGroup):
+	self._name = name
+	self._target = null
+	self._arguments = []
+	self._description = null
+	self._commandGroup = commandGroup
+
+
+# @param  Reference  target
+# @param  string     name
+func setTarget(target, name):  # CommandBuilder
+	if Console.Callback.canCreate(target, name if name else self._name):
+		self._target = Console.Callback.new(target, name if name else self._name)
+		return self
+
+	Console.Log.error(\
+		'QC/Console/Command/CommandBuilder: setTarget: Failed to create [b]`' + \
+		(name if name else self._name) + '`[/b] command. Failed to create callback to target.')
+
+
+# @param  string         name
+# @param  BaseType|null  type
+func addArgument(name, type):  # CommandBuilder
+	return self
+
+
+# @param  string|null  description
+func setDescription(description = null):  # CommandBuilder
+	self._description = description
+	return self
+
+
+func register():  # void
+	# TODO: Rewrite using CommandGroup public methods
+	var command = Command.new(self._name, self._target, self._arguments, self._description)
+	var nameParts = self._name.split('.', false)
+	var lastNamePart = nameParts[nameParts.size() - 1]
+	var group = self._commandGroup
+	if nameParts.size() > 1:
+		group = self._commandGroup._getGroup(nameParts, true)
+	group.getCommands().set(lastNamePart, command)
+
+
+# @deprecated
 # @var  string     name
 # @var  Variant[]  parameters
 static func _buildTarget(name, parameters):  # Callback|int
@@ -48,7 +110,8 @@ static func _buildTarget(name, parameters):  # Callback|int
 	return target
 
 
-# @var  Callback     target
+# @deprecated
+# @var  Callback   target
 # @var  Variant[]  parameters
 static func _buildArguments(target, parameters):  # Array<Argument>|int
 	var args = []
@@ -74,9 +137,10 @@ static func _buildArguments(target, parameters):  # Array<Argument>|int
 	return args
 
 
+# @deprecated
 # @var  string     name
 # @var  Variant[]  parameters
-static func build(name, parameters):  # Command|int
+static func buildDeprecated(name, parameters):  # Command|int
 	var target = _buildTarget(name, parameters)
 	if typeof(target) == TYPE_INT:
 		return target

@@ -4,6 +4,7 @@ extends CanvasLayer
 const BaseCommands = preload('Misc/BaseCommands.gd')
 const Callback = preload('../addons/quentincaffeino-callback/src/Callback.gd')
 const CommandGroup = preload('Command/CommandGroup.gd')
+const CommandBuilder = preload('Command/CommandBuilder.gd')
 
 ### Custom console types
 const IntRange = preload('Type/IntRange.gd')
@@ -97,11 +98,22 @@ func getCommand(name):  # Command/Command|null
 # @param  string     name
 # @param  Variant[]  parameters
 func register(name, parameters = []):  # bool
+	Log.warn('QC/Console: register: register() method is deprecated and will be removed. Please refer to the documentation to update your code to use addCommand.')
 	return self._rootGroup.registerCommand(name, parameters)
 
 
 # @param  string  name
 func unregister(name):  # int
+	Log.warn('QC/Console: unregister: unregister() method is deprecated and will be removed. Please use removeCommand.')
+	return self._rootGroup.unregisterCommand(name)
+
+
+# @param  string  name
+func addCommand(name):  # CommandBuilder
+	return CommandBuilder.new(name, _rootGroup)
+
+# @param  string  name
+func removeCommand(name):  # int
 	return self._rootGroup.unregisterCommand(name)
 
 

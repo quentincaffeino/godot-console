@@ -82,7 +82,7 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
 
 		if group:
 			if register and !group.getCommands().containsKey(lastNamePart):
-				var command = CommandBuilder.build(lastNamePart, parameters)  # Command|int
+				var command = CommandBuilder.buildDeprecated(lastNamePart, parameters)  # Command|int
 
 				if typeof(command) != TYPE_INT:
 					group.getCommands().set(lastNamePart, command)
