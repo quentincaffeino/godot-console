@@ -51,98 +51,98 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 
 func _init():
-  self._rootGroup = CommandGroup.new('root')
-  # Used to clear text from bb tags
-  self._eraseTrash = RegExLib.getPatternFor('console.eraseTrash')
+	self._rootGroup = CommandGroup.new('root')
+	# Used to clear text from bb tags
+	self._eraseTrash = RegExLib.getPatternFor('console.eraseTrash')
 
 
 func _ready():
-  # Allow selecting console text
-  self.Text.set_selection_enabled(true)
-  # Follow console output (for scrolling)
-  self.Text.set_scroll_follow(true)
-  # React to clicks on console urls
-  self.Text.connect('meta_clicked', self.Line, 'setText')
+	# Allow selecting console text
+	self.Text.set_selection_enabled(true)
+	# Follow console output (for scrolling)
+	self.Text.set_scroll_follow(true)
+	# React to clicks on console urls
+	self.Text.connect('meta_clicked', self.Line, 'setText')
 
-  # Hide console by default
-  self._consoleBox.hide()
-  self._animationPlayer.connect("animation_finished", self, "_toggleAnimationFinished")
-  self.toggleConsole()
+	# Hide console by default
+	self._consoleBox.hide()
+	self._animationPlayer.connect("animation_finished", self, "_toggleAnimationFinished")
+	self.toggleConsole()
 
-  # Console keyboard control
-  set_process_input(true)
+	# Console keyboard control
+	set_process_input(true)
 
-  # Show some info
-  var v = Engine.get_version_info()
-  writeLine(\
-    ProjectSettings.get_setting("application/config/name") + \
-    " (Godot " + str(v.major) + '.' + str(v.minor) + '.' + str(v.patch) + ' ' + v.status+")\n" + \
-    "Type [color=#ffff66][url=help]help[/url][/color] to get more information about usage")
+	# Show some info
+	var v = Engine.get_version_info()
+	writeLine(\
+		ProjectSettings.get_setting("application/config/name") + \
+		" (Godot " + str(v.major) + '.' + str(v.minor) + '.' + str(v.patch) + ' ' + v.status+")\n" + \
+		"Type [color=#ffff66][url=help]help[/url][/color] to get more information about usage")
 
-  # Init base commands
-  self.BaseCommands.new()
+	# Init base commands
+	self.BaseCommands.new()
 
 
 # @param  Event  e
 func _input(e):
-  if Input.is_action_just_pressed(self.action_console_toggle):
-    self.toggleConsole()
+	if Input.is_action_just_pressed(self.action_console_toggle):
+		self.toggleConsole()
 
 
 # @param  string  name
 func getCommand(name):  # Command/Command|null
-  return self._rootGroup.getCommand(name)
+	return self._rootGroup.getCommand(name)
 
 
 # @param  string     name
 # @param  Variant[]  parameters
 func register(name, parameters = []):  # bool
-  return self._rootGroup.registerCommand(name, parameters)
+	return self._rootGroup.registerCommand(name, parameters)
 
 
 # @param  string  name
 func unregister(name):  # int
-  return self._rootGroup.unregisterCommand(name)
+	return self._rootGroup.unregisterCommand(name)
 
 
 # @param  string  message
 func write(message):  # void
-  message = str(message)
-  if self.Text:
-    self.Text.set_bbcode(self.Text.get_bbcode() + message)
-  print(self._eraseTrash.sub(message, '', true))
+	message = str(message)
+	if self.Text:
+		self.Text.set_bbcode(self.Text.get_bbcode() + message)
+	print(self._eraseTrash.sub(message, '', true))
 
 
 # @param  string  message
 func writeLine(message = ''):  # void
-  message = str(message)
-  if self.Text:
-    self.Text.set_bbcode(self.Text.get_bbcode() + message + '\n')
-  print(self._eraseTrash.sub(message, '', true))
+	message = str(message)
+	if self.Text:
+		self.Text.set_bbcode(self.Text.get_bbcode() + message + '\n')
+	print(self._eraseTrash.sub(message, '', true))
 
 
 func clear():  # void
-  if self.Text:
-    self.Text.set_bbcode('')
+	if self.Text:
+		self.Text.set_bbcode('')
 
 
 func toggleConsole():  # void
-  # Open the console
-  if !isConsoleShown:
-    self._consoleBox.show()
-    self.Line.clear()
-    self.Line.grab_focus()
-    self._animationPlayer.play_backwards('fade')
-  else:
-    self._animationPlayer.play('fade')
+	# Open the console
+	if !isConsoleShown:
+		self._consoleBox.show()
+		self.Line.clear()
+		self.Line.grab_focus()
+		self._animationPlayer.play_backwards('fade')
+	else:
+		self._animationPlayer.play('fade')
 
-  isConsoleShown = !isConsoleShown
+	isConsoleShown = !isConsoleShown
 
 
 func _toggleAnimationFinished(animation):  # void
-  if !isConsoleShown:
-    self._consoleBox.hide()
+	if !isConsoleShown:
+		self._consoleBox.hide()
 
 
 func _setProtected(value):  # void
-  Log.warn('QC/Console: setProtected: Attempted to set a protected variable, ignoring.')
+	Log.warn('QC/Console: setProtected: Attempted to set a protected variable, ignoring.')

@@ -3,7 +3,7 @@ extends 'BaseType.gd'
 
 
 func _init():
-  self._name = 'Any'
+	self._name = 'Any'
 
 
 # Assignment check.
@@ -11,10 +11,10 @@ func _init():
 # OK, FAILED and CANCELED
 # @param  Varian  originalValue
 func check(originalValue):  # int
-  return OK
+	return OK
 
 
 # Normalize variable
 # @param  Varian  originalValue
 func normalize(originalValue):  # void
-  self._normalizedValue = originalValue
+	self._normalizedValue = originalValue

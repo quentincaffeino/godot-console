@@ -2,13 +2,13 @@ tool
 extends EditorPlugin
 
 
-const ConsoleName = 'Console'
-const ConsolePath = 'res://addons/quentincaffeino-console/src/Console.tscn'
+const PluginName = 'Console'
+const PluginPath = 'res://addons/quentincaffeino-console/src/Console.tscn'
 
 
 func _enter_tree():
-	self.add_autoload_singleton(ConsoleName, ConsolePath)
+	self.add_autoload_singleton(PluginName, PluginPath)
 
 
 func _exit_tree():
-	self.remove_autoload_singleton(ConsoleName)
+	self.remove_autoload_singleton(PluginName)
