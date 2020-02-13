@@ -4,9 +4,9 @@ extends Reference
 
 enum ASSIGNMENT \
 {
-  OK,
-  FAILED,
-  CANCELED
+	OK,
+	FAILED,
+	CANCELED
 }
 
 
@@ -23,43 +23,43 @@ var _originalValue
 # @param  string|null  name
 # @param  BaseType     type
 func _init(name, type):
-  self._name = name
-  self._type = type
+	self._name = name
+	self._type = type
 
 
 func getValue():  # Variant
-  return self._type.getNormalizedValue()
+	return self._type.getNormalizedValue()
 
 
 # @param  Variant  value
 func setValue(value):  # int
-  self._originalValue = value
+	self._originalValue = value
 
-  var check = self._type.check(value)
-  if check == OK:
-    self._type.normalize(value)
+	var check = self._type.check(value)
+	if check == OK:
+		self._type.normalize(value)
 
-  return check
+	return check
 
 
 func getOriginalValue():
-  return self._originalValue
+	return self._originalValue
 
 
 func describe():  # string
-  var argumentName = ''
+	var argumentName = ''
 
-  if self._name:
-    argumentName += self._name + ':'
+	if self._name:
+		argumentName += self._name + ':'
 
-  argumentName += self._type.toString()
+	argumentName += self._type.toString()
 
-  return argumentName
+	return argumentName
 
 
 func getName():  # string
-  return self._name
+	return self._name
 
 
 func getType():  # BaseType
-  return self._type
+	return self._type
