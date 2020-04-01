@@ -90,6 +90,7 @@ More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godo
 - Create separate module with chat-like UI to separate console. (Help required, I'm bad with UIs)
 - Make arguments required by default and add Optional type.
 - Make a proper command builder (\w builder pattern). [BETA]
+- Register console actions on plugin register.
 - Fix TAB autocomplete.
 - [FuncRef](https://docs.godotengine.org/en/3.1/classes/class_funcref.html) support (command target).
 
