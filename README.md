@@ -24,9 +24,37 @@ In-game console for Godot, easily extensible with new commands.
 2. Enable console in Project/Addons
 3. Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
 
-## Example
+## Example:
+
+### Usage we will get:
+
+```
+$ sayHello "Adam Smith"
+```
+
+### Example function that will be called by our command:
+
+```gdscript
+func printHello(name = ''):
+	Console.writeLine('Hello ' + name + '!')
+```
 
 ### Registering command:
+
+#### The new way (beta)
+
+```gdscript
+func _ready():
+	# 1. argument is command name
+	# 2. arg. is target
+	# 3. arg. is target name
+	Console.addCommand('sayHello', self, 'printHello')\
+		.setDescription('Prints "Hello %name%!"')\
+		.addArgument('name', TYPE_STRING)\
+		.register()
+```
+
+#### The old way (will be deprecated and later removed)
 
 ```gdscript
 func _ready():
@@ -46,9 +74,6 @@ func _ready():
 		'target': [ self, 'printHello' ]
 
 	})
-
-func printHello(name = ''):
-	Console.writeLine('Hello ' + name + '!')
 ```
 
 ***ARGUMENT*** should look like this:
@@ -58,13 +83,13 @@ func printHello(name = ''):
 
 More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md) you can find [here](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md).
 
-More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/BaseCommands.gd)
+More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Misc/BaseCommands.gd)
 
 ## Ideas/Todos:
 
 - Create separate module with chat-like UI to separate console. (Help required, I'm bad with UIs)
 - Make arguments required by default and add Optional type.
-- Make a proper command builder (\w builder pattern).
+- Make a proper command builder (\w builder pattern). [BETA]
 - Fix TAB autocomplete.
 - [FuncRef](https://docs.godotengine.org/en/3.1/classes/class_funcref.html) support (command target).
 

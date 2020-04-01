@@ -22,22 +22,24 @@ var _description
 var _commandGroup
 
 
-# @param  string        name
 # @param  CommandGroup  commandGroup
-func _init(name, commandGroup):
+# @param  string        name
+# @param  Reference     target
+# @param  string|null   targetName
+func _init(commandGroup, name, target, targetName = null):
 	self._name = name
-	self._target = null
+	self._target = self._createTarget(target, targetName)
 	self._arguments = []
 	self._description = null
 	self._commandGroup = commandGroup
 
 
-# @param  Reference  target
-# @param  string     name
-func setTarget(target, name):  # CommandBuilder
+# @private
+# @param  Reference    target
+# @param  string|null  name
+func _createTarget(target, name = null):  # Callback|null
 	if Console.Callback.canCreate(target, name if name else self._name):
-		self._target = Console.Callback.new(target, name if name else self._name)
-		return self
+		return Console.Callback.new(target, name if name else self._name)
 
 	Console.Log.error(\
 		'QC/Console/Command/CommandBuilder: setTarget: Failed to create [b]`' + \
@@ -46,7 +48,9 @@ func setTarget(target, name):  # CommandBuilder
 
 # @param  string         name
 # @param  BaseType|null  type
-func addArgument(name, type):  # CommandBuilder
+# @param  string|null    description
+func addArgument(name, type = null, description = null):  # CommandBuilder
+	self._arguments.append(ArgumentFactory.create(name, type, description))
 	return self
 
 
@@ -68,6 +72,7 @@ func register():  # void
 
 
 # @deprecated
+# @private
 # @var  string     name
 # @var  Variant[]  parameters
 static func _buildTarget(name, parameters):  # Callback|int
@@ -111,6 +116,7 @@ static func _buildTarget(name, parameters):  # Callback|int
 
 
 # @deprecated
+# @private
 # @var  Callback   target
 # @var  Variant[]  parameters
 static func _buildArguments(target, parameters):  # Array<Argument>|int

@@ -38,4 +38,6 @@ func _ready():
 
 ### Adding your own types
 
+__Warning: Types API is unstable and may (and probably will) change.__
+
 To add custom type extend [`Console/Commands/Type/BaseType.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Type/BaseType.gd)

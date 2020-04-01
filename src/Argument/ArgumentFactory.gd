@@ -6,10 +6,11 @@ const TypeFactory = preload('../Type/TypeFactory.gd')
 const BaseType = preload('../Type/BaseType.gd')
 
 
-# @param  string|null   name
+# @param  string        name
 # @param  int|BaseType  type
-static func create(name, type = 0):  # Argument|int
-	# Define arument type
+# @param  string|null   description
+static func create(name, type = 0, description = null):  # Argument|int
+	# Define argument type
 	if !(typeof(type) == TYPE_OBJECT and type is BaseType):
 		type = TypeFactory.create(type if typeof(type) == TYPE_INT else 0)
 
@@ -18,7 +19,7 @@ static func create(name, type = 0):  # Argument|int
 			'QC/Console/Command/Argument: build: Argument of type [b]' + str(type) + '[/b] isn\'t supported.')
 		return FAILED
 
-	return Argument.new(name, type)
+	return Argument.new(name, type, description)
 
 
 # @param  Array<Variant>  args

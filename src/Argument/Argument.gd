@@ -16,15 +16,20 @@ var _name
 # @var  BaseType
 var _type
 
+# @var  string|null
+var _description
+
 # @var  string
 var _originalValue
 
 
-# @param  string|null  name
+# @param  string       name
 # @param  BaseType     type
-func _init(name, type):
+# @param  string|null  description
+func _init(name, type, description = null):
 	self._name = name
 	self._type = type
+	self._description = description
 
 
 func getValue():  # Variant

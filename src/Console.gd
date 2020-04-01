@@ -108,9 +108,11 @@ func unregister(name):  # int
 	return self._rootGroup.unregisterCommand(name)
 
 
-# @param  string  name
-func addCommand(name):  # CommandBuilder
-	return CommandBuilder.new(name, _rootGroup)
+# @param  string       name
+# @param  Reference    target
+# @param  string|null  targetName
+func addCommand(name, target, targetName = null):  # CommandBuilder
+	return CommandBuilder.new(_rootGroup, name, target, targetName)
 
 # @param  string  name
 func removeCommand(name):  # int

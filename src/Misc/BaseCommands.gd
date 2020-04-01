@@ -3,47 +3,40 @@ extends Reference
 
 
 func _init():
-	Console.register('echo', {
-		'description': 'Prints a string.',
-		'args': [ TYPE_STRING ],
-		'target': [ Console, 'writeLine' ]
-	})
+	Console.addCommand('echo', Console, 'write')\
+		.setDescription('Prints a string.')\
+		.addArgument('text', TYPE_STRING)\
+		.register()
 
-	Console.register('history', {
-		'description': 'Print all previous commands used during the session.',
-		'target': [ Console.History, 'printAll' ]
-	})
+	Console.addCommand('history', Console.History, 'printAll')\
+		.setDescription('Print all previous commands used during the session.')\
+		.register()
 
-	Console.register('commands', {
-		'description': 'Lists all available commands.',
-		'target': [ Console._rootGroup, 'printAll' ]
-	})
+	Console.addCommand('commands', Console._rootGroup, 'printAll')\
+		.setDescription('Lists all available commands.')\
+		.register()
 
-	Console.register('help', {
-		'description': 'Outputs usage instructions.',
-		'args': [ TYPE_STRING ],
-		'target': self
-	})
+	Console.addCommand('help', self)\
+		.setDescription('Outputs usage instructions.')\
+		.addArgument('command', TYPE_STRING)\
+		.register()
 
-	Console.addCommand('quit')\
+	Console.addCommand('quit', self)\
 		.setDescription('Exit application.')\
-		.setTarget(self, null).register()
+		.register()
 
-	Console.register('clear', {
-		'description': 'Clear the terminal.',
-		'target': Console
-	})
+	Console.addCommand('clear', Console)\
+		.setDescription('Clear the terminal.')\
+		.register()
 
-	Console.register('version', {
-		'description': 'Shows engine vesion.',
-		'target': self
-	})
+	Console.addCommand('version', self)\
+		.setDescription('Shows engine vesion.')\
+		.register()
 
-	Console.register('fps_max', {
-		'args': [ Console.IntRange.new(10, 1000) ],
-		'description': 'The maximal framerate at which the application can run.',
-		'target': [ Engine, 'set_target_fps' ],
-	})
+	Console.addCommand('fps_max', Engine, 'set_target_fps')\
+		.setDescription('The maximal framerate at which the application can run.')\
+		.addArgument('fps', Console.IntRange.new(10, 1000))\
+		.register()
 
 
 # Display help message or display description for the command.
