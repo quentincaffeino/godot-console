@@ -17,6 +17,7 @@ In-game console for Godot, easily extensible with new commands.
 - History (by default using with actions `ui_up` and `ui_down`)
 - Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md))
 - [Logging](https://github.com/QuentinCaffeino/godot-console/tree/master/docs/Log.md)
+- [FuncRef](https://docs.godotengine.org/en/3.2/classes/class_funcref.html) support with Godot >=3.2 (command target).
 
 ## Installation
 
@@ -46,8 +47,8 @@ func printHello(name = ''):
 ```gdscript
 func _ready():
 	# 1. argument is command name
-	# 2. arg. is target
-	# 3. arg. is target name
+	# 2. arg. is target (target could be a funcref)
+	# 3. arg. is target name (name is not required if it is the same as first arg or target is a funcref)
 	Console.addCommand('sayHello', self, 'printHello')\
 		.setDescription('Prints "Hello %name%!"')\
 		.addArgument('name', TYPE_STRING)\
@@ -92,7 +93,6 @@ More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godo
 - Make a proper command builder (\w builder pattern). [BETA]
 - Register console actions on plugin register.
 - Fix TAB autocomplete.
-- [FuncRef](https://docs.godotengine.org/en/3.1/classes/class_funcref.html) support (command target).
 
 ----------
 

@@ -1,8 +1,8 @@
 {
-  "name": "quentincaffeino/iterator",
-  "dependencies": [
-    "quentincaffeino/callback"
-  ],
+  "name": "quentincaffeino-iterator",
+  "dependencies": {
+    "quentincaffeino-callback": ""
+  },
   "autoload": {
     "QuentinCaffeino/Iterator": "src"
   }

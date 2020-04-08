@@ -2,7 +2,9 @@
 extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
-const Callback = preload('../addons/quentincaffeino-callback/src/Callback.gd')
+# @deprecated
+const Callback= preload('../addons/quentincaffeino-callback/src/Callback.gd')
+const CallbackBuilder= preload('../addons/quentincaffeino-callback/src/CallbackBuilder.gd')
 const CommandGroup = preload('Command/CommandGroup.gd')
 const CommandBuilder = preload('Command/CommandBuilder.gd')
 

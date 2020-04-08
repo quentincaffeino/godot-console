@@ -38,12 +38,14 @@ func _init(commandGroup, name, target, targetName = null):
 # @param  Reference    target
 # @param  string|null  name
 func _createTarget(target, name = null):  # Callback|null
-	if Console.Callback.canCreate(target, name if name else self._name):
-		return Console.Callback.new(target, name if name else self._name)
+	var callback = Console.CallbackBuilder.new(target).setName(name if name else self._name).build()
 
-	Console.Log.error(\
-		'QC/Console/Command/CommandBuilder: setTarget: Failed to create [b]`' + \
-		(name if name else self._name) + '`[/b] command. Failed to create callback to target.')
+	if not callback:
+		Console.Log.error(\
+			'QC/Console/Command/CommandBuilder: setTarget: Failed to create [b]`' + \
+			(name if name else self._name) + '`[/b] command. Failed to create callback to target.')
+
+	return callback
 
 
 # @param  string         name
