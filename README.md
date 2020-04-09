@@ -86,14 +86,6 @@ More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-c
 
 More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Misc/BaseCommands.gd)
 
-## Ideas/Todos:
-
-- Create separate module with chat-like UI to separate console. (Help required, I'm bad with UIs)
-- Make arguments required by default and add Optional type.
-- Make a proper command builder (\w builder pattern). [BETA]
-- Register console actions on plugin register.
-- Fix TAB autocomplete.
-
 ----------
 
 Great thanks to [@Krakean](https://github.com/Krakean) and [@DmitriySalnikov](https://github.com/DmitriySalnikov) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou).
