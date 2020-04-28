@@ -20,8 +20,17 @@
         "question",
         "doc",
         "ideas",
-        "maintenance",
         "review"
+      ]
+    },
+    {
+      "login": "MJBrune",
+      "name": "Michael Brune",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/420072?v=4",
+      "profile": "http://www.underflowstudios.com",
+      "contributions": [
+        "a11y",
+        "bug"
       ]
     }
   ],
