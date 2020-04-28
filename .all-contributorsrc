@@ -1,0 +1,24 @@
+{
+  "projectName": "godot-console",
+  "projectOwner": "quentincaffeino",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "quentincaffeino",
+      "name": "Sergei ZH",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2855777?v=4",
+      "profile": "http://gitlab.com/QuentinCaffeino",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
