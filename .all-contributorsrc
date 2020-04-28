@@ -32,6 +32,15 @@
         "a11y",
         "bug"
       ]
+    },
+    {
+      "login": "aganm",
+      "name": "Michael Aganier",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/20380758?v=4",
+      "profile": "https://github.com/aganm",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7
