@@ -16,7 +16,12 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/2855777?v=4",
       "profile": "http://gitlab.com/QuentinCaffeino",
       "contributions": [
-        "code"
+        "code",
+        "question",
+        "doc",
+        "ideas",
+        "maintenance",
+        "review"
       ]
     }
   ],
