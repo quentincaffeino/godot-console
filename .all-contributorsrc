@@ -59,6 +59,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "paulhocker",
+      "name": "Paul Hocker",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2214652?v=4",
+      "profile": "http://sdnllc.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7
