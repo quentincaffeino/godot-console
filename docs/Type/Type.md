@@ -22,7 +22,7 @@ Difference between Int range and Float range is that in Int range values are rou
 Possible `mode`s are: `Filter.ALLOW` and `Filter.DENY`
 
 
-### Example
+### Example: Custom type usage:
 
 ```gdscript
 var health = 5
@@ -36,7 +36,7 @@ func _ready():
 ```
 
 
-### Adding your own types
+### Adding your own types:
 
 __Warning: Types API is unstable and may (and probably will) change.__
 

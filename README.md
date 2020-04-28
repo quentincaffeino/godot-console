@@ -8,7 +8,7 @@ Godot Console
 
 In-game console for Godot, easily extensible with new commands.
 
-![Screenshot of in-game console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/dev/screenshot.png)
+![Screenshot of in-game console for Godot](https://github.com/quentincaffeino/godot-console/blob/dev/screenshot.png)
 
 ## Features
 
@@ -18,8 +18,8 @@ In-game console for Godot, easily extensible with new commands.
 
 - <strike>Auto-completion on `TAB` (complete command)</strike> (broken right now), `Enter` (complete and execute).
 - History (by default using with actions `ui_up` and `ui_down`)
-- Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md))
-- [Logging](https://github.com/QuentinCaffeino/godot-console/tree/master/docs/Log.md)
+- Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](docs/Type/Type.md))
+- [Logging](https://github.com/quentincaffeino/godot-console/tree/master/docs/Log.md)
 - [FuncRef](https://docs.godotengine.org/en/3.2/classes/class_funcref.html) support with Godot >=3.2 (command target).
 
 ## Installation
@@ -34,9 +34,10 @@ In-game console for Godot, easily extensible with new commands.
 
 ```
 $ sayHello "Adam Smith"
+Hello Adam Smith!
 ```
 
-### Example function that will be called by our command:
+### Function that will be called by our command:
 
 ```gdscript
 func printHello(name = ''):
@@ -44,8 +45,6 @@ func printHello(name = ''):
 ```
 
 ### Registering command:
-
-#### The new way (beta)
 
 ```gdscript
 func _ready():
@@ -58,36 +57,7 @@ func _ready():
 		.register()
 ```
 
-#### The old way (will be deprecated and later removed)
-
-```gdscript
-func _ready():
-	Console.register('sayHello', { # Command name
-
-		'description': 'Prints "Hello %name%!"',
-
-		# This argument is obsolete if target function doesn't take any arguments.
-		# If target is a variable then it takes one argument to set it, and zero to get its value.
-		# You can fild more about how argument should look like below.
-		# ARGUMENT[]
-		'args': [[ 'name', TYPE_STRING ]],
-
-		# Target to bind command to.
-		# Providing name is obsolete if it is same as a command name.
-			# [Object, variable/method name]
-		'target': [ self, 'printHello' ]
-
-	})
-```
-
-***ARGUMENT*** should look like this:
-- [ 'arg_name', [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md) ]
-- 'arg_name' — In this situation type will be set to Any
-- [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md)
-
-More information about [**ARG_TYPE**](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md) you can find [here](https://github.com/QuentinCaffeino/godot-console/blob/dev/docs/Type/Type.md).
-
-More examples in [`src/BaseCommands.gd`](https://github.com/QuentinCaffeino/godot-console/blob/dev/src/Misc/BaseCommands.gd)
+For old method for registering commands please read [this](docs/Registering-Command-Old.md)
 
 ----------
 
@@ -102,7 +72,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="http://gitlab.com/QuentinCaffeino"><img src="https://avatars3.githubusercontent.com/u/2855777?v=4" width="100px;" alt=""/><br /><sub><b>Sergei ZH</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=quentincaffeino" title="Code">💻</a> <a href="#question-quentincaffeino" title="Answering Questions">💬</a> <a href="https://github.com/quentincaffeino/godot-console/commits?author=quentincaffeino" title="Documentation">📖</a> <a href="#ideas-quentincaffeino" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/quentincaffeino/godot-console/pulls?q=is%3Apr+reviewed-by%3Aquentincaffeino" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="http://gitlab.com/quentincaffeino"><img src="https://avatars3.githubusercontent.com/u/2855777?v=4" width="100px;" alt=""/><br /><sub><b>Sergei ZH</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=quentincaffeino" title="Code">💻</a> <a href="#question-quentincaffeino" title="Answering Questions">💬</a> <a href="https://github.com/quentincaffeino/godot-console/commits?author=quentincaffeino" title="Documentation">📖</a> <a href="#ideas-quentincaffeino" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/quentincaffeino/godot-console/pulls?q=is%3Apr+reviewed-by%3Aquentincaffeino" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://www.underflowstudios.com"><img src="https://avatars3.githubusercontent.com/u/420072?v=4" width="100px;" alt=""/><br /><sub><b>Michael Brune</b></sub></a><br /><a href="#a11y-MJBrune" title="Accessibility">️️️️♿️</a> <a href="https://github.com/quentincaffeino/godot-console/issues?q=author%3AMJBrune" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/aganm"><img src="https://avatars0.githubusercontent.com/u/20380758?v=4" width="100px;" alt=""/><br /><sub><b>Michael Aganier</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/issues?q=author%3Aaganm" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/hpn33"><img src="https://avatars1.githubusercontent.com/u/16251202?v=4" width="100px;" alt=""/><br /><sub><b>hpn332</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/issues?q=author%3Ahpn33" title="Bug reports">🐛</a></td>
