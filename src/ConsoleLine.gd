@@ -89,7 +89,8 @@ func execute(input):
 			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
 			command.execute(parsedCommand.arguments)
 			Console.History.push(input)
-			self.clear()
+	
+	self.clear()
 
 
 # @param  string[]  rawCommands
