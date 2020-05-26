@@ -88,8 +88,8 @@ func execute(input):
 		if command:
 			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
 			command.execute(parsedCommand.arguments)
-			Console.History.push(input)
-	
+
+	Console.History.push(input)
 	self.clear()
 
 
