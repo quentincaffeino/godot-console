@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="Console.gd" type="Script" id=1]
-[ext_resource path="../assets/fonts/RobotoMono/RobotoMono-BoldItalic.ttf" type="DynamicFontData" id=2]
-[ext_resource path="../assets/fonts/RobotoMono/RobotoMono-Italic.ttf" type="DynamicFontData" id=3]
-[ext_resource path="../assets/fonts/RobotoMono/RobotoMono-Bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="../assets/fonts/RobotoMono/RobotoMono-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="../assets/fonts/source-code-pro/OTF/SourceCodePro-BoldIt.otf" type="DynamicFontData" id=2]
+[ext_resource path="../assets/fonts/source-code-pro/OTF/SourceCodePro-It.otf" type="DynamicFontData" id=3]
+[ext_resource path="../assets/fonts/source-code-pro/OTF/SourceCodePro-Bold.otf" type="DynamicFontData" id=4]
+[ext_resource path="../assets/fonts/source-code-pro/OTF/SourceCodePro-Regular.otf" type="DynamicFontData" id=5]
 [ext_resource path="ConsoleLine.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
