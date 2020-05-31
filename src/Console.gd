@@ -36,6 +36,9 @@ var isConsoleShown = true setget _setProtected
 # @var  bool
 var submitAutocomplete = true
 
+# @var bool
+var consumeInput = false
+
 # @var  string
 export(String) var action_console_toggle = 'console_toggle'
 
