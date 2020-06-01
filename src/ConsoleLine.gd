@@ -30,6 +30,9 @@ func _ready():
 
 	self.connect('text_entered', self, 'execute')
 
+func _gui_input(event):
+	if Console.consumeInput and self.has_focus():
+		accept_event()
 
 # @param  Event  e
 func _input(e):
