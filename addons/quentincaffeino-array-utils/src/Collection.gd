@@ -268,6 +268,7 @@ func size():  # int
 
 # @override  _iter_init(?)
 func _iter_init(arg):  # bool
+	self._iterationCurrent = 0
 	return self._iterationCurrent < self.length
 
 

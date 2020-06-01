@@ -88,6 +88,7 @@ func current():  # Variant|null
 
 # @override _iter_init(?)
 func _iter_init(arg):  # bool
+	self._iterationCurrentIndex = 0
 	return self._iterationCurrentIndex < self.length
 
 
