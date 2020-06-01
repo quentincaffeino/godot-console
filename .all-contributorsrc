@@ -122,7 +122,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Japortie",
+      "name": "Marcus Schütte",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2089237?v=4",
+      "profile": "https://github.com/Japortie",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 8
+  "contributorsPerLine": 8,
+  "skipCi": true
 }
