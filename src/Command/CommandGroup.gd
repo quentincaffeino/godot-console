@@ -102,7 +102,9 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
 				if found.size() == 1:
 					return group.getCommands().get(found[0])
 				elif found.size() > 1:
-					Console.Log.error("Ambiguous command. Potentially matching commands are: %s" % found.join(", "))
+					Console.Log.error("Ambiguous command. Potentially matching commands are:")
+					for command in found:
+						group.getCommands().get(command).describe()
 				else:
 					Console.Log.error("Command '%s' not found" % lastNamePart)
 
