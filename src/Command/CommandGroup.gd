@@ -93,18 +93,18 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
 				return group.getCommands().get(lastNamePart)
 
 			elif Console.submitAutocomplete:
-				var found = null  # Command|null
-				var foundCount = 0  # int
-
-				for commandName in group.getCommands():
+				var found: PoolStringArray = [] 
+				var groupCommands = group.getCommands()
+				for commandName in groupCommands:
 					if group.getCommands().get(commandName).getName().begins_with(lastNamePart):
-						found = group.getCommands().get(commandName)
-						foundCount += 1
+						found.append(commandName)
 
-				if foundCount == 1:
-					return found
+				if found.size() == 1:
+					return group.getCommands().get(found[0])
+				elif found.size() > 1:
+					Console.Log.error("Ambiguous command. Potentially matching commands are: %s" % found.join(", "))
 				else:
-					Console.Log.error('CommandGroup: _getCommand: Unable to provide with proper autocomplete.')
+					Console.Log.error("Command '%s' not found" % lastNamePart)
 
 	return null
 
