@@ -19,7 +19,7 @@ config/name="quentincaffeino-console"
 config/description="In-game console for Godot 3."
 run/main_scene="res://demo/demo_scene.tscn"
 config/icon="res://assets/icon.webp"
-config/version="1.1.2"
+config/version="3.0.0"
 
 [autoload]
 
