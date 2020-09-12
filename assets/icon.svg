@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="576"
+   height="576"
+   viewBox="-304 -304 576 576.00001"
+   version="1.1"
+   id="svg96"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata102">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Squircle: x to 4th plus y to 4th equals radius to 4th</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs100">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter1305">
+      <feFlood
+         flood-opacity="0.0509804"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood1295" />
+      <feComposite
+         in="SourceGraphic"
+         in2="flood"
+         operator="in"
+         result="composite1"
+         id="feComposite1297" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="0"
+         result="blur"
+         id="feGaussianBlur1299" />
+      <feOffset
+         dx="0"
+         dy="10"
+         result="offset"
+         id="feOffset1301" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite1303" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter1500">
+      <feFlood
+         flood-opacity="0.764706"
+         flood-color="rgb(54,62,79)"
+         result="flood"
+         id="feFlood1490" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="out"
+         result="composite1"
+         id="feComposite1492" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="0"
+         result="blur"
+         id="feGaussianBlur1494" />
+      <feOffset
+         dx="0"
+         dy="-10"
+         result="offset"
+         id="feOffset1496" />
+      <feComposite
+         in="offset"
+         in2="SourceGraphic"
+         operator="atop"
+         result="composite2"
+         id="feComposite1498" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview98"
+     showgrid="false"
+     inkscape:zoom="0.95947877"
+     inkscape:cx="299.16576"
+     inkscape:cy="356.96813"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg96"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <title
+     id="title92">Squircle: x to 4th plus y to 4th equals radius to 4th</title>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 1"
+     style="display:inline"
+     transform="translate(-16.000019,-16.000002)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 2"
+     style="display:inline"
+     transform="translate(-16.000019,-16.000002)" />
+  <path
+     fill="none"
+     stroke="#000000"
+     stroke-width="4.04"
+     d="m -16.00001,271.99999 c 126.19999,0 196.35629,0 242.17819,-45.8218 45.8218,-45.8219 45.8218,-115.9782 45.8218,-242.178192 0,-126.199998 0,-196.356308 -45.8218,-242.178208 -45.8219,-45.8218 -115.9782,-45.8218 -242.17819,-45.8218 -126.2,0 -196.35631,0 -242.17821,45.8218 -45.82182,45.8219 -45.82182,115.97821 -45.82182,242.178208 0,126.199992 0,196.356292 45.82182,242.178192 45.8219,45.8218 115.97821,45.8218 242.17821,45.8218 z"
+     id="path94-5"
+     style="fill:#3f495d;fill-opacity:1;stroke:none;stroke-width:4.04;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1500)" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter1305)"
+     x="-221.19969"
+     y="89.599976"
+     id="text951-3"><tspan
+       id="tspan949-3"
+       x="-221.19969"
+       y="89.599976"
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:400px;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1">$_</tspan></text>
+</svg>

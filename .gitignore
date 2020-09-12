@@ -1,5 +1,20 @@
 
-# Created by https://www.gitignore.io/api/osx,linux,windows
+# Created by https://www.toptal.com/developers/gitignore/api/osx,linux,windows,godot
+# Edit at https://www.toptal.com/developers/gitignore?templates=osx,linux,windows,godot
+
+### Godot ###
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
 
 ### Linux ###
 *~
@@ -17,7 +32,8 @@
 .nfs*
 
 ### OSX ###
-*.DS_Store
+# General
+.DS_Store
 .AppleDouble
 .LSOverride
 
@@ -46,11 +62,15 @@ Temporary Items
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
+# Dump file
+*.stackdump
+
 # Folder config file
-Desktop.ini
+[Dd]esktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -58,15 +78,11 @@ $RECYCLE.BIN/
 # Windows Installer files
 *.cab
 *.msi
+*.msix
 *.msm
 *.msp
 
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/osx,linux,windows
-
-.initialize
-.import
-*.import
-*.flags
+# End of https://www.toptal.com/developers/gitignore/api/osx,linux,windows,godot

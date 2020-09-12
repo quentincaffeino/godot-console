@@ -1,34 +1,53 @@
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<p align="center">
+	<img
+		alt="In-game console for Godot Logo"
+		width="128"
+		src="assets/icon.svg"/>
+</p>
 
 Godot Console
 ============
 
-In-game console for Godot, easily extensible with new commands.
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-![Screenshot of in-game console for Godot](https://github.com/quentincaffeino/godot-console/blob/dev/screenshot.png)
+![In-game console for Godot Screenshot](assets/screenshot.png)
 
-## Features
+In-game console for Godot, which could be easily extended with new commands.
 
-- Writing to console using `write` and `writeLine` method. You can use [BB codes](https://godot.readthedocs.io/en/latest/learning/features/gui/bbcode_in_richtextlabel.html?highlight=richtextlabel#reference). (Also printed to engine output)
+- [Godot Console](#godot-console)
+	- [Features](#features)
+	- [Installation](#installation)
+	- [Example usage](#example-usage)
+	- [Contributors](#contributors)
+	- [License](#license)
 
-	`Console.writeLine('Hello world!')`
+## Features:
 
-- <strike>Auto-completion on `TAB` (complete command)</strike> (broken right now), `Enter` (complete and execute).
-- History (by default using with actions `ui_up` and `ui_down`)
-- Custom types (`Filter`, `IntRange`, `FloatRange`, [and more...](docs/Type/Type.md))
-- [Logging](https://github.com/quentincaffeino/godot-console/tree/master/docs/Log.md)
-- [FuncRef](https://docs.godotengine.org/en/3.2/classes/class_funcref.html) support with Godot >=3.2 (command target).
+- Creating custom commands with [addCommand](godot/addons/quentincaffeino-console/docs/generated/Console.md#addCommand)
 
-## Installation
+- Writing to console using [write](godot/addons/quentincaffeino-console/docs/generated/Console.md#write) and [writeLine](godot/addons/quentincaffeino-console/docs/generated/Console.md#writeLine) methods.
+	You can also use [BB codes](https://godot.readthedocs.io/en/latest/learning/features/gui/bbcode_in_richtextlabel.html?highlight=richtextlabel#reference).
 
-1. Clone or download this repository to your project `res://addons/quentincaffeino-console` folder.
+	(Is also printed to engine output)
+
+- Session command history (by default using with actions `ui_up` and `ui_down`)
+- [Flexible types](godot/addons/quentincaffeino-console/docs/Type.md):
+	- [Engine types](godot/addons/quentincaffeino-console/docs/Type.md#engine-types)
+	- [Extra types](godot/addons/quentincaffeino-console/docs/Type.md#extra-types)
+	- [Custom types](godot/addons/quentincaffeino-console/docs/Type.md#creating-custom-types)
+- [FuncRef](https://docs.godotengine.org/en/3.2/classes/class_funcref.html) support with Godot >=3.2 (can be used as a command target).
+
+## Installation:
+
+1. Clone this project or download latest release
+2. Copy `./godot/addons/quentincaffeino-console` into your projects `addons` folder.
 2. Enable console in Project/Addons
 3. Add new actions to Input Map: `console_toggle`, `ui_up`, `ui_down`
 
-## Example:
+## Example usage:
 
 ### Usage we will get:
 
@@ -56,12 +75,6 @@ func _ready():
 		.addArgument('name', TYPE_STRING)\
 		.register()
 ```
-
-For old method for registering commands please read [this](docs/Registering-Command-Old.md)
-
-----------
-
-Great thanks to [@Krakean](https://github.com/Krakean) and [@DmitriySalnikov](https://github.com/DmitriySalnikov) for the motivation to keep improving the [original](https://github.com/Calinou/godot-console) console by [@Calinou](https://github.com/Calinou).
 
 ## Contributors ✨
 
