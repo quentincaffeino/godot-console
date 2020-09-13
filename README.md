@@ -21,7 +21,7 @@ In-game console for Godot, which could be easily extended with new commands.
 	- [Features](#features)
 	- [Installation](#installation)
 	- [Example usage](#example-usage)
-	- [Contributors](#contributors)
+	- [Contributors](#contributors-)
 	- [License](#license)
 
 ## Features:
