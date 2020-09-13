@@ -6,6 +6,7 @@ func _init().('Float', '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE]
 	pass
 
 
-# @param  Variant  value
-func normalize(value):  # float
+# @param    Variant  value
+# @returns  float
+func normalize(value):
 	return float(self._reextract(value).replace(',', '.'))

@@ -11,26 +11,23 @@
 ### help <small>(static)</small>
 
 ```gdscript
-func help(command = null)
+func help(command: String|null): void
 ```
 
 Display help message or display description for the command.
-@param  string|null  command
 
 ### version <small>(static)</small>
 
 ```gdscript
-func version()
+func version(): void
 ```
 
 Prints out engine version.
-void
 
 ### quit <small>(static)</small>
 
 ```gdscript
-func quit()
+func quit(): void
 ```
 
 Quitting application.
-void

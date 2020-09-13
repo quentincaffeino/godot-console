@@ -2,6 +2,10 @@
 
 # FilterType
 
+**Extends:** [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Enumerations
 
 ### MODE
@@ -12,11 +16,15 @@ const MODE: Dictionary = {"ALLOW":0,"DENY":1}
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(filterList: Array, mode: int)
+```
+
 ### check
 
 ```gdscript
-func check(value)
+func check(value: Variant): int
 ```
 
-@param  Variant  value
-int

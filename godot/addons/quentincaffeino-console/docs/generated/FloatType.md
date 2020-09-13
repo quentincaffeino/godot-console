@@ -2,13 +2,15 @@
 
 # FloatType
 
+**Extends:** [BaseRegexCheckedType](../BaseRegexCheckedType) < [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
 
 ### normalize
 
 ```gdscript
-func normalize(value)
+func normalize(value: Variant): float
 ```
 
-@param  Variant  value
-float

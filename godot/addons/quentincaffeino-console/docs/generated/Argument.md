@@ -16,51 +16,45 @@ const ASSIGNMENT: Dictionary = {"CANCELED":2,"FAILED":1,"OK":0}
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(name: String, type: BaseType, description: String|null)
+```
+
 ### getValue
 
 ```gdscript
-func getValue()
+func getValue(): String
 ```
-
-string
 
 ### setValue
 
 ```gdscript
-func setValue(value)
+func setValue(value: Variant): int
 ```
-
-@param  Variant  value
-int
 
 ### getNormalizedValue
 
 ```gdscript
-func getNormalizedValue()
+func getNormalizedValue(): Variant
 ```
-
-Variant
 
 ### describe
 
 ```gdscript
-func describe()
+func describe(): String
 ```
-
-string
 
 ### getName
 
 ```gdscript
-func getName()
+func getName(): String
 ```
-
-string
 
 ### getType
 
 ```gdscript
-func getType()
+func getType(): BaseType
 ```
 
-BaseType

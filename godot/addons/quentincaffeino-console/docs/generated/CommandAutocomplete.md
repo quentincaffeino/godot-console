@@ -11,24 +11,18 @@
 ### filter
 
 ```gdscript
-func filter(filter)
+func filter(filter: String): void
 ```
-
-@param  string  filter
-void
 
 ### next
 
 ```gdscript
-func next()
+func next(): String
 ```
-
-string
 
 ### reset
 
 ```gdscript
-func reset()
+func reset(): void
 ```
 
-void

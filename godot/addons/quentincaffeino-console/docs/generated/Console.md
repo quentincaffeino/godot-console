@@ -11,72 +11,44 @@
 ### History
 
 ```gdscript
-var History
+var History: History
 ```
-
-- **Setter**: `_setProtected`
-
-@var  History
 
 ### Log
 
 ```gdscript
-var Log
+var Log: Logger
 ```
-
-- **Setter**: `_setProtected`
-
-@var  Logger
 
 ### isConsoleShown
 
 ```gdscript
-var isConsoleShown
+var isConsoleShown: bool
 ```
-
-- **Setter**: `_setProtected`
-
-@var  bool
-
-### submitAutocomplete
-
-```gdscript
-var submitAutocomplete
-```
-
-@var  bool
 
 ### consumeInput
 
 ```gdscript
-var consumeInput
+var consumeInput: bool
 ```
-
-@var bool
 
 ### action\_console\_toggle
 
 ```gdscript
-export var action_console_toggle = "console_toggle"
+var action_console_toggle: String
 ```
-
-@var  string
 
 ### action\_history\_up
 
 ```gdscript
-export var action_history_up = "ui_up"
+var action_history_up: String
 ```
-
-@var  string
 
 ### action\_history\_down
 
 ```gdscript
-export var action_history_down = "ui_down"
+var action_history_down: String
 ```
-
-@var  string
 
 ### Text
 
@@ -84,96 +56,65 @@ export var action_history_down = "ui_down"
 var Text
 ```
 
-- **Setter**: `_setProtected`
-
 ### Line
 
 ```gdscript
 var Line
 ```
 
-- **Setter**: `_setProtected`
-
 ## Method Descriptions
 
 ### getCommand
 
 ```gdscript
-func getCommand(name)
+func getCommand(name: String): Command|null
 ```
-
-@param  string  name
-Command/Command|null
 
 ### register
 
 ```gdscript
-func register(name, parameters)
+func register(name: String, parameters: PoolStringArray): bool
 ```
-
-@param  string     name
-@param  Variant[]  parameters
-bool
 
 ### unregister
 
 ```gdscript
-func unregister(name)
+func unregister(name: String): int
 ```
-
-@param  string  name
-int
 
 ### addCommand
 
 ```gdscript
-func addCommand(name, target, targetName = null)
+func addCommand(name: String, target: Reference, targetName: String|null): CommandBuilder
 ```
-
-@param  string       name
-@param  Reference    target
-@param  string|null  targetName
-CommandBuilder
 
 ### removeCommand
 
 ```gdscript
-func removeCommand(name)
+func removeCommand(name: String): int
 ```
-
-@param  string  name
-int
 
 ### write
 
 ```gdscript
-func write(message)
+func write(message: String): void
 ```
-
-@param  string  message
-void
 
 ### writeLine
 
 ```gdscript
-func writeLine(message = "")
+func writeLine(message: String): void
 ```
-
-@param  string  message
-void
 
 ### clear
 
 ```gdscript
-func clear()
+func clear(): void
 ```
-
-void
 
 ### toggleConsole
 
 ```gdscript
-func toggleConsole()
+func toggleConsole(): void
 ```
 
-void

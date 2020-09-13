@@ -6,6 +6,7 @@ func _init().('Int', '^[+-]?\\d+$'):
 	pass
 
 
-# @param  Varian  _value
-func normalize(_value):  # int
-	return int(self._reextract(_value))
+# @param    Variant  value
+# @returns  int
+func normalize(value):
+	return int(self._reextract(value))

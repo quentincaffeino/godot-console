@@ -12,47 +12,54 @@ var _maxValue
 var _step
 
 
-# @param  string     _name
+# @param  String     name
 # @param  int|float  minValue
 # @param  int|float  maxValue
 # @param  int|float  step
-func _init(_name, minValue, maxValue, step).(_name, '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$'):
+func _init(name, minValue, maxValue, step).(name, '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$'):
 	self._minValue = minValue
 	self._maxValue = maxValue
 	self._step = step
 
 
-func getMinValue():  # int|float
+# @returns  int|float
+func getMinValue():
 	return self._minValue
 
 
 # @param  int|float  minValue
-func setMinValue(minValue):  # BaseRange
+# @returns  BaseRange
+func setMinValue(minValue):
 	self._minValue = minValue
 	return self
 
 
-func getMaxValue():  # int|float
+# @returns  int|float
+func getMaxValue():
 	return self._maxValue
 
 
 # @param  int|float  maxValue
-func setMaxValue(maxValue):  # BaseRange
+# @returns  BaseRange
+func setMaxValue(maxValue):
 	self._maxValue = maxValue
 	return self
 
 
-func getStep():  # int|float
+# @returns  int|float
+func getStep():
 	return self._step
 
 
-# @param  int|float  step
-func setStep(step):  # BaseRange
+# @param    int|float  step
+# @returns  BaseRange
+func setStep(step):
 	self._step = step
 	return self
 
 
-func toString():  # string
+# @returns  String
+func toString():
 	var name = self._name + '(' + str(self._minValue) + '-' + str(self._maxValue)
 
 	if self._step != 1:

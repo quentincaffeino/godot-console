@@ -7,6 +7,7 @@ func _init().('String'):
 
 
 # Normalize variable
-# @param  Varian  _value
-func normalize(_value):  # string
-	return str(_value)
+# @param    Varian  value
+# @returns  String
+func normalize(value):
+	return str(value)

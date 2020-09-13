@@ -11,9 +11,9 @@ const TYPE_LIST = [
 ]
 
 
-# @private
-# @param  int  type
-static func _typeConstToTypeListIndex(type):  # BaseType
+# @param    int  type
+# @returns  BaseType
+static func _typeConstToTypeListIndex(type):
 	if type >= 0 and type < TYPE_LIST.size() and TYPE_LIST[type] != null:
 		return type
 	else:
@@ -21,6 +21,7 @@ static func _typeConstToTypeListIndex(type):  # BaseType
 		return 0
 
 
-# @param  int  type
-static func create(type):  # BaseType
+# @param    int  type
+# @returns  BaseType
+static func create(type):
 	return TYPE_LIST[_typeConstToTypeListIndex(type)].new()

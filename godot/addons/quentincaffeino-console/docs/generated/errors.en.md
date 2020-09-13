@@ -1,16 +1,16 @@
 <!-- Auto-generated from JSON by GDScript docs maker. Do not edit this document directly. -->
 
-# TypeFactory
+# errors.en
 
 **Extends:** [Reference](../Reference)
 
 ## Description
 
-## Method Descriptions
+## Enumerations
 
-### create <small>(static)</small>
+### messages
 
 ```gdscript
-func create(type: int): BaseType
+class errors.en.gd
 ```
 

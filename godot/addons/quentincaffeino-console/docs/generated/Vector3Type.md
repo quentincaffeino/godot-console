@@ -2,22 +2,21 @@
 
 # Vector3Type
 
+**Extends:** [BaseRegexCheckedType](../BaseRegexCheckedType) < [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
 
 ### check
 
 ```gdscript
-func check(_value)
+func check(value: Variant): int
 ```
-
-@param  Variant  _value
-int
 
 ### normalize
 
 ```gdscript
-func normalize(_value)
+func normalize(value: Variant): Variant
 ```
 
-@param  Variant  _value
-Variant

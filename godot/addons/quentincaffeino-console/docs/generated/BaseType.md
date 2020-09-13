@@ -2,6 +2,10 @@
 
 # BaseType
 
+**Extends:** [Reference](../Reference)
+
+## Description
+
 ## Enumerations
 
 ### CHECK
@@ -12,34 +16,33 @@ const CHECK: Dictionary = {"CANCELED":2,"FAILED":1,"OK":0}
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(name: String)
+```
+
 ### check
 
 ```gdscript
-func check(_value) -> int
+func check(value: Variant): int
 ```
 
 Assignment check.
 Returns one of the statuses:
 CHECK.OK, CHECK.FAILED and CHECK.CANCELED
 
-@param  Variant  _value
-int
-
 ### normalize
 
 ```gdscript
-func normalize(_value)
+func normalize(value: Variant): Variant
 ```
 
 Normalize variable
 
-@param  Variant  _value
-Variant
-
 ### toString
 
 ```gdscript
-func toString()
+func toString(): String
 ```
 
-string

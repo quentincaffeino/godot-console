@@ -21,9 +21,11 @@ run-demo-editor:
 
 .PHONY: generate-docs
 generate-docs:
-	@(cd "${GDSCRIPT_DOCS_MAKER_PATH}" && "${GDSCRIPT_DOCS_MAKER}" "${PROJECT_PATH}" -o "${ADDON_DOCS_PATH}")
+	@(cd "${GDSCRIPT_DOCS_MAKER_PATH}" && \
+		"${GDSCRIPT_DOCS_MAKER}" "${PROJECT_PATH}" -o "${ADDON_DOCS_PATH}")
 
 
 .PHONY: test
 test:
-	@(cd "${PROJECT_PATH}" && "${GODOT}" -s res://addons/gut/gut_cmdln.gd -d)
+	@(cd "${PROJECT_PATH}" && \
+		"${GODOT}" -s res://addons/gut/gut_cmdln.gd -d)

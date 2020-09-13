@@ -8,41 +8,33 @@
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(commandGroup: CommandGroup, name: String, target: Reference, targetName: String|null)
+```
+
 ### addArgument
 
 ```gdscript
-func addArgument(name, type = null, description = null)
+func addArgument(name: String, type: BaseType|null, description: String|null): CommandBuilder
 ```
-
-@param  string         name
-@param  BaseType|null  type
-@param  string|null    description
-CommandBuilder
 
 ### setDescription
 
 ```gdscript
-func setDescription(description = null)
+func setDescription(description: String|null): CommandBuilder
 ```
-
-@param  string|null  description
-CommandBuilder
 
 ### register
 
 ```gdscript
-func register()
+func register(): void
 ```
-
-void
 
 ### buildDeprecated <small>(static)</small>
 
 ```gdscript
-func buildDeprecated(name, parameters)
+func buildDeprecated(name, parameters): Command|int
 ```
 
-@deprecated
-@var  string     name
-@var  Variant[]  parameters
-Command|int

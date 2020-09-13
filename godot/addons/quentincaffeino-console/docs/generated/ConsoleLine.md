@@ -11,47 +11,32 @@
 ### RegExLib
 
 ```gdscript
-var RegExLib
+var RegExLib: RegExLib
 ```
-
-- **Setter**: `_setProtected`
-
-@var  RegExLib
 
 ## Method Descriptions
 
 ### setText
 
 ```gdscript
-func setText(text, moveCaretToEnd = true)
+func setText(text: String, moveCaretToEnd: bool): void
 ```
-
-@param  string  text
-@param  bool    moveCaretToEnd
-void
 
 ### execute
 
 ```gdscript
-func execute(input)
+func execute(input: String): void
 ```
-
-@param  string  input
 
 ### parseCommands
 
 ```gdscript
-func parseCommands(rawCommands)
+func parseCommands(rawCommands: PoolStringArray): Array
 ```
-
-@param  string[]  rawCommands
-Dictionary[]
 
 ### parseCommand
 
 ```gdscript
-func parseCommand(rawCommand)
+func parseCommand(rawCommand: String): Dictionary
 ```
 
-@param  string  rawCommand
-Dictionary

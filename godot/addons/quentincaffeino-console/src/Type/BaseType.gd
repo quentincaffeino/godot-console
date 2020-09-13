@@ -7,11 +7,11 @@ enum CHECK \
 }
 
 
-# @var  string
+# @var  String
 var _name
 
 
-# @param  string  name
+# @param  String  name
 func _init(name):
 	self._name = name
 
@@ -19,18 +19,19 @@ func _init(name):
 # Assignment check.
 # Returns one of the statuses:
 # CHECK.OK, CHECK.FAILED and CHECK.CANCELED
-#
-# @param  Variant  _value
-func check(_value) -> int:  # int
+# @param    Variant  value
+# @returns  int
+func check(value):
 	return CHECK.OK
 
 
 # Normalize variable
-#
-# @param  Variant  _value
-func normalize(_value):  # Variant
-	return _value
+# @param    Variant  value
+# @returns  Variant
+func normalize(value):
+	return value
 
 
-func toString():  # string
+# @returns  String
+func toString():
 	return self._name

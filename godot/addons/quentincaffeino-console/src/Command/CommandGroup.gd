@@ -5,38 +5,42 @@ const ArrayCollection = preload('../../addons/quentincaffeino-array-utils/src/Co
 const CommandBuilder = preload('CommandBuilder.gd')
 
 
-# @var  string
+# @var  String
 var _name
 
-# @var  ArrayCollection<string, CommandGroup>
+# @var  ArrayCollection<String, CommandGroup>
 var _groups
 
-# @var  ArrayCollection<string, Command>
+# @var  ArrayCollection<String, Command>
 var _commands
 
 
-# @var  string       name
+# @param  String  name
 func _init(name):
 	self._name = name
 	self._groups = ArrayCollection.new()
 	self._commands = ArrayCollection.new()
 
 
-func getName():  # string
+# @returns  String
+func getName():
 	return self._name
 
 
-func getGroups():  # ArrayCollection<string, CommandGroup>
+# @returns  ArrayCollection<String, CommandGroup>
+func getGroups():
 	return self._groups
 
 
-func getCommands():  # ArrayCollection<string, Command>
+# @returns  ArrayCollection<String, Command>
+func getCommands():
 	return self._commands
 
 
-# @var  Variant[]  nameParts
-# @var  bool   create
-func _getGroup(nameParts, create = false):  # CommandGroup|null
+# @param    Array  nameParts
+# @param    bool   create
+# @returns  CommandGroup|null
+func _getGroup(nameParts, create = false):
 	if nameParts.size():
 		var firstNamePart = nameParts[0]
 		nameParts.remove(0)
@@ -66,10 +70,11 @@ func _getGroup(nameParts, create = false):  # CommandGroup|null
 	return null
 
 
-# @var  string     name
-# @var  Variant[]  parameters
-# @var  bool       register
-func _getCommand(name, parameters = [], register = false):  # Command|null
+# @param    String  name
+# @param    Array   parameters
+# @param    bool    register
+# @returns  Command|null
+func _getCommand(name, parameters = [], register = false):
 	var nameParts = name.split('.', false)
 
 	if nameParts.size():
@@ -109,9 +114,10 @@ func _getCommand(name, parameters = [], register = false):  # Command|null
 	return null
 
 
-# @var  string     name
-# @var  Variant[]  parameters
-func registerCommand(name, parameters = []):  # bool
+# @param    String  name
+# @param    Array   parameters
+# @returns  bool
+func registerCommand(name, parameters = []):
 	return self._getCommand(name, parameters, true) != null
 
 
@@ -149,12 +155,14 @@ func unregisterCommand(name):
 	return false
 
 
-# @var  string  name
-func getCommand(name):  # Command|null
+# @param    String  name
+# @returns  Command|null
+func getCommand(name):
 	return self._getCommand(name)
 
 
-func printAll():  # void
+# @returns  void
+func printAll():
 	# Print all commands in current group
 	for command in self.getCommands().getValueIterator():
 		command.describe()

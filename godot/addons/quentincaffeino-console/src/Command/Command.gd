@@ -4,7 +4,7 @@ extends Reference
 const Argument = preload('../Argument/Argument.gd')
 
 
-# @var  string
+# @var  String
 var _name
 
 # @var  Callback
@@ -13,14 +13,14 @@ var _target
 # @var  Argument[]
 var _arguments
 
-# @var  string|null
+# @var  String|null
 var _description
 
 
-# @param  string       name
+# @param  String       name
 # @param  Callback     target
 # @param  Argument[]   arguments
-# @param  string|null  description
+# @param  String|null  description
 func _init(name, target, arguments = [], description = null):
 	self._name = name
 	self._target = target
@@ -28,24 +28,29 @@ func _init(name, target, arguments = [], description = null):
 	self._description = description
 
 
-func getName():  # string
+# @returns  String
+func getName():
 	return self._name
 
 
-func getTarget():  # Callback
+# @returns  Callback
+func getTarget():
 	return self._target
 
 
-func getArguments():  # Argument[]
+# @returns  Argument[]
+func getArguments():
 	return self._arguments
 
 
-func getDescription():  # string|null
+# @returns  String|null
+func getDescription():
 	return self._description
 
 
-# @param  Variant[]  inArgs
-func execute(inArgs = []):  # Variant
+# @param    Array  inArgs
+# @returns  Variant
+func execute(inArgs = []):
 	var args = []
 	var argAssig
 
@@ -69,7 +74,8 @@ func execute(inArgs = []):  # Variant
 	return self._target.call(args)
 
 
-func describe():  # void
+# @returns  void
+func describe():
 	Console.write(\
 		'[color=#ffff66][url=' + self._name + ']' + self._name + '[/url][/color]')
 

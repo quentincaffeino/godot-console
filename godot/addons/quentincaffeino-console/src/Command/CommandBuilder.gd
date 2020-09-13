@@ -6,7 +6,7 @@ const ArrayUtils = preload('../../addons/quentincaffeino-array-utils/src/Utils.g
 const Command = preload('Command.gd')
 
 
-# @var  string
+# @var  String
 var _name
 
 # @var  Callback|null
@@ -15,7 +15,7 @@ var _target
 # @var  Argument[]
 var _arguments
 
-# @var  string|null
+# @var  String|null
 var _description
 
 # @var  CommandGroup
@@ -23,9 +23,9 @@ var _commandGroup
 
 
 # @param  CommandGroup  commandGroup
-# @param  string        name
+# @param  String        name
 # @param  Reference     target
-# @param  string|null   targetName
+# @param  String|null   targetName
 func _init(commandGroup, name, target, targetName = null):
 	self._name = name
 	self._target = self._createTarget(target, targetName)
@@ -34,10 +34,10 @@ func _init(commandGroup, name, target, targetName = null):
 	self._commandGroup = commandGroup
 
 
-# @private
-# @param  Reference    target
-# @param  string|null  name
-func _createTarget(target, name = null):  # Callback|null
+# @param    Reference    target
+# @param    String|null  name
+# @returns  Callback|null
+func _createTarget(target, name = null):
 	var callback = Console.CallbackBuilder.new(target).setName(name if name else self._name).build()
 
 	if not callback:
@@ -48,21 +48,24 @@ func _createTarget(target, name = null):  # Callback|null
 	return callback
 
 
-# @param  string         name
-# @param  BaseType|null  type
-# @param  string|null    description
-func addArgument(name, type = null, description = null):  # CommandBuilder
+# @param    String         name
+# @param    BaseType|null  type
+# @param    String|null    description
+# @returns  CommandBuilder
+func addArgument(name, type = null, description = null):
 	self._arguments.append(ArgumentFactory.create(name, type, description))
 	return self
 
 
-# @param  string|null  description
-func setDescription(description = null):  # CommandBuilder
+# @param    String|null  description
+# @returns  CommandBuilder
+func setDescription(description = null):
 	self._description = description
 	return self
 
 
-func register():  # void
+# @returns  void
+func register():
 	# TODO: Rewrite using CommandGroup public methods
 	var command = Command.new(self._name, self._target, self._arguments, self._description)
 	var nameParts = self._name.split('.', false)
@@ -74,10 +77,10 @@ func register():  # void
 
 
 # @deprecated
-# @private
-# @var  string     name
-# @var  Variant[]  parameters
-static func _buildTarget(name, parameters):  # Callback|int
+# @var      String  name
+# @var      Array   parameters
+# @returns  Callback|int
+static func _buildTarget(name, parameters):
 	var target = FAILED
 
 	# Check target
@@ -118,10 +121,10 @@ static func _buildTarget(name, parameters):  # Callback|int
 
 
 # @deprecated
-# @private
-# @var  Callback   target
-# @var  Variant[]  parameters
-static func _buildArguments(target, parameters):  # Array<Argument>|int
+# @var      Callback  target
+# @var      Array     parameters
+# @returns  Argument[]|int
+static func _buildArguments(target, parameters):
 	var args = []
 
 	if target._type == Console.Callback.TYPE.VARIABLE and parameters.has('args'):
@@ -146,9 +149,10 @@ static func _buildArguments(target, parameters):  # Array<Argument>|int
 
 
 # @deprecated
-# @var  string     name
-# @var  Variant[]  parameters
-static func buildDeprecated(name, parameters):  # Command|int
+# @var      String  name
+# @var      Array   parameters
+# @returns  Command|int
+static func buildDeprecated(name, parameters):
 	var target = _buildTarget(name, parameters)
 	if typeof(target) == TYPE_INT:
 		return target

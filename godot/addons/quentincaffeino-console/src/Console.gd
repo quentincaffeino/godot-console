@@ -36,13 +36,13 @@ var isConsoleShown = true setget _setProtected
 # @var bool
 var consumeInput = true
 
-# @var  string
+# @var  String
 export(String) var action_console_toggle = 'console_toggle'
 
-# @var  string
+# @var  String
 export(String) var action_history_up = 'ui_up'
 
-# @var  string
+# @var  String
 export(String) var action_history_down = 'ui_down'
 
 
@@ -93,57 +93,66 @@ func _input(e):
 		self.toggleConsole()
 
 
-# @param  string  name
-func getCommand(name):  # Command/Command|null
+# @param    String  name
+# @returns  Command|null
+func getCommand(name):
 	return self._rootGroup.getCommand(name)
 
 
-# @param  string     name
-# @param  Variant[]  parameters
-func register(name, parameters = []):  # bool
+# @param    String           name
+# @param    PoolStringArray  parameters
+# @returns  bool
+func register(name, parameters = []):
 	Log.warn('QC/Console: register: register() method is deprecated and will be removed. Please refer to the documentation to update your code to use addCommand.')
 	return self._rootGroup.registerCommand(name, parameters)
 
 
-# @param  string  name
-func unregister(name):  # int
+# @param    String  name
+# @returns  int
+func unregister(name):
 	Log.warn('QC/Console: unregister: unregister() method is deprecated and will be removed. Please use removeCommand.')
 	return self._rootGroup.unregisterCommand(name)
 
 
-# @param  string       name
-# @param  Reference    target
-# @param  string|null  targetName
-func addCommand(name, target, targetName = null):  # CommandBuilder
+# @param    String       name
+# @param    Reference    target
+# @param    String|null  targetName
+# @returns  CommandBuilder
+func addCommand(name, target, targetName = null):
 	return CommandBuilder.new(_rootGroup, name, target, targetName)
 
-# @param  string  name
-func removeCommand(name):  # int
+# @param    String  name
+# @returns  int
+func removeCommand(name):
 	return self._rootGroup.unregisterCommand(name)
 
 
-# @param  string  message
-func write(message):  # void
+# @param    String  message
+# @returns  void
+func write(message):
 	message = str(message)
 	if self.Text:
 		self.Text.set_bbcode(self.Text.get_bbcode() + message)
 	print(self._eraseTrash.sub(message, '', true))
 
 
-# @param  string  message
-func writeLine(message = ''):  # void
+# @param    String  message
+# @returns  void
+func writeLine(message = ''):
 	message = str(message)
 	if self.Text:
 		self.Text.set_bbcode(self.Text.get_bbcode() + message + '\n')
 	print(self._eraseTrash.sub(message, '', true))
 
 
-func clear():  # void
+# @returns  void
+func clear():
 	if self.Text:
 		self.Text.set_bbcode('')
 
 
-func toggleConsole():  # void
+# @returns  void
+func toggleConsole():
 	# Open the console
 	if !isConsoleShown:
 		self._consoleBox.show()
@@ -156,10 +165,12 @@ func toggleConsole():  # void
 	isConsoleShown = !isConsoleShown
 
 
-func _toggleAnimationFinished(animation):  # void
+# @returns  void
+func _toggleAnimationFinished(animation):
 	if !isConsoleShown:
 		self._consoleBox.hide()
 
 
-func _setProtected(value):  # void
+# @returns  void
+func _setProtected(value):
 	Log.warn('QC/Console: setProtected: Attempted to set a protected variable, ignoring.')

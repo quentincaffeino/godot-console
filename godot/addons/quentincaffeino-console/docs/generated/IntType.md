@@ -2,13 +2,15 @@
 
 # IntType
 
+**Extends:** [BaseRegexCheckedType](../BaseRegexCheckedType) < [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
 
 ### normalize
 
 ```gdscript
-func normalize(_value)
+func normalize(value: Variant): int
 ```
 
-@param  Varian  _value
-int

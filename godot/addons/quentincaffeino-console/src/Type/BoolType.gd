@@ -6,6 +6,7 @@ func _init().('Bool'):
 	pass
 
 
-# @param  Variant  _value
-func normalize(_value):  # Variant
-	return _value == '1' or _value == 'true'
+# @param    Variant  value
+# @returns  Variant
+func normalize(value):
+	return value == '1' or value == 'true'

@@ -10,9 +10,10 @@ func _init(minValue = 0.0, maxValue = 100.0, step = 0.1).('FloatRange', minValue
 
 
 # Normalize variable.
-# @param  Variant  _value
-func normalize(_value):  # Variant
-	var value = float(self._rematch.get_string())
+# @param    Variant  value
+# @returns  Variant
+func normalize(value):
+	value = float(self._reextract(value).replace(',', '.'))
 	value = clamp(value, self._minValue, self._maxValue)
 
 	if self._step != 0 and value != self._minValue:

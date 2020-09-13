@@ -10,9 +10,10 @@ func _init().('Vector3', '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([e
 	pass
 
 
-# @param  Variant  _value
-func check(_value):  # int
-	var values = str(_value).split(',', false, 3)
+# @param    Variant  value
+# @returns  int
+func check(value):
+	var values = str(value).split(',', false, 3)
 	if values.size() < 3:
 		if values.size() == 2:
 			values.append('0')
@@ -33,6 +34,7 @@ func check(_value):  # int
 	return CHECK.OK
 
 
-# @param  Variant  _value
-func normalize(_value):  # Variant
+# @param    Variant  value
+# @returns  Variant
+func normalize(value):
 	return self._normalizedValue

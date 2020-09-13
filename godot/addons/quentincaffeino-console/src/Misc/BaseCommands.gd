@@ -40,7 +40,8 @@ func _init():
 
 
 # Display help message or display description for the command.
-# @param  string|null  command
+# @param    String|null  command
+# @returns  void
 static func help(command = null):
 	if command:
 		command = Console.getCommand(command)
@@ -58,11 +59,13 @@ static func help(command = null):
 
 
 # Prints out engine version.
-static func version():  # void
+# @returns  void
+static func version():
 	Console.writeLine(Engine.get_version_info())
 
 
 # Quitting application.
-static func quit():  # void
+# @returns  void
+static func quit():
 	Console.Log.warn('Quitting application...')
 	Console.get_tree().quit()

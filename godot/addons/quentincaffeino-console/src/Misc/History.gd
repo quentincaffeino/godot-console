@@ -7,7 +7,8 @@ func _init(maxLength):
 	self.setMaxLength(maxLength)
 
 
-func printAll():  # History
+# @returns  History
+func printAll():
 	var i = 1
 	for command in self.getValueIterator():
 		Console.writeLine(\

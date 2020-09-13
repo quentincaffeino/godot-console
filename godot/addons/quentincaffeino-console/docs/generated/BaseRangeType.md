@@ -2,63 +2,57 @@
 
 # BaseRangeType
 
+**Extends:** [BaseRegexCheckedType](../BaseRegexCheckedType) < [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
+
+### \_init
+
+```gdscript
+func _init(name: String, minValue: int|float, maxValue: int|float, step: int|float)
+```
 
 ### getMinValue
 
 ```gdscript
-func getMinValue()
+func getMinValue(): int|float
 ```
-
-int|float
 
 ### setMinValue
 
 ```gdscript
-func setMinValue(minValue)
+func setMinValue(minValue: int|float): BaseRange
 ```
-
-@param  int|float  minValue
-BaseRange
 
 ### getMaxValue
 
 ```gdscript
-func getMaxValue()
+func getMaxValue(): int|float
 ```
-
-int|float
 
 ### setMaxValue
 
 ```gdscript
-func setMaxValue(maxValue)
+func setMaxValue(maxValue: int|float): BaseRange
 ```
-
-@param  int|float  maxValue
-BaseRange
 
 ### getStep
 
 ```gdscript
-func getStep()
+func getStep(): int|float
 ```
-
-int|float
 
 ### setStep
 
 ```gdscript
-func setStep(step)
+func setStep(step: int|float): BaseRange
 ```
-
-@param  int|float  step
-BaseRange
 
 ### toString
 
 ```gdscript
-func toString()
+func toString(): String
 ```
 
-string

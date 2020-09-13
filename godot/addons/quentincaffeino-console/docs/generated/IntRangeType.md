@@ -2,14 +2,22 @@
 
 # IntRangeType
 
+**Extends:** [BaseRangeType](../BaseRangeType) < [BaseRegexCheckedType](../BaseRegexCheckedType) < [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
+
+### \_init
+
+```gdscript
+func _init(minValue: int, maxValue: int, step: int)
+```
 
 ### normalize
 
 ```gdscript
-func normalize(_value)
+func normalize(value: Variant): Variant
 ```
 
 Normalize variable.
-@param  Varian  _value
-Variant

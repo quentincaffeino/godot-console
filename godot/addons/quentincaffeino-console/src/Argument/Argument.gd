@@ -10,37 +10,39 @@ enum ASSIGNMENT \
 }
 
 
-# @var  string
+# @var  String
 var _name
 
 # @var  BaseType
 var _type
 
-# @var  string|null
+# @var  String|null
 var _description
 
-# @var  string
+# @var  String
 var _originalValue
 
 # @var  Variant
 var _normalizedValue
 
 
-# @param  string       name
+# @param  String       name
 # @param  BaseType     type
-# @param  string|null  description
+# @param  String|null  description
 func _init(name, type, description = null):
 	self._name = name
 	self._type = type
 	self._description = description
 
 
-func getValue():  # string
+# @returns  String
+func getValue():
 	return self._originalValue
 
 
-# @param  Variant  value
-func setValue(value):  # int
+# @param    Variant  value
+# @returns  int
+func setValue(value):
 	self._originalValue = value
 
 	var check = self._type.check(value)
@@ -50,17 +52,21 @@ func setValue(value):  # int
 	return check
 
 
-func getNormalizedValue():  # Variant
+# @returns  Variant
+func getNormalizedValue():
 	return self._normalizedValue
 
 
-func describe():  # string
+# @returns  String
+func describe():
 	return self._name + ':' + self._type.toString()
 
 
-func getName():  # string
+# @returns  String
+func getName():
 	return self._name
 
 
-func getType():  # BaseType
+# @returns  BaseType
+func getType():
 	return self._type

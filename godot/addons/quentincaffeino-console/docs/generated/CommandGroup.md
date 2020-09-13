@@ -8,39 +8,35 @@
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(name: String)
+```
+
 ### getName
 
 ```gdscript
-func getName()
+func getName(): String
 ```
-
-string
 
 ### getGroups
 
 ```gdscript
-func getGroups()
+func getGroups(): ArrayCollection<String
 ```
-
-ArrayCollection<string, CommandGroup>
 
 ### getCommands
 
 ```gdscript
-func getCommands()
+func getCommands(): ArrayCollection<String
 ```
-
-ArrayCollection<string, Command>
 
 ### registerCommand
 
 ```gdscript
-func registerCommand(name, parameters)
+func registerCommand(name: String, parameters: Array): bool
 ```
-
-@var  string     name
-@var  Variant[]  parameters
-bool
 
 ### unregisterCommand
 
@@ -51,16 +47,12 @@ func unregisterCommand(name)
 ### getCommand
 
 ```gdscript
-func getCommand(name)
+func getCommand(name: String): Command|null
 ```
-
-@var  string  name
-Command|null
 
 ### printAll
 
 ```gdscript
-func printAll()
+func printAll(): void
 ```
 
-void

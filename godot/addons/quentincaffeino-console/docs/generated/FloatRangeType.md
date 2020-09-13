@@ -2,14 +2,22 @@
 
 # FloatRangeType
 
+**Extends:** [BaseRangeType](../BaseRangeType) < [BaseRegexCheckedType](../BaseRegexCheckedType) < [BaseType](../BaseType) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
+
+### \_init
+
+```gdscript
+func _init(minValue: float, maxValue: float, step: float)
+```
 
 ### normalize
 
 ```gdscript
-func normalize(_value)
+func normalize(value: Variant): Variant
 ```
 
 Normalize variable.
-@param  Variant  _value
-Variant

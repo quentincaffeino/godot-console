@@ -10,9 +10,10 @@ func _init(minValue = 0, maxValue = 100, step = 1).('IntRange', minValue, maxVal
 
 
 # Normalize variable.
-# @param  Varian  _value
-func normalize(_value):  # Variant
-	var value = float(self._rematch.get_string())
+# @param    Variant  value
+# @returns  Variant
+func normalize(value):
+	value = float(self._reextract(value).replace(',', '.'))
 	value = clamp(value, self._minValue, self._maxValue)
 
 	# Find closest step

@@ -2,12 +2,21 @@
 
 # History
 
+**Extends:** [QueueCollection](../QueueCollection) < [Collection](../Collection) < [Utils](../Utils) < [Reference](../Reference)
+
+## Description
+
 ## Method Descriptions
+
+### \_init
+
+```gdscript
+func _init(maxLength: int)
+```
 
 ### printAll
 
 ```gdscript
-func printAll()
+func printAll(): History
 ```
 
-History

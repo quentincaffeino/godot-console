@@ -1,16 +1,16 @@
 <!-- Auto-generated from JSON by GDScript docs maker. Do not edit this document directly. -->
 
-# BoolType
+# RegExLib
 
-**Extends:** [BaseType](../BaseType) < [Reference](../Reference)
+**Extends:** [Reference](../Reference)
 
 ## Description
 
 ## Method Descriptions
 
-### normalize
+### split <small>(static)</small>
 
 ```gdscript
-func normalize(value: Variant): Variant
+func split(pattern: string, subject: string, maxsplit: int)
 ```
 

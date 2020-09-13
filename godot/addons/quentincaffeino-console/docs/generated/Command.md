@@ -8,51 +8,45 @@
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(name: String, target: Callback, arguments: Argument[], description: String|null)
+```
+
 ### getName
 
 ```gdscript
-func getName()
+func getName(): String
 ```
-
-string
 
 ### getTarget
 
 ```gdscript
-func getTarget()
+func getTarget(): Callback
 ```
-
-Callback
 
 ### getArguments
 
 ```gdscript
-func getArguments()
+func getArguments(): Argument[]
 ```
-
-Argument[]
 
 ### getDescription
 
 ```gdscript
-func getDescription()
+func getDescription(): String|null
 ```
-
-string|null
 
 ### execute
 
 ```gdscript
-func execute(inArgs)
+func execute(inArgs: Array): Variant
 ```
-
-@param  Variant[]  inArgs
-Variant
 
 ### describe
 
 ```gdscript
-func describe()
+func describe(): void
 ```
 
-void

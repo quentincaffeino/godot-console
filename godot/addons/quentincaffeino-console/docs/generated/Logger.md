@@ -19,66 +19,46 @@ const TYPE: Dictionary = {"DEBUG":0,"ERROR":3,"INFO":1,"NONE":4,"WARNING":2}
 ### logLevel
 
 ```gdscript
-var logLevel
+var logLevel: int
 ```
 
 - **Setter**: `setLogLevel`
-
-@var  int
 
 ## Method Descriptions
 
 ### setLogLevel
 
 ```gdscript
-func setLogLevel(inlogLevel)
+func setLogLevel(inlogLevel: int): Log
 ```
-
-@param  int  inlogLevel
-Log
 
 ### log
 
 ```gdscript
-func log(message, type)
+func log(message: String, type: int): Log
 ```
-
-@param  string  message
-@param  int     type
-Log
 
 ### debug
 
 ```gdscript
-func debug(message)
+func debug(message: String): Log
 ```
-
-@param  string  message
-Log
 
 ### info
 
 ```gdscript
-func info(message)
+func info(message: String): Log
 ```
-
-@param  string  message
-Log
 
 ### warn
 
 ```gdscript
-func warn(message)
+func warn(message: String): Log
 ```
-
-@param  string  message
-Log
 
 ### error
 
 ```gdscript
-func error(message)
+func error(message: String): Log
 ```
 
-@param  string  message
-Log

@@ -5,25 +5,25 @@ extends LineEdit
 var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _setProtected
 
 
-# @const  string
+# @const  String
 const COMMANDS_SEPARATOR = ';'
 
-# @const  string
+# @const  String
 const RECOMMANDS_SEPARATOR = '(?<!\\\\)' + COMMANDS_SEPARATOR
 
-# @const  string
+# @const  String
 const COMMAND_PARTS_SEPARATOR = ' '
 
-# @const  string[]
+# @const  PoolStringArray
 const QUOTES = [ '"', "'" ]
 
-# @const  string[]
+# @const  PoolStringArray
 const SCREENERS = [ '\\/' ]
 
-# @var  string|null
+# @var  String|null
 var _tmpUsrEnteredCmd
 
-# @var  string
+# @var  String
 var _currCmd
 
 
@@ -65,9 +65,10 @@ func _input(e):
 		self._currCmd = null
 
 
-# @param  string  text
-# @param  bool    moveCaretToEnd
-func setText(text, moveCaretToEnd = true):  # void
+# @param    String  text
+# @param    bool    moveCaretToEnd
+# @returns  void
+func setText(text, moveCaretToEnd = true):
 	self.text = text
 	self.grab_focus()
 
@@ -75,11 +76,12 @@ func setText(text, moveCaretToEnd = true):  # void
 		self.caret_position = text.length()
 
 
-# @param  string  input
+# @param    String  input
+# @returns  void
 func execute(input):
 	Console.writeLine('[color=#999999]$[/color] ' + input)
 
-	# @var  string[]
+	# @var  PoolStringArray
 	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
 
 	# @var  Dictionary[]
@@ -99,8 +101,9 @@ func execute(input):
 	self.clear()
 
 
-# @param  string[]  rawCommands
-func parseCommands(rawCommands):  # Dictionary[]
+# @param    PoolStringArray  rawCommands
+# @returns  Array
+func parseCommands(rawCommands):
 	var resultCommands = []
 
 	for rawCommand in rawCommands:
@@ -110,15 +113,16 @@ func parseCommands(rawCommands):  # Dictionary[]
 	return resultCommands
 
 
-# @param  string  rawCommand
-func parseCommand(rawCommand):  # Dictionary
+# @param    String  rawCommand
+# @returns  Dictionary
+func parseCommand(rawCommand):
 	var name = null
 	var arguments = PoolStringArray([])
 
 	var beginning = 0  # int
-	var openQuote  # string|null
+	var openQuote  # String|null
 	var isInsideQuotes = false  # boolean
-	var subString  # string|null
+	var subString  # String|null
 	for i in rawCommand.length():
 		# Quote
 		if rawCommand[i] in QUOTES and i > 0 and not rawCommand[i - 1] in SCREENERS:
@@ -155,5 +159,6 @@ func parseCommand(rawCommand):  # Dictionary
 	}
 
 
-func _setProtected(value):  # void
+# @returns  void
+func _setProtected(value):
 	Console.Log.warn('QC/Console/ConsoleLine: setProtected: Attempted to set a protected variable, ignoring.')

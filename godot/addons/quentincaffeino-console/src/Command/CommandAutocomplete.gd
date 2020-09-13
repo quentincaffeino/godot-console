@@ -2,18 +2,19 @@
 extends Reference
 
 
-# @var  string
+# @var  String
 var _filter = null
 
-# @var  string[]
+# @var  PoolStringArray
 var _filtered = []
 
-# @param  int
+# @var  int
 var _current = -1
 
 
-# @param  string  filter
-func filter(filter):  # void
+# @param    String  filter
+# @returns  void
+func filter(filter):
 	if _filter == filter:
 		return
 
@@ -30,7 +31,8 @@ func filter(filter):  # void
 			_filtered.append(command)
 
 
-func next():  # string
+# @returns  String
+func next():
 	if _filtered.size() > 0:
 		if _current == _filtered.size() - 1:
 			_current = -1
@@ -42,7 +44,8 @@ func next():  # string
 		reset()
 
 
-func reset():  # void
+# @returns  void
+func reset():
 	_filter = null
 	_filtered = []
 	_current = -1
