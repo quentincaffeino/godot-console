@@ -97,8 +97,8 @@ func getCommand(name):
 	return self._command_service.get(name)
 
 # @param    String  name
-# @returns  Command/Command[]
-func findCommand(name):
+# @returns  Command/CommandCollection
+func findCommands(name):
 	return self._command_service.find(name)
 
 # @param    String       name

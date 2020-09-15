@@ -9,11 +9,11 @@ func _init(collection = {}).(collection):
 
 
 # @param    String  command_name
-# @returns  Command[]
+# @returns  CommandCollection
 func find(command_name):
 	var filter_cb_fn = CallbackBuilder.new(self).setName('_find_match').build()
 	filter_cb_fn.bind([command_name])
-	return self.filter(filter_cb_fn).getValues()
+	return self.filter(filter_cb_fn)
 
 
 # @param    String      match_key

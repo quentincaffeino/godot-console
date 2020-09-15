@@ -9,7 +9,7 @@ const Command = preload('Command.gd')
 
 
 # @var  CommandService
-var _commandService
+var _command_service
 
 # @var  String
 var _name
@@ -24,16 +24,16 @@ var _arguments
 var _description
 
 
-# @param  CommandService  commandService
+# @param  CommandService  command_service
 # @param  String          name
 # @param  Reference       target
 # @param  String|null     targetName
-func _init(commandService, name, target, targetName = null):
+func _init(command_service, name, target, targetName = null):
 	self._name = name
 	self._target = self._createTarget(target, targetName)
 	self._arguments = []
 	self._description = null
-	self._commandService = commandService
+	self._command_service = command_service
 
 
 # @param    Reference    target
@@ -73,5 +73,5 @@ func setDescription(description = null):
 # @returns  void
 func register():
 	var command = Command.new(self._name, self._target, self._arguments, self._description)
-	if not self._commandService.set(self._name, command):
+	if not self._command_service.set(self._name, command):
 		Console.Log.error('QC/Console/Command/CommandBuilder: register: Failed to create [b]`%s`[/b] command. Command already exists.')

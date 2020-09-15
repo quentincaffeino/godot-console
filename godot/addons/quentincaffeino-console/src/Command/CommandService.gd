@@ -38,7 +38,7 @@ func get(command_name):
 	return self._command_collection.get(command_name)
 
 # @param    String   command_name
-# @returns  Command[]
+# @returns  CommandCollection
 func find(command_name):
 	return self._command_collection.find(command_name)
 
