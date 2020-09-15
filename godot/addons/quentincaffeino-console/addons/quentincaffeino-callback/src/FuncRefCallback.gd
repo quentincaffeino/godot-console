@@ -20,4 +20,4 @@ func call(argv = []):  # Variant
 		return
 
 	# Execute call
-	return self._target.call_funcv(argv)
+	return self._target.call_funcv(self._get_args(argv))

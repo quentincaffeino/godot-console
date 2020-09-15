@@ -76,14 +76,26 @@ func execute(inArgs = []):
 
 # @returns  void
 func describe():
-	Console.write(\
-		'[color=#ffff66][url=' + self._name + ']' + self._name + '[/url][/color]')
+	Console.writeLine('NAME')
+	Console.writeLine(self._get_command_name())
+	Console.writeLine()
+
+	Console.writeLine('USAGE')
+	Console.write(self._get_command_name())
 
 	if self._arguments.size() > 0:
 		for arg in self._arguments:
-			Console.write(' [color=#88ffff]' + arg.describe() + '[/color]')
-
-	if _description:
-		Console.write(' - ' + _description)
+			Console.write(' [color=#88ffff]%s[/color]' %  arg.describe())
 
 	Console.writeLine()
+	Console.writeLine()
+
+	if self._description:
+		Console.writeLine('DESCRIPTION')
+		Console.writeLine('	' + self._description)
+
+	Console.writeLine()
+
+# @returns  String
+func _get_command_name():
+	return '	[color=#ffff66][url=%s]%s[/url][/color]' % [self._name, self._name]

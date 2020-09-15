@@ -59,7 +59,7 @@ func getNormalizedValue():
 
 # @returns  String
 func describe():
-	return self._name + ':' + self._type.toString()
+	return '<%s:%s>' % [self._name, self._type.toString()]
 
 
 # @returns  String

@@ -42,6 +42,8 @@ func call(argv = []):  # Variant
 		print(errors['qc.callback.call.ensure_failed'] % [ self._target, self._name ])
 		return
 
+	argv = self._get_args(argv)
+
 	# Execute call
 	if self._type == Utils.Type.VARIABLE:
 		if argv.size():

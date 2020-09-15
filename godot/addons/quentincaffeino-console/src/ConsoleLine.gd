@@ -87,15 +87,15 @@ func execute(input):
 	# @var  Dictionary[]
 	var parsedCommands = self.parseCommands(rawCommands)
 
-	# @var  Command/Command|null
-	var command = null
-
 	for parsedCommand in parsedCommands:
-		command = Console.getCommand(parsedCommand.name)
+		# @var  Command/Command|null
+		var command = Console.getCommand(parsedCommand.name)
 
 		if command:
 			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
 			command.execute(parsedCommand.arguments)
+		else:
+			Console.writeLine('Command `' + parsedCommand.name + '` not found.')
 
 	Console.History.push(input)
 	self.clear()

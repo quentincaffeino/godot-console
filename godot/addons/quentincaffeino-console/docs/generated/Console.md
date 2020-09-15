@@ -64,28 +64,28 @@ var Line
 
 ## Method Descriptions
 
+### get\_command\_service
+
+```gdscript
+func get_command_service(): Command/CommandService
+```
+
 ### getCommand
 
 ```gdscript
-func getCommand(name: String): Command|null
+func getCommand(name: String): Command/Command|null
 ```
 
-### register
+### findCommand
 
 ```gdscript
-func register(name: String, parameters: PoolStringArray): bool
-```
-
-### unregister
-
-```gdscript
-func unregister(name: String): int
+func findCommand(name: String): Command/Command[]
 ```
 
 ### addCommand
 
 ```gdscript
-func addCommand(name: String, target: Reference, targetName: String|null): CommandBuilder
+func addCommand(name: String, target: Reference, target_name: String|null): Command/CommandBuilder
 ```
 
 ### removeCommand

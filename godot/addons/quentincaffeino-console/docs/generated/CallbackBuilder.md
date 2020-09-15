@@ -25,15 +25,30 @@ func _init(target: Reference)
 ### setName
 
 ```gdscript
-func setName(name: string)
+func setName(name: String): CallbackBuilder
 ```
 
-CallbackBuilder
+### getName
+
+```gdscript
+func getName(): String
+```
+
+### setType
+
+```gdscript
+func setType(type: int): CallbackBuilder
+```
+
+### getType
+
+```gdscript
+func getType(): int
+```
 
 ### build
 
 ```gdscript
-func build()
+func build(): Callback|null
 ```
 
-Callback|null

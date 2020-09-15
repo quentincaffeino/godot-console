@@ -20,15 +20,33 @@ var _type
 # @param  Reference  target
 func _init(target):
 	self._target = target
+	self._type = Utils.Type.UNKNOWN
 
 
-# @param  string  name
-func setName(name):  # CallbackBuilder
+# @param    String  name
+# @returns  CallbackBuilder
+func setName(name):
 	self._name = name
 	return self
 
+# @returns  String
+func getName():
+	return self._name
 
-func build():  # Callback|null
+
+# @param    int  type
+# @returns  CallbackBuilder
+func setType(type):
+	self._type = type
+	return self
+
+# @returns  int
+func getType():
+	return self._type
+
+
+# @returns  Callback|null
+func build():
 	if typeof(self._target) != TYPE_OBJECT:
 		print(errors['qc.callback.canCreate.first_arg'] % str(typeof(self._target)))
 		return null
@@ -40,9 +58,10 @@ func build():  # Callback|null
 		print(errors['qc.callback.canCreate.second_arg'] % str(typeof(self._name)))
 		return null
 
-	var type = Utils.getType(self._target, self._name)
-	if type == Utils.Type.UNKNOWN:
-		print(errors['qc.callback.target_missing_mv'] % [ self._target, self._name ])
-		return null
+	if not self._type or self._type == Utils.Type.UNKNOWN: 
+		self._type = Utils.getType(self._target, self._name)
+		if self._type == Utils.Type.UNKNOWN:
+			print(errors['qc.callback.target_missing_mv'] % [ self._target, self._name ])
+			return null
 
-	return Callback.new(self._target, self._name)
+	return Callback.new(self._target, self._name, self._type)

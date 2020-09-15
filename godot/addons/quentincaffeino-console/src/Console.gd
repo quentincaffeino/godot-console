@@ -2,11 +2,7 @@
 extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
-# @deprecated
-const Callback= preload('../addons/quentincaffeino-callback/src/Callback.gd')
-const CallbackBuilder= preload('../addons/quentincaffeino-callback/src/CallbackBuilder.gd')
-const CommandGroup = preload('Command/CommandGroup.gd')
-const CommandBuilder = preload('Command/CommandBuilder.gd')
+const CommandService = preload('Command/CommandService.gd')
 
 ### Custom console types
 const IntRangeType = preload('Type/IntRangeType.gd')
@@ -20,8 +16,8 @@ var History = preload('Misc/History.gd').new(10) setget _setProtected
 # @var  Logger
 var Log = preload('Misc/Logger.gd').new() setget _setProtected
 
-# @var  Command/CommandGroup
-var _rootGroup
+# @var  Command/CommandService
+var _command_service
 
 # Used to clear text from bb tags
 # @var  RegEx
@@ -29,9 +25,6 @@ var _eraseTrash
 
 # @var  bool
 var isConsoleShown = true setget _setProtected
-
-# # @var  bool
-# var submitAutocomplete = true
 
 # @var bool
 var consumeInput = true
@@ -54,7 +47,7 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 
 func _init():
-	self._rootGroup = CommandGroup.new('root')
+	self._command_service = CommandService.new()
 	# Used to clear text from bb tags before printing to engine output
 	self._eraseTrash = RegEx.new()
 	self._eraseTrash.compile('\\[[\\/]?[a-z0-9\\=\\#\\ \\_\\-\\,\\.\\;]+\\]')
@@ -93,38 +86,32 @@ func _input(e):
 		self.toggleConsole()
 
 
+# @returns  Command/CommandService
+func get_command_service():
+	return self._command_service
+
+
 # @param    String  name
-# @returns  Command|null
+# @returns  Command/Command|null
 func getCommand(name):
-	return self._rootGroup.getCommand(name)
-
-
-# @param    String           name
-# @param    PoolStringArray  parameters
-# @returns  bool
-func register(name, parameters = []):
-	Log.warn('QC/Console: register: register() method is deprecated and will be removed. Please refer to the documentation to update your code to use addCommand.')
-	return self._rootGroup.registerCommand(name, parameters)
-
+	return self._command_service.get(name)
 
 # @param    String  name
-# @returns  int
-func unregister(name):
-	Log.warn('QC/Console: unregister: unregister() method is deprecated and will be removed. Please use removeCommand.')
-	return self._rootGroup.unregisterCommand(name)
-
+# @returns  Command/Command[]
+func findCommand(name):
+	return self._command_service.find(name)
 
 # @param    String       name
 # @param    Reference    target
-# @param    String|null  targetName
-# @returns  CommandBuilder
-func addCommand(name, target, targetName = null):
-	return CommandBuilder.new(_rootGroup, name, target, targetName)
+# @param    String|null  target_name
+# @returns  Command/CommandBuilder
+func addCommand(name, target, target_name = null):
+	return self._command_service.create(name, target, target_name)
 
 # @param    String  name
 # @returns  int
 func removeCommand(name):
-	return self._rootGroup.unregisterCommand(name)
+	return self._command_service.remove(name)
 
 
 # @param    String  message

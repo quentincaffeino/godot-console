@@ -11,7 +11,7 @@
 ### help <small>(static)</small>
 
 ```gdscript
-func help(command: String|null): void
+func help(command_name: String|null): void
 ```
 
 Display help message or display description for the command.

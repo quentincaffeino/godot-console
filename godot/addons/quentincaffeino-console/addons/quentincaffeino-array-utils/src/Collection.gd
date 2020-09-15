@@ -181,25 +181,31 @@ func map(callback):  # Collection
 
 # @param  AbstractCallback|null  callback
 func filter(callback = null):  # Collection
+	var new_collection = self.get_script().new(self.getCollection().duplicate())
+
 	var i = 0
 	if callback:
 		var call
 
-		while i < self.length:
-			call = callback.call([self.getByIndex(i), i, self._collection])
+		while i < new_collection.length:
+			var key = new_collection.getKeys()[i]
+			var value = new_collection.get(key)
+
+			call = callback.call([key, value, i, new_collection])
 
 			if !call:
-				self.removeByIndex(i)
+				new_collection.removeByIndex(i)
 			else:
 				i += 1
 	else:
-		while i < self.length:
-			if self.getByIndex(i) == null or typeof(self.getByIndex(i)) == TYPE_NIL:
-				self.removeByIndex(i)
+		while i < new_collection.length:
+			var value = new_collection.getByIndex(i)
+			if value == null or typeof(value) == TYPE_NIL or len(value) == 0:
+				new_collection.removeByIndex(i)
 			else:
 				i += 1
 
-	return self
+	return new_collection
 
 
 # Sets the internal iterator to the first element in the collection and returns this element.

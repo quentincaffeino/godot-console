@@ -11,7 +11,7 @@
 ### \_init
 
 ```gdscript
-func _init(commandGroup: CommandGroup, name: String, target: Reference, targetName: String|null)
+func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)
 ```
 
 ### addArgument
@@ -30,11 +30,5 @@ func setDescription(description: String|null): CommandBuilder
 
 ```gdscript
 func register(): void
-```
-
-### buildDeprecated <small>(static)</small>
-
-```gdscript
-func buildDeprecated(name, parameters): Command|int
 ```
 

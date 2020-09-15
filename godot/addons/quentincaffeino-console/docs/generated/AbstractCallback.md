@@ -47,6 +47,14 @@ func ensure()
 Ensure callback target exists
 boolean
 
+### bind
+
+```gdscript
+func bind(argv: Variant[])
+```
+
+void
+
 ### call
 
 ```gdscript
