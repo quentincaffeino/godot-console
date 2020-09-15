@@ -76,10 +76,10 @@ func get_command_service(): Command/CommandService
 func getCommand(name: String): Command/Command|null
 ```
 
-### findCommand
+### findCommands
 
 ```gdscript
-func findCommand(name: String): Command/Command[]
+func findCommands(name: String): Command/CommandCollection
 ```
 
 ### addCommand

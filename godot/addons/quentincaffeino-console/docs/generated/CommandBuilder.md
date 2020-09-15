@@ -11,7 +11,7 @@
 ### \_init
 
 ```gdscript
-func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)
+func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)
 ```
 
 ### addArgument

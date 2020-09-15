@@ -18,6 +18,22 @@
       ],
       "constants": [
         {
+          "name": "SCREENERS",
+          "value": [
+            "\\/"
+          ],
+          "data_type": "Array",
+          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
+          "description": " @const  PoolStringArray\n"
+        },
+        {
+          "name": "RECOMMANDS_SEPARATOR",
+          "value": "(?<!\\\\);",
+          "data_type": "String",
+          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
+          "description": " @const  String\n"
+        },
+        {
           "name": "QUOTES",
           "value": [
             "\"",
@@ -39,22 +55,6 @@
           "value": ";",
           "data_type": "String",
           "signature": "const COMMANDS_SEPARATOR: String = \";\"",
-          "description": " @const  String\n"
-        },
-        {
-          "name": "SCREENERS",
-          "value": [
-            "\\/"
-          ],
-          "data_type": "Array",
-          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
-          "description": " @const  PoolStringArray\n"
-        },
-        {
-          "name": "RECOMMANDS_SEPARATOR",
-          "value": "(?<!\\\\);",
-          "data_type": "String",
-          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
           "description": " @const  String\n"
         }
       ],
@@ -220,6 +220,22 @@
       ],
       "constants": [
         {
+          "name": "SCREENERS",
+          "value": [
+            "\\/"
+          ],
+          "data_type": "Array",
+          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
+          "description": " @const  PoolStringArray\n"
+        },
+        {
+          "name": "RECOMMANDS_SEPARATOR",
+          "value": "(?<!\\\\);",
+          "data_type": "String",
+          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
+          "description": " @const  String\n"
+        },
+        {
           "name": "QUOTES",
           "value": [
             "\"",
@@ -241,22 +257,6 @@
           "value": ";",
           "data_type": "String",
           "signature": "const COMMANDS_SEPARATOR: String = \";\"",
-          "description": " @const  String\n"
-        },
-        {
-          "name": "SCREENERS",
-          "value": [
-            "\\/"
-          ],
-          "data_type": "Array",
-          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
-          "description": " @const  PoolStringArray\n"
-        },
-        {
-          "name": "RECOMMANDS_SEPARATOR",
-          "value": "(?<!\\\\);",
-          "data_type": "String",
-          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
           "description": " @const  String\n"
         }
       ],
@@ -422,6 +422,22 @@
       ],
       "constants": [
         {
+          "name": "SCREENERS",
+          "value": [
+            "\\/"
+          ],
+          "data_type": "Array",
+          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
+          "description": " @const  PoolStringArray\n"
+        },
+        {
+          "name": "RECOMMANDS_SEPARATOR",
+          "value": "(?<!\\\\);",
+          "data_type": "String",
+          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
+          "description": " @const  String\n"
+        },
+        {
           "name": "QUOTES",
           "value": [
             "\"",
@@ -443,22 +459,6 @@
           "value": ";",
           "data_type": "String",
           "signature": "const COMMANDS_SEPARATOR: String = \";\"",
-          "description": " @const  String\n"
-        },
-        {
-          "name": "SCREENERS",
-          "value": [
-            "\\/"
-          ],
-          "data_type": "Array",
-          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
-          "description": " @const  PoolStringArray\n"
-        },
-        {
-          "name": "RECOMMANDS_SEPARATOR",
-          "value": "(?<!\\\\);",
-          "data_type": "String",
-          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
           "description": " @const  String\n"
         }
       ],
@@ -624,6 +624,22 @@
       ],
       "constants": [
         {
+          "name": "SCREENERS",
+          "value": [
+            "\\/"
+          ],
+          "data_type": "Array",
+          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
+          "description": " @const  PoolStringArray\n"
+        },
+        {
+          "name": "RECOMMANDS_SEPARATOR",
+          "value": "(?<!\\\\);",
+          "data_type": "String",
+          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
+          "description": " @const  String\n"
+        },
+        {
           "name": "QUOTES",
           "value": [
             "\"",
@@ -645,22 +661,6 @@
           "value": ";",
           "data_type": "String",
           "signature": "const COMMANDS_SEPARATOR: String = \";\"",
-          "description": " @const  String\n"
-        },
-        {
-          "name": "SCREENERS",
-          "value": [
-            "\\/"
-          ],
-          "data_type": "Array",
-          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
-          "description": " @const  PoolStringArray\n"
-        },
-        {
-          "name": "RECOMMANDS_SEPARATOR",
-          "value": "(?<!\\\\);",
-          "data_type": "String",
-          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
           "description": " @const  String\n"
         }
       ],
@@ -826,6 +826,22 @@
       ],
       "constants": [
         {
+          "name": "SCREENERS",
+          "value": [
+            "\\/"
+          ],
+          "data_type": "Array",
+          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
+          "description": " @const  PoolStringArray\n"
+        },
+        {
+          "name": "RECOMMANDS_SEPARATOR",
+          "value": "(?<!\\\\);",
+          "data_type": "String",
+          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
+          "description": " @const  String\n"
+        },
+        {
           "name": "QUOTES",
           "value": [
             "\"",
@@ -847,22 +863,6 @@
           "value": ";",
           "data_type": "String",
           "signature": "const COMMANDS_SEPARATOR: String = \";\"",
-          "description": " @const  String\n"
-        },
-        {
-          "name": "SCREENERS",
-          "value": [
-            "\\/"
-          ],
-          "data_type": "Array",
-          "signature": "const SCREENERS: Array = [\"\\\\/\"]",
-          "description": " @const  PoolStringArray\n"
-        },
-        {
-          "name": "RECOMMANDS_SEPARATOR",
-          "value": "(?<!\\\\);",
-          "data_type": "String",
-          "signature": "const RECOMMANDS_SEPARATOR: String = \"(?<!\\\\\\\\);\"",
           "description": " @const  String\n"
         }
       ],
@@ -3546,10 +3546,10 @@
           ]
         },
         {
-          "name": "findCommand",
-          "return_type": "Command/Command[]",
+          "name": "findCommands",
+          "return_type": "Command/CommandCollection",
           "rpc_mode": 0,
-          "signature": "func findCommand(name: String): Command/Command[]",
+          "signature": "func findCommands(name: String): Command/CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -3914,10 +3914,10 @@
           ]
         },
         {
-          "name": "findCommand",
-          "return_type": "Command/Command[]",
+          "name": "findCommands",
+          "return_type": "Command/CommandCollection",
           "rpc_mode": 0,
-          "signature": "func findCommand(name: String): Command/Command[]",
+          "signature": "func findCommands(name: String): Command/CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -4282,10 +4282,10 @@
           ]
         },
         {
-          "name": "findCommand",
-          "return_type": "Command/Command[]",
+          "name": "findCommands",
+          "return_type": "Command/CommandCollection",
           "rpc_mode": 0,
-          "signature": "func findCommand(name: String): Command/Command[]",
+          "signature": "func findCommands(name: String): Command/CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -4650,10 +4650,10 @@
           ]
         },
         {
-          "name": "findCommand",
-          "return_type": "Command/Command[]",
+          "name": "findCommands",
+          "return_type": "Command/CommandCollection",
           "rpc_mode": 0,
-          "signature": "func findCommand(name: String): Command/Command[]",
+          "signature": "func findCommands(name: String): Command/CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -5018,10 +5018,10 @@
           ]
         },
         {
-          "name": "findCommand",
-          "return_type": "Command/Command[]",
+          "name": "findCommands",
+          "return_type": "Command/CommandCollection",
           "rpc_mode": 0,
-          "signature": "func findCommand(name: String): Command/Command[]",
+          "signature": "func findCommands(name: String): Command/CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -5165,17 +5165,17 @@
           "description": ""
         },
         {
-          "name": "Iterator",
-          "value": "[GDScript:5498]",
-          "data_type": "GDScript",
-          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
-          "description": ""
-        },
-        {
           "name": "CommandCollection",
           "value": "[GDScript:5506]",
           "data_type": "GDScript",
           "signature": "const CommandCollection: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/CommandCollection.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Iterator",
+          "value": "[GDScript:5498]",
+          "data_type": "GDScript",
+          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
           "description": ""
         }
       ],
@@ -5259,9 +5259,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -5310,17 +5310,17 @@
           "description": ""
         },
         {
-          "name": "Iterator",
-          "value": "[GDScript:5498]",
-          "data_type": "GDScript",
-          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
-          "description": ""
-        },
-        {
           "name": "CommandCollection",
           "value": "[GDScript:5506]",
           "data_type": "GDScript",
           "signature": "const CommandCollection: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/CommandCollection.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Iterator",
+          "value": "[GDScript:5498]",
+          "data_type": "GDScript",
+          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
           "description": ""
         }
       ],
@@ -5404,9 +5404,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -5455,17 +5455,17 @@
           "description": ""
         },
         {
-          "name": "Iterator",
-          "value": "[GDScript:5498]",
-          "data_type": "GDScript",
-          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
-          "description": ""
-        },
-        {
           "name": "CommandCollection",
           "value": "[GDScript:5506]",
           "data_type": "GDScript",
           "signature": "const CommandCollection: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/CommandCollection.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Iterator",
+          "value": "[GDScript:5498]",
+          "data_type": "GDScript",
+          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
           "description": ""
         }
       ],
@@ -5549,9 +5549,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -5600,17 +5600,17 @@
           "description": ""
         },
         {
-          "name": "Iterator",
-          "value": "[GDScript:5498]",
-          "data_type": "GDScript",
-          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
-          "description": ""
-        },
-        {
           "name": "CommandCollection",
           "value": "[GDScript:5506]",
           "data_type": "GDScript",
           "signature": "const CommandCollection: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/CommandCollection.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Iterator",
+          "value": "[GDScript:5498]",
+          "data_type": "GDScript",
+          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
           "description": ""
         }
       ],
@@ -5694,9 +5694,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -5745,17 +5745,17 @@
           "description": ""
         },
         {
-          "name": "Iterator",
-          "value": "[GDScript:5498]",
-          "data_type": "GDScript",
-          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
-          "description": ""
-        },
-        {
           "name": "CommandCollection",
           "value": "[GDScript:5506]",
           "data_type": "GDScript",
           "signature": "const CommandCollection: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/CommandCollection.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Iterator",
+          "value": "[GDScript:5498]",
+          "data_type": "GDScript",
+          "signature": "const Iterator: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd\")",
           "description": ""
         }
       ],
@@ -5839,9 +5839,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -6718,456 +6718,6 @@
           "return_type": "String",
           "rpc_mode": 0,
           "signature": "func _get_command_name(): String",
-          "description": "",
-          "arguments": [
-
-          ]
-        }
-      ],
-      "static_functions": [
-
-      ]
-    },
-    {
-      "name": "CommandAutocomplete",
-      "path": "res://addons/quentincaffeino-console/src/Command/CommandAutocomplete.gd",
-      "extends_class": [
-        "Reference"
-      ],
-      "extends_file": "",
-      "icon": "",
-      "signature": "class CommandAutocomplete.gd",
-      "description": "",
-      "sub_classes": [
-
-      ],
-      "constants": [
-
-      ],
-      "members": [
-        {
-          "name": "_filter",
-          "data_type": "String",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filter: String",
-          "description": ""
-        },
-        {
-          "name": "_filtered",
-          "data_type": "PoolStringArray",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filtered: PoolStringArray",
-          "description": ""
-        },
-        {
-          "name": "_current",
-          "data_type": "int",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _current: int",
-          "description": ""
-        }
-      ],
-      "signals": [
-
-      ],
-      "methods": [
-        {
-          "name": "filter",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func filter(filter: String): void",
-          "description": "",
-          "arguments": [
-            {
-              "name": "filter",
-              "type": "String"
-            }
-          ]
-        },
-        {
-          "name": "next",
-          "return_type": "String",
-          "rpc_mode": 0,
-          "signature": "func next(): String",
-          "description": "",
-          "arguments": [
-
-          ]
-        },
-        {
-          "name": "reset",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func reset(): void",
-          "description": "",
-          "arguments": [
-
-          ]
-        }
-      ],
-      "static_functions": [
-
-      ]
-    },
-    {
-      "name": "CommandAutocomplete",
-      "path": "res://addons/quentincaffeino-console/src/Command/CommandAutocomplete.gd",
-      "extends_class": [
-        "Reference"
-      ],
-      "extends_file": "",
-      "icon": "",
-      "signature": "class CommandAutocomplete.gd",
-      "description": "",
-      "sub_classes": [
-
-      ],
-      "constants": [
-
-      ],
-      "members": [
-        {
-          "name": "_filter",
-          "data_type": "String",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filter: String",
-          "description": ""
-        },
-        {
-          "name": "_filtered",
-          "data_type": "PoolStringArray",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filtered: PoolStringArray",
-          "description": ""
-        },
-        {
-          "name": "_current",
-          "data_type": "int",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _current: int",
-          "description": ""
-        }
-      ],
-      "signals": [
-
-      ],
-      "methods": [
-        {
-          "name": "filter",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func filter(filter: String): void",
-          "description": "",
-          "arguments": [
-            {
-              "name": "filter",
-              "type": "String"
-            }
-          ]
-        },
-        {
-          "name": "next",
-          "return_type": "String",
-          "rpc_mode": 0,
-          "signature": "func next(): String",
-          "description": "",
-          "arguments": [
-
-          ]
-        },
-        {
-          "name": "reset",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func reset(): void",
-          "description": "",
-          "arguments": [
-
-          ]
-        }
-      ],
-      "static_functions": [
-
-      ]
-    },
-    {
-      "name": "CommandAutocomplete",
-      "path": "res://addons/quentincaffeino-console/src/Command/CommandAutocomplete.gd",
-      "extends_class": [
-        "Reference"
-      ],
-      "extends_file": "",
-      "icon": "",
-      "signature": "class CommandAutocomplete.gd",
-      "description": "",
-      "sub_classes": [
-
-      ],
-      "constants": [
-
-      ],
-      "members": [
-        {
-          "name": "_filter",
-          "data_type": "String",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filter: String",
-          "description": ""
-        },
-        {
-          "name": "_filtered",
-          "data_type": "PoolStringArray",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filtered: PoolStringArray",
-          "description": ""
-        },
-        {
-          "name": "_current",
-          "data_type": "int",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _current: int",
-          "description": ""
-        }
-      ],
-      "signals": [
-
-      ],
-      "methods": [
-        {
-          "name": "filter",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func filter(filter: String): void",
-          "description": "",
-          "arguments": [
-            {
-              "name": "filter",
-              "type": "String"
-            }
-          ]
-        },
-        {
-          "name": "next",
-          "return_type": "String",
-          "rpc_mode": 0,
-          "signature": "func next(): String",
-          "description": "",
-          "arguments": [
-
-          ]
-        },
-        {
-          "name": "reset",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func reset(): void",
-          "description": "",
-          "arguments": [
-
-          ]
-        }
-      ],
-      "static_functions": [
-
-      ]
-    },
-    {
-      "name": "CommandAutocomplete",
-      "path": "res://addons/quentincaffeino-console/src/Command/CommandAutocomplete.gd",
-      "extends_class": [
-        "Reference"
-      ],
-      "extends_file": "",
-      "icon": "",
-      "signature": "class CommandAutocomplete.gd",
-      "description": "",
-      "sub_classes": [
-
-      ],
-      "constants": [
-
-      ],
-      "members": [
-        {
-          "name": "_filter",
-          "data_type": "String",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filter: String",
-          "description": ""
-        },
-        {
-          "name": "_filtered",
-          "data_type": "PoolStringArray",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filtered: PoolStringArray",
-          "description": ""
-        },
-        {
-          "name": "_current",
-          "data_type": "int",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _current: int",
-          "description": ""
-        }
-      ],
-      "signals": [
-
-      ],
-      "methods": [
-        {
-          "name": "filter",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func filter(filter: String): void",
-          "description": "",
-          "arguments": [
-            {
-              "name": "filter",
-              "type": "String"
-            }
-          ]
-        },
-        {
-          "name": "next",
-          "return_type": "String",
-          "rpc_mode": 0,
-          "signature": "func next(): String",
-          "description": "",
-          "arguments": [
-
-          ]
-        },
-        {
-          "name": "reset",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func reset(): void",
-          "description": "",
-          "arguments": [
-
-          ]
-        }
-      ],
-      "static_functions": [
-
-      ]
-    },
-    {
-      "name": "CommandAutocomplete",
-      "path": "res://addons/quentincaffeino-console/src/Command/CommandAutocomplete.gd",
-      "extends_class": [
-        "Reference"
-      ],
-      "extends_file": "",
-      "icon": "",
-      "signature": "class CommandAutocomplete.gd",
-      "description": "",
-      "sub_classes": [
-
-      ],
-      "constants": [
-
-      ],
-      "members": [
-        {
-          "name": "_filter",
-          "data_type": "String",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filter: String",
-          "description": ""
-        },
-        {
-          "name": "_filtered",
-          "data_type": "PoolStringArray",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _filtered: PoolStringArray",
-          "description": ""
-        },
-        {
-          "name": "_current",
-          "data_type": "int",
-          "default_value": null,
-          "setter": "",
-          "getter": "",
-          "export": false,
-          "signature": "var _current: int",
-          "description": ""
-        }
-      ],
-      "signals": [
-
-      ],
-      "methods": [
-        {
-          "name": "filter",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func filter(filter: String): void",
-          "description": "",
-          "arguments": [
-            {
-              "name": "filter",
-              "type": "String"
-            }
-          ]
-        },
-        {
-          "name": "next",
-          "return_type": "String",
-          "rpc_mode": 0,
-          "signature": "func next(): String",
-          "description": "",
-          "arguments": [
-
-          ]
-        },
-        {
-          "name": "reset",
-          "return_type": "void",
-          "rpc_mode": 0,
-          "signature": "func reset(): void",
           "description": "",
           "arguments": [
 
@@ -7193,10 +6743,10 @@
       ],
       "constants": [
         {
-          "name": "ArgumentFactory",
-          "value": "[GDScript:5510]",
+          "name": "Command",
+          "value": "[GDScript:5522]",
           "data_type": "GDScript",
-          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
+          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
           "description": ""
         },
         {
@@ -7207,10 +6757,10 @@
           "description": ""
         },
         {
-          "name": "Command",
-          "value": "[GDScript:5522]",
+          "name": "CallbackUtils",
+          "value": "[GDScript:5500]",
           "data_type": "GDScript",
-          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
+          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         },
         {
@@ -7221,22 +6771,22 @@
           "description": ""
         },
         {
-          "name": "CallbackUtils",
-          "value": "[GDScript:5500]",
+          "name": "ArgumentFactory",
+          "value": "[GDScript:5510]",
           "data_type": "GDScript",
-          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
+          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
           "description": ""
         }
       ],
       "members": [
         {
-          "name": "_commandService",
+          "name": "_command_service",
           "data_type": "CommandService",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var _commandService: CommandService",
+          "signature": "var _command_service: CommandService",
           "description": ""
         },
         {
@@ -7288,11 +6838,11 @@
           "name": "_init",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)",
+          "signature": "func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)",
           "description": "",
           "arguments": [
             {
-              "name": "commandService",
+              "name": "command_service",
               "type": "CommandService"
             },
             {
@@ -7395,10 +6945,10 @@
       ],
       "constants": [
         {
-          "name": "ArgumentFactory",
-          "value": "[GDScript:5510]",
+          "name": "Command",
+          "value": "[GDScript:5522]",
           "data_type": "GDScript",
-          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
+          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
           "description": ""
         },
         {
@@ -7409,10 +6959,10 @@
           "description": ""
         },
         {
-          "name": "Command",
-          "value": "[GDScript:5522]",
+          "name": "CallbackUtils",
+          "value": "[GDScript:5500]",
           "data_type": "GDScript",
-          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
+          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         },
         {
@@ -7423,22 +6973,22 @@
           "description": ""
         },
         {
-          "name": "CallbackUtils",
-          "value": "[GDScript:5500]",
+          "name": "ArgumentFactory",
+          "value": "[GDScript:5510]",
           "data_type": "GDScript",
-          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
+          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
           "description": ""
         }
       ],
       "members": [
         {
-          "name": "_commandService",
+          "name": "_command_service",
           "data_type": "CommandService",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var _commandService: CommandService",
+          "signature": "var _command_service: CommandService",
           "description": ""
         },
         {
@@ -7490,11 +7040,11 @@
           "name": "_init",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)",
+          "signature": "func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)",
           "description": "",
           "arguments": [
             {
-              "name": "commandService",
+              "name": "command_service",
               "type": "CommandService"
             },
             {
@@ -7597,10 +7147,10 @@
       ],
       "constants": [
         {
-          "name": "ArgumentFactory",
-          "value": "[GDScript:5510]",
+          "name": "Command",
+          "value": "[GDScript:5522]",
           "data_type": "GDScript",
-          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
+          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
           "description": ""
         },
         {
@@ -7611,10 +7161,10 @@
           "description": ""
         },
         {
-          "name": "Command",
-          "value": "[GDScript:5522]",
+          "name": "CallbackUtils",
+          "value": "[GDScript:5500]",
           "data_type": "GDScript",
-          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
+          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         },
         {
@@ -7625,22 +7175,22 @@
           "description": ""
         },
         {
-          "name": "CallbackUtils",
-          "value": "[GDScript:5500]",
+          "name": "ArgumentFactory",
+          "value": "[GDScript:5510]",
           "data_type": "GDScript",
-          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
+          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
           "description": ""
         }
       ],
       "members": [
         {
-          "name": "_commandService",
+          "name": "_command_service",
           "data_type": "CommandService",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var _commandService: CommandService",
+          "signature": "var _command_service: CommandService",
           "description": ""
         },
         {
@@ -7692,11 +7242,11 @@
           "name": "_init",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)",
+          "signature": "func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)",
           "description": "",
           "arguments": [
             {
-              "name": "commandService",
+              "name": "command_service",
               "type": "CommandService"
             },
             {
@@ -7799,10 +7349,10 @@
       ],
       "constants": [
         {
-          "name": "ArgumentFactory",
-          "value": "[GDScript:5510]",
+          "name": "Command",
+          "value": "[GDScript:5522]",
           "data_type": "GDScript",
-          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
+          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
           "description": ""
         },
         {
@@ -7813,10 +7363,10 @@
           "description": ""
         },
         {
-          "name": "Command",
-          "value": "[GDScript:5522]",
+          "name": "CallbackUtils",
+          "value": "[GDScript:5500]",
           "data_type": "GDScript",
-          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
+          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         },
         {
@@ -7827,22 +7377,22 @@
           "description": ""
         },
         {
-          "name": "CallbackUtils",
-          "value": "[GDScript:5500]",
+          "name": "ArgumentFactory",
+          "value": "[GDScript:5510]",
           "data_type": "GDScript",
-          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
+          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
           "description": ""
         }
       ],
       "members": [
         {
-          "name": "_commandService",
+          "name": "_command_service",
           "data_type": "CommandService",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var _commandService: CommandService",
+          "signature": "var _command_service: CommandService",
           "description": ""
         },
         {
@@ -7894,11 +7444,11 @@
           "name": "_init",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)",
+          "signature": "func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)",
           "description": "",
           "arguments": [
             {
-              "name": "commandService",
+              "name": "command_service",
               "type": "CommandService"
             },
             {
@@ -8001,10 +7551,10 @@
       ],
       "constants": [
         {
-          "name": "ArgumentFactory",
-          "value": "[GDScript:5510]",
+          "name": "Command",
+          "value": "[GDScript:5522]",
           "data_type": "GDScript",
-          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
+          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
           "description": ""
         },
         {
@@ -8015,10 +7565,10 @@
           "description": ""
         },
         {
-          "name": "Command",
-          "value": "[GDScript:5522]",
+          "name": "CallbackUtils",
+          "value": "[GDScript:5500]",
           "data_type": "GDScript",
-          "signature": "const Command: GDScript = preload(\"res://addons/quentincaffeino-console/src/Command/Command.gd\")",
+          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         },
         {
@@ -8029,22 +7579,22 @@
           "description": ""
         },
         {
-          "name": "CallbackUtils",
-          "value": "[GDScript:5500]",
+          "name": "ArgumentFactory",
+          "value": "[GDScript:5510]",
           "data_type": "GDScript",
-          "signature": "const CallbackUtils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
+          "signature": "const ArgumentFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/ArgumentFactory.gd\")",
           "description": ""
         }
       ],
       "members": [
         {
-          "name": "_commandService",
+          "name": "_command_service",
           "data_type": "CommandService",
           "default_value": null,
           "setter": "",
           "getter": "",
           "export": false,
-          "signature": "var _commandService: CommandService",
+          "signature": "var _command_service: CommandService",
           "description": ""
         },
         {
@@ -8096,11 +7646,11 @@
           "name": "_init",
           "return_type": "var",
           "rpc_mode": 0,
-          "signature": "func _init(commandService: CommandService, name: String, target: Reference, targetName: String|null)",
+          "signature": "func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)",
           "description": "",
           "arguments": [
             {
-              "name": "commandService",
+              "name": "command_service",
               "type": "CommandService"
             },
             {
@@ -8232,9 +7782,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -8321,9 +7871,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -8410,9 +7960,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -8499,9 +8049,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -8588,9 +8138,9 @@
         },
         {
           "name": "find",
-          "return_type": "Command[]",
+          "return_type": "CommandCollection",
           "rpc_mode": 0,
-          "signature": "func find(command_name: String): Command[]",
+          "signature": "func find(command_name: String): CommandCollection",
           "description": "",
           "arguments": [
             {
@@ -13748,13 +13298,6 @@
       ],
       "constants": [
         {
-          "name": "TypeFactory",
-          "value": "[GDScript:5512]",
-          "data_type": "GDScript",
-          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
-          "description": ""
-        },
-        {
           "name": "BaseType",
           "value": "[GDScript:5514]",
           "data_type": "GDScript",
@@ -13766,6 +13309,13 @@
           "value": "[GDScript:5511]",
           "data_type": "GDScript",
           "signature": "const Argument: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/Argument.gd\")",
+          "description": ""
+        },
+        {
+          "name": "TypeFactory",
+          "value": "[GDScript:5512]",
+          "data_type": "GDScript",
+          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
           "description": ""
         }
       ],
@@ -13832,13 +13382,6 @@
       ],
       "constants": [
         {
-          "name": "TypeFactory",
-          "value": "[GDScript:5512]",
-          "data_type": "GDScript",
-          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
-          "description": ""
-        },
-        {
           "name": "BaseType",
           "value": "[GDScript:5514]",
           "data_type": "GDScript",
@@ -13850,6 +13393,13 @@
           "value": "[GDScript:5511]",
           "data_type": "GDScript",
           "signature": "const Argument: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/Argument.gd\")",
+          "description": ""
+        },
+        {
+          "name": "TypeFactory",
+          "value": "[GDScript:5512]",
+          "data_type": "GDScript",
+          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
           "description": ""
         }
       ],
@@ -13916,13 +13466,6 @@
       ],
       "constants": [
         {
-          "name": "TypeFactory",
-          "value": "[GDScript:5512]",
-          "data_type": "GDScript",
-          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
-          "description": ""
-        },
-        {
           "name": "BaseType",
           "value": "[GDScript:5514]",
           "data_type": "GDScript",
@@ -13934,6 +13477,13 @@
           "value": "[GDScript:5511]",
           "data_type": "GDScript",
           "signature": "const Argument: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/Argument.gd\")",
+          "description": ""
+        },
+        {
+          "name": "TypeFactory",
+          "value": "[GDScript:5512]",
+          "data_type": "GDScript",
+          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
           "description": ""
         }
       ],
@@ -14000,13 +13550,6 @@
       ],
       "constants": [
         {
-          "name": "TypeFactory",
-          "value": "[GDScript:5512]",
-          "data_type": "GDScript",
-          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
-          "description": ""
-        },
-        {
           "name": "BaseType",
           "value": "[GDScript:5514]",
           "data_type": "GDScript",
@@ -14018,6 +13561,13 @@
           "value": "[GDScript:5511]",
           "data_type": "GDScript",
           "signature": "const Argument: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/Argument.gd\")",
+          "description": ""
+        },
+        {
+          "name": "TypeFactory",
+          "value": "[GDScript:5512]",
+          "data_type": "GDScript",
+          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
           "description": ""
         }
       ],
@@ -14084,13 +13634,6 @@
       ],
       "constants": [
         {
-          "name": "TypeFactory",
-          "value": "[GDScript:5512]",
-          "data_type": "GDScript",
-          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
-          "description": ""
-        },
-        {
           "name": "BaseType",
           "value": "[GDScript:5514]",
           "data_type": "GDScript",
@@ -14102,6 +13645,13 @@
           "value": "[GDScript:5511]",
           "data_type": "GDScript",
           "signature": "const Argument: GDScript = preload(\"res://addons/quentincaffeino-console/src/Argument/Argument.gd\")",
+          "description": ""
+        },
+        {
+          "name": "TypeFactory",
+          "value": "[GDScript:5512]",
+          "data_type": "GDScript",
+          "signature": "const TypeFactory: GDScript = preload(\"res://addons/quentincaffeino-console/src/Type/TypeFactory.gd\")",
           "description": ""
         }
       ],
@@ -18830,20 +18380,6 @@
           "description": ""
         },
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
-          "name": "FuncRefCallback",
-          "value": "[GDScript:5504]",
-          "data_type": "GDScript",
-          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -18855,6 +18391,20 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "FuncRefCallback",
+          "value": "[GDScript:5504]",
+          "data_type": "GDScript",
+          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -18990,20 +18540,6 @@
           "description": ""
         },
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
-          "name": "FuncRefCallback",
-          "value": "[GDScript:5504]",
-          "data_type": "GDScript",
-          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -19015,6 +18551,20 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "FuncRefCallback",
+          "value": "[GDScript:5504]",
+          "data_type": "GDScript",
+          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -19150,20 +18700,6 @@
           "description": ""
         },
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
-          "name": "FuncRefCallback",
-          "value": "[GDScript:5504]",
-          "data_type": "GDScript",
-          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -19175,6 +18711,20 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "FuncRefCallback",
+          "value": "[GDScript:5504]",
+          "data_type": "GDScript",
+          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -19310,20 +18860,6 @@
           "description": ""
         },
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
-          "name": "FuncRefCallback",
-          "value": "[GDScript:5504]",
-          "data_type": "GDScript",
-          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -19335,6 +18871,20 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "FuncRefCallback",
+          "value": "[GDScript:5504]",
+          "data_type": "GDScript",
+          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -19470,20 +19020,6 @@
           "description": ""
         },
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
-          "name": "FuncRefCallback",
-          "value": "[GDScript:5504]",
-          "data_type": "GDScript",
-          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -19495,6 +19031,20 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "FuncRefCallback",
+          "value": "[GDScript:5504]",
+          "data_type": "GDScript",
+          "signature": "const FuncRefCallback: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/FuncRefCallback.gd\")",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -20738,13 +20288,6 @@
       ],
       "constants": [
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -20756,6 +20299,13 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -20901,13 +20451,6 @@
       ],
       "constants": [
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -20919,6 +20462,13 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -21064,13 +20614,6 @@
       ],
       "constants": [
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -21082,6 +20625,13 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -21227,13 +20777,6 @@
       ],
       "constants": [
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -21245,6 +20788,13 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],
@@ -21390,13 +20940,6 @@
       ],
       "constants": [
         {
-          "name": "Utils",
-          "value": "[GDScript:5500]",
-          "data_type": "GDScript",
-          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
-          "description": ""
-        },
-        {
           "name": "errors",
           "value": {
             "qc.callback.target_missing_mv": "QC/Callback: ensure: Target is missing method/variable. (%s, %s)",
@@ -21408,6 +20951,13 @@
           },
           "data_type": "Dictionary",
           "signature": "const errors: Dictionary = {\"qc.callback.call.ensure_failed\":\"QC/Callback: call: Failed to call a callback, ensuring failed. (%s, %s)\",\"qc.callback.call.unknown_type\":\"QC/Callback: call: Unable to call unknown type. (%s, %s)\",\"qc.callback.canCreate.first_arg\":\"QC/Callback: canCreate: First argument must be target object. Provided: %s.\",\"qc.callback.canCreate.second_arg\":\"QC/Callback: canCreate: Second argument must be variable or method name (string). Provided: %s.\",\"qc.callback.ensure.target_destroyed\":\"QC/Callback: ensure: Failed to call a callback, target was previously destroyed. (%s)\",\"qc.callback.target_missing_mv\":\"QC/Callback: ensure: Target is missing method/variable. (%s, %s)\"}",
+          "description": ""
+        },
+        {
+          "name": "Utils",
+          "value": "[GDScript:5500]",
+          "data_type": "GDScript",
+          "signature": "const Utils: GDScript = preload(\"res://addons/quentincaffeino-console/addons/quentincaffeino-callback/src/Utils.gd\")",
           "description": ""
         }
       ],

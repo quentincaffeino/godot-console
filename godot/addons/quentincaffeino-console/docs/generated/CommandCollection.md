@@ -17,6 +17,6 @@ func _init(collection)
 ### find
 
 ```gdscript
-func find(command_name: String): Command[]
+func find(command_name: String): CommandCollection
 ```
 

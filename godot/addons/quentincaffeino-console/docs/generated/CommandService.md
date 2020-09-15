@@ -35,7 +35,7 @@ func get(command_name: String): Command|null
 ### find
 
 ```gdscript
-func find(command_name: String): Command[]
+func find(command_name: String): CommandCollection
 ```
 
 ### remove
