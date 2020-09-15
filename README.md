@@ -13,13 +13,7 @@ Godot Console
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-<<<<<<< HEAD
-### There is a new version comming, help me debugging the [dev](https://github.com/QuentinCaffeino/godot-console/tree/dev) branch.
-
-![Quake-style console for Godot](https://github.com/QuentinCaffeino/godot-console/blob/master/screenshot.png)
-=======
 ![In-game console for Godot Screenshot](assets/screenshot.png)
->>>>>>> dev
 
 In-game console for Godot, which could be easily extended with new commands.
 
