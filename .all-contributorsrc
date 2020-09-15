@@ -1,0 +1,138 @@
+{
+  "projectName": "godot-console",
+  "projectOwner": "quentincaffeino",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "quentincaffeino",
+      "name": "Sergei ZH",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2855777?v=4",
+      "profile": "http://gitlab.com/QuentinCaffeino",
+      "contributions": [
+        "code",
+        "question",
+        "doc",
+        "ideas",
+        "review"
+      ]
+    },
+    {
+      "login": "MJBrune",
+      "name": "Michael Brune",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/420072?v=4",
+      "profile": "http://www.underflowstudios.com",
+      "contributions": [
+        "a11y",
+        "bug"
+      ]
+    },
+    {
+      "login": "aganm",
+      "name": "Michael Aganier",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/20380758?v=4",
+      "profile": "https://github.com/aganm",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "hpn33",
+      "name": "hpn332",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16251202?v=4",
+      "profile": "https://github.com/hpn33",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "danilw",
+      "name": "Danil",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/24825887?v=4",
+      "profile": "https://github.com/danilw",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "paulhocker",
+      "name": "Paul Hocker",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2214652?v=4",
+      "profile": "http://sdnllc.com",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "SamanthaClarke1",
+      "name": "Samantha Clarke",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/24452702?v=4",
+      "profile": "https://github.com/SamanthaClarke1",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Calinou",
+      "name": "Hugo Locurcio",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/180032?v=4",
+      "profile": "https://hugo.pro",
+      "contributions": [
+        "a11y"
+      ]
+    },
+    {
+      "login": "DmDerbin",
+      "name": "Dmitry Derbin",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6673326?v=4",
+      "profile": "https://github.com/DmDerbin",
+      "contributions": [
+        "question"
+      ]
+    },
+    {
+      "login": "VitexHD",
+      "name": "VitexHD",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31520916?v=4",
+      "profile": "https://github.com/VitexHD",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "hilfazer",
+      "name": "hilfazer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29497869?v=4",
+      "profile": "https://github.com/hilfazer",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "crazychenz",
+      "name": "Crazy Chenz",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/792769?v=4",
+      "profile": "https://github.com/crazychenz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Japortie",
+      "name": "Marcus Schütte",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2089237?v=4",
+      "profile": "https://github.com/Japortie",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 8,
+  "skipCi": true
+}
