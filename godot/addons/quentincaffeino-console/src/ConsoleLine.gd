@@ -56,7 +56,14 @@ func _input(e):
 			self._tmpUsrEnteredCmd = null
 
 	# Autocomplete on TAB
-	# TODO: Maybe later
+	if e is InputEventKey and e.pressed and e.scancode == KEY_TAB:
+		var commands = Console.get_command_service().find(self.text)
+		if commands.length == 1:
+			self.setText(commands.getByIndex(0).getName())
+		else:
+			for command in commands.getValueIterator():
+				var name = command.getName()
+				Console.writeLine('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
 
 	# Finish
 	if self._currCmd != null:
