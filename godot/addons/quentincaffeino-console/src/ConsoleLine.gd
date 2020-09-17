@@ -39,6 +39,10 @@ func _gui_input(event):
 
 # @param  Event  e
 func _input(e):
+	# Don't process input if console is not visible
+	if !is_visible_in_tree():
+		return
+	
 	# Show next line in history
 	if Input.is_action_just_pressed(Console.action_history_up):
 		self._currCmd = Console.History.current()
