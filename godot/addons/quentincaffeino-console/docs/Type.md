@@ -17,9 +17,9 @@
 var health = 5
 
 func _ready():
-	Console.addCommand('set_health', self, 'health')\
-		.setDescription('Set health')\
-		.addArgument('health', Console.FloatRangeType.new(0, 5, 0.5))\
+	Console.add_command('set_health', self, 'health')\
+		.set_description('Set health')\
+		.add_argument('health', Console.FloatRangeType.new(0, 5, 0.5))\
 		.register()
 ```
 

@@ -59,8 +59,8 @@ Hello Adam Smith!
 ### Function that will be called by our command:
 
 ```gdscript
-func printHello(name = ''):
-	Console.writeLine('Hello ' + name + '!')
+func print_hello(name = ''):
+	Console.write_line('Hello ' + name + '!')
 ```
 
 ### Registering command:
@@ -70,9 +70,9 @@ func _ready():
 	# 1. argument is command name
 	# 2. arg. is target (target could be a funcref)
 	# 3. arg. is target name (name is not required if it is the same as first arg or target is a funcref)
-	Console.addCommand('sayHello', self, 'printHello')\
-		.setDescription('Prints "Hello %name%!"')\
-		.addArgument('name', TYPE_STRING)\
+	Console.add_command('sayHello', self, 'print_hello')\
+		.set_description('Prints "Hello %name%!"')\
+		.add_argument('name', TYPE_STRING)\
 		.register()
 ```
 
