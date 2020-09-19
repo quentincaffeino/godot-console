@@ -1,9 +1,8 @@
 
 extends Reference
 
-const ArrayUtils = preload('../../addons/quentincaffeino-array-utils/src/Utils.gd')
 const CallbackBuilder = preload('../../addons/quentincaffeino-callback/src/CallbackBuilder.gd')
-const CallbackUtils = preload('../../addons/quentincaffeino-callback/src/Utils.gd')
+const Callback = preload('../../addons/quentincaffeino-callback/src/Callback.gd')
 const ArgumentFactory = preload('../Argument/ArgumentFactory.gd')
 const Command = preload('Command.gd')
 
@@ -30,7 +29,7 @@ var _description
 # @param  String|null     targetName
 func _init(command_service, name, target, targetName = null):
 	self._name = name
-	self._target = self._createTarget(target, targetName)
+	self._target = self._initialize_target_callback(target, targetName)
 	self._arguments = []
 	self._description = null
 	self._command_service = command_service
@@ -39,16 +38,17 @@ func _init(command_service, name, target, targetName = null):
 # @param    Reference    target
 # @param    String|null  name
 # @returns  Callback|null
-func _createTarget(target, name = null):
+func _initialize_target_callback(target, name = null):
+	if target is Callback:
+		return target
+
 	name = name if name else self._name
 
-	var callback = CallbackBuilder.new(target)\
-		.setName(name)\
-		.build()
+	var callback = CallbackBuilder.new(target).setName(name).build()
 
 	if not callback:
 		Console.Log.error(\
-			'QC/Console/Command/CommandBuilder: setTarget: Failed to create [b]`%s`[/b] command. Failed to create callback to target with method [b]`%s`[/b].' %
+			'CommandBuilder: Failed to create [b]`%s`[/b] command. Failed to create callback to target with method [b]`%s`[/b].' %
 			[ self._name, name ])
 
 	return callback
