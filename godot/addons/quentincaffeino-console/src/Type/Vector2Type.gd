@@ -3,7 +3,7 @@ extends 'res://addons/quentincaffeino-console/src/Type/BaseRegexCheckedType.gd'
 
 
 # @var  Vector2|null
-var _normalizedValue
+var _normalized_value
 
 
 func _init().('Vector2', '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$'):
@@ -26,7 +26,7 @@ func check(value):
 			return CHECK.FAILED
 
 	# Save value
-	self._normalizedValue = Vector2(values[0], values[1])
+	self._normalized_value = Vector2(values[0], values[1])
 
 	return CHECK.OK
 
@@ -34,4 +34,4 @@ func check(value):
 # @param    Variant  value
 # @returns  Variant
 func normalize(value):
-	return self._normalizedValue
+	return self._normalized_value

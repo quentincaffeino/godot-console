@@ -13,13 +13,21 @@ enum TYPE \
 
 
 # @var  int
-var logLevel = TYPE.WARNING setget setLogLevel
+var logLevel = TYPE.WARNING
 
 
-# @param    int  inlogLevel
+# @deprecated
+# @param    int  in_log_level
 # @returns  Log
-func setLogLevel(inlogLevel):
-	logLevel = inlogLevel
+func setLogLevel(in_log_level):
+	Console.Log.warn("DEPRECATED: We're moving our api from camelCase to snake_case, please update this method to `set_log_level`. Please refer to documentation for more info.")
+	return self.set_log_level(in_log_level)
+
+
+# @param    int  in_log_level
+# @returns  Log
+func set_log_level(in_log_level):
+	logLevel = in_log_level
 	return self
 
 
@@ -39,7 +47,7 @@ func log(message, type = TYPE.INFO):
 # @returns  Log
 func debug(message):
 	if logLevel <= TYPE.DEBUG:
-		Console.writeLine('[color=green][DEBUG][/color] ' + str(message))
+		Console.write_line('[color=green][DEBUG][/color] ' + str(message))
 	return self
 
 
@@ -47,7 +55,7 @@ func debug(message):
 # @returns  Log
 func info(message):
 	if logLevel <= TYPE.INFO:
-		Console.writeLine('[color=blue][INFO][/color] ' + str(message))
+		Console.write_line('[color=blue][INFO][/color] ' + str(message))
 	return self
 
 
@@ -55,7 +63,7 @@ func info(message):
 # @returns  Log
 func warn(message):
 	if logLevel <= TYPE.WARNING:
-		Console.writeLine('[color=yellow][WARNING][/color] ' + str(message))
+		Console.write_line('[color=yellow][WARNING][/color] ' + str(message))
 	return self
 
 
@@ -63,5 +71,5 @@ func warn(message):
 # @returns  Log
 func error(message):
 	if logLevel <= TYPE.ERROR:
-		Console.writeLine('[color=red][ERROR][/color] ' + str(message))
+		Console.write_line('[color=red][ERROR][/color] ' + str(message))
 	return self

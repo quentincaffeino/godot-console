@@ -60,18 +60,46 @@ func _initialize_target_callback(target, name = null):
 	return callback
 
 
+# @deprecated
 # @param    String         name
 # @param    BaseType|null  type
 # @param    String|null    description
 # @returns  CommandBuilder
 func addArgument(name, type = null, description = null):
-	self._arguments.append(ArgumentFactory.create(name, type, description))
+	Console.Log.warn("DEPRECATED: We're moving our api from camelCase to snake_case, please update this method to `add_argument`. Please refer to documentation for more info.")
+	return self.add_argument(name, type, description)
+
+# @param    String         name
+# @param    BaseType|null  type
+# @param    String|null    description
+# @returns  CommandBuilder
+func add_argument(name, type = null, description = null):
+	# @var  Result<Argument, Error>
+	var argument_result = ArgumentFactory.create(name, type, description)
+	var error = argument_result.get_error()
+	if error:
+		if error.get_code() != ArgumentFactory.FALLBACK_ERROR:
+			Console.Log.error(error.get_message())
+			return self
+		else:
+			Console.Log.warn(\
+				"CommandBuilder: add_argument for command `%s` for argument `%s` failed with: %s" % [self._name, name, error.get_message()])
+
+	var argument = argument_result.get_value()
+	self._arguments.append(argument)
 	return self
 
 
+# @deprecated
 # @param    String|null  description
 # @returns  CommandBuilder
 func setDescription(description = null):
+	Console.Log.warn("DEPRECATED: We're moving our api from camelCase to snake_case, please update this method to `set_description`. Please refer to documentation for more info.")
+	return self.set_description(description)
+
+# @param    String|null  description
+# @returns  CommandBuilder
+func set_description(description = null):
 	self._description = description
 	return self
 
@@ -80,4 +108,4 @@ func setDescription(description = null):
 func register():
 	var command = Command.new(self._name, self._target, self._arguments, self._description)
 	if not self._command_service.set(self._name, command):
-		self._console.Log.error('QC/Console/Command/CommandBuilder: register: Failed to create [b]`%s`[/b] command. Command already exists.')
+		self._console.error("CommandBuilder::register: Failed to create [b]`%s`[/b] command. Command already exists." % self._name)

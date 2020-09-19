@@ -12,25 +12,25 @@ var argumentName = 'test-arg'
 var argument
 
 func before_each():
-	self.argument = ArgumentFactory.create(argumentName)
+	self.argument = ArgumentFactory.create(argumentName).get_value()
 
 
 func test_set_value():
 	var test_value = "test value"
-	self.argument.setValue(test_value)
-	assert_eq(test_value, self.argument.getValue())
+	self.argument.set_value(test_value)
+	assert_eq(test_value, self.argument.get_value())
 
 
 func test_set_value_check_ok():
 	var test_value = "test value"
-	assert_eq(Argument.ASSIGNMENT.OK, self.argument.setValue(test_value))
+	assert_eq(Argument.ASSIGNMENT.OK, self.argument.set_value(test_value))
 
 
 func test_get_normalized_value():
 	var test_value = "test value"
-	self.argument.setValue(test_value)
-	assert_eq(test_value, self.argument.getNormalizedValue())
+	self.argument.set_value(test_value)
+	assert_eq(test_value, self.argument.get_normalized_value())
 
 
 func test_describe():
-	assert_eq(self.argumentName + ":Any", self.argument.describe())
+	assert_eq("<" + self.argumentName + ":Any>", self.argument.describe())

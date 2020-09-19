@@ -32,6 +32,12 @@ func normalize(value):
 	return value
 
 
+# @deprecated
 # @returns  String
 func toString():
+	Console.Log.warn("DEPRECATED: We're moving our api from camelCase to snake_case, please update this method to `to_string`. Please refer to documentation for more info.")
+	return self.to_string()
+
+# @returns  String
+func to_string():
 	return self._name

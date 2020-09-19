@@ -20,10 +20,10 @@ var _type
 var _description
 
 # @var  String
-var _originalValue
+var _original_value
 
 # @var  Variant
-var _normalizedValue
+var _normalized_value
 
 
 # @param  String       name
@@ -36,37 +36,37 @@ func _init(name, type, description = null):
 
 
 # @returns  String
-func getValue():
-	return self._originalValue
+func get_name():
+	return self._name
+
+
+# @returns  BaseType
+func get_type():
+	return self._type
+
+
+# @returns  String
+func get_value():
+	return self._original_value
 
 
 # @param    Variant  value
 # @returns  int
-func setValue(value):
-	self._originalValue = value
+func set_value(value):
+	self._original_value = value
 
 	var check = self._type.check(value)
 	if check == OK:
-		self._normalizedValue = self._type.normalize(value)
+		self._normalized_value = self._type.normalize(value)
 
 	return check
 
 
 # @returns  Variant
-func getNormalizedValue():
-	return self._normalizedValue
+func get_normalized_value():
+	return self._normalized_value
 
 
 # @returns  String
 func describe():
-	return '<%s:%s>' % [self._name, self._type.toString()]
-
-
-# @returns  String
-func getName():
-	return self._name
-
-
-# @returns  BaseType
-func getType():
-	return self._type
+	return '<%s:%s>' % [self._name, self._type.to_string()]

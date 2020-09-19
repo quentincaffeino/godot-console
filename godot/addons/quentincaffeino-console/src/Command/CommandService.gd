@@ -4,6 +4,7 @@ extends Reference
 const Iterator = preload('res://addons/quentincaffeino-console/addons/quentincaffeino-iterator/src/Iterator.gd')
 const CommandCollection = preload('CommandCollection.gd')
 const CommandBuilder = preload('CommandBuilder.gd')
+const Result = preload('../Misc/Result.gd')
 
 
 # @var  Console
@@ -55,3 +56,39 @@ func find(command_name):
 # @returns  void
 func remove(command_name):
 	return self._command_collection.remove(command_name)
+
+# @param    String   command_name
+# @returns  String
+func autocomplete(command_name):
+	var commands = self.find(command_name)
+
+	if commands.length == 1:
+		return commands.getByIndex(0).getName()
+
+	var autocomplete_result_str = command_name
+	var autocomplete_result_str_len = len(autocomplete_result_str)
+
+	var letter
+	var letter_i = autocomplete_result_str_len
+	breakpoint
+	
+	# while true:
+	for command in commands.getValueIterator():
+		var cmd = command
+		pass
+	# break
+		# 	var cmd_name = command.getName()
+		# 	var compare_to_letter = cmd_name[letter_i]
+
+		# 	if not letter:
+		# 		letter = compare_to_letter
+
+		# 	if letter != compare_to_letter:
+		# 		return Result.new(autocomplete_result_str, null)
+
+
+		# autocomplete_result_str += letter
+		# autocomplete_result_str_len += 1
+		# letter = null
+
+	return command_name

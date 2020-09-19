@@ -2,7 +2,7 @@
 extends LineEdit
 
 # @var  RegExLib
-var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _setProtected
+var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _set_protected
 
 
 # @const  String
@@ -34,7 +34,7 @@ func _ready():
 	self.connect('text_entered', self, 'execute')
 
 func _gui_input(event):
-	if Console.consumeInput and self.has_focus():
+	if Console.consume_input and self.has_focus():
 		accept_event()
 
 # @param  Event  e
@@ -63,50 +63,57 @@ func _input(e):
 	if e is InputEventKey and e.pressed and e.scancode == KEY_TAB:
 		var commands = Console.get_command_service().find(self.text)
 		if commands.length == 1:
-			self.setText(commands.getByIndex(0).getName())
+			self.set_text(commands.getByIndex(0).getName())
 		else:
 			for command in commands.getValueIterator():
 				var name = command.getName()
-				Console.writeLine('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
+				Console.write_line('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
 
 	# Finish
 	if self._currCmd != null:
-		self.setText(self._currCmd.getText() if self._currCmd and typeof(self._currCmd) == TYPE_OBJECT else self._currCmd)
+		self.set_text(self._currCmd.getText() if self._currCmd and typeof(self._currCmd) == TYPE_OBJECT else self._currCmd)
 		self.accept_event()
 		self._currCmd = null
 
 
 # @param    String  text
-# @param    bool    moveCaretToEnd
+# @param    bool    move_caret_to_end
 # @returns  void
-func setText(text, moveCaretToEnd = true):
+func setText(text, move_caret_to_end = true):
+	Console.Log.warn("DEPRECATED: We're moving our api from camelCase to snake_case, please update this method to `get_command`. Please refer to documentation for more info.")
+	return self.set_text(text, move_caret_to_end)
+
+# @param    String  text
+# @param    bool    move_caret_to_end
+# @returns  void
+func set_text(text, move_caret_to_end = true):
 	self.text = text
 	self.grab_focus()
 
-	if moveCaretToEnd:
+	if move_caret_to_end:
 		self.caret_position = text.length()
 
 
 # @param    String  input
 # @returns  void
 func execute(input):
-	Console.writeLine('[color=#999999]$[/color] ' + input)
+	Console.write_line('[color=#999999]$[/color] ' + input)
 
 	# @var  PoolStringArray
 	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
 
 	# @var  Dictionary[]
-	var parsedCommands = self.parseCommands(rawCommands)
+	var parsedCommands = self._parse_commands(rawCommands)
 
 	for parsedCommand in parsedCommands:
 		# @var  Command/Command|null
-		var command = Console.getCommand(parsedCommand.name)
+		var command = Console.get_command(parsedCommand.name)
 
 		if command:
 			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
 			command.execute(parsedCommand.arguments)
 		else:
-			Console.writeLine('Command `' + parsedCommand.name + '` not found.')
+			Console.write_line('Command `' + parsedCommand.name + '` not found.')
 
 	Console.History.push(input)
 	self.clear()
@@ -114,19 +121,19 @@ func execute(input):
 
 # @param    PoolStringArray  rawCommands
 # @returns  Array
-func parseCommands(rawCommands):
+func _parse_commands(rawCommands):
 	var resultCommands = []
 
 	for rawCommand in rawCommands:
 		if rawCommand:
-			resultCommands.append(self.parseCommand(rawCommand))
+			resultCommands.append(self._parse_command(rawCommand))
 
 	return resultCommands
 
 
 # @param    String  rawCommand
 # @returns  Dictionary
-func parseCommand(rawCommand):
+func _parse_command(rawCommand):
 	var name = null
 	var arguments = PoolStringArray([])
 
@@ -171,5 +178,5 @@ func parseCommand(rawCommand):
 
 
 # @returns  void
-func _setProtected(value):
-	Console.Log.warn('QC/Console/ConsoleLine: setProtected: Attempted to set a protected variable, ignoring.')
+func _set_protected(value):
+	Console.Log.warn('QC/Console/ConsoleLine: set_protected: Attempted to set a protected variable, ignoring.')

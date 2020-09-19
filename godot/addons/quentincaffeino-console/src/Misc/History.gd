@@ -8,10 +8,10 @@ func _init(maxLength):
 
 
 # @returns  History
-func printAll():
+func print_all():
 	var i = 1
 	for command in self.getValueIterator():
-		Console.writeLine(\
+		Console.write_line(\
 			'[b]' + str(i) + '.[/b] [color=#ffff66][url=' + \
 			command + ']' + command + '[/url][/color]')
 		i += 1
