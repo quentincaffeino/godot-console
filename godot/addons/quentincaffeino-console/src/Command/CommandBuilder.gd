@@ -30,13 +30,13 @@ var _description
 # @param  CommandService  command_service
 # @param  String          name
 # @param  Reference       target
-# @param  String|null     targetName
-func _init(console, command_service, name, target, targetName = null):
+# @param  String|null     target_name
+func _init(console, command_service, name, target, target_name = null):
 	self._console = console
 	self._command_service = command_service
 
 	self._name = name
-	self._target = self._initialize_target_callback(target, targetName)
+	self._target = self._initialize_target_callback(target, target_name)
 	self._arguments = []
 	self._description = null
 
