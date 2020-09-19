@@ -6,7 +6,16 @@ const CommandCollection = preload('CommandCollection.gd')
 const CommandBuilder = preload('CommandBuilder.gd')
 
 
+# @var  Console
+var _console
+
+# @var  CommandCollection
 var _command_collection = CommandCollection.new()
+
+
+# @param  Console  console
+func _init(console):
+	self._console = console
 
 
 # @returns  Iterator
@@ -19,7 +28,7 @@ func values():
 # @param    String|null  target_name
 # @returns  CommandBuilder
 func create(command_name, target, target_name = null):
-	return CommandBuilder.new(self, command_name, target, target_name)
+	return CommandBuilder.new(self._console, self, command_name, target, target_name)
 
 
 # @param    String   command_name

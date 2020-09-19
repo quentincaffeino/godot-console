@@ -47,7 +47,7 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 
 func _init():
-	self._command_service = CommandService.new()
+	self._command_service = CommandService.new(self)
 	# Used to clear text from bb tags before printing to engine output
 	self._eraseTrash = RegEx.new()
 	self._eraseTrash.compile('\\[[\\/]?[a-z0-9\\=\\#\\ \\_\\-\\,\\.\\;]+\\]')

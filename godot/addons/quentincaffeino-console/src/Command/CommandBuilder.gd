@@ -7,6 +7,9 @@ const ArgumentFactory = preload('../Argument/ArgumentFactory.gd')
 const Command = preload('Command.gd')
 
 
+# @var  Console
+var _console
+
 # @var  CommandService
 var _command_service
 
@@ -23,16 +26,19 @@ var _arguments
 var _description
 
 
+# @param  Console         console
 # @param  CommandService  command_service
 # @param  String          name
 # @param  Reference       target
 # @param  String|null     targetName
-func _init(command_service, name, target, targetName = null):
+func _init(console, command_service, name, target, targetName = null):
+	self._console = console
+	self._command_service = command_service
+
 	self._name = name
 	self._target = self._initialize_target_callback(target, targetName)
 	self._arguments = []
 	self._description = null
-	self._command_service = command_service
 
 
 # @param    Reference    target
@@ -47,7 +53,7 @@ func _initialize_target_callback(target, name = null):
 	var callback = CallbackBuilder.new(target).setName(name).build()
 
 	if not callback:
-		Console.Log.error(\
+		self._console.Log.error(\
 			'CommandBuilder: Failed to create [b]`%s`[/b] command. Failed to create callback to target with method [b]`%s`[/b].' %
 			[ self._name, name ])
 
@@ -74,4 +80,4 @@ func setDescription(description = null):
 func register():
 	var command = Command.new(self._name, self._target, self._arguments, self._description)
 	if not self._command_service.set(self._name, command):
-		Console.Log.error('QC/Console/Command/CommandBuilder: register: Failed to create [b]`%s`[/b] command. Command already exists.')
+		self._console.Log.error('QC/Console/Command/CommandBuilder: register: Failed to create [b]`%s`[/b] command. Command already exists.')
