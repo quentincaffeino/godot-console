@@ -11,12 +11,6 @@
 ### create <small>(static)</small>
 
 ```gdscript
-func create(name: String, type: int|BaseType, description: String|null): Argument|int
-```
-
-### createAll <small>(static)</small>
-
-```gdscript
-func createAll(args: Array): Argument[]|int
+func create(name: String, type: int|BaseType, description: String|null): Result
 ```
 

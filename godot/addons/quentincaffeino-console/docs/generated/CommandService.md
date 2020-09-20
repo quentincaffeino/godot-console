@@ -8,6 +8,12 @@
 
 ## Method Descriptions
 
+### \_init
+
+```gdscript
+func _init(console: Console)
+```
+
 ### values
 
 ```gdscript
@@ -42,5 +48,11 @@ func find(command_name: String): CommandCollection
 
 ```gdscript
 func remove(command_name: String): void
+```
+
+### autocomplete
+
+```gdscript
+func autocomplete(command_name: String): String
 ```
 

@@ -22,39 +22,39 @@ const ASSIGNMENT: Dictionary = {"CANCELED":2,"FAILED":1,"OK":0}
 func _init(name: String, type: BaseType, description: String|null)
 ```
 
-### getValue
+### get\_name
 
 ```gdscript
-func getValue(): String
+func get_name(): String
 ```
 
-### setValue
+### get\_type
 
 ```gdscript
-func setValue(value: Variant): int
+func get_type(): BaseType
 ```
 
-### getNormalizedValue
+### get\_value
 
 ```gdscript
-func getNormalizedValue(): Variant
+func get_value(): String
+```
+
+### set\_value
+
+```gdscript
+func set_value(value: Variant): int
+```
+
+### get\_normalized\_value
+
+```gdscript
+func get_normalized_value(): Variant
 ```
 
 ### describe
 
 ```gdscript
 func describe(): String
-```
-
-### getName
-
-```gdscript
-func getName(): String
-```
-
-### getType
-
-```gdscript
-func getType(): BaseType
 ```
 

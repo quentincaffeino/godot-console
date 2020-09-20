@@ -11,6 +11,6 @@
 ### create <small>(static)</small>
 
 ```gdscript
-func create(type: int): BaseType
+func create(engine_type: int): Result<BaseType
 ```
 

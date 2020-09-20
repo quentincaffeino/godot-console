@@ -8,26 +8,9 @@
 
 ## Method Descriptions
 
-### help <small>(static)</small>
+### \_init
 
 ```gdscript
-func help(command_name: String|null): void
+func _init(console: Console)
 ```
 
-Display help message or display description for the command.
-
-### version <small>(static)</small>
-
-```gdscript
-func version(): void
-```
-
-Prints out engine version.
-
-### quit <small>(static)</small>
-
-```gdscript
-func quit(): void
-```
-
-Quitting application.

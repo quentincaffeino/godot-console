@@ -19,24 +19,18 @@ var RegExLib: RegExLib
 ### setText
 
 ```gdscript
-func setText(text: String, moveCaretToEnd: bool): void
+func setText(text: String, move_caret_to_end: bool): void
+```
+
+### set\_text
+
+```gdscript
+func set_text(text: String, move_caret_to_end: bool): void
 ```
 
 ### execute
 
 ```gdscript
 func execute(input: String): void
-```
-
-### parseCommands
-
-```gdscript
-func parseCommands(rawCommands: PoolStringArray): Array
-```
-
-### parseCommand
-
-```gdscript
-func parseCommand(rawCommand: String): Dictionary
 ```
 

@@ -11,19 +11,31 @@
 ### \_init
 
 ```gdscript
-func _init(command_service: CommandService, name: String, target: Reference, targetName: String|null)
+func _init(console: Console, command_service: CommandService, name: String, target: Reference, target_name: String|null)
 ```
 
-### addArgument
+### ~~addArgument~~ <small>(deprecated)</small>
 
 ```gdscript
 func addArgument(name: String, type: BaseType|null, description: String|null): CommandBuilder
 ```
 
-### setDescription
+### add\_argument
+
+```gdscript
+func add_argument(name: String, type: BaseType|null, description: String|null): CommandBuilder
+```
+
+### ~~setDescription~~ <small>(deprecated)</small>
 
 ```gdscript
 func setDescription(description: String|null): CommandBuilder
+```
+
+### set\_description
+
+```gdscript
+func set_description(description: String|null): CommandBuilder
 ```
 
 ### register

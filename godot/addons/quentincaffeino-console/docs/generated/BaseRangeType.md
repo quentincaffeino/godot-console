@@ -11,48 +11,84 @@
 ### \_init
 
 ```gdscript
-func _init(name: String, minValue: int|float, maxValue: int|float, step: int|float)
+func _init(name: String, min_value: int|float, max_value: int|float, step: int|float)
 ```
 
-### getMinValue
+### ~~getMinValue~~ <small>(deprecated)</small>
 
 ```gdscript
 func getMinValue(): int|float
 ```
 
-### setMinValue
+### get\_min\_value
 
 ```gdscript
-func setMinValue(minValue: int|float): BaseRange
+func get_min_value(): int|float
 ```
 
-### getMaxValue
+### ~~setMinValue~~ <small>(deprecated)</small>
+
+```gdscript
+func setMinValue(min_value: int|float): BaseRange
+```
+
+### set\_min\_value
+
+```gdscript
+func set_min_value(min_value: int|float): BaseRange
+```
+
+### ~~getMaxValue~~ <small>(deprecated)</small>
 
 ```gdscript
 func getMaxValue(): int|float
 ```
 
-### setMaxValue
+### get\_max\_value
 
 ```gdscript
-func setMaxValue(maxValue: int|float): BaseRange
+func get_max_value(): int|float
 ```
 
-### getStep
+### ~~setMaxValue~~ <small>(deprecated)</small>
+
+```gdscript
+func setMaxValue(max_value: int|float): BaseRange
+```
+
+### set\_max\_value
+
+```gdscript
+func set_max_value(max_value: int|float): BaseRange
+```
+
+### ~~getStep~~ <small>(deprecated)</small>
 
 ```gdscript
 func getStep(): int|float
 ```
 
-### setStep
+### get\_step
+
+```gdscript
+func get_step(): int|float
+```
+
+### ~~setStep~~ <small>(deprecated)</small>
 
 ```gdscript
 func setStep(step: int|float): BaseRange
 ```
 
-### toString
+### set\_step
 
 ```gdscript
-func toString(): String
+func set_step(step: int|float): BaseRange
+```
+
+### to\_string
+
+```gdscript
+func to_string(): String
 ```
 

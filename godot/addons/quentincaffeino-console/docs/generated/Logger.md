@@ -22,14 +22,18 @@ const TYPE: Dictionary = {"DEBUG":0,"ERROR":3,"INFO":1,"NONE":4,"WARNING":2}
 var logLevel: int
 ```
 
-- **Setter**: `setLogLevel`
-
 ## Method Descriptions
 
-### setLogLevel
+### ~~setLogLevel~~ <small>(deprecated)</small>
 
 ```gdscript
-func setLogLevel(inlogLevel: int): Log
+func setLogLevel(in_log_level: int): Log
+```
+
+### set\_log\_level
+
+```gdscript
+func set_log_level(in_log_level: int): Log
 ```
 
 ### log

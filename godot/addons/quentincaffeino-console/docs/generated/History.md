@@ -14,9 +14,9 @@
 func _init(maxLength: int)
 ```
 
-### printAll
+### print\_all
 
 ```gdscript
-func printAll(): History
+func print_all(): History
 ```
 

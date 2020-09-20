@@ -20,16 +20,16 @@ var History: History
 var Log: Logger
 ```
 
-### isConsoleShown
+### is\_console\_shown
 
 ```gdscript
-var isConsoleShown: bool
+var is_console_shown: bool
 ```
 
-### consumeInput
+### consume\_input
 
 ```gdscript
-var consumeInput: bool
+var consume_input: bool
 ```
 
 ### action\_console\_toggle
@@ -70,28 +70,52 @@ var Line
 func get_command_service(): Command/CommandService
 ```
 
-### getCommand
+### ~~getCommand~~ <small>(deprecated)</small>
 
 ```gdscript
 func getCommand(name: String): Command/Command|null
 ```
 
-### findCommands
+### get\_command
+
+```gdscript
+func get_command(name: String): Command/Command|null
+```
+
+### ~~findCommands~~ <small>(deprecated)</small>
 
 ```gdscript
 func findCommands(name: String): Command/CommandCollection
 ```
 
-### addCommand
+### find\_commands
+
+```gdscript
+func find_commands(name: String): Command/CommandCollection
+```
+
+### ~~addCommand~~ <small>(deprecated)</small>
 
 ```gdscript
 func addCommand(name: String, target: Reference, target_name: String|null): Command/CommandBuilder
 ```
 
-### removeCommand
+### add\_command
+
+```gdscript
+func add_command(name: String, target: Reference, target_name: String|null): Command/CommandBuilder
+```
+
+### ~~removeCommand~~ <small>(deprecated)</small>
 
 ```gdscript
 func removeCommand(name: String): int
+```
+
+### remove\_command
+
+```gdscript
+func remove_command(name: String): int
 ```
 
 ### write
@@ -100,10 +124,16 @@ func removeCommand(name: String): int
 func write(message: String): void
 ```
 
-### writeLine
+### ~~writeLine~~ <small>(deprecated)</small>
 
 ```gdscript
 func writeLine(message: String): void
+```
+
+### write\_line
+
+```gdscript
+func write_line(message: String): void
 ```
 
 ### clear
@@ -115,6 +145,12 @@ func clear(): void
 ### toggleConsole
 
 ```gdscript
-func toggleConsole(): void
+func toggleConsole(): Console
+```
+
+### toggle\_console
+
+```gdscript
+func toggle_console(): Console
 ```
 

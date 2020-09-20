@@ -40,9 +40,15 @@ func normalize(value: Variant): Variant
 
 Normalize variable
 
-### toString
+### ~~toString~~ <small>(deprecated)</small>
 
 ```gdscript
 func toString(): String
+```
+
+### to\_string
+
+```gdscript
+func to_string(): String
 ```
 
