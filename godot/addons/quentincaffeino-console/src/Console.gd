@@ -59,7 +59,7 @@ func _ready():
 	# Follow console output (for scrolling)
 	self.Text.set_scroll_follow(true)
 	# React to clicks on console urls
-	self.Text.connect('meta_clicked', self.Line, 'setText')
+	self.Text.connect('meta_clicked', self.Line, 'set_text')
 
 	# Hide console by default
 	self._consoleBox.hide()
