@@ -33,6 +33,8 @@ func _ready():
 
 	self.connect('text_entered', self, 'execute')
 
+
+# @param  InputEvent
 func _gui_input(event):
 	if Console.consume_input and self.has_focus():
 		accept_event()
@@ -61,13 +63,8 @@ func _input(e):
 
 	# Autocomplete on TAB
 	if e is InputEventKey and e.pressed and e.scancode == KEY_TAB:
-		var commands = Console.get_command_service().find(self.text)
-		if commands.length == 1:
-			self.set_text(commands.getByIndex(0).getName())
-		else:
-			for command in commands.getValueIterator():
-				var name = command.getName()
-				Console.write_line('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
+		var autocompleted_command = Console.get_command_service().autocomplete(self.text)
+		self.set_text(autocompleted_command)
 
 	# Finish
 	if self._currCmd != null:

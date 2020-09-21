@@ -70,25 +70,25 @@ func autocomplete(command_name):
 
 	var letter
 	var letter_i = autocomplete_result_str_len
-	breakpoint
-	
-	# while true:
-	for command in commands.getValueIterator():
-		var cmd = command
-		pass
-	# break
-		# 	var cmd_name = command.getName()
-		# 	var compare_to_letter = cmd_name[letter_i]
 
-		# 	if not letter:
-		# 		letter = compare_to_letter
+	while true:
+		for command in commands.getValueIterator():
+			var cmd_name = command.getName()
+			
+			if letter_i >= len(cmd_name):
+				return autocomplete_result_str
 
-		# 	if letter != compare_to_letter:
-		# 		return Result.new(autocomplete_result_str, null)
+			var compare_to_letter = cmd_name[letter_i]
 
+			if not letter:
+				letter = compare_to_letter
 
-		# autocomplete_result_str += letter
-		# autocomplete_result_str_len += 1
-		# letter = null
+			if letter != compare_to_letter:
+				return autocomplete_result_str
+
+		autocomplete_result_str += letter
+		autocomplete_result_str_len += 1
+		letter = null
+		letter_i += 1
 
 	return command_name

@@ -80,7 +80,7 @@ func _ready():
 	self.BaseCommands.new(self)
 
 
-# @param  Event  e
+# @param  InputEvent  e
 func _input(e):
 	if Input.is_action_just_pressed(self.action_console_toggle):
 		self.toggle_console()
