@@ -32,24 +32,6 @@ var is_console_shown: bool
 var consume_input: bool
 ```
 
-### action\_console\_toggle
-
-```gdscript
-var action_console_toggle: String
-```
-
-### action\_history\_up
-
-```gdscript
-var action_history_up: String
-```
-
-### action\_history\_down
-
-```gdscript
-var action_history_down: String
-```
-
 ### Text
 
 ```gdscript
@@ -68,6 +50,12 @@ var Line
 
 ```gdscript
 func get_command_service(): Command/CommandService
+```
+
+### get\_action\_service
+
+```gdscript
+func get_action_service(): Misc/ActionService
 ```
 
 ### ~~getCommand~~ <small>(deprecated)</small>

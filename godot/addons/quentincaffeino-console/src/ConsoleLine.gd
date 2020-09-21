@@ -1,6 +1,9 @@
 
 extends LineEdit
 
+const DefaultActions = preload('./Misc/DefaultActions.gd')
+
+
 # @var  RegExLib
 var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _set_protected
 
@@ -50,7 +53,7 @@ func _input(e):
 		return
 	
 	# Show next line in history
-	if Input.is_action_just_pressed(Console.action_history_up):
+	if Input.is_action_just_pressed(Console.get_action_service().get_real_action_name(DefaultActions.action_console_history_up)):
 		self._current_command = Console.History.current()
 		Console.History.previous()
 
@@ -58,7 +61,7 @@ func _input(e):
 			self._tmp_user_entered_command = self.text
 
 	# Show previous line in history
-	if Input.is_action_just_pressed(Console.action_history_down):
+	if Input.is_action_just_pressed(Console.get_action_service().get_real_action_name(DefaultActions.action_console_history_down)):
 		self._current_command = Console.History.next()
 
 		if !self._current_command and self._tmp_user_entered_command != null:
@@ -66,7 +69,7 @@ func _input(e):
 			self._tmp_user_entered_command = null
 
 	# Autocomplete on TAB
-	if e is InputEventKey and e.pressed and e.scancode == KEY_TAB:
+	if Input.is_action_just_pressed(Console.get_action_service().get_real_action_name(DefaultActions.action_console_autocomplete)):
 		if self._autocomplete_triggered_timer and self._autocomplete_triggered_timer.get_time_left() > 0:
 			self._autocomplete_triggered_timer = null
 			var commands = Console.get_command_service().find(self.text)

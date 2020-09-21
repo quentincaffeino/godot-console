@@ -2,6 +2,8 @@
 extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
+const DefaultActions = preload('./Misc/DefaultActions.gd')
+const DefaultActionServiceFactory = preload('./Misc/DefaultActionServiceFactory.gd')
 const CommandService = preload('Command/CommandService.gd')
 
 ### Custom console types
@@ -19,6 +21,9 @@ var Log = preload('Misc/Logger.gd').new() setget _set_protected
 # @var  Command/CommandService
 var _command_service
 
+# @var  ActionService
+var _action_service
+
 # Used to clear text from bb tags
 # @var  RegEx
 var _erase_bb_tags_regex
@@ -28,15 +33,6 @@ var is_console_shown = true setget _set_protected
 
 # @var bool
 var consume_input = true
-
-# @var  String
-export(String) var action_console_toggle = 'console_toggle'
-
-# @var  String
-export(String) var action_history_up = 'ui_up'
-
-# @var  String
-export(String) var action_history_down = 'ui_down'
 
 
 ### Console nodes
@@ -48,6 +44,7 @@ onready var _animationPlayer = $ConsoleBox/AnimationPlayer
 
 func _init():
 	self._command_service = CommandService.new(self)
+	self._action_service = DefaultActionServiceFactory.create()
 	# Used to clear text from bb tags before printing to engine output
 	self._erase_bb_tags_regex = RegEx.new()
 	self._erase_bb_tags_regex.compile('\\[[\\/]?[a-z0-9\\=\\#\\ \\_\\-\\,\\.\\;]+\\]')
@@ -82,13 +79,18 @@ func _ready():
 
 # @param  InputEvent  e
 func _input(e):
-	if Input.is_action_just_pressed(self.action_console_toggle):
+	if Input.is_action_just_pressed(self.get_action_service().get_real_action_name(DefaultActions.action_console_toggle)):
 		self.toggle_console()
 
 
 # @returns  Command/CommandService
 func get_command_service():
 	return self._command_service
+
+
+# @returns  Misc/ActionService
+func get_action_service():
+	return self._action_service
 
 
 # @deprecated
