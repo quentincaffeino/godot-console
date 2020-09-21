@@ -21,10 +21,10 @@ const QUOTES = [ '"', "'" ]
 const SCREENERS = [ '\\/' ]
 
 # @var  String|null
-var _tmpUsrEnteredCmd
+var _tmp_user_entered_command
 
 # @var  String
-var _currCmd
+var _current_command
 
 
 func _ready():
@@ -47,19 +47,19 @@ func _input(e):
 	
 	# Show next line in history
 	if Input.is_action_just_pressed(Console.action_history_up):
-		self._currCmd = Console.History.current()
+		self._current_command = Console.History.current()
 		Console.History.previous()
 
-		if self._tmpUsrEnteredCmd == null:
-			self._tmpUsrEnteredCmd = self.text
+		if self._tmp_user_entered_command == null:
+			self._tmp_user_entered_command = self.text
 
 	# Show previous line in history
 	if Input.is_action_just_pressed(Console.action_history_down):
-		self._currCmd = Console.History.next()
+		self._current_command = Console.History.next()
 
-		if !self._currCmd and self._tmpUsrEnteredCmd != null:
-			self._currCmd = self._tmpUsrEnteredCmd
-			self._tmpUsrEnteredCmd = null
+		if !self._current_command and self._tmp_user_entered_command != null:
+			self._current_command = self._tmp_user_entered_command
+			self._tmp_user_entered_command = null
 
 	# Autocomplete on TAB
 	if e is InputEventKey and e.pressed and e.scancode == KEY_TAB:
@@ -67,10 +67,10 @@ func _input(e):
 		self.set_text(autocompleted_command)
 
 	# Finish
-	if self._currCmd != null:
-		self.set_text(self._currCmd.getText() if self._currCmd and typeof(self._currCmd) == TYPE_OBJECT else self._currCmd)
+	if self._current_command != null:
+		self.set_text(self._current_command.getText() if self._current_command and typeof(self._current_command) == TYPE_OBJECT else self._current_command)
 		self.accept_event()
-		self._currCmd = null
+		self._current_command = null
 
 
 # @param    String  text
