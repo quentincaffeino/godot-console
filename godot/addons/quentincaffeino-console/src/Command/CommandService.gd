@@ -71,7 +71,7 @@ func autocomplete(command_name):
 	var letter
 	var letter_i = autocomplete_result_str_len
 
-	while true:
+	while commands.length:
 		for command in commands.getValueIterator():
 			var cmd_name = command.getName()
 			
