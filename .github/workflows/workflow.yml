@@ -1,0 +1,2 @@
+- name: Changelog CI
+  uses: saadmk11/changelog-ci@v0.6.1
