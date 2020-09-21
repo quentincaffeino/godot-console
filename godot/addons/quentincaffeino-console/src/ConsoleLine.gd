@@ -39,7 +39,11 @@ func _gui_input(event):
 	if Console.consume_input and self.has_focus():
 		accept_event()
 
-# @param  Event  e
+
+# @var  SceneTreeTimer
+var _autocomplete_triggered_timer
+
+# @param  InputEvent  e
 func _input(e):
 	# Don't process input if console is not visible
 	if !is_visible_in_tree():
@@ -63,8 +67,19 @@ func _input(e):
 
 	# Autocomplete on TAB
 	if e is InputEventKey and e.pressed and e.scancode == KEY_TAB:
-		var autocompleted_command = Console.get_command_service().autocomplete(self.text)
-		self.set_text(autocompleted_command)
+		if self._autocomplete_triggered_timer and self._autocomplete_triggered_timer.get_time_left() > 0:
+			self._autocomplete_triggered_timer = null
+			var commands = Console.get_command_service().find(self.text)
+			if commands.length == 1:
+				self.set_text(commands.getByIndex(0).getName())
+			else:
+				for command in commands.getValueIterator():
+					var name = command.getName()
+					Console.write_line('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
+		else:
+			self._autocomplete_triggered_timer = get_tree().create_timer(1.0, true)
+			var autocompleted_command = Console.get_command_service().autocomplete(self.text)
+			self.set_text(autocompleted_command)
 
 	# Finish
 	if self._current_command != null:
