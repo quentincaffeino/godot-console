@@ -26,18 +26,22 @@ In-game console for Godot, which could be easily extended with new commands.
 
 ## Features:
 
-- Creating custom commands with [add_command](godot/addons/quentincaffeino-console/docs/generated/Console.md#add_command)
+- Creating custom commands with [add_command](godot/addons/quentincaffeino-console/docs/generated/Console.md#add_command).
+
+- Autocomplete with `TAB` keyboard key.
 
 - Writing to console using [write](godot/addons/quentincaffeino-console/docs/generated/Console.md#write) and [write_line](godot/addons/quentincaffeino-console/docs/generated/Console.md#write_line) methods.
 	You can also use [BB codes](https://godot.readthedocs.io/en/latest/learning/features/gui/bbcode_in_richtextlabel.html?highlight=richtextlabel#reference).
 
 	(Is also printed to engine output)
 
-- Session command history (by default using with actions `ui_up` and `ui_down`)
+- Session command history (using `UP` and `DOWN` keyboard arrows).
+
 - [Flexible types](godot/addons/quentincaffeino-console/docs/Type.md):
 	- [Engine types](godot/addons/quentincaffeino-console/docs/Type.md#engine-types)
 	- [Extra types](godot/addons/quentincaffeino-console/docs/Type.md#extra-types)
 	- [Custom types](godot/addons/quentincaffeino-console/docs/Type.md#creating-custom-types)
+
 - [FuncRef](https://docs.godotengine.org/en/3.2/classes/class_funcref.html) support with Godot >=3.2 (can be used as a command target).
 
 ## Installation:
