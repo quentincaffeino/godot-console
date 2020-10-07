@@ -3,6 +3,7 @@
 	<img
 		alt="In-game console for Godot Logo"
 		width="128"
+	     	style="max-width:100%"
 		src="assets/icon.svg"/>
 </p>
 
