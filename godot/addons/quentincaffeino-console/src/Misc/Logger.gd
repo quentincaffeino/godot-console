@@ -30,7 +30,11 @@ func set_log_level(in_log_level):
 	logLevel = in_log_level
 	return self
 
-
+# Example usage:
+# ```gdscript
+# Console.Log.log("Hello world!", Console.Log.TYPE.INFO)
+# ```
+#
 # @param    String  message
 # @param    int     type
 # @returns  Log

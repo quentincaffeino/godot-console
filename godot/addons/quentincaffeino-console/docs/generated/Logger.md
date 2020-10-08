@@ -42,6 +42,11 @@ func set_log_level(in_log_level: int): Log
 func log(message: String, type: int): Log
 ```
 
+Example usage:
+```gdscript
+Console.Log.log("Hello world!", Console.Log.TYPE.INFO)
+```
+
 ### debug
 
 ```gdscript

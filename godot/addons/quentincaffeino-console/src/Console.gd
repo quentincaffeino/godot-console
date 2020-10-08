@@ -126,6 +126,13 @@ func addCommand(name, target, target_name = null):
 	Console.Log.warn("DEPRECATED: We're moving our api from camelCase to snake_case, please update this method to `add_command`. Please refer to documentation for more info.")
 	return self.add_command(name, target, target_name)
 
+# Example usage:
+# ```gdscript
+# Console.add_command('sayHello', self, 'print_hello')\
+# 	.set_description('Prints "Hello %name%!"')\
+# 	.add_argument('name', TYPE_STRING)\
+# 	.register()
+# ```
 # @param    String       name
 # @param    Reference    target
 # @param    String|null  target_name

@@ -94,6 +94,14 @@ func addCommand(name: String, target: Reference, target_name: String|null): Comm
 func add_command(name: String, target: Reference, target_name: String|null): Command/CommandBuilder
 ```
 
+Example usage:
+```gdscript
+Console.add_command('sayHello', self, 'print_hello')\
+	.set_description('Prints "Hello %name%!"')\
+	.add_argument('name', TYPE_STRING)\
+	.register()
+```
+
 ### ~~removeCommand~~ <small>(deprecated)</small>
 
 ```gdscript
