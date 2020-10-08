@@ -2,7 +2,7 @@
 GODOT=$(shell which godot)
 
 GDSCRIPT_DOCS_MAKER_BIN_NAME="godot_generate_reference"
-GDSCRIPT_DOCS_MAKER=$(shell readlink $(shell which "${GDSCRIPT_DOCS_MAKER_BIN_NAME}"))
+GDSCRIPT_DOCS_MAKER="${PWD}/gdscript-docs-maker/generate_reference"
 GDSCRIPT_DOCS_MAKER_PATH=$(shell dirname "${GDSCRIPT_DOCS_MAKER}")
 
 PROJECT_PATH="${PWD}/godot"
