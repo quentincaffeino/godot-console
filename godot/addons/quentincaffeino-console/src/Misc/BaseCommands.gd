@@ -37,7 +37,7 @@ func _init(console):
 		.register()
 
 	self._console.add_command('version', self, '_version')\
-		.set_description('Shows engine vesion.')\
+		.set_description('Shows engine version.')\
 		.register()
 
 	self._console.add_command('fps_max', Engine, 'set_target_fps')\
