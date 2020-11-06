@@ -49,7 +49,8 @@ In-game console for Godot, which could be easily extended with new commands.
 
 1. Clone this project or download latest release
 2. Copy `./godot/addons/quentincaffeino-console` into your projects `addons` folder.
-2. Enable console in Project/Addons
+2. Enable console in Project/Plugins
+3. You can activate the console with \` (by default) in your game.
 
 ## Example usage:
 
