@@ -60,7 +60,7 @@ func execute(inArgs = []):
 
 		if argAssig == FAILED:
 			Console.Log.warn(\
-				'Expected %s %s as argument.' % [self._arguments[i].get_type().describe(), str(i + 1)])
+				'Expected %s %s as argument.' % [self._arguments[i].get_type().to_string(), str(i + 1)])
 			return
 		elif argAssig == Argument.ASSIGNMENT.CANCELED:
 			return OK
