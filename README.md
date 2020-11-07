@@ -106,7 +106,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/crazychenz"><img src="https://avatars2.githubusercontent.com/u/792769?v=4" width="100px;" alt=""/><br /><sub><b>Crazy Chenz</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=crazychenz" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Japortie"><img src="https://avatars2.githubusercontent.com/u/2089237?v=4" width="100px;" alt=""/><br /><sub><b>Marcus Schütte</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Japortie" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Cryszon"><img src="https://avatars1.githubusercontent.com/u/5220970?v=4" width="100px;" alt=""/><br /><sub><b>Kimmo Salmela</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Cryszon" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/GuillaumeCailhe"><img src="https://avatars0.githubusercontent.com/u/1500051?v=4" width="100px;" alt=""/><br /><sub><b>GuillaumeCailhe</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/issues?q=author%3AGuillaumeCailhe" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/GuillaumeCailhe"><img src="https://avatars0.githubusercontent.com/u/1500051?v=4" width="100px;" alt=""/><br /><sub><b>GuillaumeCailhe</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/issues?q=author%3AGuillaumeCailhe" title="Bug reports">🐛</a> <a href="#ideas-GuillaumeCailhe" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
