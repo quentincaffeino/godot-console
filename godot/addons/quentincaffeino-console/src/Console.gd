@@ -11,6 +11,14 @@ const IntRangeType = preload('Type/IntRangeType.gd')
 const FloatRangeType = preload('Type/FloatRangeType.gd')
 const FilterType = preload('Type/FilterType.gd')
 
+# Signals
+signal opened
+signal closed
+signal toggled
+signal command_added(name, target, target_name)
+signal command_removed(name)
+signal command_executed(command)
+signal command_not_found(name)
 
 # @var  History
 var History = preload('Misc/History.gd').new(10) setget _set_protected
@@ -138,6 +146,7 @@ func addCommand(name, target, target_name = null):
 # @param    String|null  target_name
 # @returns  Command/CommandBuilder
 func add_command(name, target, target_name = null):
+	emit_signal("command_added", name, target, target_name)
 	return self._command_service.create(name, target, target_name)
 
 # @deprecated
@@ -150,6 +159,7 @@ func removeCommand(name):
 # @param    String  name
 # @returns  int
 func remove_command(name):
+	emit_signal("command_removed", name)
 	return self._command_service.remove(name)
 
 
@@ -198,8 +208,12 @@ func toggle_console():
 		self.Line.clear()
 		self.Line.grab_focus()
 		self._animationPlayer.play_backwards('fade')
+		emit_signal("opened")
 	else:
 		self._animationPlayer.play('fade')
+		emit_signal("closed")
+
+	emit_signal("toggled")
 
 	is_console_shown = !self.is_console_shown
 
