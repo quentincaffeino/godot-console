@@ -1,17 +1,17 @@
-
 <p align="center">
 	<img
 		alt="In-game console for Godot Logo"
 		width="128"
-	     	style="max-width:100%"
+		style="max-width:50%"
 		src="assets/icon.svg"/>
 </p>
 
-Godot Console
-============
+# Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -19,11 +19,11 @@ Godot Console
 In-game console for Godot, which could be easily extended with new commands.
 
 - [Godot Console](#godot-console)
-	- [Features](#features)
-	- [Installation](#installation)
-	- [Example usage](#example-usage)
-	- [Contributors](#contributors-)
-	- [License](#license)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Example usage](#example-usage)
+  - [Contributors](#contributors-)
+  - [License](#license)
 
 ## Features:
 
@@ -32,25 +32,26 @@ In-game console for Godot, which could be easily extended with new commands.
 - Autocomplete with `TAB` keyboard key.
 
 - Writing to console using [write](godot/addons/quentincaffeino-console/docs/generated/Console.md#write) and [write_line](godot/addons/quentincaffeino-console/docs/generated/Console.md#write_line) methods.
-	You can also use [BB codes](https://godot.readthedocs.io/en/latest/learning/features/gui/bbcode_in_richtextlabel.html?highlight=richtextlabel#reference).
+  You can also use [BB codes](https://docs.godotengine.org/en/stable/tutorials/gui/bbcode_in_richtextlabel.html#using-bbcode).
 
-	(Is also printed to engine output)
+  (Is also printed to engine output)
 
 - Session command history (using `UP` and `DOWN` keyboard arrows).
 
 - [Flexible types](godot/addons/quentincaffeino-console/docs/Type.md):
-	- [Engine types](godot/addons/quentincaffeino-console/docs/Type.md#engine-types)
-	- [Extra types](godot/addons/quentincaffeino-console/docs/Type.md#extra-types)
-	- [Custom types](godot/addons/quentincaffeino-console/docs/Type.md#creating-custom-types)
 
-- [FuncRef](https://docs.godotengine.org/en/3.2/classes/class_funcref.html) support with Godot >=3.2 (can be used as a command target).
+  - [Engine types](godot/addons/quentincaffeino-console/docs/Type.md#engine-types)
+  - [Extra types](godot/addons/quentincaffeino-console/docs/Type.md#extra-types)
+  - [Custom types](godot/addons/quentincaffeino-console/docs/Type.md#creating-custom-types)
+
+- [FuncRef](https://docs.godotengine.org/en/stable/classes/class_funcref.html) support with Godot >=3.2 (can be used as a command target).
 
 ## Installation:
 
 1. Clone this project or download latest release
 2. Copy `./godot/addons/quentincaffeino-console` into your projects `addons` folder.
-2. Enable console in Project/Plugins
-3. You can activate the console with \` (by default) in your game.
+3. Enable console in Project/Plugins
+4. You can activate the console with `` ` `` ([Grave accent](https://en.wikipedia.org/wiki/Grave_accent)) ([by default](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action) in your game.
 
 ## Example usage:
 
@@ -112,6 +113,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
