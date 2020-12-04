@@ -206,10 +206,8 @@ func toggle_console():
 		self.Line.clear()
 		self.Line.grab_focus()
 		self._animationPlayer.play_backwards('fade')
-		emit_signal("opened")
 	else:
 		self._animationPlayer.play('fade')
-		emit_signal("closed")
 
 	is_console_shown = !self.is_console_shown
 	emit_signal("toggled", is_console_shown)
