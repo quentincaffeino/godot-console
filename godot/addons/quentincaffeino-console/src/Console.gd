@@ -11,11 +11,19 @@ const IntRangeType = preload('Type/IntRangeType.gd')
 const FloatRangeType = preload('Type/FloatRangeType.gd')
 const FilterType = preload('Type/FilterType.gd')
 
-# Signals
+## Signals
+
+# @param  bool  is_console_shown
 signal toggled(is_console_shown)
+# @param  String       name
+# @param  Reference    target
+# @param  String|null  target_name
 signal command_added(name, target, target_name)
+# @param  String  name
 signal command_removed(name)
+# @param  Command  command
 signal command_executed(command)
+# @param  String  name
 signal command_not_found(name)
 
 # @var  History

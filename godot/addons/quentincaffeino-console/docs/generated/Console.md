@@ -6,6 +6,52 @@
 
 ## Description
 
+## Constants Descriptions
+
+### BaseCommands
+
+```gdscript
+const BaseCommands: GDScript = preload("res://addons/quentincaffeino-console/src/Misc/BaseCommands.gd")
+```
+
+### CommandService
+
+```gdscript
+const CommandService: GDScript = preload("res://addons/quentincaffeino-console/src/Command/CommandService.gd")
+```
+
+### DefaultActionServiceFactory
+
+```gdscript
+const DefaultActionServiceFactory: GDScript = preload("res://addons/quentincaffeino-console/src/Misc/DefaultActionServiceFactory.gd")
+```
+
+### DefaultActions
+
+```gdscript
+const DefaultActions: GDScript = preload("res://addons/quentincaffeino-console/src/Misc/DefaultActions.gd")
+```
+
+### FilterType
+
+```gdscript
+const FilterType: GDScript = preload("res://addons/quentincaffeino-console/src/Type/FilterType.gd")
+```
+
+### FloatRangeType
+
+```gdscript
+const FloatRangeType: GDScript = preload("res://addons/quentincaffeino-console/src/Type/FloatRangeType.gd")
+```
+
+### IntRangeType
+
+```gdscript
+const IntRangeType: GDScript = preload("res://addons/quentincaffeino-console/src/Type/IntRangeType.gd")
+```
+
+## Custom console types
+
 ## Property Descriptions
 
 ### History
@@ -150,3 +196,10 @@ func toggleConsole(): Console
 func toggle_console(): Console
 ```
 
+## Signals
+
+- signal toggled(is_console_shown: bool)
+- signal command_added(name: String, target: Reference, target_name: String|null)
+- signal command_removed(name: String)
+- signal command_executed(command: Command)
+- signal command_not_found(name: String)
