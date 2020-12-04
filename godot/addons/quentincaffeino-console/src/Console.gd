@@ -12,9 +12,7 @@ const FloatRangeType = preload('Type/FloatRangeType.gd')
 const FilterType = preload('Type/FilterType.gd')
 
 # Signals
-signal opened
-signal closed
-signal toggled
+signal toggled(is_console_shown)
 signal command_added(name, target, target_name)
 signal command_removed(name)
 signal command_executed(command)
@@ -213,9 +211,8 @@ func toggle_console():
 		self._animationPlayer.play('fade')
 		emit_signal("closed")
 
-	emit_signal("toggled")
-
 	is_console_shown = !self.is_console_shown
+	emit_signal("toggled", is_console_shown)
 
 	return self
 
