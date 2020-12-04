@@ -127,8 +127,10 @@ func execute(input):
 		if command:
 			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
 			command.execute(parsedCommand.arguments)
+			Console.emit_signal("command_executed", command)
 		else:
 			Console.write_line('Command `' + parsedCommand.name + '` not found.')
+			Console.emit_signal("command_not_found", parsedCommand.name)
 
 	Console.History.push(input)
 	self.clear()
