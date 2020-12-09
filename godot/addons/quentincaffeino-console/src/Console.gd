@@ -2,6 +2,7 @@
 extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
+const FileSystem = preload('Misc/FileSystem.gd')
 const DefaultActions = preload('./Misc/DefaultActions.gd')
 const DefaultActionServiceFactory = preload('./Misc/DefaultActionServiceFactory.gd')
 const CommandService = preload('Command/CommandService.gd')
@@ -89,6 +90,9 @@ func _ready():
 
 	# Init base commands
 	self.BaseCommands.new(self)
+	
+	# Init filesystem
+	self.FileSystem.new(self)
 
 
 # @param  InputEvent  e
