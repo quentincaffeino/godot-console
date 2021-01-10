@@ -15,10 +15,10 @@ const TYPE_LIST = [
 
 
 # @param    int  type
-# @returns  Result<int, Error>
+# @returns  Result<Resource, Error>
 static func _type_const_to_type_list_index(type):
 	if type >= 0 and type < TYPE_LIST.size() and TYPE_LIST[type] != null:
-		return Result.new(type)
+		return Result.new(TYPE_LIST[type])
 	else:
 		return Result.new(null, \
 			'Type `%s` is not supported by console, please rerer to the documentation to obtain full list of supported engine types.' % int(type))
@@ -35,4 +35,4 @@ static func create(engine_type):
 	if engine_type_result.has_error():
 		return engine_type_result
 
-	return Result.new(TYPE_LIST[engine_type_result.get_value()].new())
+	return Result.new(engine_type_result.get_value().new())
