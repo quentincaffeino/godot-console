@@ -48,6 +48,9 @@ var is_console_shown = true setget _set_protected
 # @var  bool
 var consume_input = true
 
+# @var  Control
+var previous_focus_owner = null
+
 
 ### Console nodes
 onready var _consoleBox = $ConsoleBox
@@ -210,11 +213,16 @@ func toggleConsole():
 func toggle_console():
 	# Open the console
 	if !self.is_console_shown:
+		previous_focus_owner = self.Line.get_focus_owner()
 		self._consoleBox.show()
 		self.Line.clear()
 		self.Line.grab_focus()
 		self._animationPlayer.play_backwards('fade')
 	else:
+		self.Line.accept_event() # Prevents from DefaultActions.action_console_toggle key character getting into previous_focus_owner value
+		if is_instance_valid(previous_focus_owner):
+			previous_focus_owner.grab_focus()
+		previous_focus_owner = null
 		self._animationPlayer.play('fade')
 
 	is_console_shown = !self.is_console_shown
