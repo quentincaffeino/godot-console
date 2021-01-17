@@ -8,19 +8,14 @@ const DefaultActions = preload('./Misc/DefaultActions.gd')
 var RegExLib = preload('../addons/quentincaffeino-regexlib/src/RegExLib.gd').new() setget _set_protected
 
 
-# @const  String
 const COMMANDS_SEPARATOR = ';'
 
-# @const  String
 const RECOMMANDS_SEPARATOR = '(?<!\\\\)' + COMMANDS_SEPARATOR
 
-# @const  String
 const COMMAND_PARTS_SEPARATOR = ' '
 
-# @const  PoolStringArray
 const QUOTES = [ '"', "'" ]
 
-# @const  PoolStringArray
 const SCREENERS = [ '\\/' ]
 
 # @var  String|null

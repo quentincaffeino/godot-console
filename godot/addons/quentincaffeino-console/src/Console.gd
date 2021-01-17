@@ -45,7 +45,7 @@ var _erase_bb_tags_regex
 # @var  bool
 var is_console_shown = true setget _set_protected
 
-# @var bool
+# @var  bool
 var consume_input = true
 
 
