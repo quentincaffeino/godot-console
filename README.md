@@ -70,10 +70,9 @@ res://
 
 1. Open AssetLib.
 2. Search for Console, category is Scripts; Open it and click Donwload and then Install.
-3. You will be presented with Package Installer, it is easier to disable all by removing check box on root node `res://`.
-4. Open `godot`, then `addons` and select `quentincaffeino-console` directory.
-5. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `godot/addons/quentincaffeino-console`.
-6. Create `addons` folder if you haven't already and move `quentincaffeino-console` there so you will have this structure:
+3. Open `godot`, then `addons` and select `quentincaffeino-console` directory.
+4. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `godot/addons/quentincaffeino-console`.
+5. Create `addons` folder if you haven't already and move `quentincaffeino-console` there so you will have this structure:
 
 ```
 res://
@@ -83,8 +82,8 @@ res://
 
 ```
 
-7. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-8. You can activate the console with `` ` `` while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+6. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
+7. You can activate the console with `` ` `` while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
 
 ## Example usage:
 
