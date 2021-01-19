@@ -1,7 +1,7 @@
 
 extends LineEdit
 
-const DefaultActions = preload('./Misc/DefaultActions.gd')
+const DefaultActions = preload('./Action/DefaultActions.gd')
 
 
 # @var  RegExLib

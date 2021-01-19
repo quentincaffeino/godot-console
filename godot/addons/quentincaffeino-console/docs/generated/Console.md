@@ -23,7 +23,7 @@ const CommandService: GDScript = preload("res://addons/quentincaffeino-console/s
 ### DefaultActionServiceFactory
 
 ```gdscript
-const DefaultActionServiceFactory: GDScript = preload("res://addons/quentincaffeino-console/src/Misc/DefaultActionServiceFactory.gd")
+const DefaultActionServiceFactory: GDScript = preload("res://addons/quentincaffeino-console/src/Action/DefaultActionServiceFactory.gd")
 ```
 
 ### DefaultActions
@@ -101,7 +101,7 @@ func get_command_service(): Command/CommandService
 ### get\_action\_service
 
 ```gdscript
-func get_action_service(): Misc/ActionService
+func get_action_service(): Action/ActionService
 ```
 
 ### ~~getCommand~~ <small>(deprecated)</small>

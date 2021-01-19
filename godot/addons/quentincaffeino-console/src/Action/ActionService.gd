@@ -38,8 +38,12 @@ func register_action(original_action_name, action):
 	self._actions[original_action_name] = action
 
 
-# @param    String  action_name
-# @returns  String
-func get_real_action_name(action_name):
-	if action_name in self._actions:
-		return self._actions[action_name]["name"]
+# @param    String|Dictionary  action
+# @returns  Result<String, Error>
+func get_real_action_name(action):
+	match typeof(action):
+		TYPE_DICTIONARY:
+			return action.name
+		TYPE_STRING:
+			if action in self._actions:
+				return self._actions[action]["name"]

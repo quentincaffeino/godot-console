@@ -2,8 +2,8 @@
 extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
-const DefaultActions = preload('./Misc/DefaultActions.gd')
-const DefaultActionServiceFactory = preload('./Misc/DefaultActionServiceFactory.gd')
+const DefaultActions = preload('./Action/DefaultActions.gd')
+const DefaultActionServiceFactory = preload('./Action/DefaultActionServiceFactory.gd')
 const CommandService = preload('Command/CommandService.gd')
 
 ### Custom console types
@@ -105,7 +105,7 @@ func get_command_service():
 	return self._command_service
 
 
-# @returns  Misc/ActionService
+# @returns  Action/ActionService
 func get_action_service():
 	return self._action_service
 
