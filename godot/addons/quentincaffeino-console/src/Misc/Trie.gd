@@ -14,9 +14,9 @@ func _init():
 # If not present, inserts key into trie.
 # If the key is prefix of trie node, just marks leaf node.
 # @param    String   key
-# @param    Command  command
+# @param    Variant  value
 # @returns  void
-func insert(key, command):
+func insert(key, value):
 	var current_node = self._root
 
 	var length = len(key)
@@ -29,10 +29,10 @@ func insert(key, command):
 
 		current_node = current_node.get_child(index)
 
-	if current_node.command:
+	if current_node.value:
 		return
 
-	current_node.command = command
+	current_node.value = value
 
 
 # Search key in the trie.
@@ -44,9 +44,9 @@ func has(key):
 
 
 # Search key in the trie.
-# Returns Command if key presents in trie, else null.
+# Returns value if key presents in trie, else null.
 # @param    String  key
-# @returns  Command|null
+# @returns  Variant|null
 func get(key):
 	var current_node = self._root
 
@@ -59,7 +59,7 @@ func get(key):
 
 		current_node = current_node.get_child(index)
 
-	return current_node.command
+	return current_node.value
 
 
 
@@ -68,14 +68,14 @@ class TrieNode:
 	# @var  Dictionary
 	var _children
 
-	# @var  Command|null
-	var command
+	# @var  Variant|null
+	var value
 
 
 	# Trie node class
 	func _init():
 		self._children = {}
-		self.command = null
+		self.value = null
 
 
 	# @returns  Dictionary
