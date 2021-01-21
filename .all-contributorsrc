@@ -160,6 +160,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Lyaaaaaaaaaaaaaaa",
+      "name": "Lyaaaaaaaaaaaaaaa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44974422?v=4",
+      "profile": "https://discordapp.com/invite/hSey9Bv",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 8,
