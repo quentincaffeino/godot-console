@@ -1,5 +1,5 @@
 
-GODOT=$(shell which godot)
+GODOT ?= $(shell which godot)
 
 GDSCRIPT_DOCS_MAKER_BIN_NAME="godot_generate_reference"
 GDSCRIPT_DOCS_MAKER="${PWD}/gdscript-docs-maker/generate_reference"
