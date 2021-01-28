@@ -9,7 +9,9 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -19,9 +21,11 @@ In-game console for Godot, which could be easily extended with new commands.
 - [Godot Console](#godot-console)
   - [Features](#features)
   - [Installation](#installation)
-	  - [Via GIT (preferred)](#via-git-preferred)
-	  - [Via Editor AssetLib](#via-editor-assetlib)
+    - [Via GIT (preferred)](#via-git-preferred)
+    - [Via Editor AssetLib](#via-editor-assetlib)
   - [Example usage](#example-usage)
+    - [GDScript](#gdscript)
+    - [C#](#c)
   - [Contributors](#contributors-)
   - [License](#license)
 
@@ -53,7 +57,7 @@ In-game console for Godot, which could be easily extended with new commands.
 1. Clone this project or download latest [release](https://github.com/quentincaffeino/godot-console/archive/master.zip).
 2. Copy `./godot/addons/quentincaffeino-console` into your projects `addons` folder.
 
-  So you will have this structure:
+So you will have this structure:
 
 ```
 res://
@@ -86,24 +90,22 @@ res://
 
 ## Example usage:
 
-### Usage we will get:
+Usage we will get:
 
 ```
 $ sayHello "Adam Smith"
 Hello Adam Smith!
 ```
 
-### Function that will be called by our command:
+### GDScript
 
 ```gdscript
+# Function that will be called by our command
 func print_hello(name = ''):
 	Console.write_line('Hello ' + name + '!')
-```
 
-### Registering command:
-
-```gdscript
 func _ready():
+	# Registering command
 	# 1. argument is command name
 	# 2. arg. is target (target could be a funcref)
 	# 3. arg. is target name (name is not required if it is the same as first arg or target is a funcref)
@@ -111,6 +113,28 @@ func _ready():
 		.set_description('Prints "Hello %name%!"')\
 		.add_argument('name', TYPE_STRING)\
 		.register()
+```
+
+### C#
+
+```cs
+// Function that will be called by our command
+public String PrintHello(String name = null) {
+	GD.Print("Hello " + name + "!");
+	return "test";
+}
+
+public override void _Ready()
+{
+	// Registering command
+	// 1. argument is command name
+	// 2. arg. is target (target could be a funcref)
+	// 3. arg. is target name (name is not required if it is the same as first arg or target is a funcref)
+	(((GetNode("/root/Console").Call("add_command", "sayHello", this, "PrintHello") as Godot.Object)
+		.Call("set_description", "prints \"hello %name%!\"") as Godot.Object)
+		.Call("add_argument", "name", Variant.Type.String) as Godot.Object)
+		.Call("register");
+}
 ```
 
 ## Contributors ✨
