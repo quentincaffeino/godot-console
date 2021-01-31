@@ -12,11 +12,11 @@ ADDON_DOCS_PATH="${ADDON_PATH}/docs/generated"
 
 .PHONY: run-demo
 run-demo:
-	@(cd "${PROJECT_PATH}" && "${GODOT}")
+	@(cd "${PROJECT_PATH}" && "${GODOT}" -v)
 
 .PHONY: run-demo-editor
 run-demo-editor:
-	@(cd "${PROJECT_PATH}" && "${GODOT}" -e)
+	@(cd "${PROJECT_PATH}" && "${GODOT}" -v -e)
 
 
 .PHONY: generate-docs
