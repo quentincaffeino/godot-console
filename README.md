@@ -41,7 +41,7 @@ In-game console for Godot, which could be easily extended with new commands.
   (Is also printed to engine output)
 
 - Session command history (using `UP` and `DOWN` keyboard arrows).
-- Change the number of stored commands in the history. (change in `Console.gd` Line 30 NUMBER to an Int value) 
+- Change the number of stored commands in the history. (Change in `Console.gd` line 30 the current NUMBER to an INT value) 
   `30:var History = preload('Misc/History.gd').new(NUMBER) setget _set_protected)`
 
 - [Flexible types](godot/addons/quentincaffeino-console/docs/Type.md):
