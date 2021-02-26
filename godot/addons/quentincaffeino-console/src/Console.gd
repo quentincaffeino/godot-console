@@ -27,7 +27,7 @@ signal command_executed(command)
 signal command_not_found(name)
 
 # @var  History
-var History = preload('Misc/History.gd').new(10) setget _set_protected
+var History = preload('Misc/History.gd').new(100) setget _set_protected
 
 # @var  Logger
 var Log = preload('Misc/Logger.gd').new() setget _set_protected
