@@ -169,6 +169,15 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "Gamemap",
+      "name": "Gamemap",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71942164?v=4",
+      "profile": "http://gamemap.github.io",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 8,

@@ -9,9 +9,7 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -170,6 +168,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://discordapp.com/invite/hSey9Bv"><img src="https://avatars.githubusercontent.com/u/44974422?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lyaaaaaaaaaaaaaaa</b></sub></a><br /><a href="#infra-Lyaaaaaaaaaaaaaaa" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="http://gamemap.github.io"><img src="https://avatars.githubusercontent.com/u/71942164?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gamemap</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Gamemap" title="Documentation">📖</a></td>
   </tr>
 </table>
 
