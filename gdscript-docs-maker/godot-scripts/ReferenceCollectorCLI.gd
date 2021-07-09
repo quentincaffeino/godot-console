@@ -6,8 +6,8 @@ extends SceneTree
 var Collector: SceneTree = load("Collector.gd").new()
 # A list of directories to collect files from.
 var directories := [
-	"res://addons/quentincaffeino-console/src",
-	"res://addons/quentincaffeino-console/addons",
+	"res://addons/quentincaffeino/console/src",
+	"res://addons/quentincaffeino/console/addons",
 ]
 # If true, explore each directory recursively
 var is_recursive: = true
