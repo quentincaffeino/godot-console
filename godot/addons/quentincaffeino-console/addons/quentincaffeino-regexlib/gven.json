@@ -1,6 +1,0 @@
-{
-  "name": "quentincaffeino/regexlib",
-  "autoload": {
-    "QuentinCaffeino/RegExLib": "src"
-  }
-}

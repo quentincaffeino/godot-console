@@ -5,15 +5,8 @@
 /.gitattributes             export-ignore
 /.github                    export-ignore
 /.gitignore                 export-ignore
-/godot/addons/gut           export-ignore
-/godot/assets               export-ignore
-/godot/demo                 export-ignore
-/godot/export_presets.cfg   export-ignore
-/godot/.gutconfig.json      export-ignore
-/godot/.import              export-ignore
-/godot/project.godot        export-ignore
-/godot/reference.json       export-ignore
-/godot/test                 export-ignore
+/addons/gut                 export-ignore
+/demo                       export-ignore
 /LICENSE.md                 export-ignore
 /logs                       export-ignore
 /Makefile                   export-ignore

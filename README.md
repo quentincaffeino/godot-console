@@ -9,7 +9,9 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -17,77 +19,67 @@
 In-game console for Godot, which could be easily extended with new commands.
 
 - [Godot Console](#godot-console)
-  - [Features](#features)
-  - [Installation](#installation)
-    - [Via GIT (preferred)](#via-git-preferred)
-    - [Via Editor AssetLib](#via-editor-assetlib)
-  - [Example usage](#example-usage)
+  - [Features:](#features)
+  - [Installation:](#installation)
+    - [Via Editor AssetLib:](#via-editor-assetlib)
+    - [Via GIT:](#via-git)
+  - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
-    - [C#](#c)
-  - [Contributors](#contributors-)
+    - [C](#c)
+  - [Contributors ✨](#contributors-)
   - [License](#license)
 
 ## Features:
 
-- Creating custom commands with [add_command](godot/addons/quentincaffeino-console/docs/generated/Console.md#add_command).
+- Creating custom commands with [add_command](addons/quentincaffeino/console/docs/generated/Console.md#add_command).
 
 - Autocomplete with `TAB` keyboard key.
 
-- Writing to console using [write](godot/addons/quentincaffeino-console/docs/generated/Console.md#write) and [write_line](godot/addons/quentincaffeino-console/docs/generated/Console.md#write_line) methods.
+- Writing to console using [write](addons/quentincaffeino/console/docs/generated/Console.md#write) and [write_line](addons/quentincaffeino/console/docs/generated/Console.md#write_line) methods.
   You can also use [BB codes](https://docs.godotengine.org/en/stable/tutorials/gui/bbcode_in_richtextlabel.html#using-bbcode).
 
   (Is also printed to engine output)
 
 - Session command history (using `UP` and `DOWN` keyboard arrows).
 
-  - Change the number of stored commands in the history. (Change in `Console.gd` line 30 the current NUMBER to an positive integer value)  
-    `30: var History = preload('Misc/History.gd').new(NUMBER) setget _set_protected`
+  - Change the number of stored commands in the history. (Change in `Console.gd` line 30 the current NUMBER to an positive integer value)
+    `29: var History = preload('Misc/History.gd').new(NUMBER) setget _set_readonly`
 
-- [Flexible types](godot/addons/quentincaffeino-console/docs/Type.md):
+- [Flexible types](addons/quentincaffeino/console/docs/Type.md):
 
-  - [Engine types](godot/addons/quentincaffeino-console/docs/Type.md#engine-types)
-  - [Extra types](godot/addons/quentincaffeino-console/docs/Type.md#extra-types)
-  - [Custom types](godot/addons/quentincaffeino-console/docs/Type.md#creating-custom-types)
+  - [Engine types](addons/quentincaffeino/console/docs/Type.md#engine-types)
+  - [Extra types](addons/quentincaffeino/console/docs/Type.md#extra-types)
+  - [Custom types](addons/quentincaffeino/console/docs/Type.md#creating-custom-types)
 
 - [FuncRef](https://docs.godotengine.org/en/stable/classes/class_funcref.html) support with Godot >=3.2 (can be used as a command target).
 
 ## Installation:
 
-### Via GIT (preferred):
+### Via Editor AssetLib:
+
+1. Open AssetLib.
+2. Search for Console, category is Scripts; Open it and click Donwload and then Install.
+3. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `addons/quentincaffeino/*`.
+4. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
+5. You can activate the console with <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+
+### Via GIT:
 
 1. Clone this project or download latest [release](https://github.com/quentincaffeino/godot-console/archive/master.zip).
-2. Copy `./godot/addons/quentincaffeino-console` into your projects `addons` folder.
+2. Copy `./addons/quentincaffeino` into your projects `addons` folder.
 
 So you will have this structure:
 
 ```
 res://
 ├── addons
-│   ├── quentincaffeino-console
+│   ├── quentincaffeino
 │   ├── ...
 
 ```
 
 3. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-4. You can activate the console with `` ` `` while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
-
-### Via Editor AssetLib:
-
-1. Open AssetLib.
-2. Search for Console, category is Scripts; Open it and click Donwload and then Install.
-3. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `godot/addons/quentincaffeino-console`.
-4. Create `addons` folder if you haven't already and move `quentincaffeino-console` there so you will have this structure:
-
-```
-res://
-├── addons
-│   ├── quentincaffeino-console
-│   ├── ...
-
-```
-
-5. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-6. You can activate the console with `` ` `` while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+4. You can activate the console with <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
 
 ## Example usage:
 
