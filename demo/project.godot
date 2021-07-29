@@ -18,7 +18,7 @@ config/name="quentincaffeino-console"
 config/description="In-game console for Godot 3."
 run/main_scene="res://scene.tscn"
 config/icon="res://icon.webp"
-config/version="3.2.0"
+config/version="3.2.1"
 
 [autoload]
 
