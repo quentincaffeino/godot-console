@@ -92,4 +92,4 @@ func set_description(description = null):
 func register():
 	var command = Command.new(self._name, self._target, self._arguments, self._description)
 	if not self._command_service.set(self._name, command):
-		self._console.error("CommandBuilder::register: Failed to create [b]`%s`[/b] command. Command already exists." % self._name)
+		self._console.Log.error("CommandBuilder::register: Failed to create [b]`%s`[/b] command. Command already exists." % self._name)
