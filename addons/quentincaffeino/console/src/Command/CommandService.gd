@@ -74,7 +74,7 @@ func autocomplete(command_name):
 	while commands.length:
 		for command in commands.get_value_iterator():
 			var cmd_name = command.get_name()
-			
+
 			if letter_i >= len(cmd_name):
 				return autocomplete_result_str
 

@@ -5,7 +5,7 @@ const Utils = preload("./Utils.gd")
 const Callback = preload("./Callback.gd")
 const FuncRefCallback = preload("./FuncRefCallback.gd")
 const errors = preload("../assets/translations/errors.en.gd").messages
- 
+
 
 # @var  Reference
 var _target
@@ -83,7 +83,7 @@ func build():
 		print(errors["qc.callback.canCreate.second_arg"] % str(typeof(self._name)))
 		return null
 
-	if not self._type or self._type == Utils.Type.UNKNOWN: 
+	if not self._type or self._type == Utils.Type.UNKNOWN:
 		self._type = Utils.get_type(self._target, self._name)
 		if self._type == Utils.Type.UNKNOWN:
 			print(errors["qc.callback.target_missing_mv"] % [ self._target, self._name ])

@@ -56,5 +56,5 @@ func call(argv = []):
 
 	elif self._type == Utils.Type.METHOD:
 		return self._target.callv(self._name, argv)
-	
+
 	print(errors["qc.callback.call.unknown_type"] % [ self._target, self._name ])
