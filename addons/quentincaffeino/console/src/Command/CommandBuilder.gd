@@ -70,10 +70,10 @@ func add_argument(name, type = null, description = null):
 	var error = argument_result.get_error()
 	if error:
 		if error.get_code() != ArgumentFactory.FALLBACK_ERROR:
-			Console.Log.error(error.get_message())
+			self._console.Log.error(error.get_message())
 			return self
 		else:
-			Console.Log.warn(\
+			self._console.Log.warn(\
 				"CommandBuilder: add_argument for command `%s` for argument `%s` failed with: %s" % [self._name, name, error.get_message()])
 
 	var argument = argument_result.get_value()
