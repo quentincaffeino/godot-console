@@ -43,7 +43,7 @@ func _input(e):
 	# Don't process input if console is not visible
 	if !is_visible_in_tree():
 		return
-	
+
 	# Show next line in history
 	if Input.is_action_just_pressed(DefaultActions.CONSOLE_HISTORY_UP):
 		self._current_command = Console.History.current()
