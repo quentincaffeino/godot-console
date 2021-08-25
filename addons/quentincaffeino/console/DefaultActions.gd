@@ -6,6 +6,7 @@ const console_toggle_props = {
   "name": CONSOLE_TOGGLE,
   "events": [
     {
+      "command": true,
       "scancode": KEY_QUOTELEFT,
     }
   ]
