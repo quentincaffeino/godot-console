@@ -18,7 +18,7 @@ config/name="quentincaffeino-console"
 config/description="In-game console for Godot 3."
 run/main_scene="res://scene.tscn"
 config/icon="res://icon.webp"
-config/version="3.2.1"
+config/version="3.3.0"
 
 [autoload]
 
@@ -32,7 +32,7 @@ enabled=PoolStringArray( "res://addons/gut/plugin.cfg", "res://addons/quentincaf
 
 quentincaffeino_console_toggle={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
  ]
 }
 quentincaffeino_console_autocomplete={
