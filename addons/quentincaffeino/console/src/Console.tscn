@@ -45,12 +45,8 @@ script = ExtResource( 1 )
 [node name="ConsoleBox" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.8 )
 anchor_right = 1.0
-anchor_bottom = 0.457
-margin_bottom = 0.823975
+anchor_bottom = 0.5
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConsoleBox"]
 anims/fade = SubResource( 1 )
@@ -59,13 +55,10 @@ anims/fade = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ConsoleText" type="RichTextLabel" parent="ConsoleBox/Container"]
-margin_right = 1440.0
-margin_bottom = 1024.0
+margin_right = 1024.0
+margin_bottom = 265.0
 focus_neighbour_left = NodePath("../LineEdit")
 focus_neighbour_top = NodePath("../LineEdit")
 focus_neighbour_right = NodePath("../LineEdit")
@@ -79,9 +72,9 @@ custom_constants/line_separation = 4
 bbcode_enabled = true
 
 [node name="ConsoleLine" type="LineEdit" parent="ConsoleBox/Container"]
-margin_top = 1032.0
-margin_right = 1440.0
-margin_bottom = 1083.0
+margin_top = 269.0
+margin_right = 1024.0
+margin_bottom = 300.0
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath(".")
 focus_neighbour_right = NodePath(".")
