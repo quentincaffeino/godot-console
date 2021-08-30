@@ -23,7 +23,7 @@ In-game console for Godot, which could be easily extended with new commands.
     - [Via GIT:](#via-git)
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
-    - [C](#c)
+    - [C#](#c)
   - [Contributors ✨](#contributors-)
   - [License](#license)
 
@@ -59,7 +59,7 @@ In-game console for Godot, which could be easily extended with new commands.
 2. Search for Console, category is Scripts; Open it and click Donwload and then Install.
 3. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `addons/quentincaffeino/*`.
 4. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-5. You can activate the console with <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+5. You can activate the console with <kbd>CTRL</kbd> + <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
 
 ### Via GIT:
 
@@ -77,7 +77,7 @@ res://
 ```
 
 3. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-4. You can activate the console with <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+4. You can activate the console with <kbd>CTRL</kbd> + <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
 
 ## Example usage:
 
