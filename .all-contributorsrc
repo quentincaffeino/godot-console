@@ -179,6 +179,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "SpyrexDE",
+      "name": "Spyrex",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57133330?v=4",
+      "profile": "http://Spyrex.me",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 8,
