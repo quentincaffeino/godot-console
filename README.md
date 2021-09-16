@@ -9,7 +9,7 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -23,7 +23,7 @@ In-game console for Godot, which could be easily extended with new commands.
     - [Via GIT:](#via-git)
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
-    - [C](#c)
+    - [C#](#c)
   - [Contributors ✨](#contributors-)
   - [License](#license)
 
@@ -59,7 +59,7 @@ In-game console for Godot, which could be easily extended with new commands.
 2. Search for Console, category is Scripts; Open it and click Donwload and then Install.
 3. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `addons/quentincaffeino/*`.
 4. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-5. You can activate the console with <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+5. You can activate the console with <kbd>CTRL</kbd> + <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
 
 ### Via GIT:
 
@@ -77,7 +77,7 @@ res://
 ```
 
 3. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
-4. You can activate the console with <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
+4. You can activate the console with <kbd>CTRL</kbd> + <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
 
 ## Example usage:
 
@@ -159,6 +159,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://discordapp.com/invite/hSey9Bv"><img src="https://avatars.githubusercontent.com/u/44974422?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lyaaaaaaaaaaaaaaa</b></sub></a><br /><a href="#infra-Lyaaaaaaaaaaaaaaa" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="http://gamemap.github.io"><img src="https://avatars.githubusercontent.com/u/71942164?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gamemap</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Gamemap" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://Spyrex.me"><img src="https://avatars.githubusercontent.com/u/57133330?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Spyrex</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=SpyrexDE" title="Code">💻</a></td>
   </tr>
 </table>
 
