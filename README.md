@@ -23,7 +23,8 @@ In-game console for Godot, which could be easily extended with new commands.
     - [Via GIT:](#via-git)
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
-    - [C#](#c)
+    - [C](#c)
+    - [C# with wrapper](#c-with-wrapper)
   - [Contributors ✨](#contributors-)
   - [License](#license)
 
@@ -110,7 +111,7 @@ func _ready():
 
 ```cs
 // Function that will be called by our command
-public String PrintHello(String name = null) {
+public string PrintHello(string name = null) {
 	GD.Print("Hello " + name + "!");
 	return "test";
 }
@@ -127,6 +128,33 @@ public override void _Ready()
 		.Call("register");
 }
 ```
+
+### C# with wrapper
+1. This assumes you have already added the plugin to your  `res://addons`.
+2.  To add the c# wrapper you must add it as a singleton to your project.
+    - `Project > Project Settings > AutoLoad` 
+    - Add autoload with the following path: `res://addons/quentincaffeino/console/src/CSharp/CSharpConsole.cs`
+3. Then you can get the object by using: `GetTree().Root.GetNode<CSharpConsole>("CSharpConsole");`
+4.  See below for a full example or see the demo csharp scene
+
+
+Example:
+```cs
+public override void _Ready()
+{
+    _wrapper = GetTree().Root.GetNode<CSharpConsole>("CSharpConsole");        
+    _wrapper.AddCommand("sayHello", this, nameof(PrintHello))
+            .SetDescription("prints \"hello %name%!\"")
+            .AddArgument("name", ConsoleArgumentType.TYPE_STRING)
+            .Register();    
+}
+
+public void PrintHello(string name = null) {
+    GD.Print($"Hello {name}!");  
+}
+
+```
+
 
 ## Contributors ✨
 
