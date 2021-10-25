@@ -47,4 +47,5 @@ func _enter_tree():
 
 
 func _exit_tree():
+	self.remove_autoload_singleton(CSHARP_PLUGIN_NAME)
 	self.remove_autoload_singleton(PLUGIN_NAME)
