@@ -16,11 +16,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
-CSharpConsole="*res://addons/quentincaffeino/console/src/CSharp/CSharpConsole.cs"
+CSharpConsole="*res://addons/quentincaffeino/console-csharp/src/Console.cs"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/quentincaffeino/console/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/quentincaffeino/console-csharp/plugin.cfg" )
 
 [input]
 
