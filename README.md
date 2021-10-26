@@ -23,7 +23,7 @@ In-game console for Godot, which could be easily extended with new commands.
     - [Via GIT:](#via-git)
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
-    - [C](#c)
+    - [C#](#c)
     - [C# with wrapper](#c-with-wrapper)
   - [Contributors ✨](#contributors-)
   - [License](#license)
