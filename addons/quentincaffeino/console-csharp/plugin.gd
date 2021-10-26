@@ -1,13 +1,13 @@
 tool
 extends EditorPlugin
 
-const DefaultActions = preload("./DefaultActions.gd")
+const DefaultActions = preload("../console/DefaultActions.gd")
 
 
 const PLUGIN_NAME = 'Console'
-const PLUGIN_PATH = 'res://addons/quentincaffeino/console-csharp/src/Console.tscn'
+const PLUGIN_PATH = 'res://addons/quentincaffeino/console/src/Console.tscn'
 const CSHARP_PLUGIN_NAME = 'CSharpConsole'
-const CSHARP_PLUGIN_PATH = "res://addons/quentincaffeino/console-csharp/src/CSharp/CSharpConsole.cs"
+const CSHARP_PLUGIN_PATH = "res://addons/quentincaffeino/console-csharp/src/Console.cs"
 
 # @var  Array
 const ACTIONS = [
