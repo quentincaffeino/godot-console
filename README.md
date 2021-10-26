@@ -23,7 +23,7 @@ In-game console for Godot, which could be easily extended with new commands.
     - [Via GIT:](#via-git)
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
-    - [C#](#c)
+    - [C](#c)
     - [C# with wrapper](#c-with-wrapper)
   - [Contributors ✨](#contributors-)
   - [License](#license)
@@ -130,22 +130,17 @@ public override void _Ready()
 ```
 
 ### C# with wrapper
-1. This assumes you have already added the plugin to your  `res://addons`.
-2.  To add the c# wrapper you must add it as a singleton to your project.
-    - `Project > Project Settings > AutoLoad` 
-    - Add autoload with the following path: `res://addons/quentincaffeino/console/src/CSharp/CSharpConsole.cs`
-3. Then you can get the object by using: `GetTree().Root.GetNode<CSharpConsole>("CSharpConsole");`
-4.  See below for a full example or see the demo csharp scene
-
+1. Instead of enabling the `Console` checkbox from the addon you will want to enable `CSharpConsole` via the plugin checkbox
+2. See the example below for how to use once plugin is enabled
 
 Example:
 ```cs
 public override void _Ready()
 {
-    _wrapper = GetTree().Root.GetNode<CSharpConsole>("CSharpConsole");        
+    _wrapper = GetTree().Root.GetNode<Console>("CSharpConsole");        
     _wrapper.AddCommand("sayHello", this, nameof(PrintHello))
             .SetDescription("prints \"hello %name%!\"")
-            .AddArgument("name", ConsoleArgumentType.TYPE_STRING)
+            .AddArgument("name", Variant.Type.String)
             .Register();    
 }
 
