@@ -130,7 +130,7 @@ public override void _Ready()
 ```
 
 ### C# with wrapper
-1. Instead of enabling the `Console` checkbox from the addon you will want to enable `CSharpConsole` via the plugin checkbox
+1. Instead of enabling the `Console` checkbox from the addon tab you will want to enable `CSharpConsole` via the plugin checkbox
 2. See the example below for how to use once plugin is enabled
 
 Example:
