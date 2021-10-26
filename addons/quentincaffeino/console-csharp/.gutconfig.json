@@ -1,0 +1,10 @@
+{
+    "dirs": [
+        "res://addons/quentincaffeino/console/tests/"
+    ],
+    "include_subdirs": true,
+    "ignore_pause": true,
+    "log_level": 2,
+    "should_exit": true,
+    "should_maximize": true
+}
