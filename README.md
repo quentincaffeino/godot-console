@@ -9,7 +9,7 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -184,6 +184,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://gamemap.github.io"><img src="https://avatars.githubusercontent.com/u/71942164?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gamemap</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Gamemap" title="Documentation">📖</a></td>
     <td align="center"><a href="http://Spyrex.me"><img src="https://avatars.githubusercontent.com/u/57133330?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Spyrex</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=SpyrexDE" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Zhwt"><img src="https://avatars.githubusercontent.com/u/4744830?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zhwt</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Zhwt" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ryan-linehan"><img src="https://avatars.githubusercontent.com/u/12516772?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryan Linehan</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=ryan-linehan" title="Code">💻</a></td>
   </tr>
 </table>
 
