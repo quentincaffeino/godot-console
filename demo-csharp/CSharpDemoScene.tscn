@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CSharpDemoScene.cs" type="Script" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -68.5
+margin_top = -7.0
+margin_right = 68.5
+margin_bottom = 7.0
+text = "CSHARP DEMO SCENE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
