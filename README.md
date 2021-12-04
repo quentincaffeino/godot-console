@@ -9,7 +9,7 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -24,6 +24,7 @@ In-game console for Godot, which could be easily extended with new commands.
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
     - [C#](#c)
+    - [C# with wrapper (Note this is WIP and some methods may be missing)](#c-with-wrapper)
   - [Contributors ✨](#contributors-)
   - [License](#license)
 
@@ -110,7 +111,7 @@ func _ready():
 
 ```cs
 // Function that will be called by our command
-public String PrintHello(String name = null) {
+public string PrintHello(string name = null) {
 	GD.Print("Hello " + name + "!");
 	return "test";
 }
@@ -126,6 +127,29 @@ public override void _Ready()
 		.Call("add_argument", "name", Variant.Type.String) as Godot.Object)
 		.Call("register");
 }
+```
+
+### C# with wrapper (Note this is WIP and some methods may be missing)
+
+1. Instead of enabling the `Console` checkbox from the addon tab you will want to enable `CSharpConsole` via the plugin checkbox
+2. See the example below for how to use once plugin is enabled
+
+Example:
+
+```cs
+public override void _Ready()
+{
+    _wrapper = GetTree().Root.GetNode<Console>("CSharpConsole");
+    _wrapper.AddCommand("sayHello", this, nameof(PrintHello))
+            .SetDescription("prints \"hello %name%!\"")
+            .AddArgument("name", Variant.Type.String)
+            .Register();
+}
+
+public void PrintHello(string name = null) {
+    GD.Print($"Hello {name}!");
+}
+
 ```
 
 ## Contributors ✨
@@ -161,6 +185,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://gamemap.github.io"><img src="https://avatars.githubusercontent.com/u/71942164?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gamemap</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Gamemap" title="Documentation">📖</a></td>
     <td align="center"><a href="http://Spyrex.me"><img src="https://avatars.githubusercontent.com/u/57133330?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Spyrex</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=SpyrexDE" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Zhwt"><img src="https://avatars.githubusercontent.com/u/4744830?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zhwt</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Zhwt" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ryan-linehan"><img src="https://avatars.githubusercontent.com/u/12516772?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryan Linehan</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=ryan-linehan" title="Code">💻</a></td>
   </tr>
 </table>
 
