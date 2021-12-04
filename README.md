@@ -24,7 +24,7 @@ In-game console for Godot, which could be easily extended with new commands.
   - [Example usage:](#example-usage)
     - [GDScript](#gdscript)
     - [C#](#c)
-    - [C# with wrapper](#c-with-wrapper)
+    - [C# with wrapper (Note this is WIP and some methods may be missing)](#c-with-wrapper)
   - [Contributors ✨](#contributors-)
   - [License](#license)
 
@@ -129,7 +129,8 @@ public override void _Ready()
 }
 ```
 
-### C# with wrapper
+### C# with wrapper (Note this is WIP and some methods may be missing)
+
 1. Instead of enabling the `Console` checkbox from the addon tab you will want to enable `CSharpConsole` via the plugin checkbox
 2. See the example below for how to use once plugin is enabled
 
