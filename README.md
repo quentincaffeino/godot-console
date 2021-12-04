@@ -135,22 +135,22 @@ public override void _Ready()
 2. See the example below for how to use once plugin is enabled
 
 Example:
+
 ```cs
 public override void _Ready()
 {
-    _wrapper = GetTree().Root.GetNode<Console>("CSharpConsole");        
+    _wrapper = GetTree().Root.GetNode<Console>("CSharpConsole");
     _wrapper.AddCommand("sayHello", this, nameof(PrintHello))
             .SetDescription("prints \"hello %name%!\"")
             .AddArgument("name", Variant.Type.String)
-            .Register();    
+            .Register();
 }
 
 public void PrintHello(string name = null) {
-    GD.Print($"Hello {name}!");  
+    GD.Print($"Hello {name}!");
 }
 
 ```
-
 
 ## Contributors ✨
 
