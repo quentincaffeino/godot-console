@@ -145,7 +145,8 @@ func _parse_command(rawCommand):
 	var subString  # String|null
 	for i in rawCommand.length():
 		# Quote
-		if rawCommand[i] in QUOTES and i > 0 and not rawCommand[i - 1] in SCREENERS:
+		if rawCommand[i] in QUOTES and \
+				(i == 0 or i > 0 and not rawCommand[i - 1] in SCREENERS):
 			if isInsideQuotes and rawCommand[i] == openQuote:
 				openQuote = null
 				isInsideQuotes = false
