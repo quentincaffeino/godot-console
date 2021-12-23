@@ -106,16 +106,17 @@ func execute(input):
 	var parsedCommands = self._parse_commands(rawCommands)
 
 	for parsedCommand in parsedCommands:
-		# @var  Command/Command|null
-		var command = Console.get_command(parsedCommand.name)
+		if parsedCommand.name.length():
+			# @var  Command/Command|null
+			var command = Console.get_command(parsedCommand.name)
 
-		if command:
-			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
-			command.execute(parsedCommand.arguments)
-			Console.emit_signal("command_executed", command)
-		else:
-			Console.write_line('Command `' + parsedCommand.name + '` not found.')
-			Console.emit_signal("command_not_found", parsedCommand.name)
+			if command:
+				Console.Log.debug('Executing `' + parsedCommand.command + '`.')
+				command.execute(parsedCommand.arguments)
+				Console.emit_signal("command_executed", command)
+			else:
+				Console.write_line('Command `' + parsedCommand.name + '` not found.')
+				Console.emit_signal("command_not_found", parsedCommand.name)
 
 	Console.History.push(input)
 	self.clear()
