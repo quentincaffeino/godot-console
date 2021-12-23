@@ -136,7 +136,7 @@ func _parse_commands(rawCommands):
 # @param    String  rawCommand
 # @returns  Dictionary
 func _parse_command(rawCommand):
-	var name = null
+	var name = ''
 	var arguments = PoolStringArray([])
 
 	var beginning = 0  # int
