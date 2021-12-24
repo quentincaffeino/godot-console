@@ -99,11 +99,8 @@ func set_text(text, move_caret_to_end = true):
 func execute(input):
 	Console.write_line('[color=#999999]$[/color] ' + input)
 
-	# @var  PoolStringArray
-	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
-
 	# @var  Dictionary[]
-	var parsedCommands = _parse_commands(rawCommands)
+	var parsedCommands = _parse_commands(input)
 
 	for parsedCommand in parsedCommands:
 		if parsedCommand.name.length():
@@ -123,11 +120,13 @@ func execute(input):
 
 
 # @static
-# @param    PoolStringArray  rawCommands
-# @returns  Array
-static func _parse_commands(rawCommands):
+# @param    String             input
+# @returns  Array<Dictionary>
+static func _parse_commands(input):
 	var resultCommands = []
 
+	# @var  PoolStringArray
+	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
 	for rawCommand in rawCommands:
 		if rawCommand:
 			resultCommands.append(_parse_command(rawCommand))
