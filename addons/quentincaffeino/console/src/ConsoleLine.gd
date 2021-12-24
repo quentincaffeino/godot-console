@@ -99,44 +99,46 @@ func set_text(text, move_caret_to_end = true):
 func execute(input):
 	Console.write_line('[color=#999999]$[/color] ' + input)
 
-	# @var  PoolStringArray
-	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
-
 	# @var  Dictionary[]
-	var parsedCommands = self._parse_commands(rawCommands)
+	var parsedCommands = _parse_commands(input)
 
 	for parsedCommand in parsedCommands:
-		# @var  Command/Command|null
-		var command = Console.get_command(parsedCommand.name)
+		if parsedCommand.name.length():
+			# @var  Command/Command|null
+			var command = Console.get_command(parsedCommand.name)
 
-		if command:
-			Console.Log.debug('Executing `' + parsedCommand.command + '`.')
-			command.execute(parsedCommand.arguments)
-			Console.emit_signal("command_executed", command)
-		else:
-			Console.write_line('Command `' + parsedCommand.name + '` not found.')
-			Console.emit_signal("command_not_found", parsedCommand.name)
+			if command:
+				Console.Log.debug('Executing `' + parsedCommand.command + '`.')
+				command.execute(parsedCommand.arguments)
+				Console.emit_signal("command_executed", command)
+			else:
+				Console.write_line('Command `' + parsedCommand.name + '` not found.')
+				Console.emit_signal("command_not_found", parsedCommand.name)
 
 	Console.History.push(input)
 	self.clear()
 
 
-# @param    PoolStringArray  rawCommands
-# @returns  Array
-func _parse_commands(rawCommands):
+# @static
+# @param    String             input
+# @returns  Array<Dictionary>
+static func _parse_commands(input):
 	var resultCommands = []
 
+	# @var  PoolStringArray
+	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
 	for rawCommand in rawCommands:
 		if rawCommand:
-			resultCommands.append(self._parse_command(rawCommand))
+			resultCommands.append(_parse_command(rawCommand))
 
 	return resultCommands
 
 
+# @static
 # @param    String  rawCommand
 # @returns  Dictionary
-func _parse_command(rawCommand):
-	var name = null
+static func _parse_command(rawCommand):
+	var name = ''
 	var arguments = PoolStringArray([])
 
 	var beginning = 0  # int
@@ -145,7 +147,8 @@ func _parse_command(rawCommand):
 	var subString  # String|null
 	for i in rawCommand.length():
 		# Quote
-		if rawCommand[i] in QUOTES and i > 0 and not rawCommand[i - 1] in SCREENERS:
+		if rawCommand[i] in QUOTES and \
+				(i == 0 or i > 0 and not rawCommand[i - 1] in SCREENERS):
 			if isInsideQuotes and rawCommand[i] == openQuote:
 				openQuote = null
 				isInsideQuotes = false
