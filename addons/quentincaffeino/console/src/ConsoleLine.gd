@@ -103,7 +103,7 @@ func execute(input):
 	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
 
 	# @var  Dictionary[]
-	var parsedCommands = self._parse_commands(rawCommands)
+	var parsedCommands = _parse_commands(rawCommands)
 
 	for parsedCommand in parsedCommands:
 		if parsedCommand.name.length():
@@ -122,21 +122,23 @@ func execute(input):
 	self.clear()
 
 
+# @static
 # @param    PoolStringArray  rawCommands
 # @returns  Array
-func _parse_commands(rawCommands):
+static func _parse_commands(rawCommands):
 	var resultCommands = []
 
 	for rawCommand in rawCommands:
 		if rawCommand:
-			resultCommands.append(self._parse_command(rawCommand))
+			resultCommands.append(_parse_command(rawCommand))
 
 	return resultCommands
 
 
+# @static
 # @param    String  rawCommand
 # @returns  Dictionary
-func _parse_command(rawCommand):
+static func _parse_command(rawCommand):
 	var name = ''
 	var arguments = PoolStringArray([])
 
