@@ -4,7 +4,7 @@
 
 ## Engine types:
 
-[TYPE_BOOL](generated/BoolType.md), [TYPE_INT](generated/IntType.md), [TYPE_REAL](generated/FloaTypet.md), [TYPE_STRING](generated/StringType.md), [TYPE_VECTOR2](generated/Vector2Type.md), [TYPE_VECTOR3](generated/Vector3Type.md)
+[TYPE_BOOL](generated/BoolType.md), [TYPE_INT](generated/IntType.md), [TYPE_REAL](generated/FloatType.md), [TYPE_STRING](generated/StringType.md), [TYPE_VECTOR2](generated/Vector2Type.md), [TYPE_VECTOR3](generated/Vector3Type.md)
 
 
 ## Extra types:
