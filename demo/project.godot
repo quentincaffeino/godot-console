@@ -21,7 +21,7 @@ config/icon="res://icon.webp"
 
 [autoload]
 
-Console="*res://addons/quentincaffeino/console/src/Console.tscn"
+Console="*res://addons/quentincaffeino/console/src/Console.gd"
 
 [editor_plugins]
 

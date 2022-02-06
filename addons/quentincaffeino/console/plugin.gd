@@ -5,7 +5,7 @@ const DefaultActions = preload("./DefaultActions.gd")
 
 
 const PLUGIN_NAME = 'Console'
-const PLUGIN_PATH = 'res://addons/quentincaffeino/console/src/Console.tscn'
+const PLUGIN_PATH = 'res://addons/quentincaffeino/console/src/Console.gd'
 
 # @var  Array
 const ACTIONS = [

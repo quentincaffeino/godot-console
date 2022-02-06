@@ -1,22 +1,14 @@
 
-extends Node
+extends CanvasLayer
 
 const BaseCommands = preload('Misc/BaseCommands.gd')
 const DefaultActions = preload('../DefaultActions.gd')
 const CommandService = preload('Command/CommandService.gd')
-var Console = load('UI/Console.tscn')
 
 ### Custom console types
 const IntRangeType = preload('Type/IntRangeType.gd')
 const FloatRangeType = preload('Type/FloatRangeType.gd')
 const FilterType = preload('Type/FilterType.gd')
-
-const COMMANDS_SEPARATOR = ';'
-const RECOMMANDS_SEPARATOR = '(?<!\\\\)' + COMMANDS_SEPARATOR
-const COMMAND_PARTS_SEPARATOR = ' '
-const QUOTES = [ '"', "'" ]
-const SCREENERS = [ '\\/' ]
-
 
 ## Signals
 
@@ -32,6 +24,8 @@ signal command_removed(name)
 signal command_executed(command)
 # @param  String  name
 signal command_not_found(name)
+# @param  String  new_text
+signal text_entered(new_text)
 
 # @var  History
 var History = preload('Misc/History.gd').new(100) setget _set_readonly
@@ -55,15 +49,12 @@ var consume_input = true
 # @var  Control
 var previous_focus_owner = null
 
-var _ui = null
-
 
 ### Console nodes
 onready var _console_box = $ConsoleBox
 onready var Text = $ConsoleBox/Container/ConsoleText setget _set_readonly
 onready var Line = $ConsoleBox/Container/ConsoleLine setget _set_readonly
 onready var _animation_player = $ConsoleBox/AnimationPlayer
-
 
 func _init():
 	self._command_service = CommandService.new(self)
@@ -98,9 +89,12 @@ func _ready():
 	# Init base commands
 	self.BaseCommands.new(self)
 
-	self._ui = Console.instance()
-	self.add_child(self._ui)
-	self._ui.connect('text_entered', self, '_execute')
+	self.Line.connect('text_entered', self, '_text_entered')
+
+
+# @param  string  new_text
+func _text_entered(new_text):
+	self.emit_signal('text_entered', new_text)
 
 
 # @param  InputEvent  e
@@ -195,92 +189,6 @@ func toggle_console():
 func _toggle_animation_finished(animation):
 	if !self.is_console_shown:
 		self._console_box.hide()
-
-
-# @param    String  input
-# @returns  void
-func _execute(input):
-	Console.write_line('[color=#999999]$[/color] ' + input)
-
-	# @var  Dictionary[]
-	var parsedCommands = _parse_commands(input)
-
-	for parsedCommand in parsedCommands:
-		if parsedCommand.name.length():
-			# @var  Command/Command|null
-			var command = Console.get_command(parsedCommand.name)
-
-			if command:
-				Console.Log.debug('Executing `' + parsedCommand.command + '`.')
-				command.execute(parsedCommand.arguments)
-				Console.emit_signal("command_executed", command)
-			else:
-				Console.write_line('Command `' + parsedCommand.name + '` not found.')
-				Console.emit_signal("command_not_found", parsedCommand.name)
-
-	Console.History.push(input)
-	self.clear()
-
-# @static
-# @param    String             input
-# @returns  Array<Dictionary>
-static func _parse_commands(input):
-	var resultCommands = []
-
-	# @var  PoolStringArray
-	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)
-	for rawCommand in rawCommands:
-		if rawCommand:
-			resultCommands.append(_parse_command(rawCommand))
-
-	return resultCommands
-
-# @static
-# @param    String  rawCommand
-# @returns  Dictionary
-static func _parse_command(rawCommand):
-	var name = ''
-	var arguments = PoolStringArray([])
-
-	var beginning = 0  # int
-	var openQuote  # String|null
-	var isInsideQuotes = false  # boolean
-	var subString  # String|null
-	for i in rawCommand.length():
-		# Quote
-		if rawCommand[i] in QUOTES and \
-				(i == 0 or i > 0 and not rawCommand[i - 1] in SCREENERS):
-			if isInsideQuotes and rawCommand[i] == openQuote:
-				openQuote = null
-				isInsideQuotes = false
-				subString = rawCommand.substr(beginning, i - beginning)
-				beginning = i + 1
-			elif !isInsideQuotes:
-				openQuote = rawCommand[i]
-				isInsideQuotes = true
-				beginning += 1
-
-		# Separate arguments
-		elif rawCommand[i] == COMMAND_PARTS_SEPARATOR and !isInsideQuotes or i == rawCommand.length() - 1:
-			if i == rawCommand.length() - 1:
-				subString = rawCommand.substr(beginning, i - beginning + 1)
-			else:
-				subString = rawCommand.substr(beginning, i - beginning)
-			beginning = i + 1
-
-		# Save separated argument
-		if subString != null and typeof(subString) == TYPE_STRING and !subString.empty():
-			if !name:
-				name = subString
-			else:
-				arguments.append(subString)
-			subString = null
-
-	return {
-		'command': rawCommand,
-		'name': name,
-		'arguments': arguments
-	}
 
 
 # @returns  void
