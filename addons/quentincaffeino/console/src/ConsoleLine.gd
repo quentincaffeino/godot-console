@@ -28,6 +28,9 @@ func _ready():
 
 	self.connect('text_entered', self, 'execute')
 
+	var history = Console.get_service_container().get('history')
+	breakpoint
+
 
 # @param  InputEvent
 func _gui_input(event):

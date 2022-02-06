@@ -1,9 +1,11 @@
 
 extends CanvasLayer
 
+const ServiceContainerBuilder = preload("res://addons/quentincaffeino/service-container/src/ServiceContainerBuilder.gd")
 const BaseCommands = preload('Misc/BaseCommands.gd')
 const DefaultActions = preload('../DefaultActions.gd')
 const CommandService = preload('Command/CommandService.gd')
+const HistoryServiceFactory = preload("./Services/HistoryService/HistoryServiceFactory.gd")
 
 ### Custom console types
 const IntRangeType = preload('Type/IntRangeType.gd')
@@ -31,6 +33,9 @@ var History = preload('Misc/History.gd').new(100) setget _set_readonly
 # @var  Logger
 var Log = preload('Misc/Logger.gd').new() setget _set_readonly
 
+# @var  QC/ServiceContainer/ServiceContainer
+var _service_container
+
 # @var  Command/CommandService
 var _command_service
 
@@ -56,6 +61,11 @@ onready var _animation_player = $ConsoleBox/AnimationPlayer
 
 
 func _init():
+	self._service_container = ServiceContainerBuilder.new()\
+		.set("console", self)\
+		.set("history", HistoryServiceFactory, {"factory": true})\
+		.build()
+
 	self._command_service = CommandService.new(self)
 	# Used to clear text from bb tags before printing to engine output
 	self._erase_bb_tags_regex = RegEx.new()
@@ -93,6 +103,11 @@ func _ready():
 func _input(e):
 	if Input.is_action_just_pressed(DefaultActions.CONSOLE_TOGGLE):
 		self.toggle_console()
+
+
+# @returns  QC/ServiceContainer/ServiceContainer
+func get_service_container():
+	return self._service_container
 
 
 # @returns  Command/CommandService
