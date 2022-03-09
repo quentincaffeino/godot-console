@@ -57,7 +57,7 @@ In-game console for Godot, which could be easily extended with new commands.
 ### Via Editor AssetLib:
 
 1. Open AssetLib.
-2. Search for Console, category is Scripts; Open it and click Donwload and then Install.
+2. Search for Console, category is Scripts; Open it and click Download and then Install.
 3. Click install. Package installer will copy filestructure as-is so you will have this directories in your project: `addons/quentincaffeino/*`.
 4. Open `Project > Project Settings > Plugins`, search for `quentincaffeino-console` and check the Enable checkbox.
 5. You can activate the console with <kbd>CTRL</kbd> + <kbd>\`</kbd> while running your game ([can be changed](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap), see `quentincaffeino_console_toggle` action).
