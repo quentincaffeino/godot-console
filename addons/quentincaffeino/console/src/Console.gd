@@ -25,6 +25,18 @@ signal command_executed(command)
 # @param  String  name
 signal command_not_found(name)
 
+# Used to enable/disable console
+# @var  bool
+export (bool) var _is_allowed_console = true
+
+# Used to enable/disable toggle console button for console opening on click/tap
+# @var  bool
+export (bool) var _is_allowed_toggle_console_button = false
+
+# Used to enable/disable log printing
+# @var  bool
+export (bool) var _is_allowed_log = true
+
 # @var  History
 var History = preload('Misc/History.gd').new(100) setget _set_readonly
 
@@ -53,7 +65,7 @@ onready var _console_box = $ConsoleBox
 onready var Text = $ConsoleBox/Container/ConsoleText setget _set_readonly
 onready var Line = $ConsoleBox/Container/ConsoleLine setget _set_readonly
 onready var _animation_player = $ConsoleBox/AnimationPlayer
-
+onready var _toggle_console_button: Button = $ToggleConsoleButton
 
 func _init():
 	self._command_service = CommandService.new(self)
@@ -63,6 +75,9 @@ func _init():
 
 
 func _ready():
+	if(!self._is_allowed_toggle_console_button or !self._is_allowed_console):
+		self._toggle_console_button.queue_free()
+	
 	# Allow selecting console text
 	self.Text.set_selection_enabled(true)
 	# Follow console output (for scrolling)
@@ -76,7 +91,7 @@ func _ready():
 	self.toggle_console()
 
 	# Console keyboard control
-	set_process_input(true)
+	set_process_input(self._is_allowed_console)
 
 	# Show some info
 	var v = Engine.get_version_info()
@@ -135,17 +150,25 @@ func remove_command(name):
 # @param    String  message
 # @returns  void
 func write(message):
-	message = str(message)
-	if self.Text:
-		self.Text.append_bbcode(message)
+	if self._is_allowed_console:
+		message = str(message)
+		if self.Text:
+			self.Text.append_bbcode(message)
+	
+	if !self._is_allowed_log:
+		return
 	print(self._erase_bb_tags_regex.sub(message, '', true))
 
 # @param    String  message
 # @returns  void
 func write_line(message = ''):
-	message = str(message)
-	if self.Text:
-		self.Text.append_bbcode(message + '\n')
+	if self._is_allowed_console:
+		message = str(message)
+		if self.Text:
+			self.Text.append_bbcode(message + '\n')
+	
+	if !self._is_allowed_log:
+		return
 	print(self._erase_bb_tags_regex.sub(message, '', true))
 
 
@@ -157,6 +180,9 @@ func clear():
 
 # @returns  Console
 func toggle_console():
+	if(!self._is_allowed_console):
+		return self
+	
 	# Open the console
 	if !self.is_console_shown:
 		previous_focus_owner = self.Line.get_focus_owner()
@@ -186,3 +212,8 @@ func _toggle_animation_finished(animation):
 # @returns  void
 func _set_readonly(value):
 	Log.warn('qc/console: _set_readonly: Attempted to set a protected variable, ignoring.')
+
+
+# @returns  void
+func _on_ToggleConsoleButton_pressed() -> void:
+	toggle_console()

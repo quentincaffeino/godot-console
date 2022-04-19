@@ -41,6 +41,7 @@ tracks/1/keys = {
 pause_mode = 2
 layer = 128
 script = ExtResource( 1 )
+_is_allowed_toggle_console_button = true
 
 [node name="ConsoleBox" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.8 )
@@ -85,3 +86,17 @@ size_flags_horizontal = 3
 theme = ExtResource( 7 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Material", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="ToggleConsoleButton" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -469.0
+margin_top = -600.0
+margin_right = 0.0
+margin_bottom = -417.0
+text = "Console"
+
+[connection signal="pressed" from="ToggleConsoleButton" to="." method="_on_ToggleConsoleButton_pressed"]
