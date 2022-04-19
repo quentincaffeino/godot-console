@@ -41,7 +41,6 @@ tracks/1/keys = {
 pause_mode = 2
 layer = 128
 script = ExtResource( 1 )
-_is_allowed_toggle_console_button = true
 
 [node name="ConsoleBox" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.8 )
