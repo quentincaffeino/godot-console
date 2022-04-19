@@ -96,6 +96,8 @@ margin_left = -469.0
 margin_top = -600.0
 margin_right = 0.0
 margin_bottom = -417.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 text = "Console"
 
 [connection signal="pressed" from="ToggleConsoleButton" to="." method="_on_ToggleConsoleButton_pressed"]
