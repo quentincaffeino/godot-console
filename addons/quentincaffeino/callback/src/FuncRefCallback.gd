@@ -3,8 +3,8 @@ extends "./AbstractCallback.gd"
 
 
 # @param  FuncRef  target
-func _init(target).(target, Utils.Type.METHOD):
-	pass
+func _init(target):
+	super(target, Utils.Type.METHOD)
 
 
 # Ensure callback target exists

@@ -8,7 +8,7 @@ const Error = preload("res://addons/quentincaffeino/console/src/Misc/Error.gd")
 
 
 func test_create_with_type_of_type_non_base_type_expect_error():
-	var result = ArgumentFactory.create("some-name", Reference.new())
+	var result = ArgumentFactory.create("some-name", RefCounted.new())
 	assert_is(result.get_error(), Error, "Expected to have error because argument factory only works with TYPE_INT and BaseType as a `type` argument")
 	assert_null(result.get_value(), "Expected to have null value")
 

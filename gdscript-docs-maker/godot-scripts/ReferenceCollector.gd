@@ -1,7 +1,7 @@
 tool
 extends EditorScript
-class_name ReferenceCollector
-# Finds and generates a code reference from gdscript files.
+class_name RefCountedCollector
+# Finds and generates a code RefCounted from gdscript files.
 #
 # To use this tool:
 #
@@ -18,13 +18,13 @@ var directories := ["res://src"]
 var is_recursive: = true
 # A list of patterns to filter files.
 var patterns := ["*.gd"]
-# Output path to save the class reference.
-var save_path := "res://reference.json"
+# Output path to save the class RefCounted.
+var save_path := "res://RefCounted.json"
 
 
 func _run() -> void:
 	var files := PoolStringArray()
 	for dirpath in directories:
 		files.append_array(Collector.find_files(dirpath, patterns, is_recursive))
-	var json: String = Collector.print_pretty_json(Collector.get_reference(files))
+	var json: String = Collector.print_pretty_json(Collector.get_RefCounted(files))
 	Collector.save_text(save_path, json)

@@ -6,11 +6,10 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
-_global_script_classes=[  ]
-_global_script_class_icons={
-}
+_global_script_classes=[]
+_global_script_class_icons={}
 
 [application]
 
@@ -18,6 +17,7 @@ config/name="quentincaffeino-console"
 config/description="In-game console for Godot 3."
 run/main_scene="res://scene.tscn"
 config/icon="res://icon.webp"
+config/features=PackedStringArray("4.0")
 
 [autoload]
 
@@ -25,27 +25,27 @@ Console="*res://addons/quentincaffeino/console/src/Console.tscn"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gut/plugin.cfg", "res://addons/quentincaffeino/console/plugin.cfg" )
+enabled=PackedStringArray()
 
 [input]
 
 quentincaffeino_console_toggle={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":167,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
 }
 quentincaffeino_console_autocomplete={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":16777218,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
 }
 quentincaffeino_console_history_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":16777232,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
 }
 quentincaffeino_console_history_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":16777234,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
 }

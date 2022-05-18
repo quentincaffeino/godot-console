@@ -1,5 +1,5 @@
 
-extends Reference
+extends RefCounted
 
 const Iterator = preload('res://addons/quentincaffeino/iterator/src/Iterator.gd')
 const CommandCollection = preload('CommandCollection.gd')
@@ -25,7 +25,7 @@ func values():
 
 
 # @param    String       command_name
-# @param    Reference    target
+# @param    RefCounted    target
 # @param    String|null  target_name
 # @returns  CommandBuilder
 func create(command_name, target, target_name = null):
@@ -80,7 +80,7 @@ func autocomplete(command_name):
 
 			var compare_to_letter = cmd_name[letter_i]
 
-			if not letter:
+			if letter == null:
 				letter = compare_to_letter
 
 			if letter != compare_to_letter:

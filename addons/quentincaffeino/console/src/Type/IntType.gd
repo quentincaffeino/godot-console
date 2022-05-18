@@ -2,8 +2,8 @@
 extends 'res://addons/quentincaffeino/console/src/Type/BaseRegexCheckedType.gd'
 
 
-func _init().('Int', '^[+-]?\\d+$'):
-	pass
+func _init():
+	super('Int', '^[+-]?\\d+$')
 
 
 # @param    Variant  value
