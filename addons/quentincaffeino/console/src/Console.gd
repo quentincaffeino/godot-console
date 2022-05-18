@@ -43,9 +43,7 @@ var _command_service
 var _erase_bb_tags_regex
 
 # @var  bool
-var is_console_shown = true#: 
-	#set(value): 
-	#	_set_readonly(value)
+var is_console_shown = true
 
 # @var  bool
 var consume_input = true
