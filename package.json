@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gut": "npm:@sometimes_youwin/gut@^7.3.0"
+  }
+}
