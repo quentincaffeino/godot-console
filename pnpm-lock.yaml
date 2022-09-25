@@ -1,0 +1,13 @@
+lockfileVersion: 5.4
+
+specifiers:
+  gut: npm:@sometimes_youwin/gut@^7.3.0
+
+devDependencies:
+  gut: /@sometimes_youwin/gut/7.3.0
+
+packages:
+
+  /@sometimes_youwin/gut/7.3.0:
+    resolution: {integrity: sha512-a2owc8wX9zrMS5PoIT6liY6zQpWxEEw4r4MGw2QrOBUHugSOqmpra+8gwOkpUpWaiy/T4WpddnL4ydLQ2YK7hw==}
+    dev: true
