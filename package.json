@@ -2,6 +2,9 @@
   "private": true,
   "author": "",
   "license": "MIT",
+  "scripts": {
+    "test": "pnpm -r test"
+  },
   "devDependencies": {
     "gut": "npm:@sometimes_youwin/gut@^7.3.0"
   }

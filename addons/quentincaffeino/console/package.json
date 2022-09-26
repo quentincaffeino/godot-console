@@ -1,0 +1,14 @@
+{
+  "name": "@quentincaffeino/godot-console",
+  "version": "3.5.1",
+  "description": "In-game console for Godot 3.",
+  "scripts": {
+    "test": "godot --no-window -s addons/gut/gut_cmdln.gd -d --path ../../../demo/ -gconfig=res://addons/quentincaffeino/console/.gutconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gut": "npm:@sometimes_youwin/gut@7.3.0"
+  }
+}
