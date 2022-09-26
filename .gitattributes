@@ -9,4 +9,6 @@
 /LICENSE.md                 export-ignore
 /logs                       export-ignore
 /Makefile                   export-ignore
+/package.json               export-ignore
+/pnpm-lock.yaml             export-ignore
 /README.md                  export-ignore
