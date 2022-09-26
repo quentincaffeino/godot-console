@@ -23,8 +23,3 @@ run-demo-editor:
 generate-docs:
 	@(cd "${GDSCRIPT_DOCS_MAKER_PATH}" && \
 		"${GDSCRIPT_DOCS_MAKER}" "${PROJECT_DEMO_PATH}" -o "${ADDON_DOCS_PATH}")
-
-
-.PHONY: test
-test:
-	find addons/quentincaffeino/ -name ".gutconfig.json" -type f -print | xargs -d0 -I{} "${GODOT}" -s addons/gut/gut_cmdln.gd -d --path demo/ -gconfig="res://{}"

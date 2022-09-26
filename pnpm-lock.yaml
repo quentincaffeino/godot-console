@@ -1,10 +1,18 @@
 lockfileVersion: 5.4
 
-specifiers:
-  gut: npm:@sometimes_youwin/gut@^7.3.0
+importers:
 
-devDependencies:
-  gut: /@sometimes_youwin/gut/7.3.0
+  .:
+    specifiers:
+      gut: npm:@sometimes_youwin/gut@^7.3.0
+    devDependencies:
+      gut: /@sometimes_youwin/gut/7.3.0
+
+  addons/quentincaffeino/console:
+    specifiers:
+      gut: npm:@sometimes_youwin/gut@7.3.0
+    devDependencies:
+      gut: /@sometimes_youwin/gut/7.3.0
 
 packages:
 
