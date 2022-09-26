@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      gut: npm:@sometimes_youwin/gut@^7.3.0
+      gut: npm:@sometimes_youwin/gut@7.3.0
     devDependencies:
       gut: /@sometimes_youwin/gut/7.3.0
 
