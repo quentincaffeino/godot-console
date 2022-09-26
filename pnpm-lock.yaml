@@ -1,13 +1,40 @@
 lockfileVersion: 5.4
 
-specifiers:
-  gut: npm:@sometimes_youwin/gut@^7.3.0
+importers:
 
-devDependencies:
-  gut: /@sometimes_youwin/gut/7.3.0
+  .:
+    specifiers:
+      '@quentincaffeino/godot': file:./quentincaffeino-godot-3.5.0.tgz
+      gut: npm:@sometimes_youwin/gut@7.3.0
+    devDependencies:
+      '@quentincaffeino/godot': file:quentincaffeino-godot-3.5.0.tgz
+      gut: /@sometimes_youwin/gut/7.3.0
+
+  addons/quentincaffeino/console:
+    specifiers:
+      '@quentincaffeino/godot': file:../../../quentincaffeino-godot-3.5.0.tgz
+      gut: npm:@sometimes_youwin/gut@7.3.0
+    devDependencies:
+      '@quentincaffeino/godot': file:quentincaffeino-godot-3.5.0.tgz
+      gut: /@sometimes_youwin/gut/7.3.0
 
 packages:
 
   /@sometimes_youwin/gut/7.3.0:
     resolution: {integrity: sha512-a2owc8wX9zrMS5PoIT6liY6zQpWxEEw4r4MGw2QrOBUHugSOqmpra+8gwOkpUpWaiy/T4WpddnL4ydLQ2YK7hw==}
+    dev: true
+
+  /adm-zip/0.5.9:
+    resolution: {integrity: sha512-s+3fXLkeeLjZ2kLjCBwQufpI5fuN+kIGBxu6530nVQZGVol0d7Y/M88/xw9HGGUcJjKf8LutN3VPRUBq6N7Ajg==}
+    engines: {node: '>=6.0'}
+    dev: true
+
+  file:quentincaffeino-godot-3.5.0.tgz:
+    resolution: {integrity: sha512-oijqzNkxV2Rn0lkZpetTJnOhOc1r92jrZxVKelVyFwrQUwEVbw0soPHnBZGR+Ew4uMc2sNGTSx0ww1Y4olGmAg==, tarball: file:quentincaffeino-godot-3.5.0.tgz}
+    name: '@quentincaffeino/godot'
+    version: 3.5.0
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      adm-zip: 0.5.9
     dev: true

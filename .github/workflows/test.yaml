@@ -1,0 +1,29 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - 
+        name: Setup pnpm ⚙️
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - 
+        name: Setup node ⚙️
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+      - 
+        name: Install deps ☁️
+        run: pnpm install --frozen-lockfile
+      -
+        name: Run tests
+        run: pnpm ci:test

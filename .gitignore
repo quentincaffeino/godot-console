@@ -385,3 +385,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,linux,godot,python,windows,node
+
+addons/*
+addons/**/addons/
+!addons/quentincaffeino/
+!quentincaffeino-godot-3.5.0.tgz

@@ -1,8 +1,11 @@
 {
   "private": true,
-  "author": "",
-  "license": "MIT",
+  "scripts": {
+    "test": "pnpm -r test",
+    "ci:test": "pnpm -r ci:test"
+  },
   "devDependencies": {
-    "gut": "npm:@sometimes_youwin/gut@^7.3.0"
+    "@quentincaffeino/godot": "file:./quentincaffeino-godot-3.5.0.tgz",
+    "gut": "npm:@sometimes_youwin/gut@7.3.0"
   }
 }

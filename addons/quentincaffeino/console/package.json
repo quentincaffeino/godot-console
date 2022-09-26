@@ -1,0 +1,16 @@
+{
+  "name": "@quentincaffeino/godot-console",
+  "version": "3.5.1",
+  "description": "",
+  "scripts": {
+    "test": "PATH=\"$PATH:addons/.bin\" godot --no-window -s addons/gut/gut_cmdln.gd -d --path ../../../demo/ -gconfig=res://addons/quentincaffeino/console/.gutconfig.json",
+    "ci:test": "PATH=\"$PATH:addons/.bin\" godot --no-window -s addons/gut/gut_cmdln.gd -d --path ../../../demo/ -gconfig=res://addons/quentincaffeino/console/.gutconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@quentincaffeino/godot": "file:../../../quentincaffeino-godot-3.5.0.tgz",
+    "gut": "npm:@sometimes_youwin/gut@7.3.0"
+  }
+}
