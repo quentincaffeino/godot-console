@@ -5,7 +5,6 @@
 /.gitattributes             export-ignore
 /.github                    export-ignore
 /.gitignore                 export-ignore
-/addons/gut                 export-ignore
 /demo                       export-ignore
 /LICENSE.md                 export-ignore
 /logs                       export-ignore
