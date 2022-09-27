@@ -29,7 +29,7 @@ func check(value):
 			return CHECK.FAILED
 
 	# Save value
-	self._normalized_value = Vector3(str2var(values[0]), str2var(values[1]), str2var(values[2]))
+	self._normalized_value = Vector3(values[0].to_float(), values[1].to_float(), values[2].to_float())
 
 	return CHECK.OK
 

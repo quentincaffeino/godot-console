@@ -26,7 +26,7 @@ func check(value):
 			return CHECK.FAILED
 
 	# Save value
-	self._normalized_value = Vector2(str2var(values[0]), str2var(values[1]))
+	self._normalized_value = Vector2(values[0].to_float(), values[1].to_float())
 
 	return CHECK.OK
 
