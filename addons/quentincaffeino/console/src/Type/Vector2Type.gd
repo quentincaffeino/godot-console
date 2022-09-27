@@ -6,8 +6,8 @@ extends 'res://addons/quentincaffeino/console/src/Type/BaseRegexCheckedType.gd'
 var _normalized_value
 
 
-func _init().('Vector2', '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$'):
-	pass
+func _init():
+	super('Vector2', '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$')
 
 
 # @param    Variant  value
@@ -22,11 +22,11 @@ func check(value):
 
 	# Check each number
 	for i in range(2):
-		if .check(values[i]) == CHECK.FAILED:
+		if super.check(values[i]) == CHECK.FAILED:
 			return CHECK.FAILED
 
 	# Save value
-	self._normalized_value = Vector2(values[0], values[1])
+	self._normalized_value = Vector2(values[0].to_float(), values[1].to_float())
 
 	return CHECK.OK
 

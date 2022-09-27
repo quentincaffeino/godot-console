@@ -1,5 +1,5 @@
 
-extends Reference
+extends RefCounted
 
 const CallbackBuilder = preload('res://addons/quentincaffeino/callback/src/CallbackBuilder.gd')
 const Callback = preload('res://addons/quentincaffeino/callback/src/Callback.gd')
@@ -29,7 +29,7 @@ var _description
 # @param  Console         console
 # @param  CommandService  command_service
 # @param  String          name
-# @param  Reference       target
+# @param  RefCounted       target
 # @param  String|null     target_name
 func _init(console, command_service, name, target, target_name = null):
 	self._console = console
@@ -41,7 +41,7 @@ func _init(console, command_service, name, target, target_name = null):
 	self._description = null
 
 
-# @param    Reference    target
+# @param    RefCounted    target
 # @param    String|null  name
 # @returns  Callback|null
 func _initialize_target_callback(target, name = null):

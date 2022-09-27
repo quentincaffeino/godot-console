@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var label = $VBoxContainer/Label
+@onready var label = $VBoxContainer/Label
 
 
 func _ready():

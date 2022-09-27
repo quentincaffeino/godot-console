@@ -25,14 +25,16 @@ var _current_command
 func _ready():
 	# Console keyboard control
 	self.set_process_input(true)
+	self.caret_blink = true
 
-	self.connect('text_entered', self, 'execute')
+	self.connect("text_submitted", execute)
 
 
 # @param  InputEvent
 func _gui_input(event):
-	if Console.consume_input and self.has_focus():
-		accept_event()
+	pass
+	#if Console.consume_input and self.has_focus():
+		#accept_event()
 
 
 # @var  SceneTreeTimer
@@ -91,7 +93,7 @@ func set_text(text, move_caret_to_end = true):
 	self.grab_focus()
 
 	if move_caret_to_end:
-		self.caret_position = text.length()
+		self.caret_column = text.length()
 
 
 # @param    String  input
@@ -103,6 +105,8 @@ func execute(input):
 	var parsedCommands = _parse_commands(input)
 
 	for parsedCommand in parsedCommands:
+		print(parsedCommand)
+		print(parsedCommand.name.length())
 		if parsedCommand.name.length():
 			# @var  Command/Command|null
 			var command = Console.get_command(parsedCommand.name)
@@ -139,7 +143,7 @@ static func _parse_commands(input):
 # @returns  Dictionary
 static func _parse_command(rawCommand):
 	var name = ''
-	var arguments = PoolStringArray([])
+	var arguments: Array[String] = Array()
 
 	var beginning = 0  # int
 	var openQuote  # String|null
@@ -168,8 +172,8 @@ static func _parse_command(rawCommand):
 			beginning = i + 1
 
 		# Save separated argument
-		if subString != null and typeof(subString) == TYPE_STRING and !subString.empty():
-			if !name:
+		if subString != null and typeof(subString) == TYPE_STRING and !subString.is_empty():
+			if name.is_empty():
 				name = subString
 			else:
 				arguments.append(subString)

@@ -1,5 +1,5 @@
 
-extends Reference
+extends RefCounted
 
 
 enum Type \
@@ -10,7 +10,7 @@ enum Type \
 }
 
 
-# @param    Reference  target
+# @param    RefCounted  target
 # @param    String     name
 # @returns  int
 static func get_type(target, name):
@@ -25,7 +25,7 @@ static func get_type(target, name):
 	return Type.UNKNOWN
 
 
-# @param    Reference  obj
+# @param    RefCounted  obj
 # @returns  bool
 static func is_funcref(obj):
 	return "function" in obj \

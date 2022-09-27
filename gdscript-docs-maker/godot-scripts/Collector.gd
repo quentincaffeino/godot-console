@@ -1,6 +1,6 @@
 tool
 extends SceneTree
-# Finds and generates a code reference from gdscript files.
+# Finds and generates a code RefCounted from gdscript files.
 
 
 # Returns a list of file paths found in the directory.
@@ -75,10 +75,10 @@ var middlewares = [
 ]
 
 # Parses a list of GDScript files and returns a list of dictionaries with the
-# code reference data.
+# code RefCounted data.
 #
 # If `refresh_cache` is true, will refresh Godot's cache and get fresh symbols.
-func get_reference(files := PoolStringArray(), refresh_cache := false) -> Dictionary:
+func get_RefCounted(files := PoolStringArray(), refresh_cache := false) -> Dictionary:
 	var data := {
 		name = ProjectSettings.get_setting("application/config/name"),
 		description = ProjectSettings.get_setting("application/config/description"),
@@ -105,8 +105,8 @@ func get_reference(files := PoolStringArray(), refresh_cache := false) -> Dictio
 	return data
 
 
-func print_pretty_json(reference: Dictionary) -> String:
-	return JSON.print(reference, "  ")
+func print_pretty_json(RefCounted: Dictionary) -> String:
+	return JSON.print(RefCounted, "  ")
 
 
 func filter_out_init_files(symbols: Dictionary) -> bool:
@@ -134,7 +134,7 @@ func fix_missing_extends_class(symbols: Dictionary) -> bool:
 			if result:
 				symbols['extends_class'].append(result.get_string(1))
 		else:
-			symbols['extends_class'].append("Reference")
+			symbols['extends_class'].append("RefCounted")
 
 	return true
 

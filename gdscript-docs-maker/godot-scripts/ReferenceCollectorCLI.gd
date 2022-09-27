@@ -1,6 +1,6 @@
 tool
 extends SceneTree
-# Finds and generates a code reference from gdscript files.
+# Finds and generates a code RefCounted from gdscript files.
 
 
 var Collector: SceneTree = load("Collector.gd").new()
@@ -19,5 +19,5 @@ func _init() -> void:
 	var files := PoolStringArray()
 	for dirpath in directories:
 		files.append_array(Collector.find_files(dirpath, patterns, is_recursive))
-	var json: String = Collector.print_pretty_json(Collector.get_reference(files))
-	Collector.save_text("res://reference.json", json)
+	var json: String = Collector.print_pretty_json(Collector.get_RefCounted(files))
+	Collector.save_text("res://RefCounted.json", json)

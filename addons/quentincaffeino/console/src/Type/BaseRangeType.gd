@@ -16,7 +16,8 @@ var _step
 # @param  int|float  min_value
 # @param  int|float  max_value
 # @param  int|float  step
-func _init(name, min_value, max_value, step).(name, '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$'):
+func _init(name, min_value, max_value, step):
+	super(name, '^[+-]?([0-9]*[\\.\\,]?[0-9]+|[0-9]+[\\.\\,]?[0-9]*)([eE][+-]?[0-9]+)?$')
 	self._min_value = min_value
 	self._max_value = max_value
 	self._step = step

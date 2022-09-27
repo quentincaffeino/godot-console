@@ -5,13 +5,17 @@ const Iterator = preload("res://addons/quentincaffeino/iterator/src/Iterator.gd"
 
 
 # @var  Dictionary
-var _collection
+var _collection = {}
 
 # @var  int
 var _iterationCurrent = 0
 
 # @var  int
-var length setget _set_readonly, length
+var length:
+	get:
+		return _length()
+	set(value):
+		_set_readonly(value) 
 
 
 # @param  Variant  collection
@@ -78,7 +82,7 @@ func contains_key(key):
 # Checks whether the given element is contained in the collection.
 # Only element values are compared, not keys. The comparison of
 # two elements is strict, that means not only the value but also
-# the type must match. For objects this means reference equality.
+# the type must match. For objects this means RefCounted equality.
 # @param    Variant  element
 # @returns  bool
 func contains(element):
@@ -92,7 +96,7 @@ func contains(element):
 # Searches for a given element and, if found, returns the corresponding
 # key/index of that element. The comparison of two elements is strict,
 # that means not only the value but also the type must match.
-# For objects this means reference equality.
+# For objects this means RefCounted equality.
 # @param    Variant  element
 # @returns  Variant|null
 func index_of(element):
@@ -115,7 +119,7 @@ func get(key):
 
 # @param    int  index
 # @returns  Variant|null
-func get_by_index(index):
+func get_by_index(index: int):
 	var keys = self._collection.keys()
 
 	if index >= 0 and index < keys.size():
@@ -291,7 +295,10 @@ func get_collection():
 
 
 # @returns  int
-func length():
+func _length():
+	if _collection == null:
+		replace_collection({})
+	
 	return self._collection.size()
 
 

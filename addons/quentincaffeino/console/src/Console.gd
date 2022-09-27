@@ -15,7 +15,7 @@ const FilterType = preload('Type/FilterType.gd')
 # @param  bool  is_console_shown
 signal toggled(is_console_shown)
 # @param  String       name
-# @param  Reference    target
+# @param  RefCounted    target
 # @param  String|null  target_name
 signal command_added(name, target, target_name)
 # @param  String  name
@@ -26,10 +26,14 @@ signal command_executed(command)
 signal command_not_found(name)
 
 # @var  History
-var History = preload('Misc/History.gd').new(100) setget _set_readonly
+var History = preload('Misc/History.gd').new(100):
+	set(value): 
+		_set_readonly(value)
 
 # @var  Logger
-var Log = preload('Misc/Logger.gd').new() setget _set_readonly
+var Log = preload('Misc/Logger.gd').new():
+	set(value): 
+		_set_readonly(value)
 
 # @var  Command/CommandService
 var _command_service
@@ -39,7 +43,7 @@ var _command_service
 var _erase_bb_tags_regex
 
 # @var  bool
-var is_console_shown = true setget _set_readonly
+var is_console_shown = true
 
 # @var  bool
 var consume_input = true
@@ -49,10 +53,14 @@ var previous_focus_owner = null
 
 
 ### Console nodes
-onready var _console_box = $ConsoleBox
-onready var Text = $ConsoleBox/Container/ConsoleText setget _set_readonly
-onready var Line = $ConsoleBox/Container/ConsoleLine setget _set_readonly
-onready var _animation_player = $ConsoleBox/AnimationPlayer
+@onready var _console_box = $ConsoleBox
+@onready var Text = $ConsoleBox/Container/ConsoleText: 
+	set(value): 
+		_set_readonly(value)
+@onready var Line = $ConsoleBox/Container/ConsoleLine:
+	set(value): 
+		_set_readonly(value)
+@onready var _animation_player = $ConsoleBox/AnimationPlayer
 
 
 func _init():
@@ -68,11 +76,11 @@ func _ready():
 	# Follow console output (for scrolling)
 	self.Text.set_scroll_follow(true)
 	# React to clicks on console urls
-	self.Text.connect('meta_clicked', self.Line, 'set_text')
+	self.Text.connect("meta_clicked", self.Line.set_text)
 
 	# Hide console by default
 	self._console_box.hide()
-	self._animation_player.connect("animation_finished", self, "_toggle_animation_finished")
+	self._animation_player.connect("animation_finished", _toggle_animation_finished)
 	self.toggle_console()
 
 	# Console keyboard control
@@ -118,7 +126,7 @@ func find_commands(name):
 # 	.register()
 # ```
 # @param    String       name
-# @param    Reference    target
+# @param    RefCounted    target
 # @param    String|null  target_name
 # @returns  Command/CommandBuilder
 func add_command(name, target, target_name = null):
@@ -137,7 +145,7 @@ func remove_command(name):
 func write(message):
 	message = str(message)
 	if self.Text:
-		self.Text.append_bbcode(message)
+		self.Text.append_text(message)
 	print(self._erase_bb_tags_regex.sub(message, '', true))
 
 # @param    String  message
@@ -145,7 +153,7 @@ func write(message):
 func write_line(message = ''):
 	message = str(message)
 	if self.Text:
-		self.Text.append_bbcode(message + '\n')
+		self.Text.append_text(message + '\n')
 	print(self._erase_bb_tags_regex.sub(message, '', true))
 
 
@@ -159,7 +167,7 @@ func clear():
 func toggle_console():
 	# Open the console
 	if !self.is_console_shown:
-		previous_focus_owner = self.Line.get_focus_owner()
+		previous_focus_owner = self.Line.get_viewport().gui_get_focus_owner()
 		self._console_box.show()
 		self.Line.clear()
 		self.Line.grab_focus()

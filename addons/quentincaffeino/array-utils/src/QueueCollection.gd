@@ -5,6 +5,8 @@ extends './Collection.gd'
 # @var  int
 var _max_length = -1
 
+func _init():
+	super()
 
 # @returns  int
 func get_max_length():

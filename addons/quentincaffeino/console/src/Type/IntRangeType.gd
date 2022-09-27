@@ -5,8 +5,8 @@ extends 'res://addons/quentincaffeino/console/src/Type/BaseRangeType.gd'
 # @param  int   minValue
 # @param  int   maxValue
 # @param  int   step
-func _init(minValue = 0, maxValue = 100, step = 1).('IntRange', minValue, maxValue, step):
-	pass
+func _init(minValue = 0, maxValue = 100, step = 1):
+	super('IntRange', minValue, maxValue, step)
 
 
 # Normalize variable.

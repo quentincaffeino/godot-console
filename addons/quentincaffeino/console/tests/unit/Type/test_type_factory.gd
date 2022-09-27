@@ -18,6 +18,6 @@ func test_create_with_valid_engine_type_expect_base_type():
 
 
 func test_create_with_non_int_expect_error():
-	var result = TypeFactory.create(Reference.new())
+	var result = TypeFactory.create(RefCounted.new())
 	assert_true(result.has_error(), "Expected to have error because TypeFactory only works with TYPE_INT as an `engine_type` argument")
 	assert_null(result.get_value(), "Expected to have null value")

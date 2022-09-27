@@ -1,5 +1,5 @@
 
-extends Reference
+extends RefCounted
 
 
 # @param    Variant  value
@@ -17,7 +17,7 @@ static func to_array(value):
 # @param    Variant  value
 # @returns  bool
 static func is_array(value):
-	return typeof(value) >= TYPE_ARRAY and typeof(value) <= TYPE_COLOR_ARRAY
+	return typeof(value) >= TYPE_ARRAY
 
 
 # @param    Variant  value

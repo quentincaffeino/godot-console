@@ -1,5 +1,5 @@
 
-extends Reference
+extends RefCounted
 
 const Utils = preload("./Utils.gd")
 const Callback = preload("./Callback.gd")
@@ -7,7 +7,7 @@ const FuncRefCallback = preload("./FuncRefCallback.gd")
 const errors = preload("../assets/translations/errors.en.gd").messages
 
 
-# @var  Reference
+# @var  RefCounted
 var _target
 
 # @var  String|null
@@ -20,7 +20,7 @@ var _type
 var _bind_argv
 
 
-# @param  Reference  target
+# @param  RefCounted  target
 func _init(target):
 	self._target = target
 	self._type = Utils.Type.UNKNOWN
