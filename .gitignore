@@ -386,6 +386,7 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,linux,godot,python,windows,node
 
+.godot/
 addons/*
-addons/**/addons
+addons/**/addons/
 !addons/quentincaffeino/
