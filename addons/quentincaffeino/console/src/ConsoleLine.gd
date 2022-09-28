@@ -180,8 +180,3 @@ static func _parse_command(rawCommand):
 		'name': name,
 		'arguments': arguments
 	}
-
-
-# @returns  void
-func _set_readonly(value):
-	Console.Log.warn('QC/Console/ConsoleLine: _set_readonly: Attempted to set a protected variable, ignoring.')

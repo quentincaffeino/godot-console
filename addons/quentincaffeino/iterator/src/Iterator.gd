@@ -14,7 +14,7 @@ var _object_get_length_cb
 var _iteration_current_index = 0
 
 # @var  int
-var length setget _set_readonly, length
+var length setget , length
 
 
 # @param  Reference  target
@@ -112,8 +112,3 @@ func _iter_next(arg):
 # @returns   Variant
 func _iter_get(arg = null):
 	return self._get(self._iteration_current_index)
-
-
-# @returns  void
-func _set_readonly(value):
-	print("qc/iterator: Iterator: Attempted to set readonly value, ignoring.")

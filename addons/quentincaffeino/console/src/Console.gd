@@ -26,10 +26,10 @@ signal command_executed(command)
 signal command_not_found(name)
 
 # @var  History
-var History = preload('Misc/History.gd').new(100) setget _set_readonly
+var History = preload('Misc/History.gd').new(100)
 
 # @var  Logger
-var Log = preload('Misc/Logger.gd').new() setget _set_readonly
+var Log = preload('Misc/Logger.gd').new()
 
 # @var  Command/CommandService
 var _command_service
@@ -39,7 +39,7 @@ var _command_service
 var _erase_bb_tags_regex
 
 # @var  bool
-var is_console_shown = true setget _set_readonly
+var is_console_shown = true
 
 # @var  bool
 var consume_input = true
@@ -50,8 +50,8 @@ var previous_focus_owner = null
 
 ### Console nodes
 onready var _console_box = $ConsoleBox
-onready var Text = $ConsoleBox/Container/ConsoleText setget _set_readonly
-onready var Line = $ConsoleBox/Container/ConsoleLine setget _set_readonly
+onready var Text = $ConsoleBox/Container/ConsoleText
+onready var Line = $ConsoleBox/Container/ConsoleLine
 onready var _animation_player = $ConsoleBox/AnimationPlayer
 
 
@@ -181,8 +181,3 @@ func toggle_console():
 func _toggle_animation_finished(animation):
 	if !self.is_console_shown:
 		self._console_box.hide()
-
-
-# @returns  void
-func _set_readonly(value):
-	Log.warn('qc/console: _set_readonly: Attempted to set a protected variable, ignoring.')

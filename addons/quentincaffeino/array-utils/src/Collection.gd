@@ -11,7 +11,7 @@ var _collection
 var _iterationCurrent = 0
 
 # @var  int
-var length setget _set_readonly, length
+var length setget , length
 
 
 # @param  Variant  collection
@@ -323,8 +323,3 @@ func _iter_get(arg = null):
 # @returns  Iterator
 func get_value_iterator():
 	return Iterator.new(self, "get_by_index")
-
-
-# @returns  void
-func _set_readonly(value):
-	print("qc/array-utils: Collection: Attempted to set readonly value, ignoring.")
