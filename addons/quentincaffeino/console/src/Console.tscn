@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3il36f0gfywb"]
+[gd_scene load_steps=6 format=3 uid="uid://wufx2ippa0vr"]
 
 [ext_resource type="Script" path="res://addons/quentincaffeino/console/src/Console.gd" id="1"]
-[ext_resource type="Script" path="res://addons/quentincaffeino/console/src/ConsoleLine.gd" id="6"]
-[ext_resource type="Theme" uid="uid://cshhdaghowyek" path="res://addons/quentincaffeino/console/assets/themes/Console.tres" id="7"]
+[ext_resource type="Theme" uid="uid://cki0wfljgijbs" path="res://addons/quentincaffeino/console/assets/themes/Console.tres" id="2_j5mnn"]
+[ext_resource type="Script" path="res://addons/quentincaffeino/console/src/ConsoleLine.gd" id="3_ucd25"]
 
 [sub_resource type="Animation" id="1"]
 length = 0.25
@@ -39,45 +39,51 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xtuvw"]
 _data = {
-"fade": SubResource( "1" )
+"fade": SubResource("1")
 }
 
 [node name="Console" type="CanvasLayer"]
 layer = 128
-script = ExtResource( "1" )
+script = ExtResource("1")
 
 [node name="ConsoleBox" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0.8)
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.5
 mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConsoleBox"]
 libraries = {
-"": SubResource( "AnimationLibrary_xtuvw" )
+"": SubResource("AnimationLibrary_xtuvw")
 }
 
 [node name="Container" type="VBoxContainer" parent="ConsoleBox"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="ConsoleText" type="RichTextLabel" parent="ConsoleBox/Container"]
-offset_right = 1024.0
-offset_bottom = 265.0
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 291.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_next = NodePath("../LineEdit")
 focus_previous = NodePath("../LineEdit")
-theme = ExtResource( "7" )
-bbcode_enabled = true
+theme = ExtResource("2_j5mnn")
 
 [node name="ConsoleLine" type="LineEdit" parent="ConsoleBox/Container"]
-offset_top = 269.0
-offset_right = 1024.0
-offset_bottom = 300.0
+layout_mode = 2
+offset_top = 295.0
+offset_right = 1152.0
+offset_bottom = 324.0
 size_flags_horizontal = 3
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
-theme = ExtResource( "7" )
-script = ExtResource( "6" )
+theme = ExtResource("2_j5mnn")
+script = ExtResource("3_ucd25")
