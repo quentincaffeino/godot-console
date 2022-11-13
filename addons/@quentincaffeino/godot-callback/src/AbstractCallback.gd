@@ -2,7 +2,7 @@
 extends Reference
 
 const Utils = preload("./Utils.gd")
-const errors = preload("../assets/translations/errors.en.gd").messages
+const errors = preload("./messages.gd").errors
 
 
 # @var  Reference
@@ -33,23 +33,22 @@ func get_type():
 	return self._type
 
 
+# @param    Variant[]  argv
+# @returns  self
+func bind(argv = []):
+	assert(false, "Method not implemented")
+
+
 # Ensure callback target exists
 # @returns  boolean
 func ensure():
-	pass
+	assert(false, "Method not implemented")
 
 
-# @param  Variant[]  argv
-# @returns  void
-func bind(argv = []):
-	for _argv in argv:
-		self._bind_argv.append(_argv)
-
-
-# @param  Variant[]  argv
+# @param    Variant[]  argv
 # @returns  Variant
 func call(argv = []):
-	pass
+	assert(false, "Method not implemented")
 
 
 # @param    Variant[]  argv

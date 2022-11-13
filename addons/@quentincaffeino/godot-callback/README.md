@@ -1,11 +1,13 @@
 # godot-callback
 
-Wrapper class to allow easy passing a reference to classes parameters/methods.
+Wrapper class to allow easy passing a reference to class members.
+
+Compatible with funcref. Funcref only works with functions so this pacakge is still usefull.
 
 ## Examples:
 
 ```gdscript
-const CallbackBuilder = preload('res://addons/quentincaffeino/callback/src/CallbackBuilder.gd')
+const CallbackBuilder = preload('res://addons/@quentincaffeino/godot-callback/src/CallbackBuilder.gd')
 
 
 # @var  Value
@@ -24,10 +26,10 @@ func _ready():  # void
 
 	print(prop_cb.call())  # Prints: Hello world!
 
-	print(func_cb.call(["Hello, sam!"]))  # Prints: [Reference...]
+	func_cb.call(["Hello, sam!"])
 	print(prop_cb.call())  # Prints: Hello, sam!
 
-	print(funcref_cb.call(["Hello, peter!"]))  # Prints: [Reference...]
+	funcref_cb.call(["Hello, peter!"])
 	print(prop_cb.call())  # Prints: Hello, peter!
 ```
 

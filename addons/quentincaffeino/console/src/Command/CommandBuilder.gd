@@ -1,8 +1,8 @@
 
 extends Reference
 
-const CallbackBuilder = preload('res://addons/quentincaffeino/callback/src/CallbackBuilder.gd')
-const Callback = preload('res://addons/quentincaffeino/callback/src/Callback.gd')
+const CallbackBuilderFactory = preload('res://addons/@quentincaffeino/godot-callback/src/CallbackBuilderFactory.gd')
+const AbstractCallback = preload('res://addons/@quentincaffeino/godot-callback/src/AbstractCallback.gd')
 const ArgumentFactory = preload('../Argument/ArgumentFactory.gd')
 const Command = preload('Command.gd')
 
@@ -16,7 +16,7 @@ var _command_service
 # @var  String
 var _name
 
-# @var  Callback|null
+# @var  AbstractCallback|null
 var _target
 
 # @var  Argument[]
@@ -43,14 +43,16 @@ func _init(console, command_service, name, target, target_name = null):
 
 # @param    Reference    target
 # @param    String|null  name
-# @returns  Callback|null
+# @returns  AbstractCallback|null
 func _initialize_target_callback(target, name = null):
-	if target is Callback:
+	if target is AbstractCallback:
 		return target
 
 	name = name if name else self._name
 
-	var callback = CallbackBuilder.new(target).set_name(name).build()
+	var callback = CallbackBuilderFactory.get_callback_builder(target)\
+		.set_name(name)\
+		.build()
 
 	if not callback:
 		self._console.Log.error(\

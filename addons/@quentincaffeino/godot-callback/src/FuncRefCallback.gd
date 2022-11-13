@@ -7,6 +7,16 @@ func _init(target).(target, Utils.Type.METHOD):
 	pass
 
 
+# @param    Variant[]  argv
+# @returns  self
+func bind(argv = []):
+	var cb = self.get_script().new(self._target)
+	var bind_argv = self._bind_argv.duplicate()
+	bind_argv.append_array(argv)
+	cb._bind_argv = bind_argv
+	return cb
+
+
 # Ensure callback target exists
 # @returns  bool
 func ensure():
@@ -18,7 +28,7 @@ func ensure():
 func call(argv = []):
 	# Ensure callback target still exists
 	if !ensure():
-		print(errors["qc.callback.call.ensure_failed"] % [ self._target ])
+		print(errors["call.ensure_failed"] % [ self._target ])
 		return
 
 	# Execute call

@@ -1,7 +1,7 @@
 
 extends Reference
 
-const CallbackBuilder = preload("res://addons/quentincaffeino/callback/src/CallbackBuilder.gd")
+const CallbackBuilderFactory = preload("res://addons/@quentincaffeino/godot-callback/src/CallbackBuilderFactory.gd")
 
 
 # @var  Callback
@@ -21,8 +21,12 @@ var length setget , length
 # @param  String     get_value_field
 # @param  String     get_length_field
 func _init(target, get_value_field = "get", get_length_field = "size"):
-	_object_get_value_cb = CallbackBuilder.new(target).set_name(get_value_field).build()
-	_object_get_length_cb = CallbackBuilder.new(target).set_name(get_length_field).build()
+	_object_get_value_cb = CallbackBuilderFactory.get_callback_builder(target)\
+		.set_name(get_value_field)\
+		.build()
+	_object_get_length_cb = CallbackBuilderFactory.get_callback_builder(target)\
+		.set_name(get_length_field)\
+		.build()
 
 
 # @returns  int

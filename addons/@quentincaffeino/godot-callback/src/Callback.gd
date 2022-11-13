@@ -18,20 +18,30 @@ func get_name():
 	return self._name
 
 
+# @param    Variant[]  argv
+# @returns  self
+func bind(argv = []):
+	var cb = self.get_script().new(self._target, self._name, self._type)
+	var bind_argv = self._bind_argv.duplicate()
+	bind_argv.append_array(argv)
+	cb._bind_argv = bind_argv
+	return cb
+
+
 # Ensure callback target exists
 # @returns  bool
 func ensure():
 	if self._target:
 		var wr = weakref(self._target)
 		if wr.get_ref() == null:
-			print(errors["qc.callback.ensure.target_destroyed"] % self._name)
+			print(errors["ensure.target_destroyed"] % self._name)
 			return false
 	else:
-		print(errors["qc.callback.ensure.target_destroyed"] % self._name)
+		print(errors["ensure.target_destroyed"] % self._name)
 		return false
 
 	if Utils.get_type(self._target, self._name) == Utils.Type.UNKNOWN:
-		print(errors["qc.callback.target_missing_mv"] % [ self._target, self._name ])
+		print(errors["target_missing_member"] % [ self._target, self._name ])
 		return false
 
 	return true
@@ -42,13 +52,13 @@ func ensure():
 func call(argv = []):
 	# Ensure callback target still exists
 	if !ensure():
-		print(errors["qc.callback.call.ensure_failed"] % [ self._target, self._name ])
+		print(errors["call.ensure_failed"] % [ self._target, self._name ])
 		return
 
 	argv = self._get_args(argv)
 
 	# Execute call
-	if self._type == Utils.Type.VARIABLE:
+	if self._type == Utils.Type.PROPERTY:
 		if argv.size():
 			self._target.set(self._name, argv[0])
 
@@ -57,4 +67,4 @@ func call(argv = []):
 	elif self._type == Utils.Type.METHOD:
 		return self._target.callv(self._name, argv)
 
-	print(errors["qc.callback.call.unknown_type"] % [ self._target, self._name ])
+	print(errors["call.unknown_type"] % [ self._target, self._name ])

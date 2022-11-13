@@ -1,0 +1,15 @@
+{
+  "name": "@quentincaffeino/godot-callback",
+  "version": "0.1.0",
+  "description": "Wrapper class to allow easy passing a reference to class members.",
+  "scripts": {
+    "test": "godot --no-window -s addons/gut/gut_cmdln.gd -d --path ../../../demo/ -gconfig=res://addons/@quentincaffeino/godot-callback/.gutconfig.json"
+  },
+  "keywords": [
+    "godot",
+    "godot-engine",
+    "godot-engine-addon"
+  ],
+  "author": "quentincaffeino <sergey95zu@gmail.com>",
+  "license": "MIT"
+}

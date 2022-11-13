@@ -2,10 +2,9 @@
 extends Reference
 
 
-enum Type \
-{
+enum Type {
 	UNKNOWN,
-	VARIABLE,
+	PROPERTY,
 	METHOD
 }
 
@@ -18,13 +17,16 @@ static func get_type(target, name):
 	if target.has_method(name):
 		return Type.METHOD
 
-	# Is it a VARIABLE
+	# Is it a PROPERTY
 	if name in target:
-		return Type.VARIABLE
+		return Type.PROPERTY
 
 	return Type.UNKNOWN
 
 
+# NOTE: This addon requires call_funcv to work properly. Older engine versions
+#       dont' have it. Should concider notifying developer in case that used
+#       engine doesn't have this method.
 # @param    Reference  obj
 # @returns  bool
 static func is_funcref(obj):
