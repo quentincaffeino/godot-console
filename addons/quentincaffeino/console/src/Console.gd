@@ -91,7 +91,7 @@ func _ready():
 
 # @param  InputEvent  e
 func _input(e):
-	if Input.is_action_just_pressed(DefaultActions.CONSOLE_TOGGLE):
+	if e.is_action_pressed(DefaultActions.CONSOLE_TOGGLE):
 		self.toggle_console()
 
 
