@@ -215,6 +215,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "eisclimber",
+      "name": "eisclimber",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49446532?v=4",
+      "profile": "https://github.com/eisclimber",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 8,
