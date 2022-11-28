@@ -225,6 +225,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "scriptsengineer",
+      "name": "Rafael Correa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1673249?v=4",
+      "profile": "http://www.expressobits.com.br",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 8,
