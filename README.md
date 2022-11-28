@@ -9,7 +9,7 @@
 # Godot Console
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-24-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![In-game console for Godot Screenshot](assets/screenshot.png)
@@ -190,6 +190,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/ryan-linehan"><img src="https://avatars.githubusercontent.com/u/12516772?v=4?s=100" width="100px;" alt="Ryan Linehan"/><br /><sub><b>Ryan Linehan</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=ryan-linehan" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/Braboware"><img src="https://avatars.githubusercontent.com/u/8632291?v=4?s=100" width="100px;" alt="Kurt"/><br /><sub><b>Kurt</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=Braboware" title="Documentation">📖</a></td>
       <td align="center"><a href="https://github.com/eisclimber"><img src="https://avatars.githubusercontent.com/u/49446532?v=4?s=100" width="100px;" alt="eisclimber"/><br /><sub><b>eisclimber</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/issues?q=author%3Aeisclimber" title="Bug reports">🐛</a> <a href="https://github.com/quentincaffeino/godot-console/commits?author=eisclimber" title="Code">💻</a></td>
+      <td align="center"><a href="http://www.expressobits.com.br"><img src="https://avatars.githubusercontent.com/u/1673249?v=4?s=100" width="100px;" alt="Rafael Correa"/><br /><sub><b>Rafael Correa</b></sub></a><br /><a href="https://github.com/quentincaffeino/godot-console/commits?author=scriptsengineer" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
