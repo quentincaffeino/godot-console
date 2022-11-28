@@ -165,24 +165,33 @@ func clear():
 
 # @returns  Console
 func toggle_console():
-	# Open the console
 	if !self.is_console_shown:
-		previous_focus_owner = self.Line.get_viewport().gui_get_focus_owner()
-		self._console_box.show()
-		self.Line.clear()
-		self.Line.grab_focus()
-		self._animation_player.play_backwards('fade')
+		open()
 	else:
-		self.Line.accept_event() # Prevents from DefaultActions.console_toggle key character getting into previous_focus_owner value
-		if is_instance_valid(previous_focus_owner):
-			previous_focus_owner.grab_focus()
-		previous_focus_owner = null
-		self._animation_player.play('fade')
+		close()
+	return self
 
-	is_console_shown = !self.is_console_shown
+
+# Close the console
+func close():
+	self.Line.accept_event() # Prevents from DefaultActions.console_toggle key character getting into previous_focus_owner value
+	if is_instance_valid(previous_focus_owner):
+		previous_focus_owner.grab_focus()
+	previous_focus_owner = null
+	self._animation_player.play('fade')
+	is_console_shown = false
 	emit_signal("toggled", is_console_shown)
 
-	return self
+
+# Open the console
+func open():
+	previous_focus_owner = self.Line.get_viewport().gui_get_focus_owner()
+	self._console_box.show()
+	self.Line.clear()
+	self.Line.grab_focus()
+	self._animation_player.play_backwards('fade')
+	is_console_shown = true
+	emit_signal("toggled", is_console_shown)
 
 
 # @returns  void
