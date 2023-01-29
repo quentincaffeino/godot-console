@@ -50,9 +50,12 @@ func _initialize_target_callback(target, name = null):
 
 	name = name if name else self._name
 
-	var callback = CallbackBuilderFactory.get_callback_builder(target)\
-		.set_name(name)\
-		.build()
+	var callback_builder = CallbackBuilderFactory.get_callback_builder(target)
+
+	if name != null && callback_builder.has_method('set_name'):
+		callback_builder.set_name(name)
+
+	var callback = callback_builder.build()
 
 	if not callback:
 		self._console.Log.error(\

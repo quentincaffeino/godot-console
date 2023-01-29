@@ -18,7 +18,6 @@ func _init(collection = {}).(collection):
 # @returns  CommandCollection
 func find(command_name):
 	var cb = self._filter_fn_cb.bind([command_name])
-	print(cb)
 	return self.filter(cb)
 
 # @param    String      match_key
