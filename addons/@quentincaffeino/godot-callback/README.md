@@ -1,13 +1,11 @@
 # godot-callback
 
-Wrapper class to allow easy passing a reference to class members.
-
-Compatible with funcref. Funcref only works with functions so this pacakge is still usefull.
+Wrapper class to allow easy and unified usage of callbacks.
 
 ## Examples:
 
 ```gdscript
-const CallbackBuilder = preload('res://addons/@quentincaffeino/godot-callback/src/CallbackBuilder.gd')
+const CallbackBuilderFactory = preload('res://addons/@quentincaffeino/godot-callback/src/CallbackBuilderFactory.gd')
 
 
 # @var  Value
@@ -19,16 +17,23 @@ func callable_function(value):  # Callable
 	return self
 
 
-func _ready():  # void
-	var prop_cb = CallbackBuilder.new(self).set_name("callable_prop").build()
-	var func_cb = CallbackBuilder.new(self).set_name("callable_function").build()
-	var funcref_cb = CallbackBuilder.new(funcref(self, "callable_function")).build()
-
+func _ready():
+	# Property callback
+	var prop_cb = CallbackBuilderFactory.get_callback_builder(self)\
+		.set_name("callable_prop")\
+		.build()
 	print(prop_cb.call())  # Prints: Hello world!
 
+	# Function callback
+	var func_cb = CallbackBuilderFactory.get_callback_builder(self)\
+		.set_name("callable_function")\
+		.build()
 	func_cb.call(["Hello, sam!"])
 	print(prop_cb.call())  # Prints: Hello, sam!
 
+	# Function callback via Funcref
+	var fr = funcref(self, "callable_function")
+	var funcref_cb = CallbackBuilderFactory.get_callback_builder(fr).build()
 	funcref_cb.call(["Hello, peter!"])
 	print(prop_cb.call())  # Prints: Hello, peter!
 ```
