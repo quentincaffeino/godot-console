@@ -1,6 +1,6 @@
 using Godot;
 
-public class CSharpDemoScene : CanvasLayer
+public partial class CSharpDemoScene : CanvasLayer
 {    
 	Console _wrapper;
 	Label _label;

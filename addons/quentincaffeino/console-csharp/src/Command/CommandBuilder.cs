@@ -1,10 +1,10 @@
 using Godot;
 
-public class CommandBuilder : Godot.Object
+public partial class CommandBuilder : GodotObject
 {
-    private Godot.Object _commandObject;
+    private GodotObject _commandObject;
 
-    public CommandBuilder(Godot.Object commandObject)
+    public CommandBuilder(GodotObject commandObject)
     {
         _commandObject = commandObject;
     }
@@ -17,7 +17,7 @@ public class CommandBuilder : Godot.Object
 
     public CommandBuilder AddArgument(string argumentName, Variant.Type argumentType)
     {
-        _commandObject.Call("add_argument", argumentName, argumentType);
+        _commandObject.Call("add_argument", argumentName, (long)argumentType);
         return this;
     }
 
