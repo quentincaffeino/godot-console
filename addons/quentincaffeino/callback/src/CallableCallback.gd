@@ -1,8 +1,8 @@
-
+# Wraps a Callable inside a Callback instance
 extends "./AbstractCallback.gd"
 
 
-# @param  FuncRef  target
+# @param  Callable  target
 func _init(target):
 	super(target, Utils.Type.METHOD)
 
@@ -22,4 +22,4 @@ func call(argv = []):
 		return
 
 	# Execute call
-	return self._target.call_funcv(self._get_args(argv))
+	return self._target.call(self._get_args(argv))

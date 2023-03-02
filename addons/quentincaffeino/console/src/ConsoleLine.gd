@@ -143,7 +143,7 @@ static func _parse_commands(input):
 # @returns  Dictionary
 static func _parse_command(rawCommand):
 	var name = ''
-	var arguments: Array[String] = Array()
+	var arguments: Array[String] = []
 
 	var beginning = 0  # int
 	var openQuote  # String|null
