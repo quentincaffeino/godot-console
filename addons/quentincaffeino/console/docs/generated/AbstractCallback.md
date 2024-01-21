@@ -58,7 +58,7 @@ void
 ### call
 
 ```gdscript
-func call(argv: Variant[])
+func invoke_call(argv: Variant[])
 ```
 
 Variant

@@ -3,7 +3,7 @@ extends RefCounted
 
 const Utils = preload("./Utils.gd")
 const Callback = preload("./Callback.gd")
-const FuncRefCallback = preload("./FuncRefCallback.gd")
+const CallableCallback = preload("./CallableCallback.gd")
 const errors = preload("../assets/translations/errors.en.gd").messages
 
 
@@ -72,12 +72,12 @@ func bind(argv = []):
 
 # @returns  Callback|null
 func build():
+	if self._target is Callable:
+		return CallableCallback.new(self._target)
+
 	if typeof(self._target) != TYPE_OBJECT:
 		print(errors["qc.callback.canCreate.first_arg"] % str(typeof(self._target)))
 		return null
-
-	if Utils.is_funcref(self._target):
-		return FuncRefCallback.new(self._target)
 
 	if typeof(self._name) != TYPE_STRING:
 		print(errors["qc.callback.canCreate.second_arg"] % str(typeof(self._name)))

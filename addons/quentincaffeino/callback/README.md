@@ -22,13 +22,13 @@ func _ready():  # void
 	var func_cb = CallbackBuilder.new(self).set_name("callable_function").build()
 	var funcref_cb = CallbackBuilder.new(funcref(self, "callable_function")).build()
 
-	print(prop_cb.call())  # Prints: Hello world!
+	print(prop_cb.invoke_call())  # Prints: Hello world!
 
-	print(func_cb.call(["Hello, sam!"]))  # Prints: [Reference...]
-	print(prop_cb.call())  # Prints: Hello, sam!
+	print(func_cb.invoke_call(["Hello, sam!"]))  # Prints: [Reference...]
+	print(prop_cb.invoke_call())  # Prints: Hello, sam!
 
-	print(funcref_cb.call(["Hello, peter!"]))  # Prints: [Reference...]
-	print(prop_cb.call())  # Prints: Hello, peter!
+	print(funcref_cb.invoke_call(["Hello, peter!"]))  # Prints: [Reference...]
+	print(prop_cb.invoke_call())  # Prints: Hello, peter!
 ```
 
 ## License
