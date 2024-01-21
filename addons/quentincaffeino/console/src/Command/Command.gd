@@ -69,7 +69,7 @@ func execute(inArgs = []):
 		i += 1
 
 	# Execute command
-	return self._target.call(args)
+	return self._target.invoke_call(args)
 
 
 # @returns  void
