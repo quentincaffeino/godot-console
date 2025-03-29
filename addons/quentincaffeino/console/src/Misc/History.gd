@@ -1,23 +1,24 @@
 
-extends 'res://addons/quentincaffeino/array-utils/src/QueueCollection.gd'
-
 ## History is saved to disk when persistent is true
 @export var persistent: bool = false: set = set_persistent
 ## History is saved to this file when persistent is true
 @export_file("*.txt") var history_file_path = "user://console_history.txt"
 
 var _history_file: FileAccess
+var _collection: Array[String] = []
+var _maxLength: int
+var _currentIndex: int = -1;
 
 # @param  int  maxLength
 func _init(maxLength):
-	self.set_max_length(maxLength)
+	_maxLength = maxLength
 	set_persistent(persistent)
 
 
 # @returns  History
 func print_all():
 	var i = 1
-	for command in self.get_value_iterator():
+	for command in _collection:
 		Console.write_line(\
 			'[b]' + str(i) + '.[/b] [color=#ffff66][url=' + \
 			command + ']' + command + '[/url][/color]')
@@ -27,12 +28,21 @@ func print_all():
 
 
 func push(value):
-	if value != null and self.last() != value and value.strip_edges().length() > 0:
+	if value != null and _collection.back() != value and value.strip_edges().length() > 0:
 		if _history_file != null:
 			_history_file.store_line(value)
 			_history_file.flush()
-		super.push(value)
+		
+		_push_to_collection(value)
 
+# private method
+func _push_to_collection(value: String):
+	_collection.push_back(value)
+
+	while _collection.size() > _maxLength:
+		_collection.pop_front()
+	
+	_currentIndex = _collection.size() - 1
 
 func set_persistent(value: bool):
 	if (value and _history_file == null):
@@ -55,17 +65,42 @@ func open_history_file():
 		while _history_file.get_position() < _history_file.get_length():
 			var line = _history_file.get_line()
 			if (line.strip_edges().length() > 0):
-				super.push(line)
+				_push_to_collection(line)
 				lines_added += 1
 		
-		# This file-size limiting code is currently commented out because the Collection that History
-		# is built from has bugs - the QueueCollection uses pop() to limit its size but pop() only
-		# works the first time it's called, after that the Collection has no key for index 0 and
-		# anything referencing index 0 breaks.
-#		if lines_added > self.get_max_length():
-#			# File has exceeded the history length, rewrite it with just the most recent commands
-#			_history_file.close()
-#			_history_file = FileAccess.open(history_file_path, FileAccess.WRITE) # empty file
-#			for line in self.get_value_iterator():
-#				_history_file.store_line(line)
-#			_history_file.flush()
+		# File-size limiting code
+		if lines_added > _maxLength:
+			# File has exceeded the history length, rewrite it with just the most recent commands
+			_history_file.close()
+			_history_file = FileAccess.open(history_file_path, FileAccess.WRITE) # empty file
+			for line in _collection:
+				_history_file.store_line(line)
+			_history_file.flush()
+
+# Moves the internal iterator position to the next element and returns this element.
+# @returns  String|null
+func next():
+	if _currentIndex < _collection.size() - 1:
+		_currentIndex += 1
+		return _collection[_currentIndex]
+
+	return null
+
+
+# Moves the internal iterator position to the previous element and returns this element.
+# @returns  String|null
+func previous():
+	if _currentIndex > 0:
+		_currentIndex -= 1
+		return _collection[_currentIndex]
+
+	return null
+
+
+# Gets the element of the collection at the current internal iterator position.
+# @returns  String|null
+func current():
+	if _collection.size() > 0:
+		return _collection[_currentIndex]
+
+	return null
