@@ -78,6 +78,10 @@ func _ready():
 	# React to clicks on console urls
 	self.Text.connect("meta_clicked", self.Line.set_text)
 
+	self.Text.focus_entered.connect(func():
+		self.Line.grab_focus()
+	)
+
 	# Hide console by default
 	self._console_box.hide()
 	self._animation_player.connect("animation_finished", _toggle_animation_finished)
@@ -188,7 +192,7 @@ func open():
 	previous_focus_owner = self.Line.get_viewport().gui_get_focus_owner()
 	self._console_box.show()
 	self.Line.clear()
-	self.Line.grab_focus()
+	self.Line.grab_focus.call_deferred()
 	self._animation_player.play_backwards('fade')
 	is_console_shown = true
 	emit_signal("toggled", is_console_shown)

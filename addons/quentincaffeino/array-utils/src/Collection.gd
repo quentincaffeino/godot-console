@@ -195,7 +195,7 @@ func fill(value = null, startIndex = 0, length = null):
 # @returns  Collection
 func map(callback):
 	for key in self:
-		self._collection[key] = callback.call([self._collection[key], key, self._collection])
+		self._collection[key] = callback.invoke_call([self._collection[key], key, self._collection])
 
 	self.first()
 	return self
@@ -214,7 +214,7 @@ func filter(callback = null):
 			var key = new_collection.get_keys()[i]
 			var value = new_collection.get(key)
 
-			call = callback.call([key, value, i, new_collection])
+			call = callback.invoke_call([key, value, i, new_collection])
 
 			if !call:
 				new_collection.remove_by_index(i)

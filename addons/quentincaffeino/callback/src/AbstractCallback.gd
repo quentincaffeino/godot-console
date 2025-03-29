@@ -48,7 +48,7 @@ func bind(argv = []):
 
 # @param  Variant[]  argv
 # @returns  Variant
-func call(argv = []):
+func invoke_call(argv = []):
 	pass
 
 

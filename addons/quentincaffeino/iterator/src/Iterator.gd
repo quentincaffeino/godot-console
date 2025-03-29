@@ -31,13 +31,13 @@ func _init(target, get_value_field = "get", get_length_field = "size"):
 
 # @returns  int
 func _length():
-	return self._object_get_length_cb.call()
+	return self._object_get_length_cb.invoke_call()
 
 
 # @param    int  index
 # @returns  Variant
 func _get(index):
-	return self._object_get_value_cb.call([index])
+	return self._object_get_value_cb.invoke_call([index])
 
 
 # Sets the internal iterator to the first element in the collection and returns this element.

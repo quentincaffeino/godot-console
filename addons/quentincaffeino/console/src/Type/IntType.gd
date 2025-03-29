@@ -9,4 +9,4 @@ func _init():
 # @param    Variant  value
 # @returns  int
 func normalize(value):
-	return int(self._reextract(value))
+	return self._reextract(value).to_int();
