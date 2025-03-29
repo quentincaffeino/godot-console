@@ -58,7 +58,7 @@ func _input(e):
 	if Input.is_action_just_pressed(DefaultActions.CONSOLE_HISTORY_DOWN):
 		self._current_command = Console.History.next()
 
-		if !self._current_command and self._tmp_user_entered_command != null:
+		if  self._current_command == null and self._tmp_user_entered_command != null:
 			self._current_command = self._tmp_user_entered_command
 			self._tmp_user_entered_command = null
 
